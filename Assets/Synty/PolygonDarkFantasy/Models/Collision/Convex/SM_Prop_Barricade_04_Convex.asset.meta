@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d264ecc35d6f2a14582ec404f86ca6a4
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 133995158078185852
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 264560
+  packageName: POLYGON - Dark Fantasy Pack - Art by Synty
+  packageVersion: 1.4.0
+  assetPath: Assets/Synty/PolygonDarkFantasy/Models/Collision/Convex/SM_Prop_Barricade_04_Convex.asset
+  uploadId: 915918

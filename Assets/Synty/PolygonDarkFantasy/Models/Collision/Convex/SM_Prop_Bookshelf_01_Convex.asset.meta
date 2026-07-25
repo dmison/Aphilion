@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e36c508015369db43b97668ff028ae8b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 8356060107425541568
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 264560
+  packageName: POLYGON - Dark Fantasy Pack - Art by Synty
+  packageVersion: 1.4.0
+  assetPath: Assets/Synty/PolygonDarkFantasy/Models/Collision/Convex/SM_Prop_Bookshelf_01_Convex.asset
+  uploadId: 915918

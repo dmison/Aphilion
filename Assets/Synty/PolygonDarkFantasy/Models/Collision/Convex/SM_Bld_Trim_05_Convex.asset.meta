@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 201ac9d30d5242a4fb7174ff54387bce
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 864239670780986256
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 264560
+  packageName: POLYGON - Dark Fantasy Pack - Art by Synty
+  packageVersion: 1.4.0
+  assetPath: Assets/Synty/PolygonDarkFantasy/Models/Collision/Convex/SM_Bld_Trim_05_Convex.asset
+  uploadId: 915918

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: cd5f823ed77c7334eac114a77b1c8e28
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: -3390335695551881374
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 264560
+  packageName: POLYGON - Dark Fantasy Pack - Art by Synty
+  packageVersion: 1.4.0
+  assetPath: Assets/Synty/PolygonDarkFantasy/Models/Collision/Convex/SM_Prop_Body_Skeleton_03_Convex.asset
+  uploadId: 915918

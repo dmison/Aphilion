@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: da6b74cdf8cf4f0478c15432bc974b1c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: -7900139170349855714
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 264560
+  packageName: POLYGON - Dark Fantasy Pack - Art by Synty
+  packageVersion: 1.4.0
+  assetPath: Assets/Synty/PolygonDarkFantasy/Models/Collision/Convex/SM_Prop_Torch_01_Convex.asset
+  uploadId: 915918

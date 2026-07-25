@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: bb8293b34927445790682098808d3548
+timeCreated: 1643686615
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 264560
+  packageName: POLYGON - Dark Fantasy Pack - Art by Synty
+  packageVersion: 1.4.0
+  assetPath: Assets/Synty/PolygonDarkFantasy/Materials/FX/Lightning_01.mat
+  uploadId: 915918

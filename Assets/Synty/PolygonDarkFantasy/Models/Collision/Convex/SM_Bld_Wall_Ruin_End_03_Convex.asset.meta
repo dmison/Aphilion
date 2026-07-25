@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c6f62ac6028ffd143b4c96770aadee6c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 391670673966420121
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 264560
+  packageName: POLYGON - Dark Fantasy Pack - Art by Synty
+  packageVersion: 1.4.0
+  assetPath: Assets/Synty/PolygonDarkFantasy/Models/Collision/Convex/SM_Bld_Wall_Ruin_End_03_Convex.asset
+  uploadId: 915918

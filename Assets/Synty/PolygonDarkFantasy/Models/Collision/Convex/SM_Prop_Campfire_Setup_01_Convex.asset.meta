@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5403db844c1dca84ba5d59c0c77e9b1b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 1682259660371791074
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 264560
+  packageName: POLYGON - Dark Fantasy Pack - Art by Synty
+  packageVersion: 1.4.0
+  assetPath: Assets/Synty/PolygonDarkFantasy/Models/Collision/Convex/SM_Prop_Campfire_Setup_01_Convex.asset
+  uploadId: 915918

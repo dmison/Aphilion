@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d53d0eeb21b99074498dace354b29ded
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: -7398294477798178764
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 264560
+  packageName: POLYGON - Dark Fantasy Pack - Art by Synty
+  packageVersion: 1.4.0
+  assetPath: Assets/Synty/PolygonDarkFantasy/Models/Collision/Convex/SM_Prop_Keg_01_Convex.asset
+  uploadId: 915918
