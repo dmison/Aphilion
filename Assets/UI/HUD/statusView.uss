@@ -1,0 +1,37 @@
+:root {
+}
+
+.statusView {
+    flex-grow: 0;
+}
+
+.status #unity-progress-bar {
+        border-color: black;
+        border-width: 2px;
+        padding: 0;
+        margin: 0;
+}
+
+.status .unity-progress-bar__background {
+    background-color: grey;
+    margin: 0;
+}
+
+.status .unity-progress-bar__progress {
+    margin: 0;
+}
+
+
+.stamina .unity-progress-bar__progress {
+    background-color: green;
+}
+
+.health .unity-progress-bar__background {
+    background-color: grey;
+}
+
+.health .unity-progress-bar__progress {
+    background-color: darkred;
+    margin: 0;
+}
+
