@@ -1,32 +1,45 @@
+using System;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 
 namespace UI.HUD
 {
-    public class StatusBar: MonoBehaviour
+
+    public class StatusBar : MonoBehaviour
     {
         private VisualElement _rootVe;
+        private ProgressBar _staminaStatBar;
+        private ProgressBar _healthStatBar;
         
-        private ProgressBar _healthBar;
-        private ProgressBar _staminaBar;
-
+        
         private void Start()
         {
             _rootVe = GetComponent<UIDocument>().rootVisualElement;
-            _healthBar = _rootVe.Q<ProgressBar>("healthBar");
-            _staminaBar = _rootVe.Q<ProgressBar>("staminaBar");
+            _staminaStatBar = _rootVe.Q<ProgressBar>("staminaStatBar");
+            _healthStatBar = _rootVe.Q<ProgressBar>("healthStatBar");
         }
 
-        private void Update()
+        
+        public void DoUpdate(float stamina, float maxStamina, int health, int maxHealth)
         {
-            _healthBar.value = 145;
-            _healthBar.highValue = 200;
-            _healthBar.lowValue = 0;
-            
-            _staminaBar.value = 60;
-            _staminaBar.highValue = 100;
-            _staminaBar.lowValue = 0;
-        }
+            if (_staminaStatBar != null)
+            {   
+                _staminaStatBar.value = Mathf.RoundToInt(stamina);
+                _staminaStatBar.highValue = Mathf.RoundToInt(maxStamina);
+                _staminaStatBar.lowValue = 0;
+                // calculate bar width
+                // _healthStatBar.style.width = new StyleLength(240);
+            }
 
+            if (_healthStatBar != null)
+            {
+                _healthStatBar.value = health;
+                _healthStatBar.highValue = maxHealth;
+                _healthStatBar.lowValue = 0;
+                // calculate bar width
+                // _healthStatBar.style.width = new StyleLength(240);
+            }
+        }
     }
 }

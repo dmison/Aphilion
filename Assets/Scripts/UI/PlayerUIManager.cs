@@ -1,9 +1,12 @@
 using System;
+using UI.HUD;
 using UnityEngine;
 
 public class PlayerUIManager : MonoBehaviour
 {
     public static PlayerUIManager instance;
+    
+    public StatusBar statsBar;
     
     private void Awake()
     {

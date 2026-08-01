@@ -1,9 +1,7 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/HUD/statusView.uss?fileID=7433441132597879392&amp;guid=1e4409945bbfb4f758df91eb67b86d01&amp;type=3#statusView"/>
     <ui:VisualElement name="RootVE" style="flex-grow: 1; align-self: auto; align-items: flex-start; align-content: auto; justify-content: flex-start; width: 25%;">
-        <ui:VisualElement name="statusView" class="statusView" style="align-items: flex-start; justify-content: flex-start; align-self: stretch;">
-            <ui:ProgressBar value="22" title="" name="staminaBar" class="status stamina" style="align-items: stretch; align-content: stretch; justify-content: flex-start; align-self: stretch;"/>
-            <ui:ProgressBar value="22" title="" name="healthBar" class="status health" style="align-content: stretch; align-self: stretch;"/>
-        </ui:VisualElement>
+        <ui:ProgressBar value="22" name="healthStatBar" class="health status" style="align-items: stretch; align-content: stretch; justify-content: flex-start; align-self: stretch;"/>
+        <ui:ProgressBar value="22" name="staminaStatBar" class="stamina status" style="align-items: stretch; align-content: stretch; justify-content: flex-start; align-self: stretch;"/>
     </ui:VisualElement>
 </ui:UXML>

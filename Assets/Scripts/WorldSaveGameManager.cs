@@ -21,15 +21,18 @@ public class WorldSaveGameManager : MonoBehaviour
     }
     #endregion
 
-    [SerializeField] private int worldSceneIndex = 1;
+    [SerializeField] private int worldSceneIndex = 2;
+    
+    //
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
     }
 
+    
     public IEnumerator LoadScene()
     {
-        AsyncOperation load = SceneManager.LoadSceneAsync(worldSceneIndex);
+        AsyncOperation load = SceneManager.LoadSceneAsync(2);
         yield return null;
 
     }

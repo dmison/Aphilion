@@ -76,6 +76,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2438390183911661607, guid: 5c93c808e1c8a6445924e912ddf5e34c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8815213411603344282}
+    - targetCorrespondingSourceObject: {fileID: 2438390183911661607, guid: 5c93c808e1c8a6445924e912ddf5e34c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3201913882424381419}
   m_SourcePrefab: {fileID: 100100000, guid: 5c93c808e1c8a6445924e912ddf5e34c, type: 3}
 --- !u!1 &304044752368291044 stripped
 GameObject:
@@ -93,11 +96,16 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c60980a9db7c4b16b745089cc0cbbe31, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerController
+  m_EditorClassIdentifier: Assembly-CSharp::Character.Player.PlayerManager
   characterController: {fileID: 0}
   animator: {fileID: 0}
+  isPerformingAction: 0
+  canRotate: 1
+  canMove: 1
+  isGrounded: 1
   playerMovementManager: {fileID: 0}
   playerAnimationManager: {fileID: 0}
+  playerStatsManager: {fileID: 0}
 --- !u!114 &842761884305693223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,10 +118,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 331dbd2314fa434bb40947cf7a095528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character.Player.PlayerMovementManager
-  runSpeed: 5
-  walkSpeed: 2
+  groundSphereRadius: 0.15
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 1
+  walkSpeed: 1.5
+  runSpeed: 3.5
+  sprintSpeed: 6
   rotationSpeed: 15
+  sprintStaminaCostPerSecond: 20
+  dodgeStaminaCost: 20
   moveInputVector: {x: 0, y: 0}
+  _dodgeInput: 0
 --- !u!143 &2585528889264655461
 CharacterController:
   m_ObjectHideFlags: 0
@@ -151,3 +167,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74933e30e2e54cacbc24ccd1c823bdc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character.Player.PlayerAnimationManager
+--- !u!114 &3201913882424381419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304044752368291044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0697c63ea0f44e39eee4a3b44df085b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Character.Player.PlayerStatsManager
+  staminaRegenPerSecond: 30
+  staminaRegenDelay: 0.5
+  endurance: 10
+  constitution: 10
+  strength: 10
+  dexterity: 10
