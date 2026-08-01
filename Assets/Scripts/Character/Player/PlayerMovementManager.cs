@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -8,12 +9,22 @@ namespace Character.Player
 {
     public class PlayerMovementManager: CharacterMovementManager
     {
-        private PlayerManager _playerManager;
-        [SerializeField] private float walkSpeed = 2;
-        [SerializeField] private float runSpeed = 5;
-        [SerializeField] private float sprintSpeed = 10;
+        [Header("Ground and Falling")]
+        [SerializeField] private float groundSphereRadius = 0.15f;
+        [SerializeField] private LayerMask groundMask;
+        
+        [Header("Speeds")]
+        [SerializeField] private float walkSpeed = 1.5f;
+        [SerializeField] private float runSpeed = 3.5f;
+        [SerializeField] private float sprintSpeed = 6;
         [SerializeField] private float rotationSpeed = 15;
         
+        [Header("Stamina Costs")]
+        [SerializeField] private float sprintStaminaCostPerSecond = 20;
+        [SerializeField] private float dodgeStaminaCost = 20;
+        
+        
+        private PlayerManager _playerManager;
         private Vector3 _moveDirection;
         private Vector3 _targetRotationDirection;
         
@@ -24,11 +35,15 @@ namespace Character.Player
         private InputAction _sprintAction;
         private bool _sprintInput = false;
         private bool _isSprinting = false;
+        public bool IsSprinting => _isSprinting;
         
         private InputAction _dodgeAction;
         public bool _dodgeInput = false;
         private Vector3 _rollDirection;
         
+        private const float Gravity = 6;
+        
+        private float timeInAir = 0; 
         // ===========================================================================================
         protected override void Awake()
         {
@@ -48,9 +63,47 @@ namespace Character.Player
         }
         // ===========================================================================================
 
+        private void GroundCheck()
+        {
+            _playerManager.isGrounded = Physics.CheckSphere(transform.position, groundSphereRadius, groundMask);
+        }
+
+        private void HandleFalling()
+        {
+            if (!_playerManager.isGrounded)
+            {
+                timeInAir += Time.deltaTime;
+                // FALLING
+                _moveDirection = Vector3.zero;
+                _moveDirection.y -= Gravity;
+                _playerManager.characterController.Move(_moveDirection * Time.deltaTime);
+                
+                // FALLING ANIMATION
+                bool falling = timeInAir > 0.2f;
+                _playerManager.animator.SetBool("isGrounded", !falling);
+                _playerManager.animator.SetFloat("TimeInAir", timeInAir);
+                _playerManager.canMove = !falling;
+                _playerManager.canRotate = !falling;
+
+            }
+            else
+            {   
+                
+                _playerManager.animator.SetBool("isGrounded", true);
+                _moveDirection.y = 0;
+                timeInAir = 0;
+                _playerManager.animator.SetFloat("TimeInAir", timeInAir);
+            }
+            
+            
+        }
+        
         private void HandleSprintInput(bool sprintInput)
         {
-            _isSprinting = !_playerManager.isPerformingAction && sprintInput;
+            _isSprinting = _playerManager.isGrounded && 
+                           !_playerManager.isPerformingAction && 
+                           sprintInput && 
+                           _playerManager.playerStatsManager.CurrentStamina > 0;
         }
         
         private float MoveAmount => _getMoveAmount(); 
@@ -95,7 +148,22 @@ namespace Character.Player
                 PlayerCameraManager.instance.transform.right * moveInputVector.x;
             _moveDirection.Normalize();
             _moveDirection.y = 0;
+            
+            // if sprinting reduce stamina
+            // if stamina then stop sprinting
+            if (_isSprinting)
+            {
+                if (_playerManager.playerStatsManager.CurrentStamina > 0)
+                {
+                    _playerManager.playerStatsManager.CurrentStamina -= (sprintStaminaCostPerSecond * Time.deltaTime);
+                }
+                else
+                {
+                    _isSprinting = false;
+                }
+            }
 
+            // set speed based on MoveAmount
             float speed = MoveAmount switch
             {
                 0.5f => walkSpeed,
@@ -103,6 +171,7 @@ namespace Character.Player
                 2.0f => sprintSpeed,
                 _ => 0
             };
+
             
             _playerManager.characterController.Move(_moveDirection * (speed * Time.deltaTime));
             _playerManager.playerAnimationManager.UpdateAnimatorMovementParameters(0, MoveAmount);
@@ -112,10 +181,13 @@ namespace Character.Player
 
         private void AttemptToDodge()
         {
-            if (_playerManager.isPerformingAction) return;
             if (!_dodgeInput) return;
-            
             _dodgeInput = false;
+            
+            if (!_playerManager.isGrounded) return;
+            if (_playerManager.isPerformingAction) return;
+            if (_playerManager.playerStatsManager.CurrentStamina <= 0) return;
+            
             _playerManager.isPerformingAction = true;
             _playerManager.canMove = false;
             _playerManager.canRotate = false;
@@ -148,15 +220,23 @@ namespace Character.Player
                     false
                     );
             }
+
+            _playerManager.playerStatsManager.CurrentStamina -= dodgeStaminaCost;
         }
         
         private void Update()
         {
+            GroundCheck();
+            HandleFalling();
             HandleRotation();
             HandleGroundedMovement();
             AttemptToDodge();
             
         }
-        
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.DrawSphere(transform.position, groundSphereRadius);
+        }
     }
 }

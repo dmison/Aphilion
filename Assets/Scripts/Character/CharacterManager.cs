@@ -11,6 +11,7 @@ namespace Character
         public bool isPerformingAction = false;
         public bool canRotate = true;
         public bool canMove = true;
+        public bool isGrounded = true;
         
         protected virtual void Awake()
         {
