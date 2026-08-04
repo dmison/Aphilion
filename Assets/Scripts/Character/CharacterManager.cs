@@ -1,3 +1,4 @@
+using Character.Player;
 using UnityEngine;
 
 namespace Character
@@ -6,7 +7,7 @@ namespace Character
     {
         [HideInInspector] public CharacterController characterController;
         [HideInInspector] public Animator animator;
-        
+        [HideInInspector] public CharacterStatsManager characterStatsManager;
         // FLAGS
         public bool isPerformingAction = false;
         public bool canRotate = true;

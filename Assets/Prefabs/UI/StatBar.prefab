@@ -68,4 +68,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3caf72e6d0b4724ad538e9a4da988a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.HUD.StatusBar
-  _statBarType: 0
+  _staminaBarScale: 2
+  _healthBarScale: 2

@@ -12,10 +12,10 @@
  - 
  - [x] stamina
  - [ ] saving (4)
- - [x] jump & fall (2)
+ - [\] jump & fall (2)
  - 
- - [ ] character effects (2)
- - [ ] health (1)
+ - [\] character effects (2)
+ - [x] health (1)
  - [ ] damage (1)
  - [ ] you died (1)
 

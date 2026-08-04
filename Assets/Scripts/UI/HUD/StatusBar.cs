@@ -8,7 +8,11 @@ namespace UI.HUD
 
     public class StatusBar : MonoBehaviour
     {
+        [SerializeField] private float _staminaBarScale = 2f; 
+        [SerializeField] private float _healthBarScale = 2f;
+        
         private VisualElement _rootVe;
+        
         private ProgressBar _staminaStatBar;
         private ProgressBar _healthStatBar;
         
@@ -29,8 +33,11 @@ namespace UI.HUD
                 _staminaStatBar.highValue = Mathf.RoundToInt(maxStamina);
                 _staminaStatBar.lowValue = 0;
                 // calculate bar width
-                // _healthStatBar.style.width = new StyleLength(240);
+                _staminaStatBar.style.width = new StyleLength(maxStamina*_staminaBarScale);
+                
             }
+
+            
 
             if (_healthStatBar != null)
             {
@@ -38,7 +45,8 @@ namespace UI.HUD
                 _healthStatBar.highValue = maxHealth;
                 _healthStatBar.lowValue = 0;
                 // calculate bar width
-                // _healthStatBar.style.width = new StyleLength(240);
+                _healthStatBar.style.width = new StyleLength(maxHealth*_healthBarScale);
+                
             }
         }
     }
