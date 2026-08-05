@@ -1,16 +1,20 @@
+using Character;
+using Character.Player;
+using Effects;
 using UnityEngine;
 
-public class PlayerEffectsManager : MonoBehaviour
+public class PlayerEffectsManager : CharacterEffectsManager
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    PlayerManager player; 
+    protected override void Awake()
     {
-        
+        base.Awake();
+        player = GetComponent<PlayerManager>();
     }
-
-    // Update is called once per frame
-    void Update()
+    public override void ProcessInstantEffect(InstantCharacterEffect effect)
     {
+        base.ProcessInstantEffect(effect);
+        effect.ProcessEffect(player);
         
     }
 }

@@ -9,6 +9,8 @@ namespace Effects
 
         public virtual void ProcessEffect(CharacterManager character)
         {
+            
+            
         }
 
 

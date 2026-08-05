@@ -42,5 +42,8 @@ namespace Character.Player
             base.Start();
             DontDestroyOnLoad(gameObject);
         }
+
+
     }
+    
 }

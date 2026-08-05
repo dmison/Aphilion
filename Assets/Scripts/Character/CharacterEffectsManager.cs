@@ -1,3 +1,5 @@
+using System;
+using Effects;
 using UnityEngine;
 
 namespace Character
@@ -7,8 +9,13 @@ namespace Character
         // INSTANT EFFECTS (damage, healing)
         // OVER TIME EFFECTS (poison, healing over time)
         // STATIC EFFECTS (buffs, debuffs)
+        
+        protected virtual void Awake()
+        {
+            
+        }
 
-        public void ProcessInstantEffect()
+        public virtual void ProcessInstantEffect(InstantCharacterEffect effect)
         {
             
         }

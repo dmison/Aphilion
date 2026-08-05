@@ -7,6 +7,7 @@ public class PlayerUIManager : MonoBehaviour
     public static PlayerUIManager instance;
     
     public StatusBar statsBar;
+    public DeathMessageManager deathMessageManager;
     
     private void Awake()
     {

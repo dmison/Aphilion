@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Character.Player
@@ -7,6 +8,7 @@ namespace Character.Player
         [HideInInspector] public PlayerMovementManager playerMovementManager;
         [HideInInspector] public PlayerAnimationManager playerAnimationManager;
         [HideInInspector] public PlayerStatsManager playerStatsManager;
+        [HideInInspector] public PlayerEffectsManager playerEffectsManager;
         
         protected override void Awake()
         {
@@ -14,6 +16,7 @@ namespace Character.Player
             playerMovementManager = GetComponent<PlayerMovementManager>();
             playerAnimationManager = GetComponent<PlayerAnimationManager>();
             playerStatsManager = GetComponent<PlayerStatsManager>();
+            playerEffectsManager = GetComponent<PlayerEffectsManager>();
         }
 
         private void Start()
@@ -27,6 +30,10 @@ namespace Character.Player
             base.LateUpdate();
             PlayerCameraManager.instance.HandleCameraActions();
         }
-        
+        // public override IEnumerator HandleDeath(bool manuallySelectAnimation = false)
+        // {
+        //     base.HandleDeath(manuallySelectAnimation);
+        //     
+        // }
     }
 }

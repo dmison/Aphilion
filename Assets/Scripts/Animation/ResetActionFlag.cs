@@ -1,6 +1,7 @@
+using Character;
 using UnityEngine;
 
-namespace Character
+namespace Animation
 {
     public class ResetActionFlag : StateMachineBehaviour
     {

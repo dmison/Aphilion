@@ -3,7 +3,8 @@ using UnityEngine;
 namespace Character
 {
     public class CharacterStatsManager : MonoBehaviour
-    {
+    {   
+        [HideInInspector] public CharacterManager character;
         [SerializeField] protected float staminaRegenPerSecond = 30;
         [SerializeField] protected  float staminaRegenDelay = 0.5f;
         protected float StaminaRegenTimer = 0;
@@ -52,11 +53,12 @@ namespace Character
         public int CurrentHealth
         {
             get => currentHealth;
-            set {  currentHealth = value; UpdateUI();}
+            set {  currentHealth = Mathf.Clamp(value, 0, MaxHealth);  UpdateUI();}
         }
 
         protected virtual void Awake()
         {
+            character = GetComponent<CharacterManager>();
         }
 
         protected virtual void Start()
@@ -77,7 +79,16 @@ namespace Character
 
         protected virtual void UpdateUI()
         {
+            CheckIfDead();
             
+        }
+
+        protected virtual void CheckIfDead()
+        {
+            if (CurrentHealth <= 0)
+            {
+                StartCoroutine(character.HandleDeath());
+            }
         }
     }
 }

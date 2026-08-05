@@ -119,17 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &473174799 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3945384083764518308, guid: 2a2e0e0b2d1d04e41b43b40f5931a865, type: 3}
-  m_PrefabInstance: {fileID: 1296698528227748284}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3caf72e6d0b4724ad538e9a4da988a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UI.HUD.StatusBar
 --- !u!1001 &1278964793
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -145,6 +134,10 @@ PrefabInstance:
     - target: {fileID: 304044752368291044, guid: e5121b6bad3f64266a4174ad5c97a3c6, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 304044752368291044, guid: e5121b6bad3f64266a4174ad5c97a3c6, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1113514715776783966, guid: e5121b6bad3f64266a4174ad5c97a3c6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -317,17 +310,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1609526505559022334, guid: 2a2e0e0b2d1d04e41b43b40f5931a865, type: 3}
-      propertyPath: statsBar
-      value: 
-      objectReference: {fileID: 473174799}
     - target: {fileID: 2322520161882232952, guid: 2a2e0e0b2d1d04e41b43b40f5931a865, type: 3}
       propertyPath: m_Name
       value: PlayerUIManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 5040648153692732580, guid: 2a2e0e0b2d1d04e41b43b40f5931a865, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6329403906248579230, guid: 2a2e0e0b2d1d04e41b43b40f5931a865, type: 3}
       propertyPath: m_LocalPosition.x
@@ -369,13 +354,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6622886215378289546, guid: 2a2e0e0b2d1d04e41b43b40f5931a865, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 5040648153692732580, guid: 2a2e0e0b2d1d04e41b43b40f5931a865, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a2e0e0b2d1d04e41b43b40f5931a865, type: 3}
@@ -432,13 +412,21 @@ PrefabInstance:
       value: WorldCharacterEffectsManager
       objectReference: {fileID: 0}
     - target: {fileID: 8635677695445887195, guid: e6c0b5ef1d3c943dd8ea52240c185d56, type: 3}
+      propertyPath: takeDamageEffect
+      value: 
+      objectReference: {fileID: 11400000, guid: 67ce307e235ab4fdb9cac4bdb9cebb55, type: 2}
+    - target: {fileID: 8635677695445887195, guid: e6c0b5ef1d3c943dd8ea52240c185d56, type: 3}
       propertyPath: instantEffects.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8635677695445887195, guid: e6c0b5ef1d3c943dd8ea52240c185d56, type: 3}
       propertyPath: 'instantEffects.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 7dc9c63afba0d46dba6dc04d2a21d8f9, type: 2}
+    - target: {fileID: 8635677695445887195, guid: e6c0b5ef1d3c943dd8ea52240c185d56, type: 3}
+      propertyPath: 'instantEffects.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 67ce307e235ab4fdb9cac4bdb9cebb55, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
