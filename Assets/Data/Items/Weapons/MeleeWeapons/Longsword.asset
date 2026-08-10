@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2af5970b30d4aa1a55092eec43af298, type: 3}
+  m_Name: Longsword
+  m_EditorClassIdentifier: Assembly-CSharp::Items.MeleeWeaponItem
+  ItemName: Long Sword
+  ItemDescription: 
+  ItemIcon: {fileID: 0}
+  ItemId: 0
+  weaponModel: {fileID: 8011566013882336049, guid: ab625ca4185fd40b795841bcff813261, type: 3}
+  strengthREQ: 10
+  dexterityREQ: 10
+  physicalDamage: 100
+  fireDamage: 0
+  lightningDamage: 0
+  poisonDamage: 0
+  basePoiseDamage: 10
+  baseStaminaCost: 20

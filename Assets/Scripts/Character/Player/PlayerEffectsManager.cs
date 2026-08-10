@@ -8,12 +8,12 @@ public class PlayerEffectsManager : CharacterEffectsManager
     PlayerManager player; 
     protected override void Awake()
     {
-        base.Awake();
+        // base.Awake();
         player = GetComponent<PlayerManager>();
     }
     public override void ProcessInstantEffect(InstantCharacterEffect effect)
     {
-        base.ProcessInstantEffect(effect);
+        // base.ProcessInstantEffect(effect);
         effect.ProcessEffect(player);
         
     }

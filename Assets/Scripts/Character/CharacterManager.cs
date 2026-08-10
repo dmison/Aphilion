@@ -10,6 +10,7 @@ namespace Character
         [HideInInspector] public Animator animator;
         [HideInInspector] public CharacterStatsManager characterStatsManager;
         [HideInInspector] public CharacterAnimationManager characterAnimationManager;
+        [HideInInspector] public CharacterEffectsManager characterEffectsManager;
         // FLAGS
         public bool isPerformingAction = false;
         public bool canRotate = true;
@@ -23,6 +24,7 @@ namespace Character
             characterController = GetComponent<CharacterController>();
             characterStatsManager = GetComponent<CharacterStatsManager>();
             characterAnimationManager = GetComponent<CharacterAnimationManager>();
+            characterEffectsManager = GetComponent<CharacterEffectsManager>();
             animator = GetComponent<Animator>();
             DontDestroyOnLoad(this);
         }
@@ -33,8 +35,6 @@ namespace Character
         public virtual IEnumerator HandleDeath(bool manuallySelectAnimation=false)
         {
             characterAnimationManager.PlayTargetActionAnimation("Dead_01");
-            PlayerUIManager.instance.deathMessageManager.ShowDeathMessage();
-            
             yield return new WaitForSeconds(5);
             
             // PLAY SOME DEATH SFX

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Character.Player
@@ -42,8 +43,17 @@ namespace Character.Player
             base.Start();
             DontDestroyOnLoad(gameObject);
         }
+        
+        protected override void CheckIfDead()
+        {
+            if (CurrentHealth <= 0)
+            {
+                StartCoroutine(_playerManager.HandleDeath());
+            }
+        }
 
-
+        
+        
     }
     
 }

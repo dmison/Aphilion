@@ -9,7 +9,8 @@ namespace Character.Player
         [HideInInspector] public PlayerAnimationManager playerAnimationManager;
         [HideInInspector] public PlayerStatsManager playerStatsManager;
         [HideInInspector] public PlayerEffectsManager playerEffectsManager;
-        
+        [HideInInspector] public PlayerEquipmentManager playerEquipmentManager;
+        [HideInInspector]  public PlayerInventoryManager playerInventoryManager;
         protected override void Awake()
         {
             base.Awake();
@@ -17,6 +18,8 @@ namespace Character.Player
             playerAnimationManager = GetComponent<PlayerAnimationManager>();
             playerStatsManager = GetComponent<PlayerStatsManager>();
             playerEffectsManager = GetComponent<PlayerEffectsManager>();
+            playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
+            playerInventoryManager = GetComponent<PlayerInventoryManager>();
         }
 
         private void Start()
@@ -30,10 +33,11 @@ namespace Character.Player
             base.LateUpdate();
             PlayerCameraManager.instance.HandleCameraActions();
         }
-        // public override IEnumerator HandleDeath(bool manuallySelectAnimation = false)
-        // {
-        //     base.HandleDeath(manuallySelectAnimation);
-        //     
-        // }
+        public override IEnumerator HandleDeath(bool manuallySelectAnimation = false)
+        {
+            characterAnimationManager.PlayTargetActionAnimation("Dead_01");
+            yield return new WaitForSeconds(2);
+            PlayerUIManager.instance.deathMessageManager.ShowDeathMessage();
+        }
     }
 }

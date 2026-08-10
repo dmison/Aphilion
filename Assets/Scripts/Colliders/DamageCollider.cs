@@ -1,22 +1,32 @@
 using System;
+using System.Collections.Generic;
+using Character;
 using Character.Player;
 using Effects;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using World;
 
 public class DamageCollider : MonoBehaviour
 {
+    protected Collider damageCollider;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [Header("Damage")] 
-    [SerializeField] private int physicalDamage = 0;
-    [SerializeField] private int fireDamage = 0;
-    [SerializeField] private int poisonDamage = 0;
-    [SerializeField] private int lightningDamage = 0;
-    [SerializeField] private int poiseDamage = 0;
+    public int physicalDamage = 0;
+    public int fireDamage = 0;
+    public int poisonDamage = 0;
+    public int lightningDamage = 0;
+    public int poiseDamage = 0;
 
-    [SerializeField] private LayerMask canDamageLayers;
+    public LayerMask canDamageLayers;
 
-    private Vector3 _contactPoint;
+    protected Vector3 _contactPoint;
+
+    protected List<CharacterManager> charactersDamaged = new List<CharacterManager>();
+
+    protected virtual void Awake()
+    {
+        damageCollider = GetComponent<Collider>();
+    }
 
     private bool LayerInLayerMask(int layer, LayerMask mask)
     {
@@ -45,5 +55,16 @@ public class DamageCollider : MonoBehaviour
         effect.lightningDamage = lightningDamage;
         effect.impactPoint = _contactPoint;
         player.playerEffectsManager.ProcessInstantEffect(effect);
+    }
+    
+    public virtual void EnableDamageCollider()
+    {
+        damageCollider.enabled = true; 
+    }
+
+    public virtual void DisableDamageCollider()
+    {
+        damageCollider.enabled = false;
+        charactersDamaged.Clear();
     }
 }

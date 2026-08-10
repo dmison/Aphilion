@@ -65,7 +65,9 @@ namespace Character.Player
 
         private void GroundCheck()
         {
-            _playerManager.isGrounded = Physics.CheckSphere(transform.position, groundSphereRadius, groundMask);
+            Vector3 position = transform.position;
+            position.y += groundSphereRadius/2;
+            _playerManager.isGrounded = Physics.CheckSphere(position, groundSphereRadius, groundMask);
         }
 
         private void HandleFalling()
@@ -236,7 +238,9 @@ namespace Character.Player
 
         private void OnDrawGizmos()
         {
-            Gizmos.DrawSphere(transform.position, groundSphereRadius);
+            Vector3 position = transform.position;
+            position.y += groundSphereRadius/2;
+            Gizmos.DrawSphere(position, groundSphereRadius);
         }
     }
 }

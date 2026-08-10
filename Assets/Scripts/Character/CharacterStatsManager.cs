@@ -39,7 +39,7 @@ namespace Character
         }
 
         // STAMINA
-        public float MaxStamina => endurance * 10;
+        public virtual float MaxStamina => endurance * 10;
         protected float currentStamina;
         public float CurrentStamina
         {
@@ -48,7 +48,7 @@ namespace Character
         }
         // HEALTH
         
-        public int MaxHealth => constitution * 12;
+        public virtual int MaxHealth => constitution * 12;
         protected int currentHealth;
         public int CurrentHealth
         {
@@ -90,5 +90,7 @@ namespace Character
                 StartCoroutine(character.HandleDeath());
             }
         }
+        
+        
     }
 }

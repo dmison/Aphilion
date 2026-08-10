@@ -13,7 +13,6 @@ public class DeathMessageManager : MonoBehaviour
         _rootElement = GetComponent<UIDocument>().rootVisualElement;
         _panel = _rootElement.Q<VisualElement>("DeathPanel");
         
-        Debug.Log(_panel);
     }
 
     public void ShowDeathMessage()

@@ -319,6 +319,76 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "EquipmentManager",
+            "id": "12f5c52c-0909-4c68-86ec-cf80cde25974",
+            "actions": [
+                {
+                    "name": "SwapRight",
+                    "type": "Button",
+                    "id": "340c81a8-af5a-41fa-8076-c49e1681f793",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Tap",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SwapLeft",
+                    "type": "Button",
+                    "id": "5970003c-d513-4bc6-8fff-70d54a59c8ec",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Tap",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e2d6fa25-d07b-465d-b936-deecf6dc1082",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "SwapRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f2f10787-c1df-471b-95c4-be7a09d7e728",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "SwapRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ea22d654-ec47-4b82-9d5a-af730820de2c",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "SwapLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b8e99d0e-9b6e-4001-8ebe-f77782c48ac4",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "SwapLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
