@@ -36,17 +36,27 @@ public class DamageCollider : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        if (!LayerInLayerMask(other.gameObject.layer, canDamageLayers)) return;
+        // get root player object
+        CharacterManager character = other.gameObject.GetComponentInParent<CharacterManager>();
+        GameObject characterGO = character.gameObject;
+        
+
+        //
+        if (!LayerInLayerMask(character.gameObject.layer, canDamageLayers)) return;
         _contactPoint = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
-        if (other.gameObject.CompareTag("Player"))
+        
+         
+        if (character != null && characterGO.CompareTag("Player"))
         {
-            CalculateDamage(other.gameObject.GetComponent<PlayerManager>());
+               
+            CalculateDamage(character);
         }
         // TODO: Damageable interface???
     }
     
-    protected virtual void CalculateDamage(PlayerManager player)
+    protected virtual void CalculateDamage(CharacterManager character)
     {
+        Debug.Log("deal damange to: "+ character.gameObject.name);
         int  damage = physicalDamage + fireDamage + poisonDamage + lightningDamage;
         TakeDamageEffect effect = Instantiate(WorldCharacterEffectsManager.instance.takeDamageEffect);
         effect.physicalDamage = physicalDamage;
@@ -54,7 +64,7 @@ public class DamageCollider : MonoBehaviour
         effect.poisonDamage = poisonDamage;
         effect.lightningDamage = lightningDamage;
         effect.impactPoint = _contactPoint;
-        player.playerEffectsManager.ProcessInstantEffect(effect);
+        character.characterEffectsManager.ProcessInstantEffect(effect);
     }
     
     public virtual void EnableDamageCollider()
