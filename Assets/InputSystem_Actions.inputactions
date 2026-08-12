@@ -174,7 +174,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Attack",
+                    "name": "RB_Action",
                     "type": "Button",
                     "id": "6b18205a-7032-452a-ae28-2bad71991027",
                     "expectedControlType": "",
@@ -253,7 +253,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Attack",
+                    "action": "RB_Action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -264,7 +264,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Attack",
+                    "action": "RB_Action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

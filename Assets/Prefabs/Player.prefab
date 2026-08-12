@@ -382,15 +382,16 @@ GameObject:
   m_Component:
   - component: {fileID: 1113514715776783966}
   - component: {fileID: 6454735166718233636}
+  - component: {fileID: 2585528889264655461}
+  - component: {fileID: 633487362398896703}
   - component: {fileID: 9181311971691261706}
   - component: {fileID: 842761884305693223}
-  - component: {fileID: 2585528889264655461}
   - component: {fileID: 8815213411603344282}
   - component: {fileID: 3201913882424381419}
   - component: {fileID: 7601553958124460424}
   - component: {fileID: 1965898245865938757}
   - component: {fileID: 8087831944785150809}
-  - component: {fileID: 633487362398896703}
+  - component: {fileID: 2808092696780212107}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -454,6 +455,58 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!143 &2585528889264655461
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304044752368291044}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 1.7
+  m_Radius: 0.15
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!54 &633487362398896703
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304044752368291044}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &9181311971691261706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,6 +534,7 @@ MonoBehaviour:
   playerEffectsManager: {fileID: 0}
   playerEquipmentManager: {fileID: 0}
   playerInventoryManager: {fileID: 0}
+  playerCombatManager: {fileID: 0}
 --- !u!114 &842761884305693223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -505,31 +559,6 @@ MonoBehaviour:
   dodgeStaminaCost: 20
   moveInputVector: {x: 0, y: 0}
   _dodgeInput: 0
---- !u!143 &2585528889264655461
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 304044752368291044}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 1.7
-  m_Radius: 0.15
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!114 &8815213411603344282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,33 +640,19 @@ MonoBehaviour:
   leftHandSlot: {fileID: 0}
   rightHandWeaponModel: {fileID: 0}
   leftHandWeaponModel: {fileID: 0}
---- !u!54 &633487362398896703
-Rigidbody:
+--- !u!114 &2808092696780212107
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 304044752368291044}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dfe490bfa774e0ea6edfb4854485dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Character.Player.PlayerCombatManager
+  currentWeaponBeingUsed: {fileID: 0}
 --- !u!1 &304044752729701686
 GameObject:
   m_ObjectHideFlags: 0

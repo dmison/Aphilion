@@ -1,4 +1,5 @@
 using UnityEngine;
+using WeaponActions;
 
 namespace Items
 {
@@ -35,7 +36,9 @@ namespace Items
         // LIGHT
         
         // ITEM BASED ACTIONS (RT,RB,LT,LB)
-        
+        [Header("Actions")] 
+        public WeaponItemAction OH_RB_Action; //One-handed, Right bumper action 
+
         // BLOCKING SOUNDS
     }
 }

@@ -25,3 +25,4 @@ MonoBehaviour:
   poisonDamage: 0
   basePoiseDamage: 12
   baseStaminaCost: 25
+  OH_RB_Action: {fileID: 11400000, guid: 7712074fd16d4432ebaf6188178099bb, type: 2}

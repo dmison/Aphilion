@@ -10,7 +10,8 @@ namespace Character.Player
         [HideInInspector] public PlayerStatsManager playerStatsManager;
         [HideInInspector] public PlayerEffectsManager playerEffectsManager;
         [HideInInspector] public PlayerEquipmentManager playerEquipmentManager;
-        [HideInInspector]  public PlayerInventoryManager playerInventoryManager;
+        [HideInInspector] public PlayerInventoryManager playerInventoryManager;
+        [HideInInspector] public PlayerCombatManager playerCombatManager;
         protected override void Awake()
         {
             base.Awake();
@@ -20,6 +21,7 @@ namespace Character.Player
             playerEffectsManager = GetComponent<PlayerEffectsManager>();
             playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
             playerInventoryManager = GetComponent<PlayerInventoryManager>();
+            playerCombatManager = GetComponent<PlayerCombatManager>();
         }
 
         private void Start()
