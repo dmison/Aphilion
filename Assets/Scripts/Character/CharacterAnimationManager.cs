@@ -33,8 +33,27 @@ namespace Character
             _characterManager.canMove = canMove;
             
             _characterManager.animator.CrossFade(targetAnimation, 0.2f);
+        }
+        
+        public virtual void PlayTargetAttackActionAnimation(
+            string targetAnimation, 
+            bool isPerformingAction = true, 
+            bool applyRootMotion = true,
+            bool canMove = false,
+            bool canRotate = false)
+        {
+            // track last attack for combos
+            // track current action type (heavy, light, etc)
+            // update animation set to current weapon animations
+            // decide if animation can be parried
+            // set 'isAttacking' flag for counters etc
             
+            _characterManager.animator.applyRootMotion = applyRootMotion;
+            _characterManager.isPerformingAction = isPerformingAction;
+            _characterManager.canRotate = canRotate;
+            _characterManager.canMove = canMove;
             
+            _characterManager.animator.CrossFade(targetAnimation, 0.2f);
         }
         
     }

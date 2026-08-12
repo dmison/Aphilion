@@ -9,9 +9,8 @@ namespace WeaponActions
     {
         public int actionId;
 
-        public void AttemptToPerformAction(PlayerManager playerWielding, WeaponItem weaponBeingWielded)
+        public virtual void AttemptToPerformAction(PlayerManager playerWielding, WeaponItem weaponBeingWielded, bool rightHand)
         {
-            Debug.Log("doing this thing");
         }
 
     }

@@ -16,12 +16,12 @@
  - 
  - [\] character effects (2)
  - [x] health (1)
- - [ ] damage (1)
- - [ ] you died (1)
+ - [x] damage (1)
+ - [x] you died (1)
 
- - [ ] weapon items (2)
- - [ ] hit detection (1)
- - [ ] weapon item based actions (3)
+ - [x] weapon items (2)
+ - [x] hit detection (1)
+ - [/] weapon item based actions (3)
  - [ ] directional damage animation (1)
  - [ ] lock on (3)
  - [ ] weapon switching & UI 

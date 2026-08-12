@@ -21,15 +21,13 @@ namespace Character.Player
 
         private void RB_Action_Performed()
         {
-            if (_player.isPerformingAction || !_player.isGrounded || _player.isDead) return;
             WeaponItem weaponItem = _player.playerInventoryManager.currentRightHandWeapon;
-            
-            PerformWeaponItemBasedAction(weaponItem.OH_RB_Action, weaponItem, _player);
+            PerformWeaponItemBasedAction(weaponItem.OH_RB_Action, weaponItem, _player, true);
         }
 
-        private void PerformWeaponItemBasedAction(WeaponItemAction action, WeaponItem weaponItem, PlayerManager player)
+        private void PerformWeaponItemBasedAction(WeaponItemAction action, WeaponItem weaponItem, PlayerManager player, bool rightHand )
         {
-            action.AttemptToPerformAction(player, weaponItem);
+            action.AttemptToPerformAction(player, weaponItem, rightHand);
         }
     }
 }
