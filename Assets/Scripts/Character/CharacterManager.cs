@@ -11,6 +11,9 @@ namespace Character
         [HideInInspector] public CharacterStatsManager characterStatsManager;
         [HideInInspector] public CharacterAnimationManager characterAnimationManager;
         [HideInInspector] public CharacterEffectsManager characterEffectsManager;
+        [HideInInspector] public CharacterCombatManager characterCombatManager;
+        [HideInInspector] public CharacterSoundEffectsManager characterSoundEffectsManager;
+        
         // FLAGS
         public bool isPerformingAction = false;
         public bool canRotate = true;
@@ -25,8 +28,11 @@ namespace Character
             characterStatsManager = GetComponent<CharacterStatsManager>();
             characterAnimationManager = GetComponent<CharacterAnimationManager>();
             characterEffectsManager = GetComponent<CharacterEffectsManager>();
+            characterCombatManager = GetComponent<CharacterCombatManager>();
+            characterSoundEffectsManager = GetComponent<CharacterSoundEffectsManager>();
+            
             animator = GetComponent<Animator>();
-            DontDestroyOnLoad(this);
+            
         }
     
         protected virtual void Update(){}
@@ -35,7 +41,7 @@ namespace Character
         public virtual IEnumerator HandleDeath(bool manuallySelectAnimation=false)
         {
             characterAnimationManager.PlayTargetActionAnimation("Dead_01");
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(1);
             
             // PLAY SOME DEATH SFX
             // IF ENEMY THEN REWARD PLAYER

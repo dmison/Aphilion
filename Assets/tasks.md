@@ -1,5 +1,7 @@
 # TODO
 
+# Sprint 3
+
  - [x] inputs
  - [x] assets
  - [x] character prefab
@@ -12,28 +14,36 @@
  - 
  - [x] stamina
  - [ ] saving (4)
- - [\] jump & fall (2)
+ - [x] jump & fall (2)
  - 
- - [\] character effects (2)
+ - [x] character effects (2)
  - [x] health (1)
  - [x] damage (1)
  - [x] you died (1)
 
+# Sprint 2 
+
  - [x] weapon items (2)
  - [x] hit detection (1)
- - [/] weapon item based actions (3)
+ - [x] weapon item based actions (3)
  - [ ] directional damage animation (1)
  - [ ] lock on (3)
+
+# Sprint 3
+
  - [ ] weapon switching & UI 
  - [ ] weapon combos
+
+ 
+
 
  - [ ] ai characters
  - [ ] sound effects
 
- - [ ] boss fight
+
  - [ ] input queuing
  - [ ] interactable objects
- - [ ] ??? fog wall ??? 
+ 
  - [ ] "sites of grace"
  - [ ] blocking
  - [ ] weapon based animation controllers
@@ -49,6 +59,10 @@
  - [ ] monster item drops
 
 --- 
+- [ ] boss fight
+- [ ] ??? fog wall ???
+
+
 
  - spells
  - focus points

@@ -9,7 +9,10 @@ namespace World
         public static WorldCharacterEffectsManager instance;
         [SerializeField] public TakeDamageEffect takeDamageEffect;
         [SerializeField] public List<InstantCharacterEffect> instantEffects;
-    
+        
+        [Header("VFX")]
+        public GameObject bloodSpatterVFX;
+        
         private void Awake()
         {
             if (instance == null)

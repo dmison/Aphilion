@@ -8,6 +8,12 @@ namespace Character
         private static readonly int Vertical = Animator.StringToHash("vertical");
         private CharacterManager _characterManager;
 
+        [Header("Damage Animations")] 
+        public string A_Hit_F_React_Sword = "A_Hit_F_React_Sword";
+        public string A_Hit_B_React_Sword = "A_Hit_B_React_Sword";
+        public string A_Hit_L_React_Sword = "A_Hit_L_React_Sword";
+        public string A_Hit_R_React_Sword = "A_Hit_R_React_Sword";
+        
         protected virtual void Awake()
         {
             _characterManager = GetComponent<CharacterManager>();
@@ -24,7 +30,8 @@ namespace Character
             bool isPerformingAction = true, 
             bool applyRootMotion = true,
             bool canMove = false,
-            bool canRotate = false)
+            bool canRotate = false,
+            float crossFade = 0.2f)
         {
             
             _characterManager.animator.applyRootMotion = applyRootMotion;
@@ -32,10 +39,11 @@ namespace Character
             _characterManager.canRotate = canRotate;
             _characterManager.canMove = canMove;
             
-            _characterManager.animator.CrossFade(targetAnimation, 0.2f);
+            _characterManager.animator.CrossFade(targetAnimation, crossFade);
         }
         
         public virtual void PlayTargetAttackActionAnimation(
+            AttackTypes attackType,
             string targetAnimation, 
             bool isPerformingAction = true, 
             bool applyRootMotion = true,

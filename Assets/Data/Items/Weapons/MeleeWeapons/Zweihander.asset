@@ -19,9 +19,12 @@ MonoBehaviour:
   weaponModel: {fileID: 8814540712764912406, guid: 1805d6341d9e84543af925e938a8f160, type: 3}
   strengthREQ: 15
   dexterityREQ: 10
-  physicalDamage: 60
+  physicalDamage: 100
   fireDamage: 0
   lightningDamage: 0
   poisonDamage: 0
+  lightAttack01_damage_mod: 1.1
   basePoiseDamage: 10
   baseStaminaCost: 30
+  lightAttackStaminaModifier: 0.9
+  OH_RB_Action: {fileID: 0}

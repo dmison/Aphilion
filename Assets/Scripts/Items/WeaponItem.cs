@@ -19,8 +19,9 @@ namespace Items
         public int fireDamage = 0;
         public int lightningDamage = 0;
         public int poisonDamage = 0;
-        
-        // ATTACK MODIFIERS
+
+        [Header("Attack Modifiers")] 
+        public float lightAttack01_damage_mod = 1.1f;
         // HEAVY
         // LIGHT
         // CRITICAL
@@ -31,6 +32,7 @@ namespace Items
         
         [Header("Stamina Costs")]
         public int baseStaminaCost = 20;
+        public float lightAttackStaminaModifier = 0.9f;
         // RUNNING
         // HEAVY
         // LIGHT

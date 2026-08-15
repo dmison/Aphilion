@@ -111,6 +111,33 @@ namespace Character.Player
                 LoadLeftHandWeapon();
             }
         }
+
+        public void OpenDamageColliders()
+        {
+            
+            if (playerManager.playerCombatManager.currentlyUsingRightHand)
+            {
+                rightHandManager.damageCollider.EnableDamageCollider();
+            }
+            else
+            {
+                leftHandManager.damageCollider.EnableDamageCollider();
+            }
+            // play whoosh SFX
+        }
+
+        public void CloseDamageColliders()
+        {
+            
+            if (playerManager.playerCombatManager.currentlyUsingRightHand)
+            {
+                rightHandManager.damageCollider.DisableDamageCollider();
+            }
+            else
+            {
+                leftHandManager.damageCollider.DisableDamageCollider();
+            }
+        }
     }
 }
 

@@ -233,7 +233,6 @@ namespace Character.Player
             HandleRotation();
             HandleGroundedMovement();
             AttemptToDodge();
-            
         }
 
         private void OnDrawGizmos()

@@ -13,6 +13,8 @@ namespace Effects
             
         }
 
-
+        public virtual void PlayFX(CharacterManager character)
+        {
+        }
     }
 }

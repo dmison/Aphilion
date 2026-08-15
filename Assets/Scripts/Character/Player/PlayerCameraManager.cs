@@ -28,8 +28,9 @@ namespace Character.Player
         [SerializeField] public Transform cameraPivot;
         private InputAction _lookAction;
         private Vector2 _cameraInput;
-
         
+        public CharacterManager CurrentLockOnTarget;
+        [SerializeField] private float _lockOnFollowSpeed = 0.2f; 
         
         public static PlayerCameraManager instance;
         public void Awake()
@@ -49,6 +50,7 @@ namespace Character.Player
 
         private void Start()
         {
+            
             DontDestroyOnLoad(gameObject);
             _defaultCameraZPosition = playerCamera.transform.localPosition.z;
         }
@@ -103,24 +105,48 @@ namespace Character.Player
         {
             // if locked on 
             // force rotation to target
-            // else 
+            if (CurrentLockOnTarget)
+            {
+                // rotate left/right
+                Vector3 rotationDirection = CurrentLockOnTarget.transform.position - transform.position;
+                rotationDirection.Normalize();
+                rotationDirection.y = 0;
+                Quaternion targetRotation = Quaternion.LookRotation(rotationDirection);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _lockOnFollowSpeed);
+                
+                //rotate pivot 
+                rotationDirection = CurrentLockOnTarget.transform.position - cameraPivot.position;
+                rotationDirection.Normalize();
+                targetRotation = Quaternion.LookRotation(rotationDirection);
+                cameraPivot.rotation = Quaternion.Slerp(cameraPivot.rotation, targetRotation, _lockOnFollowSpeed);
+                
+                // preserve values for unlock
+                lookLeftRightAngle = transform.eulerAngles.y;
+                lookUpDownAngle = transform.eulerAngles.x;
+            }   
+            else
+            {
+                // else 
+                // rotate left/right
+                lookLeftRightAngle += _cameraInput.x * horizontalLookSensitivity * Time.deltaTime;
+                Vector3 cameraRotation = Vector3.zero;
+                cameraRotation.y = lookLeftRightAngle;
+                Quaternion lrTargetRotation = Quaternion.Euler(cameraRotation);
+                transform.rotation = lrTargetRotation;
 
-            // rotate left/right
-            lookLeftRightAngle += _cameraInput.x * horizontalLookSensitivity * Time.deltaTime;
-            Vector3 cameraRotation = Vector3.zero;
-            cameraRotation.y = lookLeftRightAngle;
-            Quaternion lrTargetRotation = Quaternion.Euler(cameraRotation);
-            transform.rotation = lrTargetRotation;
-
-            //rotate pivot up/down
-            Vector3 pivotRotation = Vector3.zero;
-            lookUpDownAngle -= _cameraInput.y * verticalLookSensitivity * Time.deltaTime;
-            lookUpDownAngle = Mathf.Clamp(lookUpDownAngle, minimumLookAngle, maximumLookAngle);
-            pivotRotation = Vector3.zero;
-            pivotRotation.x = lookUpDownAngle;
-            Quaternion udTargetRotation = Quaternion.Euler(pivotRotation);
-            cameraPivot.localRotation = udTargetRotation;
+                //rotate pivot up/down
+                Vector3 pivotRotation = Vector3.zero;
+                lookUpDownAngle -= _cameraInput.y * verticalLookSensitivity * Time.deltaTime;
+                lookUpDownAngle = Mathf.Clamp(lookUpDownAngle, minimumLookAngle, maximumLookAngle);
+                pivotRotation = Vector3.zero;
+                pivotRotation.x = lookUpDownAngle;
+                Quaternion udTargetRotation = Quaternion.Euler(pivotRotation);
+                cameraPivot.localRotation = udTargetRotation;                
+            }
+            
             
         }
+        
+        
     }
 }

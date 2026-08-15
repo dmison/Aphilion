@@ -12,6 +12,8 @@ namespace Character.Player
         [HideInInspector] public PlayerEquipmentManager playerEquipmentManager;
         [HideInInspector] public PlayerInventoryManager playerInventoryManager;
         [HideInInspector] public PlayerCombatManager playerCombatManager;
+        [HideInInspector] public PlayerSoundEffectsManager playerSoundEffectsManager;
+        
         protected override void Awake()
         {
             base.Awake();
@@ -22,10 +24,14 @@ namespace Character.Player
             playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
             playerInventoryManager = GetComponent<PlayerInventoryManager>();
             playerCombatManager = GetComponent<PlayerCombatManager>();
+            playerSoundEffectsManager =  GetComponent<PlayerSoundEffectsManager>();
+            
+            DontDestroyOnLoad(this);
         }
 
         private void Start()
         {
+            
             PlayerCameraManager.instance.playerManager = this;
             playerStatsManager.CurrentHealth = 50;
         }

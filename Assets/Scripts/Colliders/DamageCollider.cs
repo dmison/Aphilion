@@ -28,29 +28,29 @@ public class DamageCollider : MonoBehaviour
         damageCollider = GetComponent<Collider>();
     }
 
-    private bool LayerInLayerMask(int layer, LayerMask mask)
+    protected bool LayerInLayerMask(int layer, LayerMask mask)
     {
         return ((mask & (1 << layer)) != 0);
     }
     
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         
         // get root player object
         CharacterManager character = other.gameObject.GetComponentInParent<CharacterManager>();
+        if (character == null) return;
         GameObject characterGO = character.gameObject;
-        
 
         //
         if (!LayerInLayerMask(character.gameObject.layer, canDamageLayers)) return;
         _contactPoint = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
         
          
-        if (character != null && characterGO.CompareTag("Player"))
-        {
+        // if (character != null && characterGO.CompareTag("Player"))
+        // {
                
             CalculateDamage(character);
-        }
+        // }
         // TODO: Damageable interface???
     }
     

@@ -9,19 +9,20 @@ namespace WeaponActions
     public class LightAttackWeaponItemAction : WeaponItemAction
     {
         [SerializeField] private string _animationName = "LightAttack_Right_01";
-        public override void AttemptToPerformAction(PlayerManager playerWielding, WeaponItem weaponBeingWielded, bool rightHand)
+        public override void AttemptToPerformAction(PlayerManager playerWielding, WeaponItem weaponBeingWielded, bool rightHand, AttackTypes attackType)
         {
-            base.AttemptToPerformAction(playerWielding, weaponBeingWielded, rightHand);
+            base.AttemptToPerformAction(playerWielding, weaponBeingWielded, rightHand, attackType);
             // === STOPS ===
             if (playerWielding.isPerformingAction || !playerWielding.isGrounded || playerWielding.isDead) return;
             if(playerWielding.playerStatsManager.CurrentStamina <= 0) return;
             // =============
-            PerformLightAttack(playerWielding, weaponBeingWielded, rightHand);
+            PerformLightAttack(playerWielding, weaponBeingWielded, rightHand, attackType);
         }
 
-        private void PerformLightAttack(PlayerManager player, WeaponItem weapon, bool rightHand)
+        private void PerformLightAttack(PlayerManager player, WeaponItem weapon, bool rightHand, AttackTypes attackType)
         {
-            player.playerAnimationManager.PlayTargetAttackActionAnimation(_animationName);
+            
+            player.playerAnimationManager.PlayTargetAttackActionAnimation(attackType, _animationName);
         }
     }
 }

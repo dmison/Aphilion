@@ -1,26 +1,29 @@
 using Character;
 using Colliders;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Items
 {
     public class WeaponManager: MonoBehaviour
     {
-        private MeleeWeaponDamageCollider _damageCollider;
+        public MeleeWeaponDamageCollider damageCollider;
 
         private void Awake()
         {
-            _damageCollider = GetComponent<MeleeWeaponDamageCollider>();
+            damageCollider = GetComponent<MeleeWeaponDamageCollider>();
         }
 
         public void SetWeaponDamage(WeaponItem weapon, CharacterManager wielder)
         {
-            _damageCollider.characterWielding = wielder;
-            _damageCollider.physicalDamage = weapon.physicalDamage;
-            _damageCollider.fireDamage = weapon.fireDamage;
-            _damageCollider.poisonDamage = weapon.poisonDamage;
-            _damageCollider.lightningDamage = weapon.lightningDamage;
+            damageCollider.characterWielding = wielder;
+            damageCollider.physicalDamage = weapon.physicalDamage;
+            damageCollider.fireDamage = weapon.fireDamage;
+            damageCollider.poisonDamage = weapon.poisonDamage;
+            damageCollider.lightningDamage = weapon.lightningDamage;
             
+            damageCollider.Light_Attack_01_Modifier = weapon.lightAttack01_damage_mod;
+
         }
     }
 }

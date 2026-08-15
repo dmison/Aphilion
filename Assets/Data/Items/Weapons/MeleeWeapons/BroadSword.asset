@@ -15,14 +15,16 @@ MonoBehaviour:
   ItemName: Broad Sword
   ItemDescription: 
   ItemIcon: {fileID: 0}
-  ItemId: 0
+  ItemId: 2
   weaponModel: {fileID: 8011566013882336049, guid: f02df632b41ec4473be6d2646642d16f, type: 3}
   strengthREQ: 12
   dexterityREQ: 10
-  physicalDamage: 130
+  physicalDamage: 60
   fireDamage: 0
   lightningDamage: 0
   poisonDamage: 0
+  lightAttack01_damage_mod: 1.1
   basePoiseDamage: 12
   baseStaminaCost: 25
+  lightAttackStaminaModifier: 0.9
   OH_RB_Action: {fileID: 11400000, guid: 7712074fd16d4432ebaf6188178099bb, type: 2}

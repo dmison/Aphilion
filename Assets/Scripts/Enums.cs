@@ -8,4 +8,9 @@ public enum WeaponModelSlot
     // RightHip,
 }
 
-
+public enum AttackTypes
+{
+    LightAttack01,
+    LightAttack02,
+    LightAttack03,
+}
