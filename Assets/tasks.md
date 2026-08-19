@@ -26,8 +26,8 @@
  - [x] weapon items (2)
  - [x] hit detection (1)
  - [x] weapon item based actions (3)
- - [ ] directional damage animation (1)
- - [ ] lock on (3)
+ - [x] directional damage animation (1)
+ - [x] lock on (3)
 
 # Sprint 3
 

@@ -299,7 +299,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1113514714273923503
 Transform:
   m_ObjectHideFlags: 0
@@ -540,7 +540,6 @@ MonoBehaviour:
   playerInventoryManager: {fileID: 0}
   playerCombatManager: {fileID: 0}
   playerSoundEffectsManager: {fileID: 0}
-  playerCameraManager: {fileID: 0}
 --- !u!114 &842761884305693223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,7 +666,7 @@ MonoBehaviour:
   currentAttackType: 0
   lockOnTransform: {fileID: 6105727526434861686}
   currentlyUsingRightHand: 0
-  lockOnRadius: 20
+  lockOnRadius: 10
   lockOnViewAngle: 100
   lockedOn: 0
   currentLockTarget: {fileID: 0}
@@ -797,7 +796,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1113514715288840076
 Transform:
   m_ObjectHideFlags: 0
@@ -3037,7 +3036,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6143864299378054622
 Transform:
   m_ObjectHideFlags: 0
@@ -3343,7 +3342,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e9e43f7f18e02bb40a6993e7f1cf4a53, type: 2}
+  - {fileID: 2100000, guid: 7b0df970328955f4cb118b7294180b48, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3638,7 +3637,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e9e43f7f18e02bb40a6993e7f1cf4a53, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4181,7 +4180,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e9e43f7f18e02bb40a6993e7f1cf4a53, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4750,7 +4749,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4713751285700807518
 Transform:
   m_ObjectHideFlags: 0

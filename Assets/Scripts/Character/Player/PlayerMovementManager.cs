@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Linq.Expressions;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -118,27 +119,54 @@ namespace Character.Player
             return move;
         }
 
+        private float clamped (float x)
+        {
+            if (x > 0 && x <= 0.5) x = 0.5f; // walk
+            if (x > 0.5 && x <= 1) x = 1.0f; // run
+            if (_isSprinting && x > 0.5) x = 2.0f; // sprint
+            return x;
+        }
+        
+        private Vector2 _getClampedMoveVector()
+        {
+            return new Vector2(clamped(moveInputVector.x), clamped(moveInputVector.y));
+        }
+        
         private void HandleRotation()
         {
             if(!_playerManager.canRotate) return;
+            if (_playerManager.isDead) return;
             
             _targetRotationDirection = Vector3.zero;
-            
-            _targetRotationDirection = 
-                (PlayerCameraManager.instance.playerCamera.transform.forward * moveInputVector.y) + 
-                (PlayerCameraManager.instance.playerCamera.transform.right * moveInputVector.x);
-            _targetRotationDirection.Normalize();
-            _targetRotationDirection.y = 0;
-            
-            if (_targetRotationDirection == Vector3.zero)
+
+            if (_playerManager.playerCombatManager.lockedOn && !_isSprinting)
             {
-                _targetRotationDirection = transform.forward;
+                if (!_playerManager.playerCombatManager.currentLockTarget) return;
+                _targetRotationDirection = _playerManager.playerCombatManager.currentLockTarget.transform.position - transform.position;
+                _targetRotationDirection.y = 0;
+                _targetRotationDirection.Normalize();
+                
             }
+            else
+            {
+                _targetRotationDirection = 
+                    (PlayerCameraManager.instance.playerCamera.transform.forward * moveInputVector.y) + 
+                    (PlayerCameraManager.instance.playerCamera.transform.right * moveInputVector.x);
+                _targetRotationDirection.Normalize();
+                _targetRotationDirection.y = 0;
             
+                if (_targetRotationDirection == Vector3.zero)
+                {
+                    _targetRotationDirection = transform.forward;
+                }
+                
+            }
             Quaternion newRotation = Quaternion.LookRotation(_targetRotationDirection);
             Quaternion targetRotation = Quaternion.Slerp(transform.rotation, newRotation, rotationSpeed * Time.deltaTime);
 
             transform.rotation = targetRotation;
+            
+
         }
         
         private void HandleGroundedMovement()
@@ -176,7 +204,18 @@ namespace Character.Player
 
             
             _playerManager.characterController.Move(_moveDirection * (speed * Time.deltaTime));
-            _playerManager.playerAnimationManager.UpdateAnimatorMovementParameters(0, MoveAmount);
+
+            if (_playerManager.playerCombatManager.lockedOn && !_isSprinting)
+            {
+                Vector2 movement = _getClampedMoveVector();
+                _playerManager.playerAnimationManager.UpdateAnimatorMovementParameters(movement.x, movement.y);
+                
+            }
+            else
+            {
+                _playerManager.playerAnimationManager.UpdateAnimatorMovementParameters(0, MoveAmount);
+            }
+            
         }
         
         

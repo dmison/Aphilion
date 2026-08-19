@@ -32,6 +32,24 @@
                     "processors": "",
                     "interactions": "Tap",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SeekLockOnRight",
+                    "type": "Button",
+                    "id": "ce25c16c-7d60-4d1d-a89c-e3dbb184d795",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SeekLockOnLeft",
+                    "type": "Button",
+                    "id": "89d5a594-c235-4393-88c9-f37cc5da2df6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -186,6 +204,28 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "LockOn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a80863b3-53c6-428a-b4a9-7989727a85a0",
+                    "path": "<Gamepad>/rightStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "SeekLockOnRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8129b9c3-6326-41fb-a28a-a9f9862679d7",
+                    "path": "<Gamepad>/rightStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "SeekLockOnLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

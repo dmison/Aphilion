@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -31,8 +32,63 @@ namespace Character.Player
         
         public CharacterManager CurrentLockOnTarget;
         [SerializeField] private float _lockOnFollowSpeed = 0.2f; 
-        
+        [SerializeField] private float _lockOnCameraHeight = 2.0f;
+        [SerializeField] private float _unlockedCameraHeight = 1.8f;
+        private Coroutine _setCameraHeight;
+        [SerializeField] private float _cameraHeightSpeed = 0.9f;
         public static PlayerCameraManager instance;
+
+        public void SetLockCameraHeight()
+        {
+            if (_setCameraHeight != null)
+            {
+                StopCoroutine(_setCameraHeight);
+                _setCameraHeight = null;
+            }
+            _setCameraHeight = StartCoroutine(SetCameraHeight());
+        }
+        
+        private IEnumerator SetCameraHeight()
+        {
+            float duration = 1f;
+            float timer = 0;
+            
+            Vector3 velocity = Vector3.zero;
+            Vector3 newLockedCameraHeight = new Vector3(cameraPivot.localPosition.x, _lockOnCameraHeight, cameraPivot.localPosition.z);
+            Vector3 newUnlockedCameraHeight = new Vector3(cameraPivot.localPosition.x, _unlockedCameraHeight, cameraPivot.localPosition.z);
+            // while (timer < duration)
+            // {
+            //     timer += Time.deltaTime;
+            //     if (playerManager.playerCombatManager.lockedOn)
+            //     {
+            //         cameraPivot.localPosition = Vector3.SmoothDamp(cameraPivot.localPosition, newLockedCameraHeight, ref velocity, _cameraHeightSpeed);
+            //         cameraPivot.localRotation = Quaternion.Slerp(cameraPivot.localRotation, Quaternion.Euler(0,0,0), _lockOnFollowSpeed);
+            //         
+            //     }
+            //     else
+            //     {
+            //         cameraPivot.localPosition = Vector3.SmoothDamp(cameraPivot.localPosition, newUnlockedCameraHeight, ref velocity, _cameraHeightSpeed);
+            //         
+            //     }
+            //     Debug.Log("progress: "+cameraPivot.localPosition.y);
+            //     yield return null;
+            //     
+            // }
+            // Debug.Log("done: "+cameraPivot.localPosition.y);
+            if (playerManager.playerCombatManager.lockedOn)
+            {
+                cameraPivot.localPosition = newLockedCameraHeight;
+                cameraPivot.localRotation = Quaternion.Euler(0,0,0);
+            }
+            else
+            {
+                cameraPivot.localPosition = newUnlockedCameraHeight;
+            }
+            // Debug.Log("snapped: "+cameraPivot.localPosition.y);
+            yield return null;
+            
+        }
+        
         public void Awake()
         {
             if (instance == null)

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Items;
 using UnityEngine;
@@ -14,13 +15,19 @@ namespace Character.Player
         public bool currentlyUsingRightHand;
         private InputAction _rbAction;
         private InputAction _lockOnClick;
-
+        private InputAction _seekLockOnLeft;
+        private InputAction _seekLockOnRight;
+        
         [SerializeField] private float lockOnRadius = 20;
         [SerializeField] private float lockOnViewAngle = 100;
         
         public bool lockedOn;
-        public CharacterManager currentLockTarget;
         private List<CharacterManager> _validLockOnTargets = new List<CharacterManager>();
+        public CharacterManager currentLockTarget;
+        private CharacterManager closestTarget;
+        private CharacterManager closestRightTarget;
+        private CharacterManager closestLeftTarget;
+        private Coroutine _lockOnCoroutine;
         
         protected override void Awake()
         {
@@ -33,15 +40,41 @@ namespace Character.Player
             _lockOnClick = InputSystem.actions.FindAction("LockOn");
             _lockOnClick.performed += _ => { LockOnActionPerformed(); };
 
+            _seekLockOnLeft = InputSystem.actions.FindAction("SeekLockOnLeft");
+            _seekLockOnLeft.performed += _ => { FindLockTargetToLeft(); };
+            
+            _seekLockOnRight = InputSystem.actions.FindAction("SeekLockOnRight");
+            _seekLockOnRight.performed += _ => { FindLockTargetToRight(); };
+            
         }
 
+        private void FindLockTargetToLeft()
+        {
+            if (!lockedOn) return;
+            FindLockOnTargets();
+            currentLockTarget = closestLeftTarget;
+            PlayerCameraManager.instance.CurrentLockOnTarget = currentLockTarget;
+        }
+
+        private void FindLockTargetToRight()
+        {
+            if(!lockedOn) return;
+            FindLockOnTargets();
+            currentLockTarget = closestRightTarget;
+            PlayerCameraManager.instance.CurrentLockOnTarget = currentLockTarget;
+        }
+        
         protected override void Update()
         {
             if (currentLockTarget)
             {
                 if (currentLockTarget.isDead)
                 {
-                    ReleaseLockOn();
+                    if (_lockOnCoroutine != null)
+                    {
+                        StopCoroutine(_lockOnCoroutine);
+                    }
+                    _lockOnCoroutine = StartCoroutine(WaitThenFindNewTarget());
                 }
                 PlayerCameraManager.instance.CurrentLockOnTarget = currentLockTarget;
             }
@@ -53,11 +86,24 @@ namespace Character.Player
             
         }
 
+        // ReSharper disable Unity.PerformanceAnalysis
+        private IEnumerator WaitThenFindNewTarget()
+        {
+            if (_player.isPerformingAction)
+            {
+                yield return null;
+            }
+            ReleaseLockOn();
+            FindLockOnTargets();
+            yield return null;
+        }
+        
         private void ReleaseLockOn()
         {
             lockedOn = false;
             currentLockTarget = null;
             PlayerCameraManager.instance.CurrentLockOnTarget = null;
+            PlayerCameraManager.instance.SetLockCameraHeight();
         }
         
         private void LockOnActionPerformed()
@@ -70,14 +116,21 @@ namespace Character.Player
             }
             
             // else attempt lock on
-            AttemptLockOn();
-            
+            FindLockOnTargets();
+            currentLockTarget = closestTarget;
+            if (currentLockTarget != null)
+            {
+                PlayerCameraManager.instance.SetLockCameraHeight();
+            }
         }
 
-        private void AttemptLockOn()
+        private void FindLockOnTargets()
         {
             _validLockOnTargets.Clear();
+
             float shortestDistance = Mathf.Infinity;
+            float shortestDistanceRightOfTarget = Mathf.Infinity;
+            float shortestDistanceLeftOfTarget = -Mathf.Infinity;
 
             Collider[] colliders = Physics.OverlapSphere(transform.position, lockOnRadius, WorldUtilityManager.Instance.GetCharacterLayerMask());
             
@@ -106,22 +159,52 @@ namespace Character.Player
                         // something blocking LOS
                         continue;
                     }
-                    else
+                    else  // we can see it
                     {
-                        _validLockOnTargets.Add(cm);
-                        if (!(targetDistance < shortestDistance)) continue;
-                        shortestDistance = targetDistance;
-                        currentLockTarget = cm;
+                        _validLockOnTargets.Add(cm);                         // add it to valid targets list
+                        if (targetDistance < shortestDistance)
+                        {
+                            // skip if distance is not closer than shortestDistances
+                            shortestDistance = targetDistance; // set shortest distances to this one
+                            closestTarget = cm;
+                        } // set current lockon to this one
+
+                        // if we are locked on, then check for right/left targets
+                        // skip if already locked onto this target
+                        if (lockedOn && (cm != currentLockTarget))
+                        {
+                            // get local position of target being checked relative to player
+                            Vector3 relativeEnemyPosition = _player.transform.InverseTransformPoint(cm.transform.position);
+
+                            // closest left
+                            if (relativeEnemyPosition.x <= 0 && relativeEnemyPosition.x > shortestDistanceLeftOfTarget)
+                            {
+                                shortestDistanceLeftOfTarget = relativeEnemyPosition.x;
+                                closestLeftTarget = cm;
+                            }
+
+                            // closest right
+                            if (relativeEnemyPosition.x >= 0 && relativeEnemyPosition.x < shortestDistanceRightOfTarget)
+                            {
+                                shortestDistanceRightOfTarget = relativeEnemyPosition.x;
+                                closestRightTarget = cm;
+                            }
+                        }
                     }
                 }
-                // else
-                // {
-                //     // NOT IN VIEW ANGLE
-                //     Debug.Log("not in view angle");
-                // }
+                
                 
             }
 
+            // if (lockedOn)
+            // {
+            //     //
+            // }
+            //
+            if (!lockedOn && closestTarget != null)
+            {
+                currentLockTarget = closestTarget;
+            }
             lockedOn = currentLockTarget != null;
             
         }
