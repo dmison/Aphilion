@@ -135,7 +135,7 @@ namespace Character.Player
         private void HandleRotation()
         {
             if(!_playerManager.canRotate) return;
-            if (_playerManager.isDead) return;
+            if (_playerManager.IsDead) return;
             
             _targetRotationDirection = Vector3.zero;
 

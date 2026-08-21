@@ -1,4 +1,5 @@
 using System.Collections;
+using UI;
 using UnityEngine;
 
 namespace Character.Player
@@ -45,7 +46,7 @@ namespace Character.Player
         {
             characterAnimationManager.PlayTargetActionAnimation("Dead_01");
             yield return new WaitForSeconds(2);
-            PlayerUIManager.instance.deathMessageManager.ShowDeathMessage();
+            PlayerUIManager.Instance.deathMessageManager.ShowDeathMessage();
         }
     }
 }

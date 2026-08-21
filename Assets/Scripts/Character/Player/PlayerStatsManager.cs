@@ -1,4 +1,5 @@
 using System.Collections;
+using UI;
 using UnityEngine;
 
 namespace Character.Player
@@ -29,7 +30,7 @@ namespace Character.Player
         protected override void UpdateUI()
         {
             base.UpdateUI();
-            PlayerUIManager.instance.statsBar.DoUpdate(currentStamina, MaxStamina, currentHealth, MaxHealth);
+            PlayerUIManager.Instance.statsBar.DoUpdate(currentStamina, MaxStamina, currentHealth, MaxHealth);
         }
 
         protected override void Awake()

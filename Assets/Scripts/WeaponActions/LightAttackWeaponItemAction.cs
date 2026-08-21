@@ -13,7 +13,7 @@ namespace WeaponActions
         {
             base.AttemptToPerformAction(playerWielding, weaponBeingWielded, rightHand, attackType);
             // === STOPS ===
-            if (playerWielding.isPerformingAction || !playerWielding.isGrounded || playerWielding.isDead) return;
+            if (playerWielding.isPerformingAction || !playerWielding.isGrounded || playerWielding.IsDead) return;
             if(playerWielding.playerStatsManager.CurrentStamina <= 0) return;
             // =============
             PerformLightAttack(playerWielding, weaponBeingWielded, rightHand, attackType);

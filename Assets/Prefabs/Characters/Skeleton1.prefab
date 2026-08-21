@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4049812189520618522}
   - component: {fileID: 3518934930550207268}
-  - component: {fileID: -8766891882240977395}
+  - component: {fileID: 377824405947602677}
   - component: {fileID: 944930969712335514}
   - component: {fileID: 5577108990056699089}
   - component: {fileID: 325000120100472611}
@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 9123142589604653394}
   - component: {fileID: 513042373642096056}
   - component: {fileID: 7542413875715020877}
+  - component: {fileID: 7819961264102917500}
   m_Layer: 11
   m_Name: Skeleton1
   m_TagString: Untagged
@@ -118,7 +119,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-8766891882240977395
+--- !u!114 &377824405947602677
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,9 +128,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 729366162272280421}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41306f0e0f6a4784b65f63a80614f477, type: 3}
+  m_Script: {fileID: 11500000, guid: 93678522a4cf45e39698b869a1ffc8de, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Character.Skeleton.SkeletonManager
+  m_EditorClassIdentifier: Assembly-CSharp::Character.AI.AICharacterManager
   characterController: {fileID: 0}
   animator: {fileID: 0}
   characterStatsManager: {fileID: 0}
@@ -434,6 +435,20 @@ MonoBehaviour:
   rotationSpeed: 15
   sprintStaminaCostPerSecond: 20
   dodgeStaminaCost: 20
+--- !u!114 &7819961264102917500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729366162272280421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05db9d16edee46f7b0b79066b5b669d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Character.CharacterSenses
+  visionDistance: 2
+  visionFOV: 90
 --- !u!1 &757107840937012798
 GameObject:
   m_ObjectHideFlags: 0

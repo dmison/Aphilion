@@ -53,7 +53,7 @@ namespace Character.Player
             if (!lockedOn) return;
             FindLockOnTargets();
             currentLockTarget = closestLeftTarget;
-            PlayerCameraManager.instance.CurrentLockOnTarget = currentLockTarget;
+            PlayerCameraManager.instance.SetCameraLockOn(currentLockTarget);
         }
 
         private void FindLockTargetToRight()
@@ -61,14 +61,14 @@ namespace Character.Player
             if(!lockedOn) return;
             FindLockOnTargets();
             currentLockTarget = closestRightTarget;
-            PlayerCameraManager.instance.CurrentLockOnTarget = currentLockTarget;
+            PlayerCameraManager.instance.SetCameraLockOn(currentLockTarget);
         }
         
         protected override void Update()
         {
             if (currentLockTarget)
             {
-                if (currentLockTarget.isDead)
+                if (currentLockTarget.IsDead)
                 {
                     if (_lockOnCoroutine != null)
                     {
@@ -76,11 +76,11 @@ namespace Character.Player
                     }
                     _lockOnCoroutine = StartCoroutine(WaitThenFindNewTarget());
                 }
-                PlayerCameraManager.instance.CurrentLockOnTarget = currentLockTarget;
+                PlayerCameraManager.instance.SetCameraLockOn(currentLockTarget);
             }
             else
             {
-                PlayerCameraManager.instance.CurrentLockOnTarget = null;
+                PlayerCameraManager.instance.SetCameraLockOn(null);
             } 
             
             
@@ -102,7 +102,8 @@ namespace Character.Player
         {
             lockedOn = false;
             currentLockTarget = null;
-            PlayerCameraManager.instance.CurrentLockOnTarget = null;
+            PlayerCameraManager.instance.SetCameraLockOn(null);
+            
             PlayerCameraManager.instance.SetLockCameraHeight();
         }
         
@@ -118,6 +119,8 @@ namespace Character.Player
             // else attempt lock on
             FindLockOnTargets();
             currentLockTarget = closestTarget;
+            
+            
             if (currentLockTarget != null)
             {
                 PlayerCameraManager.instance.SetLockCameraHeight();
@@ -139,7 +142,7 @@ namespace Character.Player
                 CharacterManager cm  = colliders[i].GetComponent<CharacterManager>();
                 
                 if (cm == null) continue;                                         // null for some reason
-                if (cm.isDead) continue;                                   // target is dead
+                if (cm.IsDead) continue;                                   // target is dead
                 if (cm.transform.root == _player.transform.root) continue; // target is player
                 
                 Vector3 targetDirection = cm.transform.position - transform.position;
@@ -203,10 +206,12 @@ namespace Character.Player
             //
             if (!lockedOn && closestTarget != null)
             {
+                
                 currentLockTarget = closestTarget;
+                
             }
             lockedOn = currentLockTarget != null;
-            
+
         }
         
         private void RB_Action_Performed()

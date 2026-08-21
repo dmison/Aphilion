@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   statsBar: {fileID: 3945384083764518308}
   deathMessageManager: {fileID: 8976678079425687536}
+  lockOnHUD: {fileID: 0}
 --- !u!1 &8107695239057659454
 GameObject:
   m_ObjectHideFlags: 0

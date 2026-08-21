@@ -33,7 +33,7 @@ namespace Effects
             base.ProcessEffect(character);
             CalculateDamage(character);
             PlayFX(character);
-            if (character.isDead) return;
+            if (character.IsDead) return;
             PlayDirectionalDamageAnimation(character);
             
         }

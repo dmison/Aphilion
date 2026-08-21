@@ -1,6 +1,9 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Character.Player;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Character
 {
@@ -13,14 +16,14 @@ namespace Character
         [HideInInspector] public CharacterEffectsManager characterEffectsManager;
         [HideInInspector] public CharacterCombatManager characterCombatManager;
         [HideInInspector] public CharacterSoundEffectsManager characterSoundEffectsManager;
-        
+        private List<SkinnedMeshRenderer> _models = new List<SkinnedMeshRenderer>();
         // FLAGS
         public bool isPerformingAction = false;
         public bool canRotate = true;
         public bool canMove = true;
         public bool isGrounded = true;
 
-        public bool isDead => characterStatsManager.CurrentHealth <= 0;
+        public bool IsDead => characterStatsManager.CurrentHealth <= 0;
         
         protected virtual void Awake()
         {
@@ -30,16 +33,26 @@ namespace Character
             characterEffectsManager = GetComponent<CharacterEffectsManager>();
             characterCombatManager = GetComponent<CharacterCombatManager>();
             characterSoundEffectsManager = GetComponent<CharacterSoundEffectsManager>();
+            _models = GetComponentsInChildren<SkinnedMeshRenderer>(true).ToList();
             
             animator = GetComponent<Animator>();
             
         }
-    
+
+        public void EnableOutline(bool enable)
+        {
+            foreach (SkinnedMeshRenderer mesh in _models)
+            {
+                mesh.gameObject.layer = LayerMask.NameToLayer(enable ? "Outlined" : "Default");
+            }            
+        }
+        
         protected virtual void Update(){}
         protected virtual void LateUpdate(){}
 
         public virtual IEnumerator HandleDeath(bool manuallySelectAnimation=false)
         {
+            EnableOutline(false);
             characterAnimationManager.PlayTargetActionAnimation("Dead_01");
             yield return new WaitForSeconds(1);
             

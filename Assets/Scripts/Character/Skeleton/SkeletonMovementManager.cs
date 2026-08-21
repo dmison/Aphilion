@@ -1,3 +1,4 @@
+using Character.AI;
 using UnityEngine;
 
 namespace Character.Skeleton
@@ -18,7 +19,7 @@ namespace Character.Skeleton
         [SerializeField] private float sprintStaminaCostPerSecond = 20;
         [SerializeField] private float dodgeStaminaCost = 20;
         
-        private SkeletonManager _skeletonManager;
+        private AICharacterManager _skeletonManager;
         
         private Vector3 _moveDirection;
         private Vector3 _targetRotationDirection;
@@ -31,7 +32,7 @@ namespace Character.Skeleton
         protected override void Awake()
         {
             base.Awake();
-            _skeletonManager = GetComponent<SkeletonManager>();
+            _skeletonManager = GetComponent<AICharacterManager>();
         }
         
         private void GroundCheck()

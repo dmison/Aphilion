@@ -30,7 +30,7 @@ namespace Character.Player
         private InputAction _lookAction;
         private Vector2 _cameraInput;
         
-        public CharacterManager CurrentLockOnTarget;
+        private CharacterManager CurrentLockOnTarget;
         [SerializeField] private float _lockOnFollowSpeed = 0.2f; 
         [SerializeField] private float _lockOnCameraHeight = 2.0f;
         [SerializeField] private float _unlockedCameraHeight = 1.8f;
@@ -46,6 +46,24 @@ namespace Character.Player
                 _setCameraHeight = null;
             }
             _setCameraHeight = StartCoroutine(SetCameraHeight());
+        }
+
+        public void SetCameraLockOn(CharacterManager newTarget)
+        {
+            if (newTarget == null)
+            {
+                if(CurrentLockOnTarget != null)CurrentLockOnTarget.EnableOutline(false);
+                CurrentLockOnTarget = null;
+                return;
+            }
+            if (CurrentLockOnTarget != null && newTarget != CurrentLockOnTarget)
+            {
+                CurrentLockOnTarget.EnableOutline(false);
+            }
+            CurrentLockOnTarget = newTarget;
+            CurrentLockOnTarget.EnableOutline(true);
+            
+            
         }
         
         private IEnumerator SetCameraHeight()

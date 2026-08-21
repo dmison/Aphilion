@@ -1,28 +1,31 @@
-using System;
 using UI.HUD;
 using UnityEngine;
 
-public class PlayerUIManager : MonoBehaviour
+namespace UI
 {
-    public static PlayerUIManager instance;
-    
-    public StatusBar statsBar;
-    public DeathMessageManager deathMessageManager;
-    
-    private void Awake()
+    public class PlayerUIManager : MonoBehaviour
     {
-        if (instance == null)
+        public static PlayerUIManager Instance;
+    
+        public StatusBar statsBar;
+        public DeathMessageManager deathMessageManager;
+        public LockOnHUD lockOnHUD;
+    
+        private void Awake()
         {
-            instance = this;
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
-    private void Start()
-    {
-        DontDestroyOnLoad(gameObject);
+        private void Start()
+        {
+            DontDestroyOnLoad(gameObject);
+        }
     }
 }
