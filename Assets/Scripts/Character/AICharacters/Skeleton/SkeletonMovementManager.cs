@@ -1,7 +1,6 @@
-using Character.AI;
 using UnityEngine;
 
-namespace Character.Skeleton
+namespace Character.AICharacters.Skeleton
 {
     public class SkeletonMovementManager: CharacterMovementManager
     {

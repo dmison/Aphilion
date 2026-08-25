@@ -15,9 +15,12 @@ namespace Character.Player
         [HideInInspector] public PlayerCombatManager playerCombatManager;
         [HideInInspector] public PlayerSoundEffectsManager playerSoundEffectsManager;
         
+        public bool IsDead => playerStatsManager.CurrentHealth <= 0;
+        
         protected override void Awake()
         {
-            base.Awake();
+            
+            characterController = GetComponent<CharacterController>();
             playerMovementManager = GetComponent<PlayerMovementManager>();
             playerAnimationManager = GetComponent<PlayerAnimationManager>();
             playerStatsManager = GetComponent<PlayerStatsManager>();
@@ -26,6 +29,7 @@ namespace Character.Player
             playerInventoryManager = GetComponent<PlayerInventoryManager>();
             playerCombatManager = GetComponent<PlayerCombatManager>();
             playerSoundEffectsManager =  GetComponent<PlayerSoundEffectsManager>();
+            animator = GetComponent<Animator>();
             
             DontDestroyOnLoad(this);
         }

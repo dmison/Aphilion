@@ -42,20 +42,20 @@ GameObject:
   m_Component:
   - component: {fileID: 4049812189520618522}
   - component: {fileID: 3518934930550207268}
-  - component: {fileID: 377824405947602677}
   - component: {fileID: 944930969712335514}
-  - component: {fileID: 5577108990056699089}
   - component: {fileID: 325000120100472611}
   - component: {fileID: 5004231074616630469}
   - component: {fileID: 712390696078868688}
-  - component: {fileID: 2052831628795535555}
   - component: {fileID: 5591576398461217043}
   - component: {fileID: 6195887171764394318}
   - component: {fileID: 2214936536363232385}
   - component: {fileID: 9123142589604653394}
   - component: {fileID: 513042373642096056}
-  - component: {fileID: 7542413875715020877}
   - component: {fileID: 7819961264102917500}
+  - component: {fileID: 377824405947602677}
+  - component: {fileID: 3097722502156841112}
+  - component: {fileID: 6420504124685293993}
+  - component: {fileID: 5063795794054029756}
   m_Layer: 11
   m_Name: Skeleton1
   m_TagString: Untagged
@@ -110,7 +110,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: d18a3801043104b9ebe96f57bbb2a969, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
@@ -119,29 +119,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &377824405947602677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729366162272280421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93678522a4cf45e39698b869a1ffc8de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Character.AI.AICharacterManager
-  characterController: {fileID: 0}
-  animator: {fileID: 0}
-  characterStatsManager: {fileID: 0}
-  characterAnimationManager: {fileID: 0}
-  characterEffectsManager: {fileID: 0}
-  characterCombatManager: {fileID: 0}
-  characterSoundEffectsManager: {fileID: 0}
-  isPerformingAction: 0
-  canRotate: 1
-  canMove: 1
-  isGrounded: 1
 --- !u!114 &944930969712335514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,21 +135,6 @@ MonoBehaviour:
   A_Hit_B_React_Sword: A_Hit_B_React_Sword
   A_Hit_L_React_Sword: A_Hit_L_React_Sword
   A_Hit_R_React_Sword: A_Hit_R_React_Sword
---- !u!114 &5577108990056699089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729366162272280421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60032d7c44e3459190df228a3c344a8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Character.CharacterCombatManager
-  currentWeaponBeingUsed: {fileID: 0}
-  currentAttackType: 0
-  lockOnTransform: {fileID: 6338849458481436488}
 --- !u!114 &325000120100472611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,29 +172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef30744e71834cc68000db27dc0dd85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character.CharacterInventoryManager
---- !u!114 &2052831628795535555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729366162272280421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afed27f6c398c4144b51b3924f327f34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Character.CharacterManager
-  characterController: {fileID: 0}
-  animator: {fileID: 0}
-  characterStatsManager: {fileID: 0}
-  characterAnimationManager: {fileID: 0}
-  characterEffectsManager: {fileID: 0}
-  characterCombatManager: {fileID: 0}
-  characterSoundEffectsManager: {fileID: 0}
-  isPerformingAction: 0
-  canRotate: 1
-  canMove: 1
-  isGrounded: 1
 --- !u!114 &5591576398461217043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,28 +352,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7542413875715020877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729366162272280421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2864c9b60a0f4b2ab881b42746be458a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Character.Skeleton.SkeletonMovementManager
-  groundSphereRadius: 0.15
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 1
-  walkSpeed: 1.5
-  runSpeed: 3.5
-  sprintSpeed: 6
-  rotationSpeed: 15
-  sprintStaminaCostPerSecond: 20
-  dodgeStaminaCost: 20
 --- !u!114 &7819961264102917500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,6 +366,89 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Character.CharacterSenses
   visionDistance: 2
   visionFOV: 90
+--- !u!114 &377824405947602677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729366162272280421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93678522a4cf45e39698b869a1ffc8de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Character.AI.AICharacterManager
+  characterController: {fileID: 0}
+  animator: {fileID: 0}
+  characterStatsManager: {fileID: 0}
+  characterAnimationManager: {fileID: 0}
+  characterEffectsManager: {fileID: 0}
+  characterCombatManager: {fileID: 0}
+  characterSoundEffectsManager: {fileID: 0}
+  isPerformingAction: 0
+  canRotate: 1
+  canMove: 1
+  isGrounded: 1
+  currentState: {fileID: 11400000, guid: 1faaa6ea63b1c48a89dca75889e8a040, type: 2}
+  idleState: {fileID: 11400000, guid: 1faaa6ea63b1c48a89dca75889e8a040, type: 2}
+  pursueState: {fileID: 11400000, guid: 3a7ad9da99d3944f8b53764f91c34c79, type: 2}
+  navMeshAgent: {fileID: 0}
+  senses: {fileID: 0}
+  aiCharacterCombatManager: {fileID: 0}
+--- !u!114 &3097722502156841112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729366162272280421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c7663b0fb7b4fc0bf8b2f6fa5a6139e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Character.AICharacters.AICharacterCombatManager
+  currentWeaponBeingUsed: {fileID: 0}
+  currentAttackType: 0
+  currentLockTarget: {fileID: 0}
+  lockOnTransform: {fileID: 0}
+--- !u!195 &6420504124685293993
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729366162272280421}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 2.5
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &5063795794054029756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729366162272280421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d06bb9cd7b64289a500a9eafeb59b08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Character.CharacterMovementManager
+  groundSphereRadius: 0.15
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 3311
 --- !u!1 &757107840937012798
 GameObject:
   m_ObjectHideFlags: 0

@@ -202,6 +202,7 @@ namespace Character.Player
                 _ => 0
             };
 
+            _playerManager.animator.SetBool("IsMoving", speed != 0);
             
             _playerManager.characterController.Move(_moveDirection * (speed * Time.deltaTime));
 

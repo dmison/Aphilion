@@ -1,6 +1,6 @@
 # TODO
 
-# Sprint 3
+# Sprint 1 
 
  - [x] inputs
  - [x] assets
@@ -19,7 +19,7 @@
  - [x] character effects (2)
  - [x] health (1)
  - [x] damage (1)
- - [x] you died (1)
+ - [x] you died (1) 
 
 # Sprint 2 
 
@@ -29,68 +29,11 @@
  - [x] directional damage animation (1)
  - [x] lock on (3)
 
+
+
 # Sprint 3
 
- - [ ] weapon switching & UI 
- - [ ] weapon combos
 
- 
-
-
- - [ ] ai characters
- - [ ] sound effects
-
-
- - [ ] input queuing
- - [ ] interactable objects
- 
- - [ ] "sites of grace"
- - [ ] blocking
- - [ ] weapon based animation controllers
- - [ ] ??? poise ???
- - [ ] two-handed weapons
- - [ ] armour
- - [ ] item pick ups
- - [ ] equipment UI
- - [ ] stance breaking
- - [ ] riposte
- - [ ] backstab
- - ??? ashes of war - parry ??? 
- - [ ] monster item drops
-
---- 
-- [ ] boss fight
-- [ ] ??? fog wall ???
-
-
-
- - spells
- - focus points
- - jumping attacks
- - archery
-
----
-
- - [ ] flasks
- 
---- 
-
- - projectile UI
- - quick slot UI
- - quick travel
-
----
- - [ ] loading into game world
- 
----
- - character creation
----
- - [ ] level design
- - [ ] scene optimization
----
- - [ ] runes
- - [ ] level up
- - [ ] revive & reclaim runes
  - [ ] AI characters
    - [ ] patrol
    - [ ] investigate sound
@@ -100,45 +43,88 @@
    - [ ] blocking
    - [ ] comboing
    - [ ] evasion
-   
+
+ - [ ] weapon switching & UI
+ - [ ] weapon combos
+ - [ ] blocking
+
+
+# Sprint 4
+
+ - [ ] sound effects
+ - [ ] input queuing
+ - [ ] weapon based animation controllers
+ - [ ] interactable objects
+ - [ ] "sites of grace"
+ - [ ] ??? poise ???
+ - [ ] two-handed weapons
+ 
+# Sprint 5
+
+ - [ ] item pick ups
+ - [ ] equipment UI
+ - [ ] stance breaking
+ - [ ] riposte
+ - [ ] backstab
+ - [ ] flasks
+
+ - [ ] character creation
+ - [ ] runes
+ - [ ] level up
+ - [ ] revive & reclaim runes
+
+ - [ ] dual wielding/power stance
+ - [ ] breakable objects
+ - [ ] elevators
+ - [ ] doors
+ - [ ] ladders
+
+
+
+
+
+---
+
+- [ ] additive scenes
+- [ ] loading into game world
+- [ ] level design
+- [ ] scene optimization
+
+ - [ ] monster item drops
+ - [ ] boss fight
+ - [ ] ??? fog wall ???
+ - [ ] armour
+
+ - spells
+ - focus points
+ - jumping attacks
+ - archery
+
+ - projectile UI
+ - quick slot UI
+ - quick travel
+
 ---
 
  - upload to steam
  - connecting through steam
 
----
- 
- - [ ] additive scenes
- 
---- 
  - slope sliding
- - dual weilding/power stance
-
----
- - [ ] breakable objects
-
----
  - character dialog
  - weapon upgrades
  
----
  - [ ] status effects
    - [ ] poison
    - [ ] bleed
    - [ ] frostbite
- 
----
- - [ ] elevators
- - [ ] decoupling scene renders & colliders
-
----
 
  - [ ] sneaking
  - [ ] weapon trails
- - [ ] doors
- - [ ] ladders
 
----
  - shops
  - item storage
- - 
+
+
+- ??? ashes of war - parry ??? 
+
+- [ ] decoupling scene renders & colliders

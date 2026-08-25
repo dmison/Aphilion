@@ -8,7 +8,11 @@ namespace Character
     {
         public WeaponItem currentWeaponBeingUsed;
         public AttackTypes currentAttackType;
+        public CharacterManager currentLockTarget;
+        
         [SerializeField] public Transform lockOnTransform;
+        
+        
         protected virtual void Awake()
         { 
         }

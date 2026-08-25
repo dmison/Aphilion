@@ -23,7 +23,7 @@ namespace Character.Player
         
         public bool lockedOn;
         private List<CharacterManager> _validLockOnTargets = new List<CharacterManager>();
-        public CharacterManager currentLockTarget;
+        
         private CharacterManager closestTarget;
         private CharacterManager closestRightTarget;
         private CharacterManager closestLeftTarget;

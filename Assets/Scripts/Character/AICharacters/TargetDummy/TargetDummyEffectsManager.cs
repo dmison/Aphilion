@@ -1,6 +1,6 @@
 using Effects;
 
-namespace Character.TargetDummy
+namespace Character.AICharacters.TargetDummy
 {
     public class TargetDummyEffectsManager: CharacterEffectsManager
     {

@@ -49,7 +49,8 @@ namespace Character
         
         protected virtual void Update(){}
         protected virtual void LateUpdate(){}
-
+        protected virtual void FixedUpdate(){}
+        
         public virtual IEnumerator HandleDeath(bool manuallySelectAnimation=false)
         {
             EnableOutline(false);

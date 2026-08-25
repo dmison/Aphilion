@@ -1,7 +1,4 @@
-using System.Collections;
-using UnityEngine;
-
-namespace Character.TargetDummy
+namespace Character.AICharacters.TargetDummy
 {
     public class TargetDummyManager : CharacterManager
     {
