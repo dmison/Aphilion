@@ -1,10 +1,5 @@
-using System;
-using System.Collections;
-using System.Linq.Expressions;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering.UI;
 
 namespace Character.Player
 {
@@ -106,7 +101,7 @@ namespace Character.Player
             _isSprinting = _playerManager.isGrounded && 
                            !_playerManager.isPerformingAction && 
                            sprintInput && 
-                           _playerManager.playerStatsManager.CurrentStamina > 0;
+                           _playerManager.characterStatsManager.CurrentStamina > 0;
         }
         
         private float MoveAmount => _getMoveAmount(); 
@@ -183,9 +178,9 @@ namespace Character.Player
             // if stamina then stop sprinting
             if (_isSprinting)
             {
-                if (_playerManager.playerStatsManager.CurrentStamina > 0)
+                if (_playerManager.characterStatsManager.CurrentStamina > 0)
                 {
-                    _playerManager.playerStatsManager.CurrentStamina -= (sprintStaminaCostPerSecond * Time.deltaTime);
+                    _playerManager.characterStatsManager.CurrentStamina -= (sprintStaminaCostPerSecond * Time.deltaTime);
                 }
                 else
                 {
@@ -209,12 +204,12 @@ namespace Character.Player
             if (_playerManager.playerCombatManager.lockedOn && !_isSprinting)
             {
                 Vector2 movement = _getClampedMoveVector();
-                _playerManager.playerAnimationManager.UpdateAnimatorMovementParameters(movement.x, movement.y);
+                _playerManager.characterAnimationManager.UpdateAnimatorMovementParameters(movement.x, movement.y);
                 
             }
             else
             {
-                _playerManager.playerAnimationManager.UpdateAnimatorMovementParameters(0, MoveAmount);
+                _playerManager.characterAnimationManager.UpdateAnimatorMovementParameters(0, MoveAmount);
             }
             
         }
@@ -228,7 +223,7 @@ namespace Character.Player
             
             if (!_playerManager.isGrounded) return;
             if (_playerManager.isPerformingAction) return;
-            if (_playerManager.playerStatsManager.CurrentStamina <= 0) return;
+            if (_playerManager.characterStatsManager.CurrentStamina <= 0) return;
             
             _playerManager.isPerformingAction = true;
             _playerManager.canMove = false;
@@ -243,7 +238,7 @@ namespace Character.Player
                 _rollDirection.Normalize();
                 Quaternion playerRotation = Quaternion.LookRotation(_rollDirection);
                 transform.rotation = playerRotation;
-                _playerManager.playerAnimationManager.PlayTargetActionAnimation(
+                _playerManager.characterAnimationManager.PlayTargetActionAnimation(
                     "Roll_RM_Forwards", 
                     _playerManager.isPerformingAction, 
                     true,
@@ -254,7 +249,7 @@ namespace Character.Player
             else
             {
                 // do back step
-                _playerManager.playerAnimationManager.PlayTargetActionAnimation(
+                _playerManager.characterAnimationManager.PlayTargetActionAnimation(
                     "DodgeBack_RM",  
                     _playerManager.isPerformingAction, 
                     true,
@@ -263,7 +258,7 @@ namespace Character.Player
                     );
             }
 
-            _playerManager.playerStatsManager.CurrentStamina -= dodgeStaminaCost;
+            _playerManager.characterStatsManager.CurrentStamina -= dodgeStaminaCost;
         }
         
         private void Update()

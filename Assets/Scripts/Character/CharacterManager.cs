@@ -36,7 +36,7 @@ namespace Character
             _models = GetComponentsInChildren<SkinnedMeshRenderer>(true).ToList();
             
             animator = GetComponent<Animator>();
-            
+            animator.SetBool("isGrounded", true);
         }
 
         public void EnableOutline(bool enable)

@@ -6,7 +6,6 @@ namespace Character
     {
         protected virtual void Awake()
         {
-            
         }
 
         

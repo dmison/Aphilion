@@ -1,4 +1,5 @@
 using System;
+using Character;
 using UnityEngine;
 
 public class WorldUtilityManager : MonoBehaviour
@@ -7,11 +8,12 @@ public class WorldUtilityManager : MonoBehaviour
 
     [SerializeField] private LayerMask _environmentLayerMask;
     [SerializeField] private LayerMask _characterLayerMask;
+    [SerializeField] private LayerMask _enemiesLayerMask;
     
     
     public LayerMask GetEnvironmentLayerMask() => _environmentLayerMask;
     public LayerMask GetCharacterLayerMask() => _characterLayerMask;
-    
+    public LayerMask GetEnemiesLayerMask() => _enemiesLayerMask;
     
     private void Awake()
     {

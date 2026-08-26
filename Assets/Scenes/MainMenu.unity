@@ -702,6 +702,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WorldUtilityManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7772032152548432800, guid: 87cb2b89938194ddfbdd127d564c9edd, type: 3}
+      propertyPath: _enemiesLayerMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

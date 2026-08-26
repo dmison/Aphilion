@@ -98,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1b2bce44048f64c76bf3b414c20534fc, type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5225241595251556654, guid: 1b2bce44048f64c76bf3b414c20534fc, type: 3}
       propertyPath: m_Layer
@@ -150,6 +150,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1b2bce44048f64c76bf3b414c20534fc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7249349832085966622}
+    - targetCorrespondingSourceObject: {fileID: 156563088398611691, guid: 1b2bce44048f64c76bf3b414c20534fc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 561483067598351129}
   m_SourcePrefab: {fileID: 100100000, guid: 1b2bce44048f64c76bf3b414c20534fc, type: 3}
 --- !u!1 &1498119786990798898 stripped
 GameObject:
@@ -403,6 +406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Character.CharacterCombatManager
   currentWeaponBeingUsed: {fileID: 0}
   currentAttackType: 0
+  currentLockTarget: {fileID: 0}
   lockOnTransform: {fileID: 3325550786234741420}
 --- !u!114 &7249349832085966622
 MonoBehaviour:
@@ -423,6 +427,23 @@ MonoBehaviour:
   constitution: 10
   strength: 10
   dexterity: 10
+--- !u!1 &1884532826690339208 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 156563088398611691, guid: 1b2bce44048f64c76bf3b414c20534fc, type: 3}
+  m_PrefabInstance: {fileID: 1732493684271691107}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &561483067598351129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884532826690339208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b422246c2a64ff3887bc21f7077315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Character.CharacterLockOnTarget
 --- !u!4 &3325550786234741420 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -5319394366935676977, guid: 1b2bce44048f64c76bf3b414c20534fc, type: 3}

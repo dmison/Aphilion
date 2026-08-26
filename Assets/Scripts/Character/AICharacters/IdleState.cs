@@ -16,7 +16,7 @@ namespace Character.AICharacters
             else
             {   
                 // try to find a target
-                aiCharacter.aiCharacterCombatManager.FindValidTarget();
+                // aiCharacter.aiCharacterCombatManager.FindValidTarget();
             }
 
             return this;

@@ -36,7 +36,7 @@ namespace Character
             {
                 CharacterManager cm = colliders[i].GetComponent<CharacterManager>();
 
-                if (cm == null) continue; // null for some reason
+                if (!cm) continue; // null for some reason
                 if (cm.IsDead) continue; // target is dead
                 if (cm.transform.root == transform.root) continue; // target is self
 

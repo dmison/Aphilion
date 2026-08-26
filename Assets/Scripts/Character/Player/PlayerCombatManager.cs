@@ -135,15 +135,17 @@ namespace Character.Player
             float shortestDistanceRightOfTarget = Mathf.Infinity;
             float shortestDistanceLeftOfTarget = -Mathf.Infinity;
 
-            Collider[] colliders = Physics.OverlapSphere(transform.position, lockOnRadius, WorldUtilityManager.Instance.GetCharacterLayerMask());
+            Collider[] colliders = Physics.OverlapSphere(transform.position, lockOnRadius, WorldUtilityManager.Instance.GetEnemiesLayerMask());
             
             for (int i=0;i<colliders.Length;i++)
             {
-                CharacterManager cm  = colliders[i].GetComponent<CharacterManager>();
                 
+                CharacterManager cm  = colliders[i].GetComponent<CharacterManager>();
+                Debug.Log(cm);
                 if (cm == null) continue;                                         // null for some reason
-                if (cm.IsDead) continue;                                   // target is dead
                 if (cm.transform.root == _player.transform.root) continue; // target is player
+                if (cm.IsDead) continue;                                   // target is dead
+                
                 
                 Vector3 targetDirection = cm.transform.position - transform.position;
                 float targetDistance = Vector3.Distance(_player.transform.position, cm.transform.position);
@@ -239,7 +241,7 @@ namespace Character.Player
                 AttackTypes.LightAttack02 or AttackTypes.LightAttack03 => 1,
                 _ => 1
             };
-            _player.playerStatsManager.CurrentStamina -= staminaCost;
+            _player.characterStatsManager.CurrentStamina -= staminaCost;
         }
     }
 }

@@ -14,7 +14,9 @@ namespace Character
         
         
         protected virtual void Awake()
-        { 
+        {
+            lockOnTransform = GetComponentInChildren<CharacterLockOnTarget>().transform;
+            
         }
         
         protected virtual void Update(){}

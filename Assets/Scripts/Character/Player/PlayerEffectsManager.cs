@@ -1,20 +1,25 @@
-using Character;
-using Character.Player;
 using Effects;
-using UnityEngine;
 
-public class PlayerEffectsManager : CharacterEffectsManager
+namespace Character.Player
 {
-    PlayerManager player; 
-    protected override void Awake()
+    public interface IEffectsManager
     {
-        // base.Awake();
-        player = GetComponent<PlayerManager>();
+        public void ProcessInstantEffect(InstantCharacterEffect effect);
     }
-    public override void ProcessInstantEffect(InstantCharacterEffect effect)
+
+    public class PlayerEffectsManager : CharacterEffectsManager, IEffectsManager
     {
-        // base.ProcessInstantEffect(effect);
-        effect.ProcessEffect(player);
+        private PlayerManager player; 
+        protected override void Awake()
+        {
+            // base.Awake();
+            player = GetComponent<PlayerManager>();
+        }
+        public override void ProcessInstantEffect(InstantCharacterEffect effect)
+        {
+            // base.ProcessInstantEffect(effect);
+            effect.ProcessEffect(player);
         
+        }
     }
 }
