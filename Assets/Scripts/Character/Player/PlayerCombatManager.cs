@@ -12,7 +12,6 @@ namespace Character.Player
         private PlayerManager _player;
         // public WeaponItem currentWeaponBeingUsed;
         // public AttackTypes currentAttackType;
-        public bool currentlyUsingRightHand;
         private InputAction _rbAction;
         private InputAction _lockOnClick;
         private InputAction _seekLockOnLeft;
@@ -21,7 +20,6 @@ namespace Character.Player
         [SerializeField] private float lockOnRadius = 20;
         [SerializeField] private float lockOnViewAngle = 100;
         
-        public bool lockedOn;
         private List<CharacterManager> _validLockOnTargets = new List<CharacterManager>();
         
         private CharacterManager closestTarget;

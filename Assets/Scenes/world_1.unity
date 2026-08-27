@@ -160735,6 +160735,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6420504124685293993, guid: 367ebb0a5ec4a4bfba0eab3ba20357ee, type: 3}
+      propertyPath: m_Speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7542413875715020877, guid: 367ebb0a5ec4a4bfba0eab3ba20357ee, type: 3}
       propertyPath: groundMask.m_Bits
       value: 1
@@ -160754,6 +160758,10 @@ PrefabInstance:
     - target: {fileID: 7819961264102917500, guid: 367ebb0a5ec4a4bfba0eab3ba20357ee, type: 3}
       propertyPath: visionDistance
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123142589604653394, guid: 367ebb0a5ec4a4bfba0eab3ba20357ee, type: 3}
+      propertyPath: m_MinMoveDistance
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

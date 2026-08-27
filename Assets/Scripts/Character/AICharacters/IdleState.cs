@@ -6,6 +6,8 @@ namespace Character.AICharacters
     [CreateAssetMenu(menuName = "Aphelion/AI/States/Idle")]
     public class IdleState: AIState
     {
+        private static readonly int IsMoving = Animator.StringToHash("IsMoving");
+
         public override AIState Tick(AICharacterManager aiCharacter)
         {
             // if we have target then: PURSUE
@@ -14,9 +16,11 @@ namespace Character.AICharacters
                 return SwitchState(aiCharacter, aiCharacter.pursueState);
             }
             else
-            {   
+            {
+                aiCharacter.animator.SetBool(IsMoving, false);
+                aiCharacter.characterAnimationManager.UpdateAnimatorMovementParameters(0, 0);
                 // try to find a target
-                // aiCharacter.aiCharacterCombatManager.FindValidTarget();
+                aiCharacter.characterCombatManager.FindValidTarget();
             }
 
             return this;

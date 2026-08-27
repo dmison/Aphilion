@@ -197,7 +197,7 @@ MonoBehaviour:
   poiseDamage: 0
   canDamageLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 264
   characterWielding: {fileID: 0}
   Light_Attack_01_Modifier: 0
 --- !u!114 &-4102913123360075943

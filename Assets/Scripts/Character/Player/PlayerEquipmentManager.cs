@@ -115,7 +115,7 @@ namespace Character.Player
         public void OpenDamageColliders()
         {
             
-            if (playerManager.playerCombatManager.currentlyUsingRightHand)
+            if (playerManager.characterCombatManager.currentlyUsingRightHand)
             {
                 rightHandManager.damageCollider.EnableDamageCollider();
             }
@@ -129,7 +129,7 @@ namespace Character.Player
         public void CloseDamageColliders()
         {
             
-            if (playerManager.playerCombatManager.currentlyUsingRightHand)
+            if (playerManager.characterCombatManager.currentlyUsingRightHand)
             {
                 rightHandManager.damageCollider.DisableDamageCollider();
             }

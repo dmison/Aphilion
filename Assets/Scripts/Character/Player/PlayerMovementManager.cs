@@ -134,10 +134,10 @@ namespace Character.Player
             
             _targetRotationDirection = Vector3.zero;
 
-            if (_playerManager.playerCombatManager.lockedOn && !_isSprinting)
+            if (_playerManager.characterCombatManager.lockedOn && !_isSprinting)
             {
-                if (!_playerManager.playerCombatManager.currentLockTarget) return;
-                _targetRotationDirection = _playerManager.playerCombatManager.currentLockTarget.transform.position - transform.position;
+                if (!_playerManager.characterCombatManager.currentLockTarget) return;
+                _targetRotationDirection = _playerManager.characterCombatManager.currentLockTarget.transform.position - transform.position;
                 _targetRotationDirection.y = 0;
                 _targetRotationDirection.Normalize();
                 
@@ -201,7 +201,7 @@ namespace Character.Player
             
             _playerManager.characterController.Move(_moveDirection * (speed * Time.deltaTime));
 
-            if (_playerManager.playerCombatManager.lockedOn && !_isSprinting)
+            if (_playerManager.characterCombatManager.lockedOn && !_isSprinting)
             {
                 Vector2 movement = _getClampedMoveVector();
                 _playerManager.characterAnimationManager.UpdateAnimatorMovementParameters(movement.x, movement.y);

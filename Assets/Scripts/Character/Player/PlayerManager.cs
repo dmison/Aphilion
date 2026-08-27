@@ -9,20 +9,25 @@ namespace Character.Player
         [HideInInspector] public PlayerMovementManager playerMovementManager;
         [HideInInspector] public PlayerEquipmentManager playerEquipmentManager;
         [HideInInspector] public PlayerInventoryManager playerInventoryManager;
-        [HideInInspector] public PlayerCombatManager playerCombatManager;
+        
         
         protected override void Awake()
         {
             
-            characterController = GetComponent<CharacterController>();
             playerMovementManager = GetComponent<PlayerMovementManager>();
-            characterAnimationManager = GetComponent<PlayerAnimationManager>();
-            characterStatsManager = GetComponent<PlayerStatsManager>();
-            characterEffectsManager = GetComponent<PlayerEffectsManager>();
             playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
             playerInventoryManager = GetComponent<PlayerInventoryManager>();
-            playerCombatManager = GetComponent<PlayerCombatManager>();
+
+            
+            characterController = GetComponent<CharacterController>();
+            
+            characterEffectsManager = GetComponent<PlayerEffectsManager>();
+            characterAnimationManager = GetComponent<PlayerAnimationManager>();
+            characterStatsManager = GetComponent<PlayerStatsManager>();
+            characterCombatManager = GetComponent<PlayerCombatManager>();
             characterSoundEffectsManager =  GetComponent<PlayerSoundEffectsManager>();
+            characterCombatManager = GetComponent<PlayerCombatManager>();
+
             animator = GetComponent<Animator>();
             
             DontDestroyOnLoad(this);

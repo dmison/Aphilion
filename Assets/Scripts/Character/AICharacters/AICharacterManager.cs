@@ -14,12 +14,12 @@ namespace Character.AICharacters
         public NavMeshAgent navMeshAgent;
         
         public CharacterSenses senses;
-        public AICharacterCombatManager aiCharacterCombatManager;
+        
         protected override void Awake()
         {
             base.Awake();
             senses = GetComponent<CharacterSenses>();
-            aiCharacterCombatManager = GetComponent<AICharacterCombatManager>();
+            characterCombatManager = GetComponent<AICharacterCombatManager>();
             navMeshAgent = GetComponent<NavMeshAgent>();
             idleState = Instantiate(idleState);
             pursueState = Instantiate(pursueState);

@@ -9,7 +9,7 @@ namespace Character.AICharacters
         {
             if (aiCharacter.isPerformingAction) return this;
 
-            if (!aiCharacter.aiCharacterCombatManager.currentLockTarget)
+            if (!aiCharacter.characterCombatManager.currentLockTarget)
             {
                 return SwitchState(aiCharacter, aiCharacter.idleState);
             }
@@ -18,8 +18,9 @@ namespace Character.AICharacters
             {
                 aiCharacter.navMeshAgent.enabled = true;
             }
-            aiCharacter.navMeshAgent.SetDestination(aiCharacter.aiCharacterCombatManager.currentLockTarget.transform.position);
-            
+            aiCharacter.animator.SetBool("IsMoving", true);
+            aiCharacter.navMeshAgent.SetDestination(aiCharacter.characterCombatManager.currentLockTarget.transform.position);
+            aiCharacter.characterAnimationManager.UpdateAnimatorMovementParameters(0, 1);
             return this;
         }
     }

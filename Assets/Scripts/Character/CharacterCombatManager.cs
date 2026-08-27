@@ -9,7 +9,9 @@ namespace Character
         public WeaponItem currentWeaponBeingUsed;
         public AttackTypes currentAttackType;
         public CharacterManager currentLockTarget;
-        
+        public bool lockedOn;
+        public bool currentlyUsingRightHand;
+
         [SerializeField] public Transform lockOnTransform;
         
         
@@ -18,7 +20,11 @@ namespace Character
             lockOnTransform = GetComponentInChildren<CharacterLockOnTarget>().transform;
             
         }
-        
+
+        public virtual void FindValidTarget()
+        {
+        }
+
         protected virtual void Update(){}
     }
 }
