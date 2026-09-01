@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 6420504124685293993}
   - component: {fileID: 5063795794054029756}
   - component: {fileID: 1184899509796044227}
+  - component: {fileID: 2114324128021917258}
   m_Layer: 8
   m_Name: Skeleton1
   m_TagString: Untagged
@@ -461,6 +462,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Character.CharacterSenses
   visionDistance: 2
   visionFOV: 90
+--- !u!136 &2114324128021917258
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729366162272280421}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 3575
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.68
+  m_Height: 2.5575035
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.77875173, z: 0}
 --- !u!1 &757107840937012798
 GameObject:
   m_ObjectHideFlags: 0
