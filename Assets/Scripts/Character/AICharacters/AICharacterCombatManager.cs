@@ -14,6 +14,7 @@ namespace Character.AICharacters
             
         }
         
+        
         public override void FindValidTarget()
         {
             List<CharacterManager> targets = _aiCharacterManager.senses.CharactersInVision();

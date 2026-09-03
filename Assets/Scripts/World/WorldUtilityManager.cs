@@ -1,5 +1,6 @@
 using System;
 using Character;
+using Character.AICharacters;
 using UnityEngine;
 
 public class WorldUtilityManager : MonoBehaviour
@@ -30,5 +31,14 @@ public class WorldUtilityManager : MonoBehaviour
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
+    }
+
+    public float GetAngleToTarget(Transform from, Vector3 direction)
+    {
+        direction.y = 0;
+        float angle = Vector3.Angle(from.forward, direction);
+        Vector3 cross = Vector3.Cross(from.forward, direction);
+        if(cross.y<0) angle = -angle;
+        return angle;
     }
 }

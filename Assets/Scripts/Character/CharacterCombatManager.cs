@@ -14,6 +14,8 @@ namespace Character
 
         [SerializeField] public Transform lockOnTransform;
         
+        public Vector3 DirectionToTarget => lockedOn ? (lockOnTransform.position - transform.position).normalized : Vector3.zero;
+        
         
         protected virtual void Awake()
         {
