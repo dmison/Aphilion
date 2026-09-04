@@ -1,44 +1,46 @@
-using System;
-using Character;
-using Character.AICharacters;
 using UnityEngine;
 
-public class WorldUtilityManager : MonoBehaviour
+namespace World
 {
-    public static WorldUtilityManager Instance;
-
-    [SerializeField] private LayerMask _environmentLayerMask;
-    [SerializeField] private LayerMask _characterLayerMask;
-    [SerializeField] private LayerMask _enemiesLayerMask;
-    
-    
-    public LayerMask GetEnvironmentLayerMask() => _environmentLayerMask;
-    public LayerMask GetCharacterLayerMask() => _characterLayerMask;
-    public LayerMask GetEnemiesLayerMask() => _enemiesLayerMask;
-    
-    private void Awake()
+    public class WorldUtilityManager : MonoBehaviour
     {
-        if (Instance == null)
+        public static WorldUtilityManager Instance;
+
+        [SerializeField] private LayerMask environmentLayerMask;
+        [SerializeField] private LayerMask characterLayerMask;
+        [SerializeField] private LayerMask enemiesLayerMask;
+    
+    
+        public LayerMask GetEnvironmentLayerMask() => environmentLayerMask;
+        public LayerMask GetCharacterLayerMask() => characterLayerMask;
+        public LayerMask GetEnemiesLayerMask() => enemiesLayerMask;
+    
+        private void Awake()
         {
-            Instance = this;
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
-        else
+
+        private void Start()
         {
-            Destroy(gameObject);
+            DontDestroyOnLoad(gameObject);
         }
-    }
 
-    private void Start()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
-    public float GetAngleToTarget(Transform from, Vector3 direction)
-    {
-        direction.y = 0;
-        float angle = Vector3.Angle(from.forward, direction);
-        Vector3 cross = Vector3.Cross(from.forward, direction);
-        if(cross.y<0) angle = -angle;
-        return angle;
+        public float GetAngleToTarget(Transform from, Vector3 direction)
+        {
+            Debug.DrawLine(from.position, from.position + direction, Color.red);
+            
+            direction.y = 0;
+            float angle = Vector3.Angle(from.forward, direction);
+            Vector3 cross = Vector3.Cross(from.forward, direction);
+            if(cross.y<0) angle = -angle;
+            return angle;
+        }
     }
 }

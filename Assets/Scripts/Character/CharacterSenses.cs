@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Character.Player;
 using Unity.VisualScripting;
 using UnityEngine;
+using World;
 
 namespace Character
 {
@@ -29,8 +30,11 @@ namespace Character
         public List<CharacterManager> CharactersInVision()
         {
             List<CharacterManager> charactersInVision = new List<CharacterManager>();
-            Collider[] colliders = Physics.OverlapSphere(transform.position, visionDistance,
-                WorldUtilityManager.Instance.GetCharacterLayerMask());
+            
+            if (!WorldUtilityManager.Instance)
+                return charactersInVision;
+            
+            Collider[] colliders = Physics.OverlapSphere(transform.position, visionDistance, WorldUtilityManager.Instance.GetCharacterLayerMask());
 
             for (int i = 0; i < colliders.Length; i++)
             {

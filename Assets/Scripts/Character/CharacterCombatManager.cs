@@ -14,9 +14,14 @@ namespace Character
 
         [SerializeField] public Transform lockOnTransform;
         
-        public Vector3 DirectionToTarget => lockedOn ? (lockOnTransform.position - transform.position).normalized : Vector3.zero;
+        public Vector3 DirectionToTarget => currentLockTarget ? (currentLockTarget.transform.position- lockOnTransform.position).normalized : Vector3.zero;
+        public float AngleToTarget => currentLockTarget ? Vector3.Angle(transform.forward, DirectionToTarget) : 0;
         
         
+        public virtual void RotateToAngle(float angle)
+        {
+        }
+
         protected virtual void Awake()
         {
             lockOnTransform = GetComponentInChildren<CharacterLockOnTarget>().transform;

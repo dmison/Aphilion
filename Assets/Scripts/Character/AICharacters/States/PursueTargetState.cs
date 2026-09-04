@@ -1,10 +1,12 @@
 using UnityEngine;
 
-namespace Character.AICharacters
+namespace Character.AICharacters.States
 {
     [CreateAssetMenu(menuName = "Aphelion/AI/States/Pursue Target")]
     public class PursueTargetState : AIState
     {
+        private static readonly int IsMoving = Animator.StringToHash("IsMoving");
+
         public override AIState Tick(AICharacterManager aiCharacter)
         {
             if (aiCharacter.isPerformingAction) return this;
@@ -18,7 +20,15 @@ namespace Character.AICharacters
             {
                 aiCharacter.navMeshAgent.enabled = true;
             }
-            aiCharacter.animator.SetBool("IsMoving", true);
+            
+            
+            // float angle = WorldUtilityManager.Instance.GetAngleToTarget(aiCharacter.transform, aiCharacter.characterCombatManager.DirectionToTarget);
+            // if(angle is >= 25 or <= -25)
+            // {
+            //     return SwitchState(aiCharacter, aiCharacter.idleState);
+            // }
+            
+            aiCharacter.animator.SetBool(IsMoving, true);
             aiCharacter.navMeshAgent.SetDestination(aiCharacter.characterCombatManager.currentLockTarget.transform.position);
             aiCharacter.characterAnimationManager.UpdateAnimatorMovementParameters(0, 1);
             return this;

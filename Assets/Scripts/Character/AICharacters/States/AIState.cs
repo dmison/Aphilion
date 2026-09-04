@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Character.AICharacters
+namespace Character.AICharacters.States
 {
     public class AIState : ScriptableObject
     {

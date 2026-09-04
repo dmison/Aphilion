@@ -38,6 +38,8 @@ public class PlayerCameraManager : MonoBehaviour
     [SerializeField] private float _cameraHeightSpeed = 0.9f;
     public static PlayerCameraManager instance;
 
+    private bool _noPlayer = true;
+    
     public void SetLockCameraHeight()
     {
         if (_setCameraHeight != null)
@@ -120,18 +122,31 @@ public class PlayerCameraManager : MonoBehaviour
 
         _lookAction = InputSystem.actions.FindAction("Look");
         _lookAction.performed += ctx => _cameraInput = ctx.ReadValue<Vector2>();
+        
     }
 
+    private void ResetPivotRotationToPlayer()
+    {
+        if (_noPlayer && playerManager)
+        {
+            _noPlayer = false;
+            // Quaternion.RotateTowards(transform.rotation, );
+            cameraPivot.transform.rotation = playerManager.transform.rotation;
+        }
+    }
+    
     private void Start()
     {
             
         DontDestroyOnLoad(gameObject);
         _defaultCameraZPosition = playerCamera.transform.localPosition.z;
+        ResetPivotRotationToPlayer();
     }
 
     public void HandleCameraActions()
     {
         if (!playerManager) return;
+        ResetPivotRotationToPlayer();
         HandleFollowPlayer();
         HandleRotations();
         HandleCollisions();

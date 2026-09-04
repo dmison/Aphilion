@@ -1,15 +1,23 @@
 
+using Character.AICharacters.States;
 using UnityEngine;
 using UnityEngine.AI;
+using World;
 
 namespace Character.AICharacters
 {
     public class AICharacterManager: CharacterManager
     {
+        private static readonly int IsTurning = Animator.StringToHash("IsTurning");
+        private static readonly int IsMoving = Animator.StringToHash("IsMoving");
+        public bool isMoving = false;
+        
         [Header("AI STATES")]
         [SerializeField] public AIState currentState;
         [SerializeField] public AIState idleState;
         [SerializeField] public AIState pursueState;
+        
+        public new AICharacterCombatManager characterCombatManager;
         
         public NavMeshAgent navMeshAgent;
         
@@ -35,15 +43,32 @@ namespace Character.AICharacters
                 currentState = nextState;
             }
 
+            if (characterCombatManager.currentLockTarget != null)
+            {
+                characterCombatManager.viewableAngle = WorldUtilityManager.Instance.GetAngleToTarget(transform, characterCombatManager.DirectionToTarget);
+                characterCombatManager.distanceFromTarget = Vector3.Distance(transform.position, characterCombatManager.currentLockTarget.transform.position);
+            }
+            
             if (navMeshAgent.enabled)
             {
-                animator.SetBool("IsMoving", navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance);
+                isMoving = navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance;
             }
             else
             {
-                animator.SetBool("IsMoving", false);
+                isMoving = false;
             }
+            animator.SetBool(IsMoving, isMoving);
             
+            // else
+            // {
+            //     animator.SetBool("IsTurningRight", false);
+            //     animator.SetBool("IsTurningLeft", false);
+            // }
+            //
+
+
+
+
         }
 
         protected override void FixedUpdate()

@@ -35,8 +35,11 @@
 
 
  - [ ] AI characters
-   - [ ] state machine, idle, pursue, combat stance
-   
+   - [x] state machine
+   - [x] idle
+   - [x] pursue
+   - [ ] combat stance
+   - [ ] attack action
 
  - [ ] weapon switching & UI
  - [ ] weapon combos
@@ -49,7 +52,7 @@
  - [ ] input queuing
  - [ ] weapon based animation controllers
  - [ ] interactable objects
- - [ ] "sites of grace"
+ - [ ] bonfire
  - [ ] ??? poise ???
  - [ ] two-handed weapons
  

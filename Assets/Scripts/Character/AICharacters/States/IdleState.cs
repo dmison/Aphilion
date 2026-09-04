@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Character.AICharacters
+namespace Character.AICharacters.States
 {
 
     [CreateAssetMenu(menuName = "Aphelion/AI/States/Idle")]
@@ -13,7 +13,15 @@ namespace Character.AICharacters
             // if we have target then: PURSUE
             if (aiCharacter.characterCombatManager.currentLockTarget)
             {
-                return SwitchState(aiCharacter, aiCharacter.pursueState);
+                // float angle = WorldUtilityManager.Instance.GetAngleToTarget(aiCharacter.transform, aiCharacter.characterCombatManager.DirectionToTarget);
+                // if(angle is > 25 or < -25)
+                // {
+                //     aiCharacter.characterCombatManager.RotateToAngle(angle);
+                // }
+                // else
+                // {
+                    return SwitchState(aiCharacter, aiCharacter.pursueState);
+                // }
             }
             else
             {
@@ -28,4 +36,14 @@ namespace Character.AICharacters
     }
 }
 
-
+//
+// if (characterCombatManager.currentLockTarget)
+// {
+//                 
+//     characterCombatManager.RotateToAngle(angle);
+//                 
+//     if(angle is >= 25 or <= -25)
+//     {
+//         animator.SetBool("IsMoving", false);
+//     }
+// }
