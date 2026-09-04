@@ -35,14 +35,8 @@
 
 
  - [ ] AI characters
-   - [ ] patrol
-   - [ ] investigate sound
-   - [ ] sleep
-   - [ ] activation by distance
-   - [ ] strafing
-   - [ ] blocking
-   - [ ] comboing
-   - [ ] evasion
+   - [ ] state machine, idle, pursue, combat stance
+   
 
  - [ ] weapon switching & UI
  - [ ] weapon combos
@@ -80,11 +74,28 @@
  - [ ] ladders
 
 
+---
 
-
+# AI extras
+  - [ ] patrol
+  - [ ] investigate sound
+  - [ ] sleep
+  - [ ] activation by distance
+  - [ ] strafing
+  - [ ] blocking
+  - [ ] comboing
+  - [ ] evasion
 
 ---
 
+# app flow
+
+ 
+
+
+# world structures
+
+--
 - [ ] additive scenes
 - [ ] loading into game world
 - [ ] level design
