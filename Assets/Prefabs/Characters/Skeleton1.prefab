@@ -366,8 +366,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05db9d16edee46f7b0b79066b5b669d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character.CharacterSenses
-  visionDistance: 2
-  visionFOV: 90
+  visionDistance: 10
+  visionFOV: 150
 --- !u!114 &377824405947602677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,9 +391,13 @@ MonoBehaviour:
   canRotate: 1
   canMove: 1
   isGrounded: 1
+  isMoving: 0
   currentState: {fileID: 11400000, guid: 1faaa6ea63b1c48a89dca75889e8a040, type: 2}
   idleState: {fileID: 11400000, guid: 1faaa6ea63b1c48a89dca75889e8a040, type: 2}
   pursueState: {fileID: 11400000, guid: 3a7ad9da99d3944f8b53764f91c34c79, type: 2}
+  combatStanceState: {fileID: 11400000, guid: fa9882a2557dcfac89da34f981f68a2c, type: 2}
+  attackState: {fileID: 11400000, guid: 953d1955942c59206a3c813bb8cd0b83, type: 2}
+  actionRecoveryTimer: 0
   navMeshAgent: {fileID: 0}
   senses: {fileID: 0}
 --- !u!114 &3097722502156841112
@@ -413,7 +417,10 @@ MonoBehaviour:
   currentLockTarget: {fileID: 0}
   lockedOn: 0
   currentlyUsingRightHand: 0
+  distanceFromTarget: 0
+  viewableAngle: 0
   lockOnTransform: {fileID: 6338849458481436488}
+  attackRotationSpeed: 25
 --- !u!195 &6420504124685293993
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -428,7 +435,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2.5
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

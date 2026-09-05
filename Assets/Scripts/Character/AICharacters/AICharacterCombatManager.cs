@@ -7,9 +7,9 @@ namespace Character.AICharacters
 {
     public class AICharacterCombatManager:  CharacterCombatManager
     {
-        [Header("Target Info")]
-        public float distanceFromTarget;
-        public float viewableAngle;
+
+        [SerializeField] public float attackRotationSpeed = 25;
+        
         
         private static readonly int IsTurning = Animator.StringToHash("IsTurning");
         private AICharacterManager _aiCharacterManager;
@@ -24,6 +24,51 @@ namespace Character.AICharacters
             
         }
 
+        public override void PivotTowardsTarget(CharacterManager character)
+        {
+            Debug.Log("ai method");
+            //lets do this without animation first
+            if (!currentLockTarget) return;
+            if (!_aiCharacterManager.canRotate) return;
+            if (_aiCharacterManager.isPerformingAction) return;
+
+            // hacked from the combat one below
+            Vector3 targetDirection = currentLockTarget.transform.position - _aiCharacterManager.transform.position;
+            targetDirection.y = 0;
+            targetDirection.Normalize();
+            if(targetDirection == Vector3.zero) 
+                targetDirection = _aiCharacterManager.transform.forward;
+            
+            Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+
+            _aiCharacterManager.transform.rotation = Quaternion.Slerp(
+                _aiCharacterManager.transform.rotation, 
+                targetRotation, 
+                Time.deltaTime * attackRotationSpeed);
+
+            
+        }
+
+        public void RotateTowardsTargetWhilstAttacking(AICharacterManager aiCharacter)
+        {
+            if (currentLockTarget == null) return;
+            if (!aiCharacter.canRotate) return;
+            if (!aiCharacter.isPerformingAction) return;
+            
+            Vector3 targetDirection = currentLockTarget.transform.position - aiCharacter.transform.position;
+            targetDirection.y = 0;
+            targetDirection.Normalize();
+            if(targetDirection == Vector3.zero) 
+                targetDirection = aiCharacter.transform.forward;
+            
+            Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+
+            aiCharacter.transform.rotation = Quaternion.Slerp(
+                aiCharacter.transform.rotation, 
+                targetRotation, 
+                Time.deltaTime * attackRotationSpeed);
+        }
+        
         public override void RotateToAngle(float angle)
         {
             if (!currentLockTarget) return;
@@ -76,5 +121,12 @@ namespace Character.AICharacters
                 }
             }
         }
+
+        public void ReduceStaminaBasedOnAttack()
+        {
+            
+        }
+        public void OpenDamageColliders(){}
+        public void CloseDamageColliders(){}
     }
 }

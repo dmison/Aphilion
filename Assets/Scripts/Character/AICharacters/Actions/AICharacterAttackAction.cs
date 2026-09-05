@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Character.AICharacters.Actions
 {
+    [CreateAssetMenu(menuName = "Aphelion/AI/Actions/Attack")]
     public class AICharacterAttackAction : ScriptableObject
     {
         [Header("Attack")] 

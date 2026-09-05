@@ -27,11 +27,16 @@ namespace Character.AICharacters.States
             // {
             //     return SwitchState(aiCharacter, aiCharacter.idleState);
             // }
+            if (aiCharacter.characterCombatManager.distanceFromTarget <= aiCharacter.navMeshAgent.stoppingDistance)
+            {
+                return SwitchState(aiCharacter, aiCharacter.combatStanceState);
+            }
+            
             
             aiCharacter.animator.SetBool(IsMoving, true);
             aiCharacter.navMeshAgent.SetDestination(aiCharacter.characterCombatManager.currentLockTarget.transform.position);
             aiCharacter.characterAnimationManager.UpdateAnimatorMovementParameters(0, 1);
-            return this;
+            return this;    
         }
     }
 }

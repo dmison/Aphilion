@@ -39,13 +39,15 @@ namespace Character.AICharacters.States
             {
                 if (aiCharacter.characterCombatManager.viewableAngle is < -30 or > 30)
                 {
-                    // aiCharacter.characterCombatManager.PivotTowardsTarget(aiCharacter);
+                    aiCharacter.characterCombatManager.PivotTowardsTarget(aiCharacter);
                     // turn to face target
                 }    
             }
             
+            aiCharacter.characterCombatManager.RotateTowardsAgent(aiCharacter.navMeshAgent.transform);
+            
             // lost target: go back to idle
-            if (aiCharacter.characterCombatManager.currentLockTarget == null)
+            if (!aiCharacter.characterCombatManager.currentLockTarget)
             {
                 return SwitchState(aiCharacter, aiCharacter.idleState);
             }
@@ -57,10 +59,10 @@ namespace Character.AICharacters.States
             }
             else
             {
-                // check recovery timer
-                // pass attack to attack state
-                // roll for combo chance
-                // switch state
+                aiCharacter.attackState.currentAttack = chosenAttack;
+                // TODO: ROLL FOR COMBO CHANCE
+                return SwitchState(aiCharacter, aiCharacter.attackState);
+                
             }
 
             // if too far away then pursue
@@ -111,6 +113,7 @@ namespace Character.AICharacters.States
                     previousAttack = chosenAttack;
                     chosenAttack = attack;
                     hasAttack = true;
+                    return;
                 }
             }
 

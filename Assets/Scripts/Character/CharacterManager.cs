@@ -24,7 +24,8 @@ namespace Character
         public bool isGrounded = true;
 
         public bool IsDead => characterStatsManager.CurrentHealth <= 0;
-        
+        public bool isMoving = false;
+
         protected virtual void Awake()
         {
             characterController = GetComponent<CharacterController>();

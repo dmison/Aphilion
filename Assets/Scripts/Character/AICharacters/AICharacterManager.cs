@@ -10,14 +10,18 @@ namespace Character.AICharacters
     {
         private static readonly int IsTurning = Animator.StringToHash("IsTurning");
         private static readonly int IsMoving = Animator.StringToHash("IsMoving");
-        public bool isMoving = false;
+        
+        
         
         [Header("AI STATES")]
         [SerializeField] public AIState currentState;
-        [SerializeField] public AIState idleState;
-        [SerializeField] public AIState pursueState;
+        [SerializeField] public IdleState idleState;
+        [SerializeField] public PursueTargetState pursueState;
+        [SerializeField] public CombatStanceState combatStanceState;
+        [SerializeField] public AttackState attackState;
         
-        public new AICharacterCombatManager characterCombatManager;
+        [Header("Action Recovery")]
+        public float actionRecoveryTimer = 0;
         
         public NavMeshAgent navMeshAgent;
         
@@ -32,6 +36,17 @@ namespace Character.AICharacters
             idleState = Instantiate(idleState);
             pursueState = Instantiate(pursueState);
             currentState = Instantiate(currentState);
+        }
+
+        public void HandleActionRecovery()
+        {
+            if (actionRecoveryTimer > 0)
+            {
+                if (!isPerformingAction)
+                {
+                    actionRecoveryTimer -= Time.deltaTime;
+                }
+            }
         }
         
         private void ProcessStateMachine()
@@ -69,6 +84,14 @@ namespace Character.AICharacters
 
 
 
+        }
+        
+
+
+        protected override void Update()
+        {
+            base.Update();
+            HandleActionRecovery();
         }
 
         protected override void FixedUpdate()
