@@ -238,9 +238,9 @@ All the isms
 - continuing AI combat stance & attacks
 - started putting more ideas down in diagrams
 
-<img src="./UI.svg" >
-<img src="./SceneStructures.svg">
-<img src="./WorldScene.svg">
+<img src="./docs/UI.svg" >
+<img src="./docs/SceneStructures.svg">
+<img src="./docs/WorldScene.svg">
 
 # Sprint 4
 
