@@ -1,12 +1,4 @@
-<style>
-  img {
-    border: 1px solid black; 
-    padding: 15px;
-    background: lightgrey;
-    border-radius: 15px;
-}
-</style>
-
+# Aphelion Dev Journal
 
 ## Week 1
 
