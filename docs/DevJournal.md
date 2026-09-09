@@ -38,20 +38,25 @@ Another deviation from the tutorial is that I am using UIToolkit instead of Unit
     - poise
     - attacks vary per weapon
 
+
 - non-intrusive narrative
     - item descriptions
     - NPC dialog
     - environmental storytelling
 
+
 - regions are heavily interconnected with unlockable shortcuts
+
 
 - combined character XP/currency
     - dropped on death
+
 
 - bonfire/lantern spawn points
     - rest at:
         - refills flasks
         - resets enemies in region
+
 
 - 3 "play phases"
     - exploring new area
@@ -65,20 +70,37 @@ Another deviation from the tutorial is that I am using UIToolkit instead of Unit
         - farming XP
         - area leading up to boss (especially runbacks) should be aiming to teach you the things you need for the boss & give opportunity to practice those things
 
+
 - upgrading
     - character stats
     - weapons
     - items
     - armour
 
+
 - potion/flask
-  - 
     - fixed number refilled at bonfire
     - can be upgraded
         - number of uses
         - amount healed
 
+---
+
+- [x] inputs
+- [x] assets
+- [x] character prefab
+- [x] world scene
+- [x] main scene
+- [x] camera
+- [x] movement
+- [x] dodge
+
 ## Week 2 (Mon Jul 27 - Sun Aug 2)
+
+- [x] sprint
+- [x] stamina
+- [ ] saving (4)
+- [x] jump & fall (2)
 
 Okay on a team of one.  this means I have to focus my scope.
 
@@ -102,8 +124,10 @@ Part way into the weapons code
 
 ## Week 3 (Mon Aug 3 - Sun Aug 9)
 
-- 4th: character effects foundation & resizing stat bars
-- 5th: basic death
+- [x] character effects (2)
+- [x] health (1)
+- [x] damage (1)
+- [x] you died (1)
 
 story/theme ideas:
 - it's just capitalism:
@@ -133,7 +157,15 @@ Contractors will not be available.
 - 12th: item action foundations
 - 15th: audio system basics, roll audio, hit audio, impact FX, target lockon, skeleton character
 
+- [x] weapon items (2)
+- [x] hit detection (1)
+- [x] weapon item based actions (3)
+- [x] directional damage animation (1)
+
 ## Week 5 (Mon Aug 17 - Sun Aug 23)
+
+- [x] lock on (3)
+
 
 - 19th: lock-on system done.  no ui though.
  - 20th: outline shader for lock target?  https://www.youtube.com/watch?v=Bm6Bmcjd1Mw
@@ -156,7 +188,7 @@ still lots of combat stuff that can be implemented, but I'm going to start the A
 
 ## Week 6 (Mon Aug 24 - Sun Aug 30)
 
-- [x] fix AI movement [due:: 2026-08-28] [completed:: 2026-08-31]
+- [x] fix AI movement
 
 Concept: when player dies a pool spreads out under them, like a pool of blood but it doesn't have to be blood, which the body then sinks into, and then they climb back out of a corresponding pool of liquid at the spawn point.  Was initially imagining a black liquid like oil, or perhaps a well for the spawn point that they climb out of The Ring style. The oil makes me think of a character who has been corrupted by pollution ala The Toxic Avenger or even Godzilla.
 
