@@ -1,3 +1,12 @@
+<style>
+  img {
+    border: 1px solid black; 
+    padding: 15px;
+    background: lightgrey;
+    border-radius: 15px;
+}
+</style>
+
 
 ## Week 1
 
@@ -93,8 +102,8 @@ Part way into the weapons code
 
 ## Week 3 (Mon Aug 3 - Sun Aug 9)
 
-4th: character effects foundation & resizing stat bars
-5th: basic death
+- 4th: character effects foundation & resizing stat bars
+- 5th: basic death
 
 story/theme ideas:
 - it's just capitalism:
@@ -118,11 +127,11 @@ story/theme ideas:
 
 Contractors will not be available.
 
-10th: collision improvements
-10th: foundations for weapons & items, inventory
-12th: weapon action foundations
-12th: item action foundations
-15th: audio system basics, roll audio, hit audio, impact FX, target lockon, skeleton character
+- 10th: collision improvements
+- 10th: foundations for weapons & items, inventory
+- 12th: weapon action foundations
+- 12th: item action foundations
+- 15th: audio system basics, roll audio, hit audio, impact FX, target lockon, skeleton character
 
 ## Week 5 (Mon Aug 17 - Sun Aug 23)
 
@@ -196,6 +205,10 @@ All the isms
 - got AI in-place rotation working without animation.  This can be good enough for now.
 - continuing AI combat stance & attacks
 - started putting more ideas down in diagrams
+
+<img src="./UI.svg" >
+<img src="./SceneStructures.svg">
+<img src="./WorldScene.svg">
 
 # Sprint 4
 
