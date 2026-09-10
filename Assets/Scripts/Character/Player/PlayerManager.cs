@@ -1,6 +1,7 @@
 using System.Collections;
 using UI;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Character.Player
 {
@@ -37,7 +38,7 @@ namespace Character.Player
         {
             
             PlayerCameraManager.instance.playerManager = this;
-            characterStatsManager.CurrentHealth = 50;
+            // characterStatsManager.CurrentHealth = 100;
         }
 
         protected override void LateUpdate()
@@ -48,8 +49,13 @@ namespace Character.Player
         public override IEnumerator HandleDeath(bool manuallySelectAnimation = false)
         {
             characterAnimationManager.PlayTargetActionAnimation("Dead_01");
+            InputSystem.actions.FindActionMap("Movement").Disable();
+            InputSystem.actions.FindActionMap("Actions").Disable();
+            InputSystem.actions.FindActionMap("EquipmentManager").Disable();
+            InputSystem.actions.FindActionMap("Menus").Enable();
             yield return new WaitForSeconds(2);
             PlayerUIManager.Instance.deathMessageManager.ShowDeathMessage();
+            
         }
     }
 }

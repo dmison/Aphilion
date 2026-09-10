@@ -44,6 +44,7 @@ namespace Effects
             
             _finalDamage = physicalDamage + fireDamage + poisonDamage + lightningDamage;
             _finalDamage = (_finalDamage <= 0) ? 1 : _finalDamage;
+
             character.characterStatsManager.CurrentHealth -= _finalDamage;
             
         }

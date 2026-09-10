@@ -64,6 +64,7 @@ namespace Colliders
     
         protected virtual void CalculateDamage(CharacterManager character)
         {
+            
             // Debug.Log("deal damange to: "+ character.gameObject.name);
             int  damage = physicalDamage + fireDamage + poisonDamage + lightningDamage;
             TakeDamageEffect effect = Instantiate(WorldCharacterEffectsManager.instance.takeDamageEffect);

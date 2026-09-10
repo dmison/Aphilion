@@ -1,3 +1,4 @@
+using Character;
 using Character.Player;
 using Items;
 using UnityEngine;
@@ -9,7 +10,7 @@ namespace WeaponActions
     {
         public int actionId;
 
-        public virtual void AttemptToPerformAction(PlayerManager playerWielding, WeaponItem weaponBeingWielded, bool rightHand, AttackTypes attackType)
+        public virtual void AttemptToPerformAction(CharacterManager playerWielding, WeaponItem weaponBeingWielded, bool rightHand, AttackTypes attackType)
         {
             
         }

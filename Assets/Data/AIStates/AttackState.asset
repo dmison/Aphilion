@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aeabe9022ea4fa7930c9044f5bfd00b, type: 3}
   m_Name: AttackState
   m_EditorClassIdentifier: Assembly-CSharp::Character.AICharacters.States.AttackState
-  currentAttack: {fileID: 0}
+  currentAttack: {fileID: 11400000, guid: b032e921ba1de5fa389c02ef3e665456, type: 2}
   willPerformCombo: 0
-  pivotAfterAttack: 0
+  pivotAfterAttack: 1

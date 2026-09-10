@@ -126,7 +126,6 @@ namespace Character.AICharacters
         {
             
         }
-        public void OpenDamageColliders(){}
-        public void CloseDamageColliders(){}
+
     }
 }

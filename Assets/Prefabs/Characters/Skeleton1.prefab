@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 3518934930550207268}
   - component: {fileID: 944930969712335514}
   - component: {fileID: 325000120100472611}
-  - component: {fileID: 5004231074616630469}
   - component: {fileID: 712390696078868688}
   - component: {fileID: 5591576398461217043}
   - component: {fileID: 6195887171764394318}
@@ -58,6 +57,7 @@ GameObject:
   - component: {fileID: 5063795794054029756}
   - component: {fileID: 1184899509796044227}
   - component: {fileID: 2114324128021917258}
+  - component: {fileID: 4855730984821268413}
   m_Layer: 8
   m_Name: Skeleton1
   m_TagString: Untagged
@@ -150,18 +150,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character.CharacterEffectsManager
   bloodSpatterVFX: {fileID: 2258243738959398103, guid: 6d02af2a391454d0aab1082cfa6ac244, type: 3}
---- !u!114 &5004231074616630469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729366162272280421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d554ea6e33944f0b89ebe0b0a47da7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Character.CharacterEquipmentManager
 --- !u!114 &712390696078868688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,6 +480,23 @@ CapsuleCollider:
   m_Height: 2.5575035
   m_Direction: 1
   m_Center: {x: 0, y: 0.77875173, z: 0}
+--- !u!114 &4855730984821268413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729366162272280421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7834fd73ab484977ba5b2b24ca37e022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Character.AICharacters.AIEquipmentManager
+  rightHandSlot: {fileID: 0}
+  leftHandSlot: {fileID: 0}
+  rightHandWeaponModel: {fileID: 0}
+  leftHandWeaponModel: {fileID: 0}
+  rightHandWeaponItem: {fileID: 11400000, guid: 79ad38ebdb98748c9b01f8f09d0e3e88, type: 2}
 --- !u!1 &757107840937012798
 GameObject:
   m_ObjectHideFlags: 0
@@ -3024,6 +3029,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7257550638627954909}
+  - component: {fileID: 1545931978543435623}
   m_Layer: 0
   m_Name: RightHandWeaponSlot
   m_TagString: Untagged
@@ -3046,6 +3052,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 116714002383399906}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1545931978543435623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6279849341313598631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5623cce705ac48b3a13478a14931350c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponModelInstanceSlot
+  currentWeaponModel: {fileID: 0}
+  weaponModelSlot: 0
 --- !u!1 &6406924604318019479
 GameObject:
   m_ObjectHideFlags: 0

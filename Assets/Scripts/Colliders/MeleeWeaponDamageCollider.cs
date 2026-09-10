@@ -42,6 +42,10 @@ namespace Colliders
         
         protected override void CalculateDamage(CharacterManager character)
         {
+            if (charactersDamaged.Contains(character)) return;
+            charactersDamaged.Add(character);
+
+            
             Debug.Log("deal damange to: "+ character.gameObject.name);
             int  damage = physicalDamage + fireDamage + poisonDamage + lightningDamage;
             TakeDamageEffect effect = Instantiate(WorldCharacterEffectsManager.instance.takeDamageEffect);
