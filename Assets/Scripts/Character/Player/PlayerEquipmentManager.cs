@@ -12,8 +12,8 @@ namespace Character.Player
         public GameObject rightHandWeaponModel;
         public GameObject leftHandWeaponModel;
         
-        private WeaponManager leftHandManager;
-        private WeaponManager rightHandManager;
+        private WeaponManager _leftHandWeaponManager;
+        private WeaponManager _rightHandWeaponManager;
 
         private InputAction _changeItemRight;
         private InputAction _changeItemLeft;
@@ -76,8 +76,8 @@ namespace Character.Player
                 leftHandWeaponModel =
                     Instantiate(playerManager.playerInventoryManager.currentLeftHandWeapon.weaponModel);
                 leftHandSlot.LoadWeaponModel(leftHandWeaponModel);
-                leftHandManager = leftHandWeaponModel.GetComponent<WeaponManager>();
-                leftHandManager.SetWeaponDamage(playerManager.playerInventoryManager.currentLeftHandWeapon, playerManager);
+                _leftHandWeaponManager = leftHandWeaponModel.GetComponent<WeaponManager>();
+                _leftHandWeaponManager.SetWeaponDamage(playerManager.playerInventoryManager.currentLeftHandWeapon, playerManager);
             }
         }
 
@@ -89,8 +89,8 @@ namespace Character.Player
                 rightHandWeaponModel =
                     Instantiate(playerManager.playerInventoryManager.currentRightHandWeapon.weaponModel);
                 rightHandSlot.LoadWeaponModel(rightHandWeaponModel);
-                rightHandManager = rightHandWeaponModel.GetComponent<WeaponManager>();
-                rightHandManager.SetWeaponDamage(playerManager.playerInventoryManager.currentRightHandWeapon, playerManager);
+                _rightHandWeaponManager = rightHandWeaponModel.GetComponent<WeaponManager>();
+                _rightHandWeaponManager.SetWeaponDamage(playerManager.playerInventoryManager.currentRightHandWeapon, playerManager);
             }
         }
 
@@ -117,11 +117,13 @@ namespace Character.Player
             
             if (playerManager.characterCombatManager.currentlyUsingRightHand)
             {
-                rightHandManager.damageCollider.EnableDamageCollider();
+                _rightHandWeaponManager.damageCollider.EnableDamageCollider();
+                _rightHandWeaponManager.ToggleWeaponTrail(true);
             }
             else
             {
-                leftHandManager.damageCollider.EnableDamageCollider();
+                _leftHandWeaponManager.damageCollider.EnableDamageCollider();
+                _leftHandWeaponManager.ToggleWeaponTrail(true);
             }
             // play whoosh SFX
         }
@@ -131,11 +133,13 @@ namespace Character.Player
             
             if (playerManager.characterCombatManager.currentlyUsingRightHand)
             {
-                rightHandManager.damageCollider.DisableDamageCollider();
+                _rightHandWeaponManager.damageCollider.DisableDamageCollider();
+                _rightHandWeaponManager.ToggleWeaponTrail(false);
             }
             else
             {
-                leftHandManager.damageCollider.DisableDamageCollider();
+                _leftHandWeaponManager.damageCollider.DisableDamageCollider();
+                _leftHandWeaponManager.ToggleWeaponTrail(false);
             }
         }
     }

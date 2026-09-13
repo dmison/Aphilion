@@ -8,12 +8,28 @@ namespace Items
     public class WeaponManager: MonoBehaviour
     {
         public MeleeWeaponDamageCollider damageCollider;
-
+        private ParticleSystem _weaponTrail;
+        
         private void Awake()
         {
             damageCollider = GetComponent<MeleeWeaponDamageCollider>();
+            _weaponTrail = GetComponentInChildren<ParticleSystem>();
         }
-
+        
+        public void ToggleWeaponTrail(bool status)
+        {
+            if (!_weaponTrail) return;
+            if (status)
+            {
+                _weaponTrail.Play();
+            }
+            else
+            {
+                _weaponTrail.Stop();
+            }
+            
+        }
+        
         public void SetWeaponDamage(WeaponItem weapon, CharacterManager wielder)
         {
             damageCollider.characterWielding = wielder;

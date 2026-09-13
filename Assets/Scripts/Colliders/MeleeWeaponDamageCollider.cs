@@ -77,5 +77,17 @@ namespace Colliders
             effect.poiseDamage  = Mathf.RoundToInt(effect.poiseDamage * modifier);
             return effect;
         }
+        
+        public virtual void EnableDamageCollider()
+        {
+            damageCollider.enabled = true;
+            
+        }
+        
+        public virtual void DisableDamageCollider()
+        {
+            damageCollider.enabled = false;
+            charactersDamaged.Clear();
+        }
     }
 }

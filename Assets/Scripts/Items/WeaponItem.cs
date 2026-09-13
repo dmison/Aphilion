@@ -7,7 +7,8 @@ namespace Items
     {
         [Header("Weapon Model")] 
         public GameObject weaponModel;
-
+        public ParticleSystem WeaponTrail;
+        
         [Header("Weapon Requirements")] 
         public int strengthREQ = 0;
         public int dexterityREQ = 0;

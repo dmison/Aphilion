@@ -236,13 +236,13 @@ All the isms
 
 # Sprint 4
 
-- [ ] AI damage dealing
+- [x] AI damage dealing
 
-- sound effects
-    - [ ] weapon whoosh
+- combat sound effects
+    - [ ] weapon whoosh 
     - [ ] player take damage grunt
     - [ ] skeleton idle/chase/attack sound
-- [ ] weapon trail effect
+- [x] weapon trail effect
  
 - [ ] bonfire/well respawn on death
 - [ ] decide on respawn point model / name / concept
@@ -258,10 +258,10 @@ All the isms
 - [ ] enemy healthbars
 - [ ] decide on a set of weapons to include
 - [ ] two-handed weapons
-- [ ] weapon-based animation controllers (animation overrides)
 - [ ] interact-able objects
 - [ ] poise
 - [ ] weapon combos
+- [ ] weapon-based animation controllers (animation overrides)
 
 ## Week 8 (Mon Sep  7 - Sun Sep 13)
 
@@ -270,6 +270,77 @@ All the isms
 - planning
     - add an effect of a spreading pool of liquid under the dead player body
     - when respawn is implemented, pool of similarly coloured liquid that you crawl out of.  maybe a well of some sort.
+
+### Sat Sept 12
+
+ - added weapon trails
+
+#### unqiue value proposition
+re discussion with Alex: What core "souls" mechanic should I tweak?
+
+Elements:
+- combat
+    - stamina
+    - lock on
+    - blocking
+    - poise
+    - ripost
+- currency / leveling
+- respawn
+- flask healing
+
+Stamina does feels like the obvious one.
+
+##### momentum
+
+ - how to replicate the importance of maintaining momentum against an enemy?
+ - power meter that builds up for each attack that lands
+ - depletes when you get hit
+ - power is required to use special abilities
+
+I like this one.
+
+##### healing
+
+ - no stamina
+ - special abilities require "resolve" to be spent
+ - resolve gained via attacks
+ - healing is an ability that consumes resolve
+
+##### healing 2
+
+ - after certain attacks land there is a "gears of war" style time meter that appears
+ - if you time a button press with it you heal back an amount 
+
+##### Pheonix concept
+ - combining health & stamina
+ - you have much more, but many actions consume it
+ - it also slowly ticks down over time
+   - this negates slow exploration play so maybe not
+ - attacking/defeating enemies increases it
+   - similar to Mortal Shell 2 resolve
+ - incentivizes aggression & speed
+ - maybe healing locations, special fires that you consume
+
+ - I think this might detract from the exploration, 
+ - players would be incentivised to only think in terms
+ - of paths, not the environment & hence any environmental
+ - story telling would have to be very free of nuance or
+ - detail
+
+##### time markers
+ - when the marker is activated complete world state is saved
+ - dying resets you back to a the most recently activated marker 
+   and resets world state to the marker
+ - quick travel resets world state to the marker
+ - you are travelling in time
+ - you can't travel forward, only back
+ - some things, major bosses perhaps don't reset because they exist out of time like you do
+
+
+
+
+
 
 
 
@@ -311,3 +382,4 @@ All the isms
 
 # Cleanup
 ## Week 13 (Mon Oct  19 - Sun Oct 25)
+

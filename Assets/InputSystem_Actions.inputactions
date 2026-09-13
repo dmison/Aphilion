@@ -176,6 +176,17 @@
                 },
                 {
                     "name": "",
+                    "id": "af4b4002-45d5-4f48-abb2-acb991829445",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "c3b8751e-64e5-4b23-bd26-84e1b666bd36",
                     "path": "<Keyboard>/tab",
                     "interactions": "",

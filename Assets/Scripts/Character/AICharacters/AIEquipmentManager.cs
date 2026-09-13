@@ -68,15 +68,15 @@ namespace Character.AICharacters
         
         public void OpenDamageColliders()
         {
-            
             _rightHandManager.damageCollider.EnableDamageCollider();
+            _rightHandManager.ToggleWeaponTrail(true);
             // play whoosh SFX
         }
 
         public void CloseDamageColliders()
         {
             _rightHandManager.damageCollider.DisableDamageCollider();
-            
+            _rightHandManager.ToggleWeaponTrail(false);
         }
     }
 
