@@ -42,6 +42,9 @@ namespace Items
         [Header("Actions")] 
         public WeaponItemAction OH_RB_Action; //One-handed, Right bumper action 
 
+        [Header("Audio")]
+        public AudioClip[] whooshSounds;
+        
         // BLOCKING SOUNDS
     }
 }

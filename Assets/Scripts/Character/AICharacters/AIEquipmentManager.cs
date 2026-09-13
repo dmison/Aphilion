@@ -71,6 +71,11 @@ namespace Character.AICharacters
             _rightHandManager.damageCollider.EnableDamageCollider();
             _rightHandManager.ToggleWeaponTrail(true);
             // play whoosh SFX
+            _aiCharacter.characterSoundEffectsManager.PlaySoundFX(
+                WorldSoundFxManager.instance.ChooseRandomClip(
+                    rightHandWeaponItem.whooshSounds
+                )
+            );
         }
 
         public void CloseDamageColliders()

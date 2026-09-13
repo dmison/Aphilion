@@ -17,6 +17,7 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemId: 1
   weaponModel: {fileID: 8011566013882336049, guid: ab625ca4185fd40b795841bcff813261, type: 3}
+  WeaponTrail: {fileID: 2071699933861994378, guid: 89a36e962b56548f7a938a7a08b7b14b, type: 3}
   strengthREQ: 10
   dexterityREQ: 10
   physicalDamage: 50
@@ -28,4 +29,9 @@ MonoBehaviour:
   baseStaminaCost: 20
   lightAttackStaminaModifier: 1.1
   OH_RB_Action: {fileID: 11400000, guid: 7a28e443268264f49a6a56d82ddbcfc4, type: 2}
-  WeaponTrail: {fileID: 2071699933861994378, guid: 89a36e962b56548f7a938a7a08b7b14b, type: 3}
+  whooshSounds:
+  - {fileID: 8300000, guid: cea78630dc17f46ef923ec79772dc11f, type: 3}
+  - {fileID: 8300000, guid: 4332b39ff908345028602bead45e3001, type: 3}
+  - {fileID: 8300000, guid: 39f07e1f5c97840beb02b55da30b7367, type: 3}
+  - {fileID: 8300000, guid: 503c3e4af416d44f49b620f3d2281fa3, type: 3}
+  - {fileID: 8300000, guid: ae44a1492910a43799bdae52b1cd203e, type: 3}

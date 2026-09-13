@@ -119,13 +119,23 @@ namespace Character.Player
             {
                 _rightHandWeaponManager.damageCollider.EnableDamageCollider();
                 _rightHandWeaponManager.ToggleWeaponTrail(true);
+                playerManager.characterSoundEffectsManager.PlaySoundFX(
+                    WorldSoundFxManager.instance.ChooseRandomClip(
+                        playerManager.playerInventoryManager.currentRightHandWeapon.whooshSounds
+                        )
+                    );
             }
             else
             {
                 _leftHandWeaponManager.damageCollider.EnableDamageCollider();
                 _leftHandWeaponManager.ToggleWeaponTrail(true);
+                playerManager.characterSoundEffectsManager.PlaySoundFX(
+                    WorldSoundFxManager.instance.ChooseRandomClip(
+                        playerManager.playerInventoryManager.currentLeftHandWeapon.whooshSounds
+                    )
+                );
             }
-            // play whoosh SFX
+            
         }
 
         public void CloseDamageColliders()

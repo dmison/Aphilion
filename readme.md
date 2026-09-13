@@ -239,7 +239,7 @@ All the isms
 - [x] AI damage dealing
 
 - combat sound effects
-    - [ ] weapon whoosh 
+    - [x] weapon whoosh 
     - [ ] player take damage grunt
     - [ ] skeleton idle/chase/attack sound
 - [x] weapon trail effect
@@ -338,7 +338,9 @@ I like this one.
  - some things, major bosses perhaps don't reset because they exist out of time like you do
 
 
+### Sun Sept 13 
 
+ - basic weapon whoosh implemented
 
 
 
