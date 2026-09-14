@@ -532,13 +532,10 @@ MonoBehaviour:
   canRotate: 1
   canMove: 1
   isGrounded: 1
+  isMoving: 0
   playerMovementManager: {fileID: 0}
-  playerAnimationManager: {fileID: 0}
-  playerStatsManager: {fileID: 0}
-  playerEffectsManager: {fileID: 0}
   playerEquipmentManager: {fileID: 0}
   playerInventoryManager: {fileID: 0}
-  playerCombatManager: {fileID: 0}
   playerSoundEffectsManager: {fileID: 0}
 --- !u!114 &842761884305693223
 MonoBehaviour:
@@ -665,11 +662,13 @@ MonoBehaviour:
   currentWeaponBeingUsed: {fileID: 0}
   currentAttackType: 0
   currentLockTarget: {fileID: 0}
-  lockOnTransform: {fileID: 0}
+  lockedOn: 0
   currentlyUsingRightHand: 0
+  distanceFromTarget: 0
+  viewableAngle: 0
+  lockOnTransform: {fileID: 0}
   lockOnRadius: 10
   lockOnViewAngle: 100
-  lockedOn: 0
 --- !u!114 &4966468417716067108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,6 +681,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b149774d7bf44ea39cae1e9ea34589e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character.Player.PlayerSoundEffectsManager
+  femaleScreams:
+  - {fileID: 8300000, guid: bc81071dec69b4a4997c660cbffe7883, type: 3}
+  - {fileID: 8300000, guid: e6ca76298fe5649d1b99b380429add16, type: 3}
+  - {fileID: 8300000, guid: 9dbe5f48838eb48b5a817c64ab3d1941, type: 3}
+  - {fileID: 8300000, guid: 58fd4b45d197147c1a626d0603a8cf2e, type: 3}
+  - {fileID: 8300000, guid: e3c0cdadc04a64fca8c56d5d2c02549a, type: 3}
+  - {fileID: 8300000, guid: 991bf5e55f3ec4e8795bed8761ba1811, type: 3}
+  - {fileID: 8300000, guid: ca13501a7cff54d708b9486241da4a27, type: 3}
+  - {fileID: 8300000, guid: ee60841881e0347a2bb371570683f3af, type: 3}
+  femaleHitGrunts:
+  - {fileID: 8300000, guid: 6e03ec1eff86d40baa7dad16a66237be, type: 3}
+  - {fileID: 8300000, guid: c6a421199eacb4a50b24be8d08e904dd, type: 3}
+  - {fileID: 8300000, guid: 986c7f0e6d6874790bfaa4a45f542e57, type: 3}
+  - {fileID: 8300000, guid: 114da9242ad82495ea1b4a3e7ebb530d, type: 3}
+  - {fileID: 8300000, guid: b9ea45978f274418caf4077aaa8561a2, type: 3}
+  - {fileID: 8300000, guid: 435a4c36083284e058c10e57b2f87b28, type: 3}
+  - {fileID: 8300000, guid: 40861d8f8572a48b0b7949fc6d532e5f, type: 3}
+  - {fileID: 8300000, guid: 688bfb6bafd50433697a0654102b8b46, type: 3}
+  - {fileID: 8300000, guid: a480dd3f36d65437793791188ae3c94f, type: 3}
 --- !u!82 &6777238875824495286
 AudioSource:
   m_ObjectHideFlags: 0

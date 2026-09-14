@@ -45,7 +45,6 @@ GameObject:
   - component: {fileID: 944930969712335514}
   - component: {fileID: 325000120100472611}
   - component: {fileID: 712390696078868688}
-  - component: {fileID: 5591576398461217043}
   - component: {fileID: 6195887171764394318}
   - component: {fileID: 2214936536363232385}
   - component: {fileID: 9123142589604653394}
@@ -58,6 +57,7 @@ GameObject:
   - component: {fileID: 1184899509796044227}
   - component: {fileID: 2114324128021917258}
   - component: {fileID: 4855730984821268413}
+  - component: {fileID: -3518011596202790507}
   m_Layer: 8
   m_Name: Skeleton1
   m_TagString: Untagged
@@ -162,18 +162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef30744e71834cc68000db27dc0dd85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character.CharacterInventoryManager
---- !u!114 &5591576398461217043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729366162272280421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f76bf5645aa947258f098de305a4b91c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Character.CharacterSoundEffectsManager
 --- !u!114 &6195887171764394318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,13 +367,14 @@ MonoBehaviour:
   canRotate: 1
   canMove: 1
   isGrounded: 1
+  actionRecoveryTimer: 0
   isMoving: 0
   currentState: {fileID: 11400000, guid: 1faaa6ea63b1c48a89dca75889e8a040, type: 2}
   idleState: {fileID: 11400000, guid: 1faaa6ea63b1c48a89dca75889e8a040, type: 2}
   pursueState: {fileID: 11400000, guid: 3a7ad9da99d3944f8b53764f91c34c79, type: 2}
   combatStanceState: {fileID: 11400000, guid: fa9882a2557dcfac89da34f981f68a2c, type: 2}
   attackState: {fileID: 11400000, guid: 953d1955942c59206a3c813bb8cd0b83, type: 2}
-  actionRecoveryTimer: 0
+  skeletonCombatManager: {fileID: 0}
   navMeshAgent: {fileID: 0}
   senses: {fileID: 0}
 --- !u!114 &3097722502156841112
@@ -497,6 +486,66 @@ MonoBehaviour:
   rightHandWeaponModel: {fileID: 0}
   leftHandWeaponModel: {fileID: 0}
   rightHandWeaponItem: {fileID: 11400000, guid: 79ad38ebdb98748c9b01f8f09d0e3e88, type: 2}
+--- !u!114 &-3518011596202790507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729366162272280421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee45ada4ab54394913acbc4ec79c0fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Character.AICharacters.Skeleton.SkeletonAISoundFXManager
+  aggro:
+  - {fileID: 8300000, guid: 6fb508208003f4f33ab1170cf699bb29, type: 3}
+  - {fileID: 8300000, guid: 12b44919859664f979f79818f93fcf49, type: 3}
+  - {fileID: 8300000, guid: 2a4788a91d28f46508a98a84aec5298b, type: 3}
+  - {fileID: 8300000, guid: e95c9096419814d2a8b7be41ffc8db98, type: 3}
+  - {fileID: 8300000, guid: 3c6c86f05ddfd4e29b87bd4798cc8816, type: 3}
+  - {fileID: 8300000, guid: a9f4452fb6d4d4bdcb6bae9aa5c3ee4e, type: 3}
+  - {fileID: 8300000, guid: 8d2ab29712a0f4b7b8e6e32a19f4b475, type: 3}
+  - {fileID: 8300000, guid: a1c7b41fe5efc407097f1367f05b016e, type: 3}
+  - {fileID: 8300000, guid: ff7a7c97571544e67911fb4c22aff6ca, type: 3}
+  - {fileID: 8300000, guid: 7f68b2b1e3c734746875ac73366f2a36, type: 3}
+  - {fileID: 8300000, guid: e621f9672893a46149b1cb8c28f3ecb5, type: 3}
+  - {fileID: 8300000, guid: 17dc9342fc68c4e658b68f2f4c0f8f12, type: 3}
+  gruntHit:
+  - {fileID: 8300000, guid: f8befbfcbeebb47d8ae25be75e6e12b9, type: 3}
+  - {fileID: 8300000, guid: 3b50bb157638a4137a82ddc6f8db0734, type: 3}
+  - {fileID: 8300000, guid: 1884c4fbdc3ae4a02a8c52549f281c24, type: 3}
+  - {fileID: 8300000, guid: 278c5ec18cc2a4866ac29a8787dfe240, type: 3}
+  - {fileID: 8300000, guid: 7a4d1f0654c6a4c3daaefcf8730222f4, type: 3}
+  - {fileID: 8300000, guid: 0a0c38088c2194f278a0819fa9134f89, type: 3}
+  - {fileID: 8300000, guid: 726667d86435f4efb94ad11fc83d66c1, type: 3}
+  - {fileID: 8300000, guid: 3eea68a09f4b64d0c8784fc0c856fd44, type: 3}
+  - {fileID: 8300000, guid: 2127ae9c2b45e42d09c800e44a1573b2, type: 3}
+  - {fileID: 8300000, guid: 1705bd3e415fc4e749542c78c00d2fb1, type: 3}
+  - {fileID: 8300000, guid: dc36f6b78cfee46e6bbde26d15be42ae, type: 3}
+  - {fileID: 8300000, guid: 78bc50bf329854c91b1fe87b85326bdc, type: 3}
+  gruntAttack:
+  - {fileID: 8300000, guid: 2b83b0071c00a4845a0b2e9ac8800738, type: 3}
+  - {fileID: 8300000, guid: 470c5daedd75c419d9173d849a22bd40, type: 3}
+  - {fileID: 8300000, guid: 4cc2b4b1a2c894cce891897b1438e3ee, type: 3}
+  - {fileID: 8300000, guid: 62f9ea88939c140469cf3cd8177c5f98, type: 3}
+  - {fileID: 8300000, guid: 7389cb4046fb7413eafa6995b1618dce, type: 3}
+  - {fileID: 8300000, guid: a1a9cc1c203c945bfa74c8a71900794a, type: 3}
+  - {fileID: 8300000, guid: d0f5e94abc11a4eba99a25b2bc7499ee, type: 3}
+  - {fileID: 8300000, guid: 0fe45d74ed771450ca13961133aafcd5, type: 3}
+  - {fileID: 8300000, guid: 71ba46f0d543c4d49b85a3cfdcf2babd, type: 3}
+  - {fileID: 8300000, guid: 1c01854098d56405186c92dbe5bde63f, type: 3}
+  die:
+  - {fileID: 8300000, guid: c1e914af09e434172bf4be7f79bfdb98, type: 3}
+  - {fileID: 8300000, guid: 1b8b137422c074ca9a2798efc2da301d, type: 3}
+  - {fileID: 8300000, guid: dce25b1529c814f868b65149902f1ce1, type: 3}
+  - {fileID: 8300000, guid: 7b36d511ccbee44d38ba201ed3086d26, type: 3}
+  - {fileID: 8300000, guid: ae5f4a8473086489985ca647ff4be2f0, type: 3}
+  - {fileID: 8300000, guid: 4d91e46ef75194697acf838feaf46b4d, type: 3}
+  - {fileID: 8300000, guid: 601439fa539d74acab1fd4a1fdba6367, type: 3}
+  - {fileID: 8300000, guid: 0b728b056452e47538cea773ec086882, type: 3}
+  - {fileID: 8300000, guid: 0c93b0c2568bd4387a76a016f8c8905e, type: 3}
+  - {fileID: 8300000, guid: 35e136906f567475ba23f9a0b8471e92, type: 3}
 --- !u!1 &757107840937012798
 GameObject:
   m_ObjectHideFlags: 0
