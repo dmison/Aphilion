@@ -7,18 +7,18 @@ namespace Character.AICharacters.States
     {
         private static readonly int IsMoving = Animator.StringToHash("IsMoving");
 
-        public override AIState Tick(AICharacterManager aiCharacter)
+        public override AIState Tick(AICharacterManager aICharacter)
         {
-            if (aiCharacter.isPerformingAction) return this;
+            if (aICharacter.isPerformingAction) return this;
 
-            if (!aiCharacter.characterCombatManager.currentLockTarget)
+            if (!aICharacter.characterCombatManager.currentLockTarget)
             {
-                return SwitchState(aiCharacter, aiCharacter.idleState);
+                return SwitchState(aICharacter, aICharacter.idleState);
             }
 
-            if (!aiCharacter.navMeshAgent.enabled)
+            if (!aICharacter.navMeshAgent.enabled)
             {
-                aiCharacter.navMeshAgent.enabled = true;
+                aICharacter.navMeshAgent.enabled = true;
             }
             
             
@@ -27,15 +27,15 @@ namespace Character.AICharacters.States
             // {
             //     return SwitchState(aiCharacter, aiCharacter.idleState);
             // }
-            if (aiCharacter.characterCombatManager.distanceFromTarget <= aiCharacter.navMeshAgent.stoppingDistance)
+            if (aICharacter.characterCombatManager.distanceFromTarget <= aICharacter.navMeshAgent.stoppingDistance)
             {
-                return SwitchState(aiCharacter, aiCharacter.combatStanceState);
+                return SwitchState(aICharacter, aICharacter.combatStanceState);
             }
             
             
-            aiCharacter.animator.SetBool(IsMoving, true);
-            aiCharacter.navMeshAgent.SetDestination(aiCharacter.characterCombatManager.currentLockTarget.transform.position);
-            aiCharacter.characterAnimationManager.UpdateAnimatorMovementParameters(0, 1);
+            aICharacter.animator.SetBool(IsMoving, true);
+            aICharacter.navMeshAgent.SetDestination(aICharacter.characterCombatManager.currentLockTarget.transform.position);
+            aICharacter.characterAnimationManager.UpdateAnimatorMovementParameters(0, 1);
             return this;    
         }
     }

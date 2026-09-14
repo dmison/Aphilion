@@ -4,18 +4,18 @@ namespace Character.AICharacters.States
 {
     public class AIState : ScriptableObject
     {
-        public virtual AIState Tick(AICharacterManager aiCharacter)
+        public virtual AIState Tick(AICharacterManager aICharacter)
         {
             return this;
         }
 
-        public virtual AIState SwitchState(AICharacterManager aiCharacter, AIState newState)
+        public virtual AIState SwitchState(AICharacterManager aICharacter, AIState newState)
         {
-            ResetStateFlags(aiCharacter);
+            ResetStateFlags(aICharacter);
             return newState;
         }
 
-        protected virtual void ResetStateFlags(AICharacterManager aiCharacter)
+        protected virtual void ResetStateFlags(AICharacterManager aICharacter)
         {
             
         }

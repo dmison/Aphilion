@@ -1,12 +1,11 @@
-
 using Items;
 using UnityEngine;
 
-namespace Character.AICharacters
+namespace Character.AICharacters.Skeleton
 {
-    public class AIEquipmentManager: CharacterEquipmentManager
+    public class SkeletonAIEquipmentManager: CharacterEquipmentManager
     {
-        private AICharacterManager _aiCharacter;
+        // private SkeletonAICharacterManager _skeletonAICharacter;
         
         public WeaponModelInstanceSlot rightHandSlot;
         public WeaponModelInstanceSlot leftHandSlot;
@@ -27,7 +26,7 @@ namespace Character.AICharacters
         protected override void Awake()
         {
             base.Awake();
-            _aiCharacter = GetComponent<AICharacterManager>();
+            // _skeletonAICharacter = GetComponent<SkeletonAICharacterManager>();
             InitializeWeaponSlots();
         }
 
@@ -62,7 +61,7 @@ namespace Character.AICharacters
             rightHandWeaponModel = Instantiate(rightHandWeaponItem.weaponModel);
             rightHandSlot.LoadWeaponModel(rightHandWeaponModel);
             _rightHandManager = rightHandWeaponModel.GetComponent<WeaponManager>();
-            _rightHandManager.SetWeaponDamage(rightHandWeaponItem, _aiCharacter);
+            _rightHandManager.SetWeaponDamage(rightHandWeaponItem, _characterManager);
         }
         
         
@@ -71,7 +70,7 @@ namespace Character.AICharacters
             _rightHandManager.damageCollider.EnableDamageCollider();
             _rightHandManager.ToggleWeaponTrail(true);
             // play whoosh SFX
-            _aiCharacter.characterSoundEffectsManager.PlaySoundFX(
+            _characterManager.characterSoundEffectsManager.PlaySoundFX(
                 WorldSoundFxManager.instance.ChooseRandomClip(
                     rightHandWeaponItem.whooshSounds
                 )

@@ -8,10 +8,12 @@ namespace Character.AICharacters.States
     {
         private static readonly int IsMoving = Animator.StringToHash("IsMoving");
 
-        public override AIState Tick(AICharacterManager aiCharacter)
+        public override AIState Tick(AICharacterManager aICharacter)
         {
-            // if we have target then: PURSUE
-            if (aiCharacter.characterCombatManager.currentLockTarget)
+            // if we have a live target then: PURSUE
+            if (aICharacter.characterCombatManager.currentLockTarget && 
+                !aICharacter.characterCombatManager.currentLockTarget.IsDead
+                )
             {
                 // float angle = WorldUtilityManager.Instance.GetAngleToTarget(aiCharacter.transform, aiCharacter.characterCombatManager.DirectionToTarget);
                 // if(angle is > 25 or < -25)
@@ -20,15 +22,17 @@ namespace Character.AICharacters.States
                 // }
                 // else
                 // {
-                    return SwitchState(aiCharacter, aiCharacter.pursueState);
+                
+                aICharacter.characterSoundEffectsManager.PlayAggro();
+                    return SwitchState(aICharacter, aICharacter.pursueState);
                 // }
             }
             else
             {
-                aiCharacter.animator.SetBool(IsMoving, false);
-                aiCharacter.characterAnimationManager.UpdateAnimatorMovementParameters(0, 0);
+                aICharacter.animator.SetBool(IsMoving, false);
+                aICharacter.characterAnimationManager.UpdateAnimatorMovementParameters(0, 0);
                 // try to find a target
-                aiCharacter.characterCombatManager.FindValidTarget();
+                aICharacter.characterCombatManager.FindValidTarget();
             }
 
             return this;

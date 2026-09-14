@@ -1,3 +1,4 @@
+using Character.AICharacters.Skeleton;
 using UnityEngine;
 
 namespace Character.AICharacters.Actions
@@ -23,9 +24,9 @@ namespace Character.AICharacters.Actions
         public float minimumAttackDistance = 0;
         public float maximumAttackDistance = 2;
         
-        public void AttemptToPerformAction(AICharacterManager aiCharacterManager)
+        public void AttemptToPerformAction(CharacterManager aICharacter)
         {   
-            aiCharacterManager.characterAnimationManager.PlayTargetAttackActionAnimation(attackType, attackAnimation);
+            aICharacter.characterAnimationManager.PlayTargetAttackActionAnimation(attackType, attackAnimation);
         }
     }
 }

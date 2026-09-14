@@ -7,10 +7,13 @@ namespace Character
     public class CharacterSoundEffectsManager: MonoBehaviour
     {
         protected AudioSource _audioSource;
+        protected CharacterManager _characterManager;
+        
 
         protected virtual void Awake()
         {
             _audioSource = GetComponent<AudioSource>();
+            _characterManager = GetComponent<CharacterManager>();
         }
 
         public virtual void PlayRollSoundFX()
@@ -18,6 +21,7 @@ namespace Character
             PlaySoundFX(WorldSoundFxManager.instance.rollSFX);
         }
 
+        
         public virtual void PlaySoundFX(AudioClip soundFX, float volume = 1, bool randomPitch = true,
             float pitchRandom = 0.1f)
         {
@@ -28,6 +32,21 @@ namespace Character
             _audioSource.PlayOneShot(soundFX, volume);
             _audioSource.pitch = 1;
         }
+        protected void PlayRandom(AudioClip[] clips)
+        {
+            PlaySoundFX(WorldSoundFxManager.instance.ChooseRandomClip(clips));
+        }
+        public virtual void PlayHitGruntSoundFX()
+        {
+            
+        }
+        public virtual void PlayDie() { }
+        public virtual void PlayAggro() { }
+        public virtual void PlayAttack() { }
         
+        public virtual void PlayIdle(){ }
     }
 }
+
+
+        

@@ -17,19 +17,19 @@ namespace Character.AICharacters.States
         [Header("Pivot After Attack")]
         [SerializeField] protected bool pivotAfterAttack = false;
 
-        public override AIState Tick(AICharacterManager aiCharacter)
+        public override AIState Tick(AICharacterManager aICharacter)
         {
-            if (!aiCharacter.characterCombatManager.currentLockTarget)
+            if (!aICharacter.characterCombatManager.currentLockTarget)
             {
-                return SwitchState(aiCharacter, aiCharacter.idleState);
+                return SwitchState(aICharacter, aICharacter.idleState);
             }
             
-            if(aiCharacter.characterCombatManager.currentLockTarget.IsDead)
+            if(aICharacter.characterCombatManager.currentLockTarget.IsDead)
             {
-                return SwitchState(aiCharacter, aiCharacter.idleState);
+                return SwitchState(aICharacter, aICharacter.idleState);
             }
             // ROTATE TOWARDS CHARACTER WHILST ATTACKING
-            aiCharacter.characterAnimationManager.UpdateAnimatorMovementParameters(0, 0);
+            aICharacter.characterAnimationManager.UpdateAnimatorMovementParameters(0, 0);
             
             
             // PERFORM A COMBO
@@ -45,33 +45,34 @@ namespace Character.AICharacters.States
 
             if (!hasPerformedAttack)
             {
-                if (aiCharacter.actionRecoveryTimer > 0) return this;
-                if (aiCharacter.isPerformingAction) return this;
+                if (aICharacter.actionRecoveryTimer > 0) return this;
+                if (aICharacter.isPerformingAction) return this;
 
-                PerformAttack(aiCharacter);
+                PerformAttack(aICharacter);
                 return this;
             }
 
 
             if (pivotAfterAttack)
             {
-                aiCharacter.characterCombatManager.PivotTowardsTarget(aiCharacter);
+                aICharacter.characterCombatManager.PivotTowardsTarget(aICharacter);
             }
             
-            return SwitchState(aiCharacter, aiCharacter.combatStanceState);
+            return SwitchState(aICharacter, aICharacter.combatStanceState);
             
         }
 
-        protected void PerformAttack(AICharacterManager aiCharacter)
+        protected void PerformAttack(AICharacterManager aICharacter)
         {
             hasPerformedAttack = true;
-            currentAttack.AttemptToPerformAction(aiCharacter);
-            aiCharacter.actionRecoveryTimer = currentAttack.actionRecoveryTime;
+            currentAttack.AttemptToPerformAction(aICharacter);
+            aICharacter.characterSoundEffectsManager.PlayAttack();
+            aICharacter.actionRecoveryTimer = currentAttack.actionRecoveryTime;
         }
 
-        protected override void ResetStateFlags(AICharacterManager aiCharacter)
+        protected override void ResetStateFlags(AICharacterManager aICharacter)
         {
-            base.ResetStateFlags(aiCharacter);
+            base.ResetStateFlags(aICharacter);
             hasPerformedAttack = false;
             hasPerformedCombo = false;
         }

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Character.AICharacters.Actions;
-using Unity.IntegerTime;
 using UnityEngine;
 
 namespace Character.AICharacters.States
@@ -26,70 +25,70 @@ namespace Character.AICharacters.States
         [Header("Engagement Distance")]
         [SerializeField] protected float maxEngagementDistance = 5;
 
-        public override AIState Tick(AICharacterManager aiCharacter)
+        public override AIState Tick(AICharacterManager aICharacter)
         {
-            if (aiCharacter.isPerformingAction) return this;
-            if (!aiCharacter.navMeshAgent.enabled)
+            if (aICharacter.isPerformingAction) return this;
+            if (!aICharacter.navMeshAgent.enabled)
             {
-                aiCharacter.navMeshAgent.enabled = true;
+                aICharacter.navMeshAgent.enabled = true;
             }
 
             
-            if (!aiCharacter.isMoving)
+            if (!aICharacter.isMoving)
             {
-                if (aiCharacter.characterCombatManager.viewableAngle is < -30 or > 30)
+                if (aICharacter.characterCombatManager.viewableAngle is < -30 or > 30)
                 {
-                    aiCharacter.characterCombatManager.PivotTowardsTarget(aiCharacter);
+                    aICharacter.characterCombatManager.PivotTowardsTarget(aICharacter);
                     // turn to face target
                 }    
             }
             
-            aiCharacter.characterCombatManager.RotateTowardsAgent(aiCharacter.navMeshAgent.transform);
+            aICharacter.characterCombatManager.RotateTowardsAgent(aICharacter.navMeshAgent.transform);
             
             // lost target: go back to idle
-            if (!aiCharacter.characterCombatManager.currentLockTarget)
+            if (!aICharacter.characterCombatManager.currentLockTarget)
             {
-                return SwitchState(aiCharacter, aiCharacter.idleState);
+                return SwitchState(aICharacter, aICharacter.idleState);
             }
 
             if (!hasAttack)
             {
-                GetNewAttack(aiCharacter);
+                GetNewAttack(aICharacter);
                 
             }
             else
             {
-                aiCharacter.attackState.currentAttack = chosenAttack;
+                aICharacter.attackState.currentAttack = chosenAttack;
                 // TODO: ROLL FOR COMBO CHANCE
-                return SwitchState(aiCharacter, aiCharacter.attackState);
+                return SwitchState(aICharacter, aICharacter.attackState);
                 
             }
 
             // if too far away then pursue
-            if (aiCharacter.characterCombatManager.distanceFromTarget > maxEngagementDistance)
+            if (aICharacter.characterCombatManager.distanceFromTarget > maxEngagementDistance)
             {
-                SwitchState(aiCharacter, aiCharacter.pursueState);
+                SwitchState(aICharacter, aICharacter.pursueState);
             }
             
             // otherwise ensure we are closing towards target
-            aiCharacter.animator.SetBool(IsMoving, true);
-            aiCharacter.navMeshAgent.SetDestination(aiCharacter.characterCombatManager.currentLockTarget.transform.position);
-            aiCharacter.characterAnimationManager.UpdateAnimatorMovementParameters(0, 1);
+            aICharacter.animator.SetBool(IsMoving, true);
+            aICharacter.navMeshAgent.SetDestination(aICharacter.characterCombatManager.currentLockTarget.transform.position);
+            aICharacter.characterAnimationManager.UpdateAnimatorMovementParameters(0, 1);
             return this;
         }
 
-        protected virtual void GetNewAttack(AICharacterManager aiCharacter)
+        protected virtual void GetNewAttack(AICharacterManager aICharacter)
         {
             potentialAttacks = new List<AICharacterAttackAction>();
             foreach (var attack in aiCharacterAttacks)
             {
                 // range check
-                if(attack.maximumAttackDistance < aiCharacter.characterCombatManager.distanceFromTarget) continue;
-                if (attack.minimumAttackDistance > aiCharacter.characterCombatManager.distanceFromTarget) continue;
+                if(attack.maximumAttackDistance < aICharacter.characterCombatManager.distanceFromTarget) continue;
+                if (attack.minimumAttackDistance > aICharacter.characterCombatManager.distanceFromTarget) continue;
                 
                 // angle check
-                if(attack.maximumAttackAngle < aiCharacter.characterCombatManager.viewableAngle) continue;
-                if(attack.minimumAttackAngle > aiCharacter.characterCombatManager.viewableAngle) continue;
+                if(attack.maximumAttackAngle < aICharacter.characterCombatManager.viewableAngle) continue;
+                if(attack.minimumAttackAngle > aICharacter.characterCombatManager.viewableAngle) continue;
                 
                 potentialAttacks.Add(attack);
             }
@@ -125,9 +124,9 @@ namespace Character.AICharacters.States
             return Random.Range(0, 100) < outcomeChance;
         }
 
-        protected override void ResetStateFlags(AICharacterManager aiCharacter)
+        protected override void ResetStateFlags(AICharacterManager aICharacter)
         {
-            base.ResetStateFlags(aiCharacter);
+            base.ResetStateFlags(aICharacter);
             hasRolledForComboChance = false;
             hasAttack = false;
         }

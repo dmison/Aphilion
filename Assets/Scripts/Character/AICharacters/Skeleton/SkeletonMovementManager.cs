@@ -18,7 +18,7 @@ namespace Character.AICharacters.Skeleton
         [SerializeField] private float sprintStaminaCostPerSecond = 20;
         [SerializeField] private float dodgeStaminaCost = 20;
         
-        private AICharacterManager _skeletonManager;
+        private SkeletonAICharacterManager _skeletonManager;
         
         private Vector3 _moveDirection;
         private Vector3 _targetRotationDirection;
@@ -31,7 +31,7 @@ namespace Character.AICharacters.Skeleton
         protected override void Awake()
         {
             base.Awake();
-            _skeletonManager = GetComponent<AICharacterManager>();
+            _skeletonManager = GetComponent<SkeletonAICharacterManager>();
         }
         
         private void GroundCheck()

@@ -18,27 +18,20 @@ namespace Character.Player
             playerMovementManager = GetComponent<PlayerMovementManager>();
             playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
             playerInventoryManager = GetComponent<PlayerInventoryManager>();
-
-            
             characterController = GetComponent<CharacterController>();
-            
             characterEffectsManager = GetComponent<PlayerEffectsManager>();
             characterAnimationManager = GetComponent<PlayerAnimationManager>();
             characterStatsManager = GetComponent<PlayerStatsManager>();
             characterCombatManager = GetComponent<PlayerCombatManager>();
-            characterSoundEffectsManager =  GetComponent<PlayerSoundEffectsManager>();
+            characterSoundEffectsManager = GetComponent<PlayerSoundEffectsManager>();            
             characterCombatManager = GetComponent<PlayerCombatManager>();
-
             animator = GetComponent<Animator>();
-            
             DontDestroyOnLoad(this);
         }
 
         private void Start()
         {
-            
             PlayerCameraManager.instance.playerManager = this;
-            // characterStatsManager.CurrentHealth = 100;
         }
 
         protected override void LateUpdate()
@@ -48,6 +41,7 @@ namespace Character.Player
         }
         public override IEnumerator HandleDeath(bool manuallySelectAnimation = false)
         {
+            characterSoundEffectsManager.PlayDie();
             characterAnimationManager.PlayTargetActionAnimation("Dead_01");
             InputSystem.actions.FindActionMap("Movement").Disable();
             InputSystem.actions.FindActionMap("Actions").Disable();

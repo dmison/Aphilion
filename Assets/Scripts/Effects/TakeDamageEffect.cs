@@ -54,10 +54,10 @@ namespace Effects
             character.characterEffectsManager.PlayBloodSpatterVFX(impactPoint);
             AudioClip clip = WorldSoundFxManager.instance.ChooseRandomClip(WorldSoundFxManager.instance.genericHitSFX);
 
-            
+            Debug.Log(character);
             
             character.characterSoundEffectsManager.PlaySoundFX(clip);
-            
+            character.characterSoundEffectsManager.PlayHitGruntSoundFX();
         }
 
         private void PlayDirectionalDamageAnimation(CharacterManager character)

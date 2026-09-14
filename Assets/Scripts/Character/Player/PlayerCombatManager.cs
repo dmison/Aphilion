@@ -140,7 +140,7 @@ namespace Character.Player
             {
                 
                 CharacterManager cm  = colliders[i].GetComponent<CharacterManager>();
-                Debug.Log(cm);
+                
                 if (cm == null) continue;                                         // null for some reason
                 if (cm.transform.root == _player.transform.root) continue; // target is player
                 if (cm.IsDead) continue;                                   // target is dead
@@ -231,7 +231,7 @@ namespace Character.Player
         }
 
         // ANIMATION EVENT
-        public void ReduceStaminaBasedOnAttack()
+        public override void ReduceStaminaBasedOnAttack()
         {
             float staminaCost = currentWeaponBeingUsed.baseStaminaCost;
             staminaCost *= currentAttackType switch
