@@ -1,16 +1,40 @@
 using UnityEngine;
+using World;
 
-public class SpawnCrystalManager : MonoBehaviour
+namespace Interactable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class SpawnCrystalManager : MonoBehaviour
     {
-        
-    }
+        public int crystalId;
+        public string crystalName;
+        private bool _playerPresent;
+        private bool _active;
+    
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        private void Start()
+        {
+            WorldCrystalSpawnerManager.Instance.ReportIn(this);
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void OnDestroy()
+        {
+            WorldCrystalSpawnerManager.Instance.RemoveMe(this);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                _playerPresent = true;       
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                _playerPresent = false;
+            }
+        }
     }
 }
