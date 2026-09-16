@@ -11,6 +11,7 @@ namespace Character.Player
         [HideInInspector] public PlayerEquipmentManager playerEquipmentManager;
         [HideInInspector] public PlayerInventoryManager playerInventoryManager;
         
+        public int currentSpawnCrystalId = 1;
         
         protected override void Awake()
         {

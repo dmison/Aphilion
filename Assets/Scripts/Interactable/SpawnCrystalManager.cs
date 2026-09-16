@@ -8,7 +8,7 @@ namespace Interactable
         public int crystalId;
         public string crystalName;
         private bool _playerPresent;
-        private bool _active;
+        [SerializeField] private bool _active;
     
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         private void Start()
