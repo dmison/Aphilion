@@ -240,8 +240,8 @@ All the isms
 
 - combat sound effects
     - [x] weapon whoosh 
-    - [ ] player take damage grunt
-    - [ ] skeleton idle/chase/attack sound
+    - [x] player take damage grunt
+    - [x] skeleton idle/chase/attack sound
 - [x] weapon trail effect
  
 - [ ] bonfire/well respawn on death
@@ -347,6 +347,101 @@ I like this one.
 
 
 ## Week 9 (Mon Sep  14 - Sun Sep 20)
+
+### Wed Sept 16
+
+#### Momentum concept
+
+- Something I want to try and capture is the importance of maintaining momentum in a fight.
+
+---
+<img src="./docs/wulin_tempo.png" >
+Hearts of Wulin P202
+
+---
+
+<img src="./docs/momentum_concept_whiteboard.jpg" >
+ 
+ - Keeping the pressure on your opponent
+ - And how you can lose that
+ - Also creates the interesting situation where the run back to a boss becomes important because you can be  building that up on the way to come into the fight already powered up
+ - Vs avoiding all the enemies & starting the boss fight at zero momentum & having to build it all up against the boss
+ - You could make a boss harder just be reducing your ability to easily build momentum before him
+ - A boss that spawns adds, is giving you a way to build momentum as well as more threats
+ - Maybe the enemies in the  region before the boss could be balanced in terms of how much momentum you gain from them (ie how many hits to kill) so an region effectively has character level that once you pass that you are killing them too easily & not building up enough momentum to be maxed out when you reach the boss
+ - But maybe past that level your abilities would be much better anyway & not need you to max them out as much for that boss
+ - I guess this replaces stamina
+ - Instead of getting tired being a limiting factor, it’s more about being able to snowball into a greater threat
+ - Thinking about if special abilities etc should consume momentum ...
+ - However the benefit of using them is mostly to kill things faster, so using them actually reduces momentum gain
+ - Like having to hit something 3 times gives you 3 times the momentum of one shotting it
+ - And there is always room to build in special cases - maybe some do consume momentum, or health
+ - Or don’t gain momentum when using them
+
+---
+
+ - Laura suggested "salts" as the something that character requires to keep functioning.  She was mostly thinking
+    in terms of marine biology & how land animals essentially have to carry their own little internal sea around with them.
+ - The idea being that the character is originally from the sea but has to exist on land ... hence needs salts.
+ - Not sure if I would want to pursue that in this game but I do like "salts" as the "souls" currency.
+ - It is something you need to live and also fits as currency due to the association with payment of Roman soldiers (not 100% true though)
+ 
+---
+
+### Wed Sept 15 
+
+ - worked on hacking together some UI from the Synty assets
+
+<img src="./docs/startscreen-ss.png" >
+
+<img src="./docs/gamemenu-ss.png" >
+
+<img src="./docs/hud-ss.png" >
+
+---
+
+Giving some more throughts to mechanics, this is more of a future thing but ...
+
+Some of the Synty assets gave me some thoughts, especially the metallic demon skulls.  I like the Ossiarch 
+Bonereapers concept from Age of Sigmar, where they superficially might look like skeletons, they they are actually 
+custom combined souls inserted into custom crafted skeletons.  They didn't look like that when they were alive, 
+and their soul is made up of parts from multiple different souls, with the intention of creating perfect soldiers.  
+So the part of their souls that has compassion and empathy, its just deleted.  Each individual is made up of the 
+experiences of multiple soldiers merged together, with their own uniqueness mostly deleted.
+
+Also the show Dollhouse played with this a bit with the idea of being able to overwrite one person's memories 
+with that of another, with the original being backed up.
+
+ - the "gems" contain skills & abilities of others but also their memories
+ - when you slot a gem, you are overwriting part of your own memories
+
+This could also be used to influence dialog or other options in the game.
+
+Maybe if you have a certain gem slotted, specific secret walls are highlighted that would otherwise just look normal.
+
+Or some dialog options are available that would not be otherwise.
+There is also the cost that some other options could be unavailable because you don't have those memories anymore
+
+Maybe the slots have default meanings, like empathy, childhood memories, time in the war, etc that once you slot 
+something there they get lost.
+
+The TTRPG Fate of Cthulhu plays with this too.  The corrupting influence of The Old Ones is represented by their 
+technology which can be used to give you cool powers, but in doing so each one replaces one of your characters 
+"concepts".  So you become more powerful, but at the cost of you becoming less connected with your human life & 
+relationships.
+
+So potentially interesting narrative idea, how much are you prepared to give up in pursuit of your goals?
+
+Keeping the idea of being able to move gems around freely to let the player experiment, you could still have whatever
+the empty slot represented in their mind be lost as soon as a gem is put there.  If you remove the gem, the slot is just 
+blank.  Maybe an NPC you can find later in the game provides the facility to create backups of those unused slots.
+
+Interesting to make decisions about what to sacrifice, and then later on find that maybe you didn't need to sacrifice those things. 
+
+Future thoughts.
+
+### Wed Sept 16
+
 
 
 # Sprint 5
