@@ -398,6 +398,8 @@ Hearts of Wulin P202
 
 <img src="./docs/hud-ss.png" >
 
+<img src="./docs/loading-ss.png">
+
 ---
 
 Giving some more throughts to mechanics, this is more of a future thing but ...
@@ -441,6 +443,48 @@ Interesting to make decisions about what to sacrifice, and then later on find th
 Future thoughts.
 
 ### Wed Sept 16
+
+ - having to think more about game flow to ensure everything works
+
+<img src="./docs/game-flow-start.svg">
+
+#### scene environment settings:
+
+ - skybox material: carcosansky
+ - sun source: None
+ - realtime shadow color: #21315B
+ - environment lighting
+    - source: gradient
+    - sky color: #596B8E
+    - equator color: #1F2029
+    - ground color: #475A98
+ - environemtn reflections:
+    - source: skybox
+    - resolution: 128
+    - Compression: auto
+    - intensity multiplier: 1
+    - bounces: 1
+ - other settings
+    - fog 
+        - color: #371637
+        - mode: Linear
+        - start: 0
+        - end: 900
+    - Halo texture: None
+    - Halo strength: 0.205
+    - flare fade speed: 3
+    - flare strength: 1
+    - spot cookie: Soft
+
+---
+
+Decided on this floating crystal for my spawn point markers.  I think by default they will have a duller non-emissive material & then glow once they have been activated.  Nice Dark Crystal vibe.
+
+<img src="./docs/marker-crystal-ss.png">
+
+
+
+### Thu Sept 17
 
 
 
