@@ -1,6 +1,7 @@
 using System.Collections;
+using Character.Player;
+using GameSaving;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace World
 {
@@ -23,39 +24,61 @@ namespace World
         }
         #endregion
 
-        [SerializeField] private int worldSceneIndex = 2;
-    
-        //
+        [SerializeField] private Animator _savingWidget;
+        public GameSaveSlots gameSaveSlot = GameSaveSlots.Slot01;
+        public CharacterSaveData characterSaveData;
+
+        public void ToggleSavingWidget(bool state)
+        {
+            _savingWidget.SetBool("Active", state);
+        }
+        
         private void Start()
         {
-            
             DontDestroyOnLoad(gameObject);
-            
-            // if the active scene isn't the root scene, then switch to root
-            // this is a dev thing so you don't have to keep switching to the
-            // root scene to run the game when working on a level
-            // probably should pass the name of this scene so it will be loaded by 
-            // the game manager - not an issue with only the one scene we have thus far
-            if (SceneManager.GetActiveScene().name != "MainMenu")
-            {
-                StartCoroutine(LoadScene(0));
-            }
         }
 
-    
-        public IEnumerator LoadScene(int scene=1)
-            {Debug.Log("before: "+SceneManager.GetActiveScene().name);
-            AsyncOperation load = SceneManager.LoadSceneAsync(scene);
-            
-            if (load.progress < 0.9f)
+        public string CharacterSaveFilename()
+        {
+            return gameSaveSlot switch
             {
-                Debug.Log(load.progress);
-                yield return null;
-            }
-
-            Debug.Log("after: "+SceneManager.GetActiveScene().name);
+                GameSaveSlots.Slot01 => "CharacterSaveSlot01",
+                GameSaveSlots.Slot02 => "CharacterSaveSlot02",
+                GameSaveSlots.Slot03 => "CharacterSaveSlot03",
+                _ => ""
+            };
             
+        }
+        
+        public void NewGame()
+        {
+            characterSaveData = new CharacterSaveData();
+        }
 
+        public void LoadGame()
+        {
+            SaveFileDataWriter saveFileDataWriter = new SaveFileDataWriter();
+            characterSaveData = saveFileDataWriter.LoadCharacterSaveData(CharacterSaveFilename());
+            PlayerManager.Instance.RestoreFromSaveData(characterSaveData);
+            WorldCrystalSpawnerManager.Instance.RestoreFromSaveData(characterSaveData);
+            
+            // StartCoroutine(WorldSceneManager.instance.LoadScene());
+        }
+        
+        
+        public void SaveGame()
+        {
+         
+            SaveFileDataWriter saveFileDataWriter = new SaveFileDataWriter();
+            PlayerManager.Instance.PopulateToSaveData(ref characterSaveData);
+            WorldCrystalSpawnerManager.Instance.PopulateToSaveData(ref characterSaveData);
+            
+            saveFileDataWriter.CreateNewCharacterSaveFile(characterSaveData, CharacterSaveFilename());
+        }
+
+        public void DeleteSaveGame()
+        {
+            
         }
     }
 }

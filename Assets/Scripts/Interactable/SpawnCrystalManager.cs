@@ -8,9 +8,9 @@ namespace Interactable
         public int crystalId;
         public string crystalName;
         private bool _playerPresent;
-        [SerializeField] private bool _active;
-    
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        [SerializeField] public bool activated;
+        [SerializeField] public Transform spawnPoint; 
+        
         private void Start()
         {
             WorldCrystalSpawnerManager.Instance.ReportIn(this);
@@ -25,7 +25,8 @@ namespace Interactable
         {
             if (other.CompareTag("Player"))
             {
-                _playerPresent = true;       
+                _playerPresent = true;
+                WorldSaveGameManager.instance.SaveGame();
             }
         }
 

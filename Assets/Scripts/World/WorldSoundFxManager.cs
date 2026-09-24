@@ -31,8 +31,8 @@ public class WorldSoundFxManager : MonoBehaviour
         }
     }
     
-    private void Start()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
+    // private void Start()
+    // {
+    //     DontDestroyOnLoad(gameObject);
+    // }
 }

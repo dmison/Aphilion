@@ -20,7 +20,7 @@ public class MainMenuManager : MonoBehaviour
 
     private void StartGame()
     {
-        StartCoroutine(WorldSaveGameManager.instance.LoadScene());
+        StartCoroutine(WorldSceneManager.Instance.LoadScene(1));
     }
     
 }

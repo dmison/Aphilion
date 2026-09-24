@@ -125,7 +125,7 @@ public class PlayerCameraManager : MonoBehaviour
         
     }
 
-    private void ResetPivotRotationToPlayer()
+    public void ResetPivotRotationToPlayer()
     {
         if (_noPlayer && playerManager)
         {

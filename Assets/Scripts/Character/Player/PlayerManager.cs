@@ -1,4 +1,5 @@
 using System.Collections;
+using GameSaving;
 using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,8 +14,18 @@ namespace Character.Player
         
         public int currentSpawnCrystalId = 1;
         
+        public static PlayerManager Instance;
+        
         protected override void Awake()
         {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
             
             playerMovementManager = GetComponent<PlayerMovementManager>();
             playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
@@ -32,6 +43,7 @@ namespace Character.Player
 
         private void Start()
         {
+            DontDestroyOnLoad(gameObject);
             PlayerCameraManager.instance.playerManager = this;
         }
 
@@ -51,6 +63,25 @@ namespace Character.Player
             yield return new WaitForSeconds(2);
             PlayerUIManager.Instance.deathMessageManager.ShowDeathMessage();
             
+        }
+
+        public void PopulateToSaveData(ref CharacterSaveData data)
+        {
+            data.spawnCrystalId = currentSpawnCrystalId;
+            data.constitution = characterStatsManager.Constitution;
+            data.endurance = characterStatsManager.Endurance;
+            data.strength = characterStatsManager.Strength;
+            data.dexterity = characterStatsManager.Dexterity;
+        }
+        
+        public void RestoreFromSaveData(CharacterSaveData data)
+        {
+            currentSpawnCrystalId = data.spawnCrystalId; 
+            
+            characterStatsManager.Constitution = data.constitution;
+            characterStatsManager.Endurance = data.endurance;
+            characterStatsManager.Strength = data.strength;
+            characterStatsManager.Dexterity = data.dexterity;
         }
     }
 }

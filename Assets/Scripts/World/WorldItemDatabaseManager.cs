@@ -43,9 +43,9 @@ namespace World
             return weapons.Find(weapon => weapon.ItemId == id);
         }
         
-        private void Start()
-        {
-            DontDestroyOnLoad(gameObject);
-        }
+        // private void Start()
+        // {
+        //     DontDestroyOnLoad(gameObject);
+        // }
     }
 }

@@ -1,9 +1,8 @@
-using System;
-using Unity.VisualScripting;
+using UI;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
+using World;
 
 public class GameMenuManager : MonoBehaviour
 {
@@ -48,12 +47,15 @@ public class GameMenuManager : MonoBehaviour
 
     public void NewGame()
     {
+        LoaderScreen.Instance.ToggleLoader(true);
+        ToggleMe(false);
         
+        // WorldSaveGameManager.instance.ToggleSavingWidget(true);
     }
 
     public void LoadGame()
     {
-        
+        // WorldSaveGameManager.instance.ToggleSavingWidget(true);
     }
 
     public void ContinueGame()

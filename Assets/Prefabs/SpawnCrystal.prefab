@@ -70,6 +70,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 924e3598c84594ad1b5251245d7d2bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  crystalId: 0
+  crystalName: 
+  activated: 0
+  spawnPoint: {fileID: 3189868345623640281}
 --- !u!1 &7819319901181363857
 GameObject:
   m_ObjectHideFlags: 0

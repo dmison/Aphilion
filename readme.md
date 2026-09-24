@@ -91,7 +91,7 @@ Another deviation from the tutorial is that I am using UIToolkit instead of Unit
 
 - [x] sprint
 - [x] stamina
-- [ ] saving (4)
+- ~~[ ] saving (4)~~
 - [x] jump & fall (2)
 
 Okay on a team of one.  this means I have to focus my scope.
@@ -244,6 +244,8 @@ All the isms
     - [x] skeleton idle/chase/attack sound
 - [x] weapon trail effect
  
+- [x] saving
+
 - [ ] bonfire/well respawn on death
 - [ ] decide on respawn point model / name / concept
 
@@ -482,6 +484,9 @@ Decided on this floating crystal for my spawn point markers.  I think by default
 
 <img src="./docs/marker-crystal-ss.png">
 
+ - Save game loading/saving basics (de/serialization & filehandling) have been implemented.  
+ - Character stats, active crystals, and last used crystal are saved.
+ - right now only saving is wired up, with it happening when player enters proximity of a crystal
 
 
 ### Thu Sept 17

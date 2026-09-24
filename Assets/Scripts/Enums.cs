@@ -14,3 +14,10 @@ public enum AttackTypes
     LightAttack02,
     LightAttack03,
 }
+
+public enum GameSaveSlots
+{
+    Slot01,
+    Slot02,
+    Slot03,
+}

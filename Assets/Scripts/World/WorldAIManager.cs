@@ -28,10 +28,10 @@ namespace World
             }
         }
 
-        private void Start()
-        {
-            StartCoroutine(WaitForSceneToLoadThenSpawnCharacters());
-        }
+        // private void Start()
+        // {
+        //     StartCoroutine(WaitForSceneToLoadThenSpawnCharacters());
+        // }
 
         private IEnumerator WaitForSceneToLoadThenSpawnCharacters()
         {

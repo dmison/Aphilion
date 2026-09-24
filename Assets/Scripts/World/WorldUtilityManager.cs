@@ -27,10 +27,10 @@ namespace World
             }
         }
 
-        private void Start()
-        {
-            DontDestroyOnLoad(gameObject);
-        }
+        // private void Start()
+        // {
+        //     DontDestroyOnLoad(gameObject);
+        // }
 
         public float GetAngleToTarget(Transform from, Vector3 direction)
         {

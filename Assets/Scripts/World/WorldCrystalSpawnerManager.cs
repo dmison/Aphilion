@@ -1,4 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
+using Character.Player;
+using GameSaving;
 using Interactable;
 using UnityEngine;
 
@@ -9,7 +12,8 @@ namespace World
         public static WorldCrystalSpawnerManager Instance;
 
         [SerializeField] private List<SpawnCrystalManager> _spawners = new List<SpawnCrystalManager>(); 
-
+        private List<int> _activatedCrystalIds = new List<int>();
+        
         private void Awake()
         {
             if (Instance == null)
@@ -22,6 +26,12 @@ namespace World
             }
         }
 
+        public bool hasCurrentSpawn()
+        {
+            int crystalId = PlayerManager.Instance.currentSpawnCrystalId;
+            return _spawners.Exists(crystal => crystal.crystalId == crystalId);
+        }
+        
         public SpawnCrystalManager GetCrystalById(int id)
         {
             return _spawners.Find(crystal => crystal.crystalId == id);
@@ -29,6 +39,17 @@ namespace World
         
         public void ReportIn(SpawnCrystalManager crystal)
         {
+            if (crystal.activated)
+            {
+                List<int> thisone = new List<int>();
+                thisone.Add(crystal.crystalId);
+                _activatedCrystalIds = _activatedCrystalIds.Union(thisone).ToList();
+            }
+
+            if (_activatedCrystalIds.Contains(crystal.crystalId))
+            {
+                crystal.activated = true;
+            }
             _spawners.Add(crystal);
         }
 
@@ -38,12 +59,40 @@ namespace World
         }
         
         
-        private void Start()
-        {
-            Debug.Log("start");
-            DontDestroyOnLoad(gameObject);
-        }
+        // private void Start()
+        // {
+        //     Debug.Log("start");
+        //     DontDestroyOnLoad(gameObject);
+        // }
 
+        public void PopulateToSaveData(ref CharacterSaveData data)
+        {
+            // List<int> activated = data.activatedCrystals;
+            List<int> activated = _spawners
+                .FindAll(crystal => crystal.activated)
+                .Select(crystal => crystal.crystalId).ToList();
+            List<int> result = data.activatedCrystals.Union(activated).ToList();
+            data.activatedCrystals = result;
+        }
+        
+        public void RestoreFromSaveData(CharacterSaveData data)
+        {
+            _activatedCrystalIds = _activatedCrystalIds.Union(data.activatedCrystals).ToList();
+
+            for (var i = 0; i < _spawners.Count; i++)
+            {
+                if (_activatedCrystalIds.Contains(_spawners[i].crystalId))
+                {
+                    _spawners[i].activated = true;
+                }
+            }
+            // currentSpawnCrystalId = data.spawnCrystalId; 
+            //
+            // characterStatsManager.Constitution = data.constitution;
+            // characterStatsManager.Endurance = data.endurance;
+            // characterStatsManager.Strength = data.strength;
+            // characterStatsManager.Dexterity = data.dexterity;
+        }
 
     }
 }
