@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd154210013482d837ce739e92b905c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World.WorldSceneManager
-  worldSceneIndex: 2
+  worldSceneIndex: 1

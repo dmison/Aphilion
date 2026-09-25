@@ -47,10 +47,14 @@ public class GameMenuManager : MonoBehaviour
 
     public void NewGame()
     {
-        LoaderScreen.Instance.ToggleLoader(true);
-        ToggleMe(false);
+        // for actual game we would go to a pick slot screen
+        // but for the demo we force a single slot
+        LoaderScreen.Instance.ToggleLoader(true);           // show loader
+        ToggleMe(false);                                    // hide this menu
+        WorldSaveGameManager.instance.NewGame();  // create new save
+        WorldSceneManager.Instance.LoadWorld(); // load world
         
-        // WorldSaveGameManager.instance.ToggleSavingWidget(true);
+        
     }
 
     public void LoadGame()

@@ -52,7 +52,11 @@ namespace World
         
         public void NewGame()
         {
-            characterSaveData = new CharacterSaveData();
+            gameSaveSlot = GetFirstUnusedSlot();            // probably should allow slot selection in future
+            characterSaveData = new CharacterSaveData();    // create new save data
+            characterSaveData.SetDefaultValuesForDemo();    // set defaults - only for demo
+            SaveGame();                                     // save
+            // WorldSceneManager.Instance.NewGame()
         }
 
         public void LoadGame()
@@ -70,8 +74,10 @@ namespace World
         {
          
             SaveFileDataWriter saveFileDataWriter = new SaveFileDataWriter();
-            PlayerManager.Instance.PopulateToSaveData(ref characterSaveData);
-            WorldCrystalSpawnerManager.Instance.PopulateToSaveData(ref characterSaveData);
+            if(PlayerManager.Instance)
+                PlayerManager.Instance.PopulateToSaveData(ref characterSaveData);
+            if(WorldCrystalSpawnerManager.Instance)
+                WorldCrystalSpawnerManager.Instance.PopulateToSaveData(ref characterSaveData);
             
             saveFileDataWriter.CreateNewCharacterSaveFile(characterSaveData, CharacterSaveFilename());
         }
@@ -79,6 +85,12 @@ namespace World
         public void DeleteSaveGame()
         {
             
+        }
+
+        // hack 
+        private GameSaveSlots GetFirstUnusedSlot()
+        {
+            return GameSaveSlots.Slot01;
         }
     }
 }

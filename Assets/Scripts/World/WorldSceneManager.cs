@@ -1,6 +1,7 @@
 using System.Collections;
 using Character.Player;
 using Interactable;
+using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -85,12 +86,10 @@ namespace World
             
         }
         
-        public void LoadWorld(int sceneIndex = -1)
+        public void LoadWorld()
         {
-            int scene = sceneIndex == -1 ? worldSceneIndex : sceneIndex;
-                
-        
-            StartCoroutine(LoadScene(scene));
+            
+            StartCoroutine(LoadScene(worldSceneIndex));
         }
         
         public IEnumerator LoadScene(int sceneIndex)
@@ -100,15 +99,15 @@ namespace World
             
             if (load.progress < 0.9f)
             {
-                // Debug.Log(load.progress);
+                LoaderScreen.Instance.SetProgress(load.progress);
                 yield return null;
             }
-
-            if (SceneManager.GetActiveScene().name == "MainMenu")
-            {
-                // Debug.Log("after: "+SceneManager.GetActiveScene().name);
-                StartCoroutine(PlacePlayerAtSpawnPoint());
-            }
+            
+            // if (SceneManager.GetActiveScene().name == "MainMenu")
+            // {
+            //     // Debug.Log("after: "+SceneManager.GetActiveScene().name);
+            //     StartCoroutine(PlacePlayerAtSpawnPoint());
+            // }
 
         }
     }
