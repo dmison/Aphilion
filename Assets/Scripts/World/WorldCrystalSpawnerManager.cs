@@ -74,7 +74,7 @@ namespace World
             List<int> result = data.activatedCrystals.Union(activated).ToList();
             data.activatedCrystals = result;
         }
-        
+          
         public void RestoreFromSaveData(CharacterSaveData data)
         {
             _activatedCrystalIds = _activatedCrystalIds.Union(data.activatedCrystals).ToList();
