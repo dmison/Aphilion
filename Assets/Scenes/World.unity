@@ -171,6 +171,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: WorldUtilityManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7772032152548432800, guid: 87cb2b89938194ddfbdd127d564c9edd, type: 3}
+      propertyPath: enemiesLayerMask.m_Bits
+      value: 384
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772032152548432800, guid: 87cb2b89938194ddfbdd127d564c9edd, type: 3}
+      propertyPath: characterLayerMask.m_Bits
+      value: 2184
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772032152548432800, guid: 87cb2b89938194ddfbdd127d564c9edd, type: 3}
+      propertyPath: environmentLayerMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -228,6 +240,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7057597482387015025, guid: d905a24fc1d6147dfad9aa2adafbce4d, type: 3}
+      propertyPath: PlayerPrefab
+      value: 
+      objectReference: {fileID: 304044752368291044, guid: e5121b6bad3f64266a4174ad5c97a3c6, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -241,6 +257,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 427322070370009637, guid: bd97cda6da6d14e8e8dcd5e710ff6f72, type: 3}
+      propertyPath: unarmedWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 79d4ced8c7753473dbef8333e318ba98, type: 2}
+    - target: {fileID: 427322070370009637, guid: bd97cda6da6d14e8e8dcd5e710ff6f72, type: 3}
+      propertyPath: weapons.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 427322070370009637, guid: bd97cda6da6d14e8e8dcd5e710ff6f72, type: 3}
+      propertyPath: 'weapons.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 79ad38ebdb98748c9b01f8f09d0e3e88, type: 2}
+    - target: {fileID: 427322070370009637, guid: bd97cda6da6d14e8e8dcd5e710ff6f72, type: 3}
+      propertyPath: 'weapons.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 31780c7fe24434c5db48e7991a21a3e6, type: 2}
+    - target: {fileID: 427322070370009637, guid: bd97cda6da6d14e8e8dcd5e710ff6f72, type: 3}
+      propertyPath: 'weapons.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 79d4ced8c7753473dbef8333e318ba98, type: 2}
     - target: {fileID: 5476711346046402256, guid: bd97cda6da6d14e8e8dcd5e710ff6f72, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.59872
@@ -399,6 +435,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: WorldCharacterEffectsManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8635677695445887195, guid: e6c0b5ef1d3c943dd8ea52240c185d56, type: 3}
+      propertyPath: bloodSpatterVFX
+      value: 
+      objectReference: {fileID: 2258243738959398103, guid: c8b3c09f2273d43e7904397a54b4ae40, type: 3}
+    - target: {fileID: 8635677695445887195, guid: e6c0b5ef1d3c943dd8ea52240c185d56, type: 3}
+      propertyPath: takeDamageEffect
+      value: 
+      objectReference: {fileID: 11400000, guid: 67ce307e235ab4fdb9cac4bdb9cebb55, type: 2}
+    - target: {fileID: 8635677695445887195, guid: e6c0b5ef1d3c943dd8ea52240c185d56, type: 3}
+      propertyPath: instantEffects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8635677695445887195, guid: e6c0b5ef1d3c943dd8ea52240c185d56, type: 3}
+      propertyPath: 'instantEffects.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 67ce307e235ab4fdb9cac4bdb9cebb55, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

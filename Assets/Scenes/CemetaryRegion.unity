@@ -1839,7 +1839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5236092196602606584, guid: 07bdf9c19564547829ae8331ebea4efd, type: 3}
       propertyPath: crystalId
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5236092196602606584, guid: 07bdf9c19564547829ae8331ebea4efd, type: 3}
       propertyPath: crystalName
@@ -1851,7 +1851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7143524767116400863, guid: 07bdf9c19564547829ae8331ebea4efd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.019868955
+      value: 0.212
       objectReference: {fileID: 0}
     - target: {fileID: 7143524767116400863, guid: 07bdf9c19564547829ae8331ebea4efd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2118,7 +2118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5236092196602606584, guid: 07bdf9c19564547829ae8331ebea4efd, type: 3}
       propertyPath: crystalId
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5236092196602606584, guid: 07bdf9c19564547829ae8331ebea4efd, type: 3}
       propertyPath: crystalName

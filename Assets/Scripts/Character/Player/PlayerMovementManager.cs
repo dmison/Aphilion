@@ -263,11 +263,14 @@ namespace Character.Player
         
         private void Update()
         {
-            GroundCheck();
-            HandleFalling();
-            HandleRotation();
-            HandleGroundedMovement();
-            AttemptToDodge();
+            if (_playerManager.IsActive)
+            {
+                GroundCheck();
+                HandleFalling();
+                HandleRotation();
+                HandleGroundedMovement();
+                AttemptToDodge();
+            }
         }
 
         private void OnDrawGizmos()

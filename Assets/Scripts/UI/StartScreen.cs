@@ -19,6 +19,7 @@ public class StartScreen : MonoBehaviour
 
     private IEnumerator Start()
     {
+        InputSystemManager.Instance.TogglePlayerControls(false);
         _continueAction = InputSystem.actions.FindAction("Start/ToContinue");
         _continueAction.Disable();
         
@@ -30,6 +31,8 @@ public class StartScreen : MonoBehaviour
 
     public void Show(bool visible)
     {
+        InputSystemManager.Instance.ToggleMenuInputs(!visible);
+        
         Debug.Log("Show: " +visible);
         if (visible) _continueAction?.Enable();
         else _continueAction?.Disable();

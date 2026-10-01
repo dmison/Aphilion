@@ -27,7 +27,15 @@ namespace World
         #endregion
 
         [SerializeField] private int worldSceneIndex = 1;
-    
+        [SerializeField] private int startRegionIndex = 2;
+        [SerializeField] private GameObject PlayerPrefab;
+        [SerializeField] private GameObject PlayerCamera;
+        [SerializeField] private GameObject PlayerUIManagerPrefab;
+
+        private AsyncOperation _loadWorld;
+        private AsyncOperation _loadRegion;
+        
+        private bool _worldReady = false;
         //
         private void Start()
         {
@@ -86,10 +94,18 @@ namespace World
             
         }
         
-        public void LoadWorld()
+        public IEnumerator LoadWorld()
         {
+            _worldReady = false;
+            AsyncOperation load = SceneManager.LoadSceneAsync(worldSceneIndex);
             
-            StartCoroutine(LoadScene(worldSceneIndex));
+            if (load.progress < 0.9f)
+            {
+                LoaderScreen.Instance.SetProgress(load.progress/4);
+                yield return null;
+            }
+            LoaderScreen.Instance.SetProgress(0.25f);
+            _worldReady = true;
         }
         
         public IEnumerator LoadScene(int sceneIndex)
@@ -109,6 +125,127 @@ namespace World
             //     StartCoroutine(PlacePlayerAtSpawnPoint());
             // }
 
+        }
+
+        
+        public IEnumerator LoadPlayer()
+        {
+            yield return new WaitForSeconds(2);
+            GameObject playerUI = Instantiate(PlayerUIManagerPrefab);
+            playerUI.SetActive(false);
+                
+            Instantiate(PlayerCamera);
+            GameObject player = Instantiate(PlayerPrefab);
+            PlayerManager playerManager = player.GetComponent<PlayerManager>();
+            playerManager.IsActive = false; 
+
+            PlayerCameraManager.instance.playerManager = playerManager;  
+            // update player with save data
+            playerManager.RestoreFromSaveData((WorldSaveGameManager.instance.characterSaveData));
+            // ============================================================
+            
+            Debug.Log("player setup");
+                
+            // wait until region setup is done
+            // hmmmm, wait for spawnpoints to be in 
+            LoaderScreen.Instance.SetProgress(0.8f);
+            while (!WorldCrystalSpawnerManager.Instance.hasCurrentSpawn())
+            {
+                Debug.Log("waiting for crystal");
+                yield return null;
+            }
+            
+            Debug.Log("got crystal");
+            
+            // position player in world
+            playerManager.PlaceAtSpawnCrystal();
+                
+            // make player active
+            playerManager.IsActive = true;
+            // start player spawning animation
+                
+            // hide loading screen
+            yield return new WaitForSeconds(2);                
+            LoaderScreen.Instance.SetProgress(1.0f);
+            yield return new WaitForSeconds(2);
+            // yield return new WaitForSeconds(2.0f);
+            LoaderScreen.Instance.ToggleLoader(false);
+                
+            // enable player inputs
+            InputSystemManager.Instance.TogglePlayerControls(true);
+            playerUI.SetActive(true);
+            // save game
+            WorldSaveGameManager.instance.SaveGame();
+            yield return true;
+            
+        }
+        
+        public IEnumerator LoadRegion()
+        {
+            yield return new WaitForSeconds(1);
+            _loadRegion = SceneManager.LoadSceneAsync(startRegionIndex,  LoadSceneMode.Additive);
+            _loadRegion.completed += _ => { StartCoroutine(LoadPlayer()); };
+            if (_loadRegion.progress < 0.9f)
+            {
+                Debug.Log("region loading: "+_loadRegion.progress/3);
+                LoaderScreen.Instance.SetProgress(_loadRegion.progress/3+0.3f);
+                yield return null;
+            }
+        }
+        
+        public IEnumerator NewGameStart()
+        {
+            
+            Debug.Log("NewGameStart");
+            // deactivate all inputs
+            InputSystemManager.Instance.TogglePlayerControls(false);
+            InputSystemManager.Instance.ToggleMenuInputs(false);
+            
+            // load world scene
+            // wait until world scene loads
+            _loadWorld = SceneManager.LoadSceneAsync(worldSceneIndex,  LoadSceneMode.Single);
+            _loadWorld.completed += _ =>
+            {
+                LoaderScreen.Instance.SetProgress(0.3f);
+                StartCoroutine(LoadRegion());
+            };
+            yield return new WaitForSeconds(1);
+            if (_loadWorld.progress < 0.9f)
+            {
+                Debug.Log("world loading: "+_loadWorld.progress/3);
+                LoaderScreen.Instance.SetProgress(_loadWorld.progress/3);
+                yield return null;
+            }
+            // AsyncOperation load = SceneManager.LoadSceneAsync(worldSceneIndex,  LoadSceneMode.Single);
+            // load.allowSceneActivation = true;
+            // if (load.progress < 0.9f)
+            // {
+            //     Debug.Log("world loading: "+load.progress+ " Done"+load.isDone);
+            //     // LoaderScreen.Instance.SetProgress(load.progress/4);
+            //     yield return null;
+            // }
+            // LoaderScreen.Instance.SetProgress(0.25f);
+            // ~~wait until all singletons are available~~
+            // Debug.Log("world loading: "+load.progress);
+            // Debug.Log("world loaded Done"+load.isDone);
+            // load region scene
+            // wait until region is loaded
+            // SceneManager.LoadScene(startRegionIndex, LoadSceneMode.Additive);
+            // AsyncOperation regionLoad = SceneManager.LoadSceneAsync(startRegionIndex,  LoadSceneMode.Additive);
+            //
+            // regionLoad.allowSceneActivation = true;
+            //
+            // if (regionLoad.progress < 0.9f)
+            // {
+            //     Debug.Log("region loading: "+regionLoad.progress+" Done"+regionLoad.isDone);
+            //     LoaderScreen.Instance.SetProgress(0.25f + (regionLoad.progress/4*3));
+            //     yield return null;
+            // }
+            //
+            // Debug.Log("region loading: " + regionLoad.progress);
+            // Debug.Log("region Loaded Done:"+regionLoad.isDone);            
+            // ============================================================ instantiate player inactive
+            
         }
     }
 }

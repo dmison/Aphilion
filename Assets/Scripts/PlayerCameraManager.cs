@@ -137,8 +137,11 @@ public class PlayerCameraManager : MonoBehaviour
     
     private void Start()
     {
-            
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void CameraReset()
+    {
         _defaultCameraZPosition = playerCamera.transform.localPosition.z;
         ResetPivotRotationToPlayer();
     }

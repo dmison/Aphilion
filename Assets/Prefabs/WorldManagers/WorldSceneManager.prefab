@@ -45,3 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World.WorldSceneManager
   worldSceneIndex: 1
+  PlayerPrefab: {fileID: 304044752368291044, guid: e5121b6bad3f64266a4174ad5c97a3c6, type: 3}
+  PlayerCamera: {fileID: 7092041535199254261, guid: 333aaf67a3f224a09bcc0dc939221380, type: 3}
+  PlayerUIManagerPrefab: {fileID: 2322520161882232952, guid: 2a2e0e0b2d1d04e41b43b40f5931a865, type: 3}

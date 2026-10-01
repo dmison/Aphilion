@@ -276,7 +276,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="CV3sc89eX4Yw2GAJzRO3" name="flow">
-        <mxGraphModel dx="4789" dy="4110" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+        <mxGraphModel dx="2333" dy="822" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -388,11 +388,11 @@
                 </mxCell>
                 <mxCell id="ngPG5QUaVz7uxNA18bzF-47" edge="1" parent="1" source="ngPG5QUaVz7uxNA18bzF-35" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="ngPG5QUaVz7uxNA18bzF-53" value="">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="1100" y="372" as="targetPoint"/>
+                        <mxPoint x="1100" y="343" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="ngPG5QUaVz7uxNA18bzF-35" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Get Unused Save Slot" vertex="1">
-                    <mxGeometry height="26" width="150" x="860" y="359" as="geometry"/>
+                    <mxGeometry height="26" width="150" x="860" y="330" as="geometry"/>
                 </mxCell>
                 <mxCell id="ngPG5QUaVz7uxNA18bzF-38" connectable="0" parent="1" style="group;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" value="" vertex="1">
                     <mxGeometry height="30" width="120" x="-890" y="100" as="geometry"/>
@@ -415,7 +415,7 @@
                         <mxPoint x="270" y="30" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="ngPG5QUaVz7uxNA18bzF-42" connectable="0" parent="1" style="group" value="" vertex="1">
+                <mxCell id="ngPG5QUaVz7uxNA18bzF-42" connectable="0" parent="1" style="group;fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=#ffffff;" value="" vertex="1">
                     <mxGeometry height="30" width="150" x="790" y="86" as="geometry"/>
                 </mxCell>
                 <mxCell id="ngPG5QUaVz7uxNA18bzF-44" edge="1" parent="ngPG5QUaVz7uxNA18bzF-42" style="endArrow=none;html=1;" value="">
@@ -430,20 +430,16 @@
                 <mxCell id="ngPG5QUaVz7uxNA18bzF-40" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" value="Game Menu" vertex="1">
                     <mxGeometry height="30" width="120" x="-220" y="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="ngPG5QUaVz7uxNA18bzF-43" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" value="World Scene Manager" vertex="1">
+                <mxCell id="ngPG5QUaVz7uxNA18bzF-43" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=default;" value="World Scene Manager" vertex="1">
                     <mxGeometry height="30" width="170" x="1660" y="81" as="geometry"/>
                 </mxCell>
-                <mxCell id="ngPG5QUaVz7uxNA18bzF-49" edge="1" parent="1" source="ngPG5QUaVz7uxNA18bzF-46" style="edgeStyle=none;html=1;" target="ngPG5QUaVz7uxNA18bzF-48" value="">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
                 <mxCell id="ngPG5QUaVz7uxNA18bzF-46" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Populate SaveData with Defaults" vertex="1">
-                    <mxGeometry height="26" width="180" x="1220" y="359" as="geometry"/>
+                    <mxGeometry height="26" width="180" x="1220" y="330" as="geometry"/>
                 </mxCell>
-                <mxCell id="ngPG5QUaVz7uxNA18bzF-112" edge="1" parent="1" source="ngPG5QUaVz7uxNA18bzF-48" style="edgeStyle=none;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="ngPG5QUaVz7uxNA18bzF-111">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="ngPG5QUaVz7uxNA18bzF-48" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Save File" vertex="1">
-                    <mxGeometry height="26" width="90" x="1430" y="359" as="geometry"/>
+                <mxCell id="ngPG5QUaVz7uxNA18bzF-112" edge="1" parent="1" source="ngPG5QUaVz7uxNA18bzF-46" style="edgeStyle=none;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="ggK2hBpsnoG6j1Zv6bWz-4">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1520" y="377.3653846153845" as="sourcePoint"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="ngPG5QUaVz7uxNA18bzF-51" edge="1" parent="1" style="endArrow=none;html=1;" value="">
                     <mxGeometry height="50" relative="1" width="50" as="geometry">
@@ -455,7 +451,7 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="ngPG5QUaVz7uxNA18bzF-53" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Set as Current Slot" vertex="1">
-                    <mxGeometry height="26" width="150" x="1040" y="359" as="geometry"/>
+                    <mxGeometry height="26" width="150" x="1040" y="330" as="geometry"/>
                 </mxCell>
                 <mxCell id="ngPG5QUaVz7uxNA18bzF-55" connectable="0" parent="1" style="group;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" value="" vertex="1">
                     <mxGeometry height="30" width="140" x="30" y="110.99999999999977" as="geometry"/>
@@ -499,13 +495,13 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="ngPG5QUaVz7uxNA18bzF-68" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Set as Current Slot" vertex="1">
-                    <mxGeometry height="26" width="150" x="1040" y="414" as="geometry"/>
+                    <mxGeometry height="26" width="150" x="1040" y="385" as="geometry"/>
                 </mxCell>
-                <mxCell id="ngPG5QUaVz7uxNA18bzF-113" edge="1" parent="1" source="ngPG5QUaVz7uxNA18bzF-70" style="edgeStyle=none;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="ngPG5QUaVz7uxNA18bzF-111">
+                <mxCell id="ngPG5QUaVz7uxNA18bzF-113" edge="1" parent="1" source="ngPG5QUaVz7uxNA18bzF-70" style="edgeStyle=none;html=1;entryX=0;entryY=1;entryDx=0;entryDy=0;" target="ggK2hBpsnoG6j1Zv6bWz-4">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="ngPG5QUaVz7uxNA18bzF-70" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Load SaveData" vertex="1">
-                    <mxGeometry height="26" width="150" x="1220" y="414" as="geometry"/>
+                    <mxGeometry height="26" width="150" x="1220" y="385" as="geometry"/>
                 </mxCell>
                 <mxCell id="ngPG5QUaVz7uxNA18bzF-94" parent="1" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=strokeColor;" value="" vertex="1">
                     <mxGeometry height="730" width="5" y="76" as="geometry"/>
@@ -557,16 +553,11 @@
                 <mxCell id="ngPG5QUaVz7uxNA18bzF-108" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Show Loader" vertex="1">
                     <mxGeometry height="26" width="130" x="510" y="426" as="geometry"/>
                 </mxCell>
-                <mxCell id="ngPG5QUaVz7uxNA18bzF-115" edge="1" parent="1" source="ngPG5QUaVz7uxNA18bzF-129" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="ngPG5QUaVz7uxNA18bzF-114" value="">
+                <mxCell id="ggK2hBpsnoG6j1Zv6bWz-7" edge="1" parent="1" source="ngPG5QUaVz7uxNA18bzF-111" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="ngPG5QUaVz7uxNA18bzF-114">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="ngPG5QUaVz7uxNA18bzF-128" edge="1" parent="1" source="ngPG5QUaVz7uxNA18bzF-111" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="ngPG5QUaVz7uxNA18bzF-129">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="1970" y="360" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
                 <mxCell id="ngPG5QUaVz7uxNA18bzF-111" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Load World Scene" vertex="1">
-                    <mxGeometry height="41" width="150" x="1670" y="385" as="geometry"/>
+                    <mxGeometry height="41" width="150" x="1670" y="480" as="geometry"/>
                 </mxCell>
                 <mxCell id="ngPG5QUaVz7uxNA18bzF-117" edge="1" parent="1" source="ngPG5QUaVz7uxNA18bzF-114" style="edgeStyle=none;html=1;" target="ngPG5QUaVz7uxNA18bzF-116" value="">
                     <mxGeometry relative="1" as="geometry"/>
@@ -605,20 +596,39 @@
                 <mxCell id="ngPG5QUaVz7uxNA18bzF-127" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="position player in world" vertex="1">
                     <mxGeometry height="41" width="170" x="1660" y="760.5" as="geometry"/>
                 </mxCell>
-                <mxCell id="ngPG5QUaVz7uxNA18bzF-129" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Deactivate all inputs" vertex="1">
-                    <mxGeometry height="41" width="150" x="1670" y="468.5" as="geometry"/>
-                </mxCell>
                 <mxCell id="ngPG5QUaVz7uxNA18bzF-134" edge="1" parent="1" source="ngPG5QUaVz7uxNA18bzF-132" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="ngPG5QUaVz7uxNA18bzF-99">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="ngPG5QUaVz7uxNA18bzF-132" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="start player &quot;spawning&quot; animation" vertex="1">
                     <mxGeometry height="41" width="210" x="1640" y="827.5" as="geometry"/>
                 </mxCell>
+                <mxCell id="ggK2hBpsnoG6j1Zv6bWz-2" edge="1" parent="1" source="ngPG5QUaVz7uxNA18bzF-138" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="ggK2hBpsnoG6j1Zv6bWz-1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1755" y="983"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
                 <mxCell id="ngPG5QUaVz7uxNA18bzF-138" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="enable player inputs" vertex="1">
                     <mxGeometry height="26" width="130" x="1690" y="910" as="geometry"/>
                 </mxCell>
                 <mxCell id="ngPG5QUaVz7uxNA18bzF-140" parent="1" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=strokeColor;" value="" vertex="1">
                     <mxGeometry height="1010" width="5" x="1900" y="67.5" as="geometry"/>
+                </mxCell>
+                <mxCell id="ggK2hBpsnoG6j1Zv6bWz-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Save File" vertex="1">
+                    <mxGeometry height="26" width="90" x="1480" y="970" as="geometry"/>
+                </mxCell>
+                <mxCell id="ggK2hBpsnoG6j1Zv6bWz-6" edge="1" parent="1" source="ggK2hBpsnoG6j1Zv6bWz-3" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="ngPG5QUaVz7uxNA18bzF-111">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ggK2hBpsnoG6j1Zv6bWz-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Deactivate all inputs" vertex="1">
+                    <mxGeometry height="30" width="150" x="1670" y="412" as="geometry"/>
+                </mxCell>
+                <mxCell id="ggK2hBpsnoG6j1Zv6bWz-5" edge="1" parent="1" source="ggK2hBpsnoG6j1Zv6bWz-4" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="ggK2hBpsnoG6j1Zv6bWz-3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ggK2hBpsnoG6j1Zv6bWz-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="start" vertex="1">
+                    <mxGeometry height="41" width="150" x="1670" y="329" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

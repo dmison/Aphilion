@@ -1,8 +1,10 @@
 using System.Collections;
 using GameSaving;
+using Interactable;
 using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using World;
 
 namespace Character.Player
 {
@@ -13,7 +15,7 @@ namespace Character.Player
         [HideInInspector] public PlayerInventoryManager playerInventoryManager;
         
         public int currentSpawnCrystalId = 1;
-        
+        public bool IsActive;
         public static PlayerManager Instance;
         
         protected override void Awake()
@@ -54,15 +56,16 @@ namespace Character.Player
         }
         public override IEnumerator HandleDeath(bool manuallySelectAnimation = false)
         {
-            characterSoundEffectsManager.PlayDie();
-            characterAnimationManager.PlayTargetActionAnimation("Dead_01");
-            InputSystem.actions.FindActionMap("Movement").Disable();
-            InputSystem.actions.FindActionMap("Actions").Disable();
-            InputSystem.actions.FindActionMap("EquipmentManager").Disable();
-            InputSystem.actions.FindActionMap("Menus").Enable();
-            yield return new WaitForSeconds(2);
-            PlayerUIManager.Instance.deathMessageManager.ShowDeathMessage();
-            
+            if (IsActive)
+            {
+                characterSoundEffectsManager.PlayDie();
+                characterAnimationManager.PlayTargetActionAnimation("Dead_01");
+
+                InputSystemManager.Instance.TogglePlayerControls(false);
+                InputSystemManager.Instance.TogglePlayerControls(true);
+                yield return new WaitForSeconds(2);
+                PlayerUIManager.Instance.deathMessageManager.ShowDeathMessage();
+            }
         }
 
         public void PopulateToSaveData(ref CharacterSaveData data)
@@ -82,6 +85,13 @@ namespace Character.Player
             characterStatsManager.Endurance = data.endurance;
             characterStatsManager.Strength = data.strength;
             characterStatsManager.Dexterity = data.dexterity;
+        }
+
+        public void PlaceAtSpawnCrystal()
+        {
+            SpawnCrystalManager crystal = WorldCrystalSpawnerManager.Instance.GetCrystalById(currentSpawnCrystalId);
+            transform.position = crystal.spawnPoint.transform.position;
+            transform.rotation = crystal.spawnPoint.transform.rotation;
         }
     }
 }

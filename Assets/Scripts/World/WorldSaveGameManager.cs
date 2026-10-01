@@ -50,13 +50,13 @@ namespace World
             
         }
         
-        public void NewGame()
+        public void NewSaveGame()
         {
+            Debug.Log("NewSaveGame");
             gameSaveSlot = GetFirstUnusedSlot();            // probably should allow slot selection in future
             characterSaveData = new CharacterSaveData();    // create new save data
             characterSaveData.SetDefaultValuesForDemo();    // set defaults - only for demo
-            SaveGame();                                     // save
-            // WorldSceneManager.Instance.NewGame()
+            
         }
 
         public void LoadGame()

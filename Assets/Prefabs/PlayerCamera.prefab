@@ -86,11 +86,10 @@ MonoBehaviour:
   cameraCollisionRadius: 0.2
   collisionMask:
     serializedVersion: 2
-    m_Bits: 3117
+    m_Bits: 3501
   playerManager: {fileID: 0}
   playerCamera: {fileID: 2409122392203070510}
   cameraPivot: {fileID: 6553570046642591978}
-  CurrentLockOnTarget: {fileID: 0}
   _lockOnFollowSpeed: 0.2
   _lockOnCameraHeight: 2
   _unlockedCameraHeight: 1.8

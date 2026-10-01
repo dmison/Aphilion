@@ -1,12 +1,12 @@
 using UI.HUD;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 namespace UI
 {
     public class PlayerUIManager : MonoBehaviour
     {
         public static PlayerUIManager Instance;
-    
+        
         public StatusBar statsBar;
         public DeathMessageManager deathMessageManager;
         public LockOnHUD lockOnHUD;
@@ -27,5 +27,8 @@ namespace UI
         {
             DontDestroyOnLoad(gameObject);
         }
+
+
+        
     }
 }

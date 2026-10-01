@@ -28,6 +28,8 @@ public class GameMenuManager : MonoBehaviour
 
     public void ToggleMe(bool visible)
     {
+        InputSystemManager.Instance.ToggleMenuInputs(visible);
+        
         if (visible)
         {
             _animator.SetTrigger("Show");
@@ -51,8 +53,9 @@ public class GameMenuManager : MonoBehaviour
         // but for the demo we force a single slot
         LoaderScreen.Instance.ToggleLoader(true);           // show loader
         ToggleMe(false);                                    // hide this menu
-        WorldSaveGameManager.instance.NewGame();  // create new save
-        WorldSceneManager.Instance.LoadWorld(); // load world
+        WorldSaveGameManager.instance.NewSaveGame();  // create new save
+        Debug.Log("after new save");
+        StartCoroutine(WorldSceneManager.Instance.NewGameStart()); // load world
         
         
     }
