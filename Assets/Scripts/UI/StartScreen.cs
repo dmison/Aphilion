@@ -36,8 +36,11 @@ public class StartScreen : MonoBehaviour
         Debug.Log("Show: " +visible);
         if (visible) _continueAction?.Enable();
         else _continueAction?.Disable();
-        
-        _animator.SetBool("Active", visible);
+
+        if (_animator)
+        {
+            _animator.SetBool("Active", visible);
+        }
     }
 
     private void ContinueAction()

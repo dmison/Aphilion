@@ -130,7 +130,7 @@ namespace World
         
         public IEnumerator LoadPlayer()
         {
-            yield return new WaitForSeconds(2);
+            // yield return new WaitForSeconds(2);
             GameObject playerUI = Instantiate(PlayerUIManagerPrefab);
             playerUI.SetActive(false);
                 
@@ -141,9 +141,15 @@ namespace World
 
             PlayerCameraManager.instance.playerManager = playerManager;  
             // update player with save data
-            playerManager.RestoreFromSaveData((WorldSaveGameManager.instance.characterSaveData));
-            // ============================================================
             
+            Debug.Log(playerManager);
+            Debug.Log(WorldSaveGameManager.instance.characterSaveData);
+            
+            playerManager.RestoreFromSaveData((WorldSaveGameManager.instance.characterSaveData));
+            
+            
+            // ============================================================
+            Debug.Log(WorldSaveGameManager.instance.characterSaveData.rightHandQuickSlots.Length);
             Debug.Log("player setup");
                 
             // wait until region setup is done
@@ -154,7 +160,7 @@ namespace World
                 Debug.Log("waiting for crystal");
                 yield return null;
             }
-            
+            WorldCrystalSpawnerManager.Instance.RestoreFromSaveData(WorldSaveGameManager.instance.characterSaveData);
             Debug.Log("got crystal");
             
             // position player in world
@@ -163,12 +169,10 @@ namespace World
             // make player active
             playerManager.IsActive = true;
             // start player spawning animation
-                
+            // TODO: player spawn animation, standing from kneel?
+            
             // hide loading screen
-            yield return new WaitForSeconds(2);                
             LoaderScreen.Instance.SetProgress(1.0f);
-            yield return new WaitForSeconds(2);
-            // yield return new WaitForSeconds(2.0f);
             LoaderScreen.Instance.ToggleLoader(false);
                 
             // enable player inputs
@@ -182,7 +186,7 @@ namespace World
         
         public IEnumerator LoadRegion()
         {
-            yield return new WaitForSeconds(1);
+            // yield return new WaitForSeconds(1);
             _loadRegion = SceneManager.LoadSceneAsync(startRegionIndex,  LoadSceneMode.Additive);
             _loadRegion.completed += _ => { StartCoroutine(LoadPlayer()); };
             if (_loadRegion.progress < 0.9f)
@@ -209,7 +213,7 @@ namespace World
                 LoaderScreen.Instance.SetProgress(0.3f);
                 StartCoroutine(LoadRegion());
             };
-            yield return new WaitForSeconds(1);
+            // yield return new WaitForSeconds(1);
             if (_loadWorld.progress < 0.9f)
             {
                 Debug.Log("world loading: "+_loadWorld.progress/3);

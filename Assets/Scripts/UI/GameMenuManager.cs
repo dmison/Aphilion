@@ -32,13 +32,27 @@ public class GameMenuManager : MonoBehaviour
         
         if (visible)
         {
-            _animator.SetTrigger("Show");
-            _inputModule.enabled = true;
+            if (_animator)
+            {
+                _animator.SetTrigger("Show");
+            }
+
+            if (_inputModule)
+            {
+                _inputModule.enabled = true;
+            }
         }
         else
         {
-            _animator.SetTrigger("Hide");
-            _inputModule.enabled = false;
+            if (_animator)
+            {
+                _animator.SetTrigger("Hide");
+            }
+
+            if (_inputModule)
+            {
+                _inputModule.enabled = false;
+            }
         }
     }
 

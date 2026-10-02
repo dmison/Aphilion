@@ -247,7 +247,7 @@ All the isms
 - [x] saving
 
 - [ ] bonfire/well respawn on death
-- [ ] decide on respawn point model / name / concept
+- [x] decide on respawn point model / name / concept
 
 - [ ] AI management/spawning
 - [ ] clean menu/world/region scenes & management
@@ -515,6 +515,58 @@ Decided on this floating crystal for my spawn point markers.  I think by default
 ## Week 10 (Mon Sep  21 - Sun Sep 27)
 
 ## Mid Trimester Break (Mon Sep  28 - Sun Oct 4)
+
+### Thur Oct 1
+
+Well I finally have the menus & scene loading sorted.  Didn't have a lot of time over the past couple of weeks to spend on this so Kind of abandoned everything else to get this done so 
+ 
+ - [x] clean menu/world/region scenes & management
+ - [x] basic UI for start screen, new game
+
+ As implemented you can only start a new game and it only uses slot01 and overwrites it.  I think for demo simplifying down to a single save slot with  New Game & Continue.  New Game will have to prompt before overwriting if one already exists.  And continue is only an option if the save slot is already occupied.  Maybe with Load greyed out on the menu.
+
+ #### backlog to consider
+
+ - [ ] bonfire/well respawn on death
+ - [ ] AI management/spawning
+ - [ ] game save/load
+ - [ ] input queuing
+ - [ ] weapon switching & UI
+ - [ ] blocking
+ - [ ] enemy healthbars
+ - [ ] decide on a set of weapons to include
+ - [ ] two-handed weapons
+ - [ ] interact-able objects
+ - [ ] poise
+ - [ ] weapon combos
+ - [ ] weapon-based animation controllers (animation overrides)
+ 
+ 
+I think interactables, because crystals need to be interactable to activate & rest at likewise doors, elevators, ladders.
+
+So next up: 
+ - interactables
+ - activating crystals
+ - resting at crystals ie (healing)
+ - respawn on death
+ - healing & HUD
+ - AI management (ie resetting on player rest)
+ - enemy healthbars
+ - poise
+ - input queuing
+ - weapon UI switching
+
+
+
+Then 
+ - salt collection & recovery, even if no leveling implemented
+ - doors (including locked on one side doors)
+ - elevators at least
+ - a couple of different enemies - at least a few different humanoid types and maybe wolves.  Maybe big brute guys
+ - more weapons & attacks 
+ - maybe pickables for new weapons
+
+ somewhere in here I need to consider switching to momentum instead of stamina but we will see
 
 
 # Sprint 6

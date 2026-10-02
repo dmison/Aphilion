@@ -276,7 +276,7 @@ PrefabInstance:
     - target: {fileID: 427322070370009637, guid: bd97cda6da6d14e8e8dcd5e710ff6f72, type: 3}
       propertyPath: 'weapons.Array.data[2]'
       value: 
-      objectReference: {fileID: 11400000, guid: 79d4ced8c7753473dbef8333e318ba98, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 5476711346046402256, guid: bd97cda6da6d14e8e8dcd5e710ff6f72, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.59872
