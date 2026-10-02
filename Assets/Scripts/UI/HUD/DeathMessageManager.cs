@@ -4,25 +4,27 @@ using UnityEngine.UIElements;
 
 public class DeathMessageManager : MonoBehaviour
 {
-    private VisualElement _rootElement;
-    private VisualElement _panel;
-    private Label _deathMessage;
-
+    // private VisualElement _rootElement;
+    // private VisualElement _panel;
+    // private Label _deathMessage;
+    private Animator _animator;
+    
     private void Awake()
     {
-        _rootElement = GetComponent<UIDocument>().rootVisualElement;
-        _panel = _rootElement.Q<VisualElement>("DeathPanel");
+        _animator = GetComponent<Animator>();
+        // _rootElement = GetComponent<UIDocument>().rootVisualElement;
+        // _panel = _rootElement.Q<VisualElement>("DeathPanel");
         
     }
 
     public void ShowDeathMessage()
     {
-        _panel.AddToClassList("show");
+        _animator.SetBool("Active", true);
     }
 
     public void HideDeathMessage()
     {
-        _panel.RemoveFromClassList("show");
+        _animator.SetBool("Active", false);
     }
     
 }
