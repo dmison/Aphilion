@@ -32,15 +32,21 @@ namespace World
                 items.Add(weapon);
             }
 
-            for (int i =0; i<items.Count; i++)
-            {
-                items[i].ItemId = i;
-            }
+            // for (int i =0; i<items.Count; i++)
+            // {
+            //     items[i].ItemId = i;
+            // }
         }
 
         public WeaponItem GetWeaponById(int id)
         {
-            return weapons.Find(weapon => weapon.ItemId == id);
+            WeaponItem foundWeapon = weapons.Find(weapon => weapon.ItemId == id);
+            if (!foundWeapon)
+            {
+                foundWeapon = WorldItemDatabaseManager.Instance.unarmedWeapon;
+            }
+
+            return foundWeapon;
         }
         
         // private void Start()

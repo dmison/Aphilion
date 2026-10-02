@@ -15,8 +15,9 @@ MonoBehaviour:
   ItemName: Zweihander
   ItemDescription: 
   ItemIcon: {fileID: 0}
-  ItemId: 0
+  ItemId: 4
   weaponModel: {fileID: 8814540712764912406, guid: 1805d6341d9e84543af925e938a8f160, type: 3}
+  WeaponTrail: {fileID: 0}
   strengthREQ: 15
   dexterityREQ: 10
   physicalDamage: 100
@@ -28,3 +29,4 @@ MonoBehaviour:
   baseStaminaCost: 30
   lightAttackStaminaModifier: 0.9
   OH_RB_Action: {fileID: 0}
+  whooshSounds: []

@@ -16,6 +16,11 @@ namespace GameSaving
         
         public List<int> activatedCrystals = new List<int>();
 
+        public int[] rightHandQuickSlots = new int[3];
+        public int[] leftHandQuickSlots = new int[3];
+        public int lhQuickSlotIndex;
+        public int rhQuickSlotIndex;
+        
         public void SetDefaultValuesForDemo()
         {
             secondsPlayed = 0;
@@ -26,6 +31,17 @@ namespace GameSaving
             endurance = 12;
             activatedCrystals.Clear();
             activatedCrystals.Add(1);
+            
+            rightHandQuickSlots[0] = 2;
+            rightHandQuickSlots[1] = 1;
+            rightHandQuickSlots[2] = 1;
+            
+            leftHandQuickSlots[0] = 1;
+            leftHandQuickSlots[1] = 1;
+            leftHandQuickSlots[2] = 1;
+            
+            rhQuickSlotIndex = 0;
+            lhQuickSlotIndex = 0;
         }   
         
     }

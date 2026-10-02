@@ -58,11 +58,12 @@ namespace Character.Player
         {
             if (IsActive)
             {
+                InputSystemManager.Instance.TogglePlayerControls(false);
+                InputSystemManager.Instance.ToggleMenuInputs(true);
+                
                 characterSoundEffectsManager.PlayDie();
                 characterAnimationManager.PlayTargetActionAnimation("Dead_01");
-
-                InputSystemManager.Instance.TogglePlayerControls(false);
-                InputSystemManager.Instance.TogglePlayerControls(true);
+                
                 yield return new WaitForSeconds(2);
                 PlayerUIManager.Instance.deathMessageManager.ShowDeathMessage();
             }
@@ -75,6 +76,17 @@ namespace Character.Player
             data.endurance = characterStatsManager.Endurance;
             data.strength = characterStatsManager.Strength;
             data.dexterity = characterStatsManager.Dexterity;
+            
+            data.rightHandQuickSlots[0] = playerInventoryManager.rightHandQuickSlots[0].ItemId;
+            data.rightHandQuickSlots[1] = playerInventoryManager.rightHandQuickSlots[1].ItemId;
+            data.rightHandQuickSlots[2] = playerInventoryManager.rightHandQuickSlots[2].ItemId;
+            
+            data.leftHandQuickSlots[0] = playerInventoryManager.leftHandQuickSlots[0].ItemId;
+            data.leftHandQuickSlots[1] = playerInventoryManager.leftHandQuickSlots[1].ItemId;
+            data.leftHandQuickSlots[2] = playerInventoryManager.leftHandQuickSlots[2].ItemId;
+            
+            data.lhQuickSlotIndex = playerInventoryManager.lhQuickSlotIndex;
+            data.rhQuickSlotIndex = playerInventoryManager.rhQuickSlotIndex;
         }
         
         public void RestoreFromSaveData(CharacterSaveData data)
@@ -85,6 +97,19 @@ namespace Character.Player
             characterStatsManager.Endurance = data.endurance;
             characterStatsManager.Strength = data.strength;
             characterStatsManager.Dexterity = data.dexterity;
+            
+            playerInventoryManager.rightHandQuickSlots[0] = WorldItemDatabaseManager.Instance.GetWeaponById(data.rightHandQuickSlots[0]);
+            playerInventoryManager.rightHandQuickSlots[1] = WorldItemDatabaseManager.Instance.GetWeaponById(data.rightHandQuickSlots[1]);
+            playerInventoryManager.rightHandQuickSlots[2] = WorldItemDatabaseManager.Instance.GetWeaponById(data.rightHandQuickSlots[2]);
+            
+            playerInventoryManager.leftHandQuickSlots[0] = WorldItemDatabaseManager.Instance.GetWeaponById(data.leftHandQuickSlots[0]);
+            playerInventoryManager.leftHandQuickSlots[1] = WorldItemDatabaseManager.Instance.GetWeaponById(data.leftHandQuickSlots[1]);
+            playerInventoryManager.leftHandQuickSlots[2] = WorldItemDatabaseManager.Instance.GetWeaponById(data.leftHandQuickSlots[2]);
+            
+            playerInventoryManager.lhQuickSlotIndex = data.lhQuickSlotIndex;
+            playerInventoryManager.rhQuickSlotIndex = data.rhQuickSlotIndex;
+            
+            
         }
 
         public void PlaceAtSpawnCrystal()

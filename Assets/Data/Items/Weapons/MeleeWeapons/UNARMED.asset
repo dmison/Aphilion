@@ -15,14 +15,18 @@ MonoBehaviour:
   ItemName: 
   ItemDescription: 
   ItemIcon: {fileID: 0}
-  ItemId: 0
+  ItemId: 1
   weaponModel: {fileID: 8011566013882336049, guid: 373f57d68f1c547b588e5e977b1d8fbc, type: 3}
+  WeaponTrail: {fileID: 0}
   strengthREQ: 0
   dexterityREQ: 0
   physicalDamage: 10
   fireDamage: 0
   lightningDamage: 0
   poisonDamage: 0
+  lightAttack01_damage_mod: 1.1
   basePoiseDamage: 5
   baseStaminaCost: 10
+  lightAttackStaminaModifier: 0.9
   OH_RB_Action: {fileID: 11400000, guid: 7712074fd16d4432ebaf6188178099bb, type: 2}
+  whooshSounds: []

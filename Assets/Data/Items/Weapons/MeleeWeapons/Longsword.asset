@@ -15,7 +15,7 @@ MonoBehaviour:
   ItemName: Long Sword
   ItemDescription: 
   ItemIcon: {fileID: 0}
-  ItemId: 1
+  ItemId: 2
   weaponModel: {fileID: 8011566013882336049, guid: ab625ca4185fd40b795841bcff813261, type: 3}
   WeaponTrail: {fileID: 2071699933861994378, guid: 89a36e962b56548f7a938a7a08b7b14b, type: 3}
   strengthREQ: 10

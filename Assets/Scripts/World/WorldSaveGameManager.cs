@@ -28,8 +28,12 @@ namespace World
         public GameSaveSlots gameSaveSlot = GameSaveSlots.Slot01;
         public CharacterSaveData characterSaveData;
 
-        public void ToggleSavingWidget(bool state)
+        public IEnumerator ToggleSavingWidget(bool state)
         {
+            if (!state)
+            {
+                yield return new WaitForSeconds(2);
+            }
             _savingWidget.SetBool("Active", state);
         }
         
@@ -55,8 +59,7 @@ namespace World
             Debug.Log("NewSaveGame");
             gameSaveSlot = GetFirstUnusedSlot();            // probably should allow slot selection in future
             characterSaveData = new CharacterSaveData();    // create new save data
-            characterSaveData.SetDefaultValuesForDemo();    // set defaults - only for demo
-            
+            characterSaveData.SetDefaultValuesForDemo();    // set defaults - only for demoDebug.Log(PlayerManager.Instance);
         }
 
         public void LoadGame()
