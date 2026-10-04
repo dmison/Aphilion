@@ -108,6 +108,8 @@ namespace Character.Player
         
         private void LockOnActionPerformed()
         {
+            Debug.Log("hey lockons");
+            
             // if already locked on then release lock
             if (lockedOn)
             {

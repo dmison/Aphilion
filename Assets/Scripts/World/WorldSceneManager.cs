@@ -134,12 +134,15 @@ namespace World
             GameObject playerUI = Instantiate(PlayerUIManagerPrefab);
             playerUI.SetActive(false);
                 
-            Instantiate(PlayerCamera);
+            
             GameObject player = Instantiate(PlayerPrefab);
             PlayerManager playerManager = player.GetComponent<PlayerManager>();
             playerManager.IsActive = false; 
-
-            PlayerCameraManager.instance.playerManager = playerManager;  
+            Instantiate(PlayerCamera);
+            // PlayerCameraManager.instance.playerManager = playerManager;
+            // PlayerCameraManager.instance.CameraReset();
+            // PlayerCameraManager.instance.SetLockCameraHeight();
+            
             // update player with save data
             
             Debug.Log(playerManager);
@@ -170,9 +173,17 @@ namespace World
             playerManager.IsActive = true;
             // start player spawning animation
             // TODO: player spawn animation, standing from kneel?
+            playerManager.characterAnimationManager.PlayTargetActionAnimation(
+                "A_Crouch_ToStand_Femn", 
+                true, 
+                false, 
+                false, 
+                false
+                );
             
             // hide loading screen
             LoaderScreen.Instance.SetProgress(1.0f);
+            yield return new WaitForSeconds(0.5f);
             LoaderScreen.Instance.ToggleLoader(false);
                 
             // enable player inputs

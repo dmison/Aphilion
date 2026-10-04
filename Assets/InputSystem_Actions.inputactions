@@ -9,43 +9,25 @@
                 {
                     "name": "Move",
                     "type": "Value",
-                    "id": "ee877a2a-9867-4b0e-ab5e-d9e3aaeb0c13",
+                    "id": "fb56f896-ee9b-414b-a623-2bec403bf72f",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Look",
-                    "type": "PassThrough",
-                    "id": "67eb0cc5-3a87-4985-8a51-728816627ae9",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "LockOn",
+                    "name": "Dodge",
                     "type": "Button",
-                    "id": "c42e8cca-87a9-4f2a-ad52-34cb7f96de65",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "Tap",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "SeekLockOnRight",
-                    "type": "Button",
-                    "id": "ce25c16c-7d60-4d1d-a89c-e3dbb184d795",
+                    "id": "d1a2a4ca-e84d-4d05-956f-bf6f7bf3d8ec",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SeekLockOnLeft",
+                    "name": "Sprint",
                     "type": "Button",
-                    "id": "89d5a594-c235-4393-88c9-f37cc5da2df6",
+                    "id": "d0f8ff01-569f-42cf-b356-e768a1920727",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -55,7 +37,7 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "d6e7058b-6476-4a38-a0a1-231f40cafb96",
+                    "id": "2c9b0f57-6bbc-4f11-a79f-d8172cc95623",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
@@ -66,7 +48,7 @@
                 },
                 {
                     "name": "WASD",
-                    "id": "89503eae-5b9b-4989-a3e0-39543b821aee",
+                    "id": "1b8618d9-1c58-4a2e-a1aa-c2c23a63f98c",
                     "path": "Dpad",
                     "interactions": "",
                     "processors": "",
@@ -77,7 +59,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "88f29173-7ccb-43ba-8beb-ab05785ac028",
+                    "id": "7e34c6ca-62ca-485e-80f6-f8faa07dc1fa",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
@@ -88,7 +70,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "d6b9a06c-65d3-4d2b-8fed-36f814de1d79",
+                    "id": "5e868e22-7c49-4916-b921-4851322e290d",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
@@ -99,7 +81,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "a4ff23cc-ba31-4182-82da-0208bb422932",
+                    "id": "0a65aa94-63a8-4431-a416-485dc1fe449b",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
@@ -110,7 +92,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "23e1e3e5-083a-49d2-ad06-d8c43c833ed9",
+                    "id": "03fe565b-a742-4286-8474-de3f86a1b1f4",
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
@@ -121,7 +103,7 @@
                 },
                 {
                     "name": "left",
-                    "id": "1ad1f20b-b538-436d-b737-16e79529ba01",
+                    "id": "6829c0a3-fb7f-4ddb-a711-6734e2a6fb6c",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
@@ -132,7 +114,7 @@
                 },
                 {
                     "name": "left",
-                    "id": "7fbf84b6-33a8-4625-8650-b460220572b2",
+                    "id": "39639852-50a4-4a8d-aa9b-f664ee7f200f",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
@@ -143,7 +125,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "2c553b0e-284d-4236-b559-75cd6aa3b9a7",
+                    "id": "cfca11d4-c5ca-4ed8-956a-dedaefdb0239",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
@@ -154,7 +136,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "f7aed336-7c14-44c9-a694-57ce7de40b45",
+                    "id": "ed1a8a90-0955-4aad-a74f-3ca7bc3c932d",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
@@ -165,67 +147,45 @@
                 },
                 {
                     "name": "",
-                    "id": "e2329d9b-1bc8-4397-944c-b8f7fd2041d3",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "af4b4002-45d5-4f48-abb2-acb991829445",
-                    "path": "<Mouse>/delta",
-                    "interactions": "",
+                    "id": "6b565558-fc79-4739-ac41-a639de3e3b5a",
+                    "path": "<Keyboard>/space",
+                    "interactions": "Tap",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Look",
+                    "action": "Dodge",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "c3b8751e-64e5-4b23-bd26-84e1b666bd36",
-                    "path": "<Keyboard>/tab",
-                    "interactions": "",
+                    "id": "4ceee34f-23ee-46f3-beee-044dcbcff041",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Dodge",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4e2febdd-0fa8-4d65-a6f9-d6ff4cac91e5",
+                    "path": "<Keyboard>/space",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "LockOn",
+                    "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "aa92d406-9b12-4635-b61c-426eb1e13a23",
-                    "path": "<Gamepad>/rightStickPress",
+                    "id": "ee1e4724-4b98-4ec5-8bdc-ed6ef63e6b09",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "LockOn",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a80863b3-53c6-428a-b4a9-7989727a85a0",
-                    "path": "<Gamepad>/rightStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "SeekLockOnRight",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8129b9c3-6326-41fb-a28a-a9f9862679d7",
-                    "path": "<Gamepad>/rightStick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "SeekLockOnLeft",
+                    "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -752,15 +712,6 @@
             "id": "4d0df88e-e5d8-4927-953e-6b8766a3c05a",
             "actions": [
                 {
-                    "name": "Dodge",
-                    "type": "Button",
-                    "id": "0f58413c-466e-4cf1-b13f-b99b572582ab",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "RB_Action",
                     "type": "Button",
                     "id": "6b18205a-7032-452a-ae28-2bad71991027",
@@ -779,57 +730,106 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Sprint",
+                    "name": "Look",
+                    "type": "PassThrough",
+                    "id": "2621505c-11cb-4858-9488-301ea9b251d3",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "SeekLockOnRight",
                     "type": "Button",
-                    "id": "7687d7dc-0d30-4992-b9e7-3c24bed110f0",
+                    "id": "bb677354-b82f-484c-9c4d-154938f58ad0",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SeekLockOnLeft",
+                    "type": "Button",
+                    "id": "0c834694-5747-4a90-97a2-6a5537890b84",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LockOn",
+                    "type": "Button",
+                    "id": "8d53b5f7-1951-4604-b142-5ae1b679dbe5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Tap",
                     "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "e5ebcae9-9c3f-40e9-9799-262d1b7dc2e7",
-                    "path": "<Keyboard>/space",
-                    "interactions": "Tap",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Dodge",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4abe6f05-5552-4be8-8dfb-950345167fd8",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "Tap",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Dodge",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a8fdaf27-6a05-4bee-b81b-8074ffa00d01",
-                    "path": "<Keyboard>/space",
-                    "interactions": "Hold",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Sprint",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c961757e-5d8e-48c0-86bf-b2b3ff5738f8",
-                    "path": "<Gamepad>/buttonEast",
+                    "id": "94587522-73ee-4fa2-ad94-ae1c5b407494",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Sprint",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9d5439f9-8c02-43dd-8a83-9349670c4c9a",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "355c6d92-e3f0-4ba8-8fd2-f7cadd70440c",
+                    "path": "<Gamepad>/rightStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "SeekLockOnRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0d9a7d3b-d5f8-4802-bee4-1ab7c142403b",
+                    "path": "<Gamepad>/rightStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "SeekLockOnLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b384d0a2-98a4-43c6-affb-f18791083823",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "LockOn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1c6600b5-ff29-435f-848a-37b808b2d96a",
+                    "path": "<Gamepad>/rightStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "LockOn",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

@@ -30,7 +30,6 @@ namespace UI
 
         public void ToggleLoader(bool state)
         {
-            Debug.Log("ToggleLoader: "+state);
             _animator.SetBool("Active", state);    
         }
         

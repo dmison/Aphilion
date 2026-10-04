@@ -15,15 +15,15 @@ public class PlayerCameraManager : MonoBehaviour
 
     [SerializeField] private float cameraCollisionRadius = 0.2f;
     [SerializeField] private LayerMask collisionMask;
-        
+
     private float _targetCameraZPosition;
     private float _defaultCameraZPosition;
     private Vector3 _cameraObjectPosition;
-        
+
     private Vector3 _cameraVelocity;
     private float _cameraSmoothingSpeed;
-        
-        
+
+
     public PlayerManager playerManager;
     [SerializeField] public Camera playerCamera;
     [SerializeField] public Transform cameraPivot;
@@ -138,11 +138,14 @@ public class PlayerCameraManager : MonoBehaviour
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
+        playerManager = PlayerManager.Instance;
+        CameraReset();
     }
 
     public void CameraReset()
     {
         _defaultCameraZPosition = playerCamera.transform.localPosition.z;
+        
         ResetPivotRotationToPlayer();
     }
 
