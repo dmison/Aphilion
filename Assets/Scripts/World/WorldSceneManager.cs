@@ -133,52 +133,37 @@ namespace World
             // yield return new WaitForSeconds(2);
             GameObject playerUI = Instantiate(PlayerUIManagerPrefab);
             playerUI.SetActive(false);
-                
             
             GameObject player = Instantiate(PlayerPrefab);
             PlayerManager playerManager = player.GetComponent<PlayerManager>();
             playerManager.IsActive = false; 
-            // Instantiate(PlayerCamera);
-            // PlayerCameraManager.instance.playerManager = playerManager;
-            // PlayerCameraManager.instance.CameraReset();
-            // PlayerCameraManager.instance.SetLockCameraHeight();
-            
             // update player with save data
-            
-            Debug.Log(playerManager);
             Debug.Log(WorldSaveGameManager.instance.characterSaveData);
             
             playerManager.RestoreFromSaveData((WorldSaveGameManager.instance.characterSaveData));
             
-            
-            // ============================================================
-            Debug.Log(WorldSaveGameManager.instance.characterSaveData.rightHandQuickSlots.Length);
-            Debug.Log("player setup");
-                
-            // wait until region setup is done
-            // hmmmm, wait for spawnpoints to be in 
+            // wait for spawnpoints to be in 
             LoaderScreen.Instance.SetProgress(0.8f);
             while (!WorldCrystalSpawnerManager.Instance.hasCurrentSpawn())
             {
-                Debug.Log("waiting for crystal");
                 yield return null;
             }
             WorldCrystalSpawnerManager.Instance.RestoreFromSaveData(WorldSaveGameManager.instance.characterSaveData);
-            Debug.Log("got crystal");
             
             // position player in world
             playerManager.PlaceAtSpawnCrystal();
-                
+            
             // make player active
             playerManager.IsActive = true;
             // start player spawning animation
             // TODO: player spawn animation, standing from kneel?
             playerManager.characterAnimationManager.PlayTargetActionAnimation(
-                "A_Crouch_ToStand_Femn", 
+                "A_Idle_Crouching_Femn", 
                 true, 
                 false, 
                 false, 
-                false
+                false,
+                0.0f
                 );
             
             // hide loading screen

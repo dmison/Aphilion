@@ -83,7 +83,7 @@ namespace World
             {
                 if (_activatedCrystalIds.Contains(_spawners[i].crystalId))
                 {
-                    _spawners[i].activated = true;
+                    _spawners[i].ActivateMe();
                 }
             }
             // currentSpawnCrystalId = data.spawnCrystalId; 
