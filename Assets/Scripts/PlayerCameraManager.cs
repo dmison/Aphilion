@@ -127,12 +127,15 @@ public class PlayerCameraManager : MonoBehaviour
 
     public void ResetPivotRotationToPlayer()
     {
-        if (_noPlayer && playerManager)
-        {
-            _noPlayer = false;
-            // Quaternion.RotateTowards(transform.rotation, );
-            cameraPivot.transform.rotation = playerManager.transform.rotation;
-        }
+        lookLeftRightAngle = 180;
+        lookUpDownAngle = 0;
+        // if (_noPlayer && playerManager)
+        // {
+        //     Debug.Log("pivot");
+        //     _noPlayer = false;
+        //     // Quaternion.RotateTowards(transform.rotation, );
+        //     // cameraPivot.transform.rotation = playerManager.transform.rotation;
+        // }
     }
     
     private void Start()
@@ -145,14 +148,15 @@ public class PlayerCameraManager : MonoBehaviour
     public void CameraReset()
     {
         _defaultCameraZPosition = playerCamera.transform.localPosition.z;
-        
-        ResetPivotRotationToPlayer();
+        lookLeftRightAngle = 180;
+        lookUpDownAngle = 0;   
+        // ResetPivotRotationToPlayer();
     }
 
     public void HandleCameraActions()
     {
         if (!playerManager) return;
-        ResetPivotRotationToPlayer();
+        // ResetPivotRotationToPlayer();
         HandleFollowPlayer();
         HandleRotations();
         HandleCollisions();
