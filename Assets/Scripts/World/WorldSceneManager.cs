@@ -138,7 +138,7 @@ namespace World
             GameObject player = Instantiate(PlayerPrefab);
             PlayerManager playerManager = player.GetComponent<PlayerManager>();
             playerManager.IsActive = false; 
-            Instantiate(PlayerCamera);
+            // Instantiate(PlayerCamera);
             // PlayerCameraManager.instance.playerManager = playerManager;
             // PlayerCameraManager.instance.CameraReset();
             // PlayerCameraManager.instance.SetLockCameraHeight();
