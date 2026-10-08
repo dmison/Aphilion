@@ -25,26 +25,34 @@ namespace UI.HUD
 
         public void ShowDeathMessage()
         {
-            _animator.SetBool("Active", true);
+            if (_animator)
+            {
+                _animator.SetBool("Active", true);
+            }
             InputSystem.actions.FindActionMap("DeathMenu").Enable();
         }
 
-        public void HideDeathMessage()
+        private void HideDeathMessage()
         {
-            _animator.SetBool("Active", false);
-            InputSystem.actions.FindActionMap("DeathMenu").Disable();
+            if (_animator)
+            {
+                _animator.SetBool("Active", false);
+            }
         }
  
         public void RespawnCharacter()
         {
+            InputSystem.actions.FindActionMap("DeathMenu").Disable();
             HideDeathMessage();
             PlayerManager.Instance.RespawnAtCrystal();
         }
 
         public void LeaveGame()
         {
+            InputSystem.actions.FindActionMap("DeathMenu").Disable();
             WorldSceneManager.Instance.GoToStartScene();
-            //use scenemanager to go back to start screen
+            
+            
         }
         
     }
