@@ -26,6 +26,7 @@ namespace World
         }
         #endregion
 
+        [SerializeField] private int startSceneIndex = 0;
         [SerializeField] private int worldSceneIndex = 1;
         [SerializeField] private int startRegionIndex = 2;
         [SerializeField] private GameObject PlayerPrefab;
@@ -34,6 +35,7 @@ namespace World
 
         private AsyncOperation _loadWorld;
         private AsyncOperation _loadRegion;
+        private AsyncOperation _loadStart;
         
         private bool _worldReady = false;
         //
@@ -156,7 +158,6 @@ namespace World
             // make player active
             playerManager.IsActive = true;
             // start player spawning animation
-            // TODO: player spawn animation, standing from kneel?
             playerManager.characterAnimationManager.PlayTargetActionAnimation(
                 "A_Idle_Crouching_Femn", 
                 true, 
@@ -191,6 +192,17 @@ namespace World
                 LoaderScreen.Instance.SetProgress(_loadRegion.progress/3+0.3f);
                 yield return null;
             }
+        }
+
+        public void GoToStartScene()
+        {
+            LoaderScreen.Instance.SetProgress(0);
+            LoaderScreen.Instance.ToggleLoader(true);
+            _loadStart = SceneManager.LoadSceneAsync(startSceneIndex,  LoadSceneMode.Single);
+            _loadStart.completed += _ =>
+            {
+                LoaderScreen.Instance.ToggleLoader(false);
+            };
         }
         
         public IEnumerator NewGameStart()

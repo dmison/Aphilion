@@ -1,30 +1,51 @@
-using System;
+using Character.Player;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
+using World;
 
-public class DeathMessageManager : MonoBehaviour
+namespace UI.HUD
 {
-    // private VisualElement _rootElement;
-    // private VisualElement _panel;
-    // private Label _deathMessage;
-    private Animator _animator;
-    
-    private void Awake()
+    public class DeathMessageManager : MonoBehaviour
     {
-        _animator = GetComponent<Animator>();
-        // _rootElement = GetComponent<UIDocument>().rootVisualElement;
-        // _panel = _rootElement.Q<VisualElement>("DeathPanel");
+
+        private Animator _animator;
+        private InputAction _continue;
+        private InputAction _goToMenu;
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
+            InputSystem.actions.FindActionMap("DeathMenu").Disable();
+            
+            _continue = InputSystem.actions.FindAction("continue");
+            _continue.performed += _ => { RespawnCharacter(); };
+            
+            _goToMenu = InputSystem.actions.FindAction("exit");
+            _goToMenu.performed += _ => { LeaveGame(); };
+        }
+
+        public void ShowDeathMessage()
+        {
+            _animator.SetBool("Active", true);
+            InputSystem.actions.FindActionMap("DeathMenu").Enable();
+        }
+
+        public void HideDeathMessage()
+        {
+            _animator.SetBool("Active", false);
+            InputSystem.actions.FindActionMap("DeathMenu").Disable();
+        }
+ 
+        public void RespawnCharacter()
+        {
+            HideDeathMessage();
+            PlayerManager.Instance.RespawnAtCrystal();
+        }
+
+        public void LeaveGame()
+        {
+            WorldSceneManager.Instance.GoToStartScene();
+            //use scenemanager to go back to start screen
+        }
         
     }
-
-    public void ShowDeathMessage()
-    {
-        _animator.SetBool("Active", true);
-    }
-
-    public void HideDeathMessage()
-    {
-        _animator.SetBool("Active", false);
-    }
-    
 }

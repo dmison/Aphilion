@@ -1,6 +1,7 @@
+using Character.Player;
 using UI.HUD;
 using UnityEngine;
-using UnityEngine.InputSystem;
+
 namespace UI
 {
     public class PlayerUIManager : MonoBehaviour
@@ -22,11 +23,11 @@ namespace UI
                 Destroy(gameObject);
             }
         }
-
-        private void Start()
-        {
-            DontDestroyOnLoad(gameObject);
-        }
+        
+        // private void Start()
+        // {
+        //     // DontDestroyOnLoad(gameObject);
+        // }
 
 
         

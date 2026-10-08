@@ -45,7 +45,7 @@ namespace Character.Player
 
         private void Start()
         {
-            DontDestroyOnLoad(gameObject);
+            // DontDestroyOnLoad(gameObject);
             PlayerCameraManager.instance.playerManager = this;
         }
 
@@ -59,7 +59,7 @@ namespace Character.Player
             if (IsActive)
             {
                 InputSystemManager.Instance.TogglePlayerControls(false);
-                InputSystemManager.Instance.ToggleMenuInputs(true);
+                // InputSystemManager.Instance.ToggleMenuInputs(true);
                 
                 characterSoundEffectsManager.PlayDie();
                 characterAnimationManager.PlayTargetActionAnimation("Dead_01");
@@ -69,6 +69,25 @@ namespace Character.Player
             }
         }
 
+        public void RespawnAtCrystal()
+        {
+            //fade to black
+            characterStatsManager.CurrentHealth = characterStatsManager.MaxHealth;
+            characterStatsManager.CurrentStamina = characterStatsManager.MaxStamina;
+            PlaceAtSpawnCrystal();
+            characterAnimationManager.PlayTargetActionAnimation(
+                "A_Idle_Crouching_Femn", 
+                true, 
+                false, 
+                false, 
+                false,
+                0.0f
+            );
+            InputSystemManager.Instance.TogglePlayerControls(true);
+            // InputSystemManager.Instance.ToggleMenuInputs(false);
+            // fade from black
+        }
+        
         public void PopulateToSaveData(ref CharacterSaveData data)
         {
             data.spawnCrystalId = currentSpawnCrystalId;
@@ -115,6 +134,7 @@ namespace Character.Player
         public void PlaceAtSpawnCrystal()
         {
             SpawnCrystalManager crystal = WorldCrystalSpawnerManager.Instance.GetCrystalById(currentSpawnCrystalId);
+            
             transform.position = crystal.spawnPoint.transform.position;
             transform.rotation = crystal.spawnPoint.transform.rotation;
         }
