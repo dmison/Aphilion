@@ -59,19 +59,18 @@ namespace World
         public IEnumerator PlacePlayerAtSpawnPoint()
         {
             
-            
-            Debug.Log("waiting 2 seconds");
+            // Debug.Log("waiting 2 seconds");
             yield return new WaitForSeconds(2f);
-            Debug.Log("waiting done, loading");
+            // Debug.Log("waiting done, loading");
             WorldSaveGameManager.instance.LoadGame();
 
 
             while (!WorldCrystalSpawnerManager.Instance.hasCurrentSpawn())
             {
-                Debug.Log("no current spawn");
+                // Debug.Log("no current spawn");
                 yield return null;
             }
-            Debug.Log("got current spawn: "+PlayerManager.Instance.currentSpawnCrystalId);
+            // Debug.Log("got current spawn: "+PlayerManager.Instance.currentSpawnCrystalId);
             
             // while (!WorldCrystalSpawnerManager.Instance && !PlayerManager.Instance)
             // {
@@ -87,9 +86,9 @@ namespace World
                 yield return null;
             }
 
-            Debug.Log("got it");
-            Debug.Log("player position: "+ PlayerManager.Instance.transform.position);
-            Debug.Log("spawn position: "+ crystal.spawnPoint.position);
+            // Debug.Log("got it");
+            // Debug.Log("player position: "+ PlayerManager.Instance.transform.position);
+            // Debug.Log("spawn position: "+ crystal.spawnPoint.position);
             PlayerManager.Instance.transform.position = crystal.spawnPoint.position;
             // PlayerManager.Instance.transform.rotation = crystal.spawnPoint.rotation;
             // PlayerCameraManager.instance.ResetPivotRotationToPlayer();
@@ -198,6 +197,8 @@ namespace World
         {
             LoaderScreen.Instance.SetProgress(0);
             LoaderScreen.Instance.ToggleLoader(true);
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            Destroy(player);
             _loadStart = SceneManager.LoadSceneAsync(startSceneIndex,  LoadSceneMode.Single);
             _loadStart.completed += _ =>
             {
