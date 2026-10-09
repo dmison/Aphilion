@@ -1,5 +1,8 @@
+using System;
 using UI;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
 using World;
@@ -10,15 +13,26 @@ public class GameMenuManager : MonoBehaviour
     [SerializeField] private StartScreen _startScreen;
     [SerializeField] private InputSystemUIInputModule _inputModule;
     [SerializeField] private Button _continueButton;
+    [SerializeField] private EventSystem _eventSystem;
+    
+    private InputAction _backButton;
     
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        _backButton = InputSystem.actions.FindAction("GameMenu/Cancel");
+        _backButton.performed += GoBackListener;
+    }
+
+    private void OnDestroy()
+    {
+        _backButton.performed -= GoBackListener;
     }
 
     private void Update()
     {
         _continueButton.interactable = HasContinue();
+        // _continueButton
     }
 
     public void ShowMenu(bool visible)
@@ -26,9 +40,21 @@ public class GameMenuManager : MonoBehaviour
         ToggleMe(visible);
     }
 
+    public void GoBack()
+    {
+        ToggleMe(false);   
+        _startScreen.Show(true);
+    }
+    
+    private void GoBackListener(InputAction.CallbackContext context)
+    {
+        GoBack();
+    }
+    
     public void ToggleMe(bool visible)
     {
-        InputSystemManager.Instance.ToggleMenuInputs(visible);
+
+
         
         if (visible)
         {
@@ -40,10 +66,14 @@ public class GameMenuManager : MonoBehaviour
             if (_inputModule)
             {
                 _inputModule.enabled = true;
+                
             }
+            InputSystem.actions.FindActionMap("GameMenu").Enable();
+            _eventSystem.SetSelectedGameObject(_eventSystem.firstSelectedGameObject);
         }
         else
         {
+            InputSystem.actions.FindActionMap("GameMenu").Disable();
             if (_animator)
             {
                 _animator.SetTrigger("Hide");
@@ -69,6 +99,7 @@ public class GameMenuManager : MonoBehaviour
         ToggleMe(false);                                    // hide this menu
         WorldSaveGameManager.instance.NewSaveGame();  // create new save
         Debug.Log("after new save");
+        
         StartCoroutine(WorldSceneManager.Instance.NewGameStart()); // load world
         
         
@@ -84,14 +115,6 @@ public class GameMenuManager : MonoBehaviour
         
     }
     
-    public void GoToTitle()
-    {
-        // _animator.SetTrigger("Hide");
-        // ShowMenu(false);
-        ToggleMe(false);   
-        _startScreen.Show(true);
-
-    }
 
     public void ExitGame()
     {
