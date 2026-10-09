@@ -5,7 +5,7 @@ using World;
 
 namespace Interactable
 {
-    public class SpawnCrystalManager : MonoBehaviour
+    public class SpawnCrystalManager : MonoBehaviour, IInteractable
     {
         public int crystalId;
         public string crystalName;
@@ -58,5 +58,21 @@ namespace Interactable
         //         _playerPresent = false;
         //     }
         // }
+        string IInteractable.GetLabel()
+        {
+            if(activated){
+                return "Rest";
+            } else return "Activate";
+        }
+
+        public bool InterationActive()
+        {
+            return true;
+        }
+
+        public void Interact()
+        {
+            Debug.Log("hey");
+        }
     }
 }

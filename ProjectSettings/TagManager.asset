@@ -14,7 +14,7 @@ TagManager:
   - LightSource
   - Outlined
   - Enemies
-  - 
+  - InteractionDetection
   - DamageAble
   - DamageAbleCharacter
   - 
