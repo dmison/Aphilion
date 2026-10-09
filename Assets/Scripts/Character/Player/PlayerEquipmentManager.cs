@@ -1,3 +1,4 @@
+using System;
 using Items;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -30,19 +31,18 @@ namespace Character.Player
             playerManager = GetComponent<PlayerManager>();
             
             _changeItemRight = InputSystem.actions.FindAction("SwapRight");
-            _changeItemRight.performed += ctx =>
-            {
-                 SwitchRightHandWeapon();
-            };
+            _changeItemRight.performed += SwitchRightHandWeapon;
             
             _changeItemLeft = InputSystem.actions.FindAction("SwapLeft");
-            _changeItemLeft.performed += ctx =>
-            {
-                SwitchLeftHandWeapon();
-            };
+            _changeItemLeft.performed += SwitchLeftHandWeapon;
             
             InitializeWeaponSlots();
-            
+        }
+
+        private void OnDestroy()
+        {
+            _changeItemRight.performed -= SwitchRightHandWeapon;
+            _changeItemLeft.performed -= SwitchLeftHandWeapon;
         }
 
         private void InitializeWeaponSlots()
@@ -94,7 +94,7 @@ namespace Character.Player
             }
         }
 
-        private void SwitchRightHandWeapon()
+        private void SwitchRightHandWeapon(InputAction.CallbackContext context)
         {
             if (!playerManager.isPerformingAction)
             {
@@ -103,7 +103,7 @@ namespace Character.Player
             }
         }
 
-        private void SwitchLeftHandWeapon()
+        private void SwitchLeftHandWeapon(InputAction.CallbackContext context)
         {
             if (!playerManager.isPerformingAction)
             {

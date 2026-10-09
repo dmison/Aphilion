@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Items;
@@ -34,20 +35,28 @@ namespace Character.Player
             _player = GetComponent<PlayerManager>();
             
             _rbAction = InputSystem.actions.FindAction("RB_Action");
-            _rbAction.performed += _ => { RB_Action_Performed(); };
+            _rbAction.performed += RB_Action_Performed;
             
             _lockOnClick = InputSystem.actions.FindAction("LockOn");
-            _lockOnClick.performed += _ => { LockOnActionPerformed(); };
+            _lockOnClick.performed += LockOnActionPerformed;
 
             _seekLockOnLeft = InputSystem.actions.FindAction("SeekLockOnLeft");
-            _seekLockOnLeft.performed += _ => { FindLockTargetToLeft(); };
+            _seekLockOnLeft.performed += FindLockTargetToLeft;
             
             _seekLockOnRight = InputSystem.actions.FindAction("SeekLockOnRight");
-            _seekLockOnRight.performed += _ => { FindLockTargetToRight(); };
+            _seekLockOnRight.performed += FindLockTargetToRight;
             
         }
 
-        private void FindLockTargetToLeft()
+        private void OnDestroy()
+        {
+            _rbAction.performed -= RB_Action_Performed;        
+            _lockOnClick.performed -= LockOnActionPerformed;
+            _seekLockOnLeft.performed -= FindLockTargetToLeft;
+            _seekLockOnRight.performed -= FindLockTargetToRight;
+        }
+
+        private void FindLockTargetToLeft(InputAction.CallbackContext context)
         {
             if (!lockedOn) return;
             FindLockOnTargets();
@@ -55,7 +64,7 @@ namespace Character.Player
             PlayerCameraManager.instance.SetCameraLockOn(currentLockTarget);
         }
 
-        private void FindLockTargetToRight()
+        private void FindLockTargetToRight(InputAction.CallbackContext context)
         {
             if(!lockedOn) return;
             FindLockOnTargets();
@@ -106,7 +115,7 @@ namespace Character.Player
             PlayerCameraManager.instance.SetLockCameraHeight();
         }
         
-        private void LockOnActionPerformed()
+        private void LockOnActionPerformed(InputAction.CallbackContext context)
         {
             Debug.Log("hey lockons");
             
@@ -217,7 +226,7 @@ namespace Character.Player
 
         }
         
-        private void RB_Action_Performed()
+        private void RB_Action_Performed(InputAction.CallbackContext context)
         {
             WeaponItem weaponItem = _player.playerInventoryManager.currentRightHandWeapon;
             currentWeaponBeingUsed = weaponItem;

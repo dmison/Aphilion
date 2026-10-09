@@ -47,18 +47,38 @@ namespace Character.Player
             _playerManager = GetComponent<PlayerManager>();
             
             _moveAction = InputSystem.actions.FindAction("Move");
-            _moveAction.performed += ctx =>  moveInputVector = ctx.ReadValue<Vector2>();
-            _moveAction.canceled += _ =>  moveInputVector = Vector2.zero;
+            _moveAction.performed += MoveInput;
+            _moveAction.canceled += MoveInputStop;
             
             _dodgeAction = InputSystem.actions.FindAction("Dodge");
-            _dodgeAction.performed += _ => _dodgeInput = true;
+            _dodgeAction.performed += DodgeInput;
 
             _sprintAction = InputSystem.actions.FindAction("Sprint");
-            _sprintAction.performed += _ => HandleSprintInput(true);
-            _sprintAction.canceled += _ => HandleSprintInput(false);
+            _sprintAction.performed += SprintInput;
+            _sprintAction.canceled += SprintInputStop;
         }
         // ===========================================================================================
-
+        private void MoveInput(InputAction.CallbackContext context)
+        {
+            moveInputVector = context.ReadValue<Vector2>();
+        }
+        private void MoveInputStop(InputAction.CallbackContext context)
+        {
+            moveInputVector = Vector2.zero;
+        }
+        private void DodgeInput(InputAction.CallbackContext context)
+        {
+            _dodgeInput = true;
+        }
+        private void SprintInput(InputAction.CallbackContext context)
+        {
+            HandleSprintInput(true);
+        }
+        private void SprintInputStop(InputAction.CallbackContext context)
+        {
+            HandleSprintInput(false);
+        }
+        // ===========================================================================================
         private void GroundCheck()
         {
             Vector3 position = transform.position;
