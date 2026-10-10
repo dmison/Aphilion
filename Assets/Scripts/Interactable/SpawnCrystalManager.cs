@@ -58,7 +58,7 @@ namespace Interactable
         //         _playerPresent = false;
         //     }
         // }
-        string IInteractable.GetLabel()
+        public string GetLabel()
         {
             if(activated){
                 return "Rest";
@@ -72,7 +72,13 @@ namespace Interactable
 
         public void Interact()
         {
-            Debug.Log("hey");
+            Debug.Log("doing: " + GetLabel());
+            if(!activated)
+            {
+                ActivateMe();
+                WorldSaveGameManager.instance.SaveGame();
+            }
+            
         }
     }
 }

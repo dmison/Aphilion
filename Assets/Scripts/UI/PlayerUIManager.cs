@@ -8,9 +8,9 @@ namespace UI
     {
         public static PlayerUIManager Instance;
         
-        public StatusBar statsBar;
-        public DeathMessageManager deathMessageManager;
-        public LockOnHUD lockOnHUD;
+        [SerializeField] public StatusBar statsBar;
+        [SerializeField] public DeathMessageManager deathMessageManager;
+        [SerializeField] public InteractPrompt interactPrompt;
     
         private void Awake()
         {
@@ -23,13 +23,6 @@ namespace UI
                 Destroy(gameObject);
             }
         }
-        
-        // private void Start()
-        // {
-        //     // DontDestroyOnLoad(gameObject);
-        // }
-
-
         
     }
 }
