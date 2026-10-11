@@ -869,11 +869,11 @@
             ]
         },
         {
-            "name": "Menus",
+            "name": "PopupActions",
             "id": "e8117bbc-fc98-48f2-bc0b-b038f93d1610",
             "actions": [
                 {
-                    "name": "activate",
+                    "name": "Activate",
                     "type": "Button",
                     "id": "5e807a57-2224-4db5-a823-250dd9e0ef3a",
                     "expectedControlType": "",
@@ -899,7 +899,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "activate",
+                    "action": "Activate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -910,7 +910,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "activate",
+                    "action": "Activate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

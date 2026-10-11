@@ -568,13 +568,46 @@ Then
 
  somewhere in here I need to consider switching to momentum instead of stamina but we will see
 
+### Sat Oct 3
+ - [x] fixed camera
+ - [x] redo death screen
+
 
 # Sprint 6
 
-- [ ] finalizing level designs
-- [ ] 
+- [x] fix menu inputs from death screen not being disabled
+- [ ] activate & rest at crystals
+- [ ] ai management (spawn prefab & resetting)
+
+
 
 ## Week 11 (Mon Oct  5 - Sun Oct 11)
+
+### Mon Oct 5
+ - fixed lockon issue
+ - fixed camera positioning
+ - standing animation for spawn & correct crystal activation from save data
+ - fix initial camera positioning
+
+
+### Thu Oct 8
+ - added light to player camera so player is always at least softly light to some degree
+ - redid health/stamina bars on player UI
+ - redid death screen & implemented respawn upon death at last active crystal
+ - delete player game object when returning to start 
+
+### Fri Oct 9
+ - simplified start menus
+ - redid input event listeners so they don't leak
+ - started interactions system
+
+### Sat Oct 10
+ - interactions UI (ie prompt label)
+
+### Sun Oct 11
+ - implemented continue from start menu
+
+
 
 ## Week 12 (Mon Oct  12 - Sun Oct 18)
 

@@ -14,7 +14,7 @@ public class GameMenuManager : MonoBehaviour
     [SerializeField] private InputSystemUIInputModule _inputModule;
     [SerializeField] private Button _continueButton;
     [SerializeField] private EventSystem _eventSystem;
-    
+    [SerializeField] private ConfirmPopup _confirmPopup;
     private InputAction _backButton;
     
     private void Awake()
@@ -32,7 +32,6 @@ public class GameMenuManager : MonoBehaviour
     private void Update()
     {
         _continueButton.interactable = HasContinue();
-        // _continueButton
     }
 
     public void ShowMenu(bool visible)
@@ -53,9 +52,6 @@ public class GameMenuManager : MonoBehaviour
     
     public void ToggleMe(bool visible)
     {
-
-
-        
         if (visible)
         {
             if (_animator)
@@ -66,7 +62,6 @@ public class GameMenuManager : MonoBehaviour
             if (_inputModule)
             {
                 _inputModule.enabled = true;
-                
             }
             InputSystem.actions.FindActionMap("GameMenu").Enable();
             _eventSystem.SetSelectedGameObject(_eventSystem.firstSelectedGameObject);
@@ -88,10 +83,31 @@ public class GameMenuManager : MonoBehaviour
 
     public bool HasContinue()
     {
-        return false;
+        return WorldSaveGameManager.instance.GameSlotInUse(WorldSaveGameManager.instance.GetFirstUnusedSlot());
     }
 
     public void NewGame()
+    {
+        // this is a hack for simplifying the demo
+        // we only use the first save slot
+        if (WorldSaveGameManager.instance.GameSlotInUse(WorldSaveGameManager.instance.GetFirstUnusedSlot()))
+        {
+            InputSystem.actions.FindActionMap("GameMenu").Disable();   
+            _confirmPopup.Show(StartNewGame, AbortedNewGame);
+        }
+        else
+        {
+            StartNewGame();
+        }
+    }
+
+    private void AbortedNewGame()
+    {
+        //log aborted
+        InputSystem.actions.FindActionMap("GameMenu").Enable();        
+    }
+    
+    private void StartNewGame()
     {
         // for actual game we would go to a pick slot screen
         // but for the demo we force a single slot
@@ -101,8 +117,6 @@ public class GameMenuManager : MonoBehaviour
         Debug.Log("after new save");
         
         StartCoroutine(WorldSceneManager.Instance.NewGameStart()); // load world
-        
-        
     }
 
     public void LoadGame()
@@ -112,7 +126,12 @@ public class GameMenuManager : MonoBehaviour
 
     public void ContinueGame()
     {
-        
+        Debug.Log("contiinue");
+        LoaderScreen.Instance.ToggleLoader(true);           // show loader
+        ToggleMe(false);                                    // hide this menu
+        WorldSaveGameManager.instance.LoadNewGame();
+        StartCoroutine(WorldSceneManager.Instance.NewGameStart());
+
     }
     
 

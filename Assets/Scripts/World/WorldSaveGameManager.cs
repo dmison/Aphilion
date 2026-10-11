@@ -1,4 +1,5 @@
 using System.Collections;
+using System.IO;
 using Character.Player;
 using GameSaving;
 using UnityEngine;
@@ -44,14 +45,18 @@ namespace World
 
         public string CharacterSaveFilename()
         {
-            return gameSaveSlot switch
+            return FileNameForSlot(gameSaveSlot);
+        }
+
+        private string FileNameForSlot(GameSaveSlots slot)
+        {
+            return slot switch
             {
                 GameSaveSlots.Slot01 => "CharacterSaveSlot01",
                 GameSaveSlots.Slot02 => "CharacterSaveSlot02",
                 GameSaveSlots.Slot03 => "CharacterSaveSlot03",
                 _ => ""
             };
-            
         }
         
         public void NewSaveGame()
@@ -62,6 +67,14 @@ namespace World
             characterSaveData.SetDefaultValuesForDemo();    // set defaults - only for demoDebug.Log(PlayerManager.Instance);
         }
 
+        public void LoadNewGame()
+        {
+            gameSaveSlot = GetFirstUnusedSlot();            // probably should allow slot selection in future
+            SaveFileDataWriter saveFileDataWriter = new SaveFileDataWriter();
+            characterSaveData = saveFileDataWriter.LoadCharacterSaveData(CharacterSaveFilename());
+            
+        }
+        
         public void LoadGame()
         {
             SaveFileDataWriter saveFileDataWriter = new SaveFileDataWriter();
@@ -75,7 +88,6 @@ namespace World
         
         public void SaveGame()
         {
-         
             SaveFileDataWriter saveFileDataWriter = new SaveFileDataWriter();
             if(PlayerManager.Instance)
                 PlayerManager.Instance.PopulateToSaveData(ref characterSaveData);
@@ -90,8 +102,14 @@ namespace World
             
         }
 
+        public bool GameSlotInUse(GameSaveSlots slot)
+        {
+            SaveFileDataWriter saveFileDataWriter = new SaveFileDataWriter();
+            return saveFileDataWriter.FileExists(FileNameForSlot(slot));
+        }
+        
         // hack 
-        private GameSaveSlots GetFirstUnusedSlot()
+        public GameSaveSlots GetFirstUnusedSlot()
         {
             return GameSaveSlots.Slot01;
         }

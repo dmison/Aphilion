@@ -18,12 +18,18 @@ namespace GameSaving
             File.Delete(Path.Combine(saveDataDirectoryPath, filename));
         }
 
+        public bool FileExists(string filename)
+        {
+            string savePath = Path.Combine(saveDataDirectoryPath, filename);
+            return File.Exists(savePath);
+        }
+        
         public CharacterSaveData LoadCharacterSaveData(string filename)
         {
             string savePath = Path.Combine(saveDataDirectoryPath, filename);
             CharacterSaveData newData = null;
             
-            if (File.Exists(savePath))
+            if (FileExists(filename))
             {
                 try
                 {

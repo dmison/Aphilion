@@ -24,14 +24,14 @@ public class InputSystemManager: MonoBehaviour
     
     public void ToggleMenuInputs(bool enable)
     {
-        if (enable)
-        {
-            InputSystem.actions.FindActionMap("Menus").Enable();    
-        }
-        else
-        {
-            InputSystem.actions.FindActionMap("Menus").Disable();
-        }
+        // if (enable)
+        // {
+        //     InputSystem.actions.FindActionMap("Menus").Enable();    
+        // }
+        // else
+        // {
+        //     InputSystem.actions.FindActionMap("Menus").Disable();
+        // }
             
             
     }

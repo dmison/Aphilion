@@ -229,35 +229,6 @@ namespace World
                 LoaderScreen.Instance.SetProgress(_loadWorld.progress/3);
                 yield return null;
             }
-            // AsyncOperation load = SceneManager.LoadSceneAsync(worldSceneIndex,  LoadSceneMode.Single);
-            // load.allowSceneActivation = true;
-            // if (load.progress < 0.9f)
-            // {
-            //     Debug.Log("world loading: "+load.progress+ " Done"+load.isDone);
-            //     // LoaderScreen.Instance.SetProgress(load.progress/4);
-            //     yield return null;
-            // }
-            // LoaderScreen.Instance.SetProgress(0.25f);
-            // ~~wait until all singletons are available~~
-            // Debug.Log("world loading: "+load.progress);
-            // Debug.Log("world loaded Done"+load.isDone);
-            // load region scene
-            // wait until region is loaded
-            // SceneManager.LoadScene(startRegionIndex, LoadSceneMode.Additive);
-            // AsyncOperation regionLoad = SceneManager.LoadSceneAsync(startRegionIndex,  LoadSceneMode.Additive);
-            //
-            // regionLoad.allowSceneActivation = true;
-            //
-            // if (regionLoad.progress < 0.9f)
-            // {
-            //     Debug.Log("region loading: "+regionLoad.progress+" Done"+regionLoad.isDone);
-            //     LoaderScreen.Instance.SetProgress(0.25f + (regionLoad.progress/4*3));
-            //     yield return null;
-            // }
-            //
-            // Debug.Log("region loading: " + regionLoad.progress);
-            // Debug.Log("region Loaded Done:"+regionLoad.isDone);            
-            // ============================================================ instantiate player inactive
             
         }
     }
