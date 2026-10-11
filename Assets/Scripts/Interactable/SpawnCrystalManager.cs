@@ -78,6 +78,18 @@ namespace Interactable
                 ActivateMe();
                 WorldSaveGameManager.instance.SaveGame();
             }
+            else
+            {
+                PlayerManager.Instance.characterStatsManager.CurrentHealth =
+                    PlayerManager.Instance.characterStatsManager.MaxHealth;
+
+                PlayerManager.Instance.characterStatsManager.CurrentStamina =
+                    PlayerManager.Instance.characterStatsManager.CurrentStamina;
+                
+                PlayerManager.Instance.currentSpawnCrystalId = crystalId;
+                
+                WorldSaveGameManager.instance.SaveGame();
+            }
             
         }
     }

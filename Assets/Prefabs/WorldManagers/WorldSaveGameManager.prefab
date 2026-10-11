@@ -262,7 +262,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -200, y: 220}
+  m_AnchoredPosition: {x: -200, y: 547}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &3243230374514089435
@@ -342,6 +342,10 @@ MonoBehaviour:
     constitution: 0
     endurance: 0
     activatedCrystals: 
+    rightHandQuickSlots: 000000000000000000000000
+    leftHandQuickSlots: 000000000000000000000000
+    lhQuickSlotIndex: 0
+    rhQuickSlotIndex: 0
 --- !u!1 &4288031040022535484
 GameObject:
   m_ObjectHideFlags: 0

@@ -86,12 +86,6 @@ namespace World
                     _spawners[i].ActivateMe();
                 }
             }
-            // currentSpawnCrystalId = data.spawnCrystalId; 
-            //
-            // characterStatsManager.Constitution = data.constitution;
-            // characterStatsManager.Endurance = data.endurance;
-            // characterStatsManager.Strength = data.strength;
-            // characterStatsManager.Dexterity = data.dexterity;
         }
 
     }

@@ -88,6 +88,7 @@ namespace World
         
         public void SaveGame()
         {
+            StartCoroutine(ToggleSavingWidget(true));
             SaveFileDataWriter saveFileDataWriter = new SaveFileDataWriter();
             if(PlayerManager.Instance)
                 PlayerManager.Instance.PopulateToSaveData(ref characterSaveData);
@@ -95,6 +96,7 @@ namespace World
                 WorldCrystalSpawnerManager.Instance.PopulateToSaveData(ref characterSaveData);
             
             saveFileDataWriter.CreateNewCharacterSaveFile(characterSaveData, CharacterSaveFilename());
+            StartCoroutine(ToggleSavingWidget(false));
         }
 
         public void DeleteSaveGame()
