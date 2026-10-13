@@ -369,12 +369,12 @@ MonoBehaviour:
   isGrounded: 1
   actionRecoveryTimer: 0
   isMoving: 0
-  currentState: {fileID: 11400000, guid: 1faaa6ea63b1c48a89dca75889e8a040, type: 2}
   idleState: {fileID: 11400000, guid: 1faaa6ea63b1c48a89dca75889e8a040, type: 2}
   pursueState: {fileID: 11400000, guid: 3a7ad9da99d3944f8b53764f91c34c79, type: 2}
   combatStanceState: {fileID: 11400000, guid: fa9882a2557dcfac89da34f981f68a2c, type: 2}
   attackState: {fileID: 11400000, guid: 953d1955942c59206a3c813bb8cd0b83, type: 2}
-  skeletonCombatManager: {fileID: 0}
+  defaultState: {fileID: 11400000, guid: 1faaa6ea63b1c48a89dca75889e8a040, type: 2}
+  currentState: {fileID: 11400000, guid: 1faaa6ea63b1c48a89dca75889e8a040, type: 2}
   navMeshAgent: {fileID: 0}
   senses: {fileID: 0}
 --- !u!114 &3097722502156841112
@@ -391,13 +391,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Character.AICharacters.AICharacterCombatManager
   currentWeaponBeingUsed: {fileID: 0}
   currentAttackType: 0
+  attackRotationSpeed: 25
   currentLockTarget: {fileID: 0}
   lockedOn: 0
   currentlyUsingRightHand: 0
   distanceFromTarget: 0
   viewableAngle: 0
   lockOnTransform: {fileID: 6338849458481436488}
-  attackRotationSpeed: 25
 --- !u!195 &6420504124685293993
 NavMeshAgent:
   m_ObjectHideFlags: 0

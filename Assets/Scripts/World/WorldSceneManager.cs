@@ -157,6 +157,9 @@ namespace World
             // make player active
             playerManager.IsActive = true;
             // start player spawning animation
+            WorldAIManager.Instance.CollectSpawnPoints();
+            WorldAIManager.Instance.ResetAllCharacters();
+            
             playerManager.characterAnimationManager.PlayTargetActionAnimation(
                 "A_Idle_Crouching_Femn", 
                 true, 

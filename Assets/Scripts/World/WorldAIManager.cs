@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,10 +12,20 @@ namespace World
         public static WorldAIManager Instance;
 
         [Header("Characters")] 
-        [SerializeField] GameObject[] AiCharacters;
-        [SerializeField] List<GameObject> SpawnedInCharacters;
-        
-        
+        public List<AiSpawnPoint> AiSpawns;
+        public List<GameObject> SpawnedInCharacters;
+
+        public void CollectSpawnPoints()
+        {
+            DestroyAllSpawnedCharacters();
+            AiSpawns = GameObject.FindObjectsByType<AiSpawnPoint>(FindObjectsInactive.Include, FindObjectsSortMode.None).ToList();
+        }
+
+        public void RemoveAllSpawnPoints()
+        {
+            DestroyAllSpawnedCharacters();
+            AiSpawns.Clear();
+        }
         
         private void Awake()
         {
@@ -27,40 +38,37 @@ namespace World
                 Destroy(gameObject);
             }
         }
-
-        // private void Start()
-        // {
-        //     StartCoroutine(WaitForSceneToLoadThenSpawnCharacters());
-        // }
-
-        private IEnumerator WaitForSceneToLoadThenSpawnCharacters()
-        {
-            while (!SceneManager.GetActiveScene().isLoaded)
+        
+        public void SpawnAllCharacters()
+        {   
+            foreach (AiSpawnPoint spawn in AiSpawns)
             {
-                yield return null;
-            }
-        }
-
-        private void SpawnAllCharacters()
-        {
-            foreach (GameObject character in AiCharacters)
-            {
-                GameObject newCharacter = Instantiate(character);
+                GameObject newCharacter = Instantiate(spawn.AiPrefab, spawn.transform.position, spawn.transform.rotation);
                 SpawnedInCharacters.Add(newCharacter);
+
             }
         }
 
-        private void DestroyAllSpawnedCharacters()
+        public void DestroyAllSpawnedCharacters()
         {
             foreach (GameObject character in SpawnedInCharacters)
             {
                 Destroy(character);
             }
+            SpawnedInCharacters.Clear();
+            
         }
 
-        private void DisableAllSpawnedCharacters()
+        public void ResetAllCharacters()
         {
-            
+            ResetCharactersWait();
+        }
+        
+        private void ResetCharactersWait()
+        {
+            DestroyAllSpawnedCharacters();
+            // yield return new WaitForSeconds(1);
+            SpawnAllCharacters();
         }
     }
 }

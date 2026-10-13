@@ -1,3 +1,4 @@
+using System;
 using Character.AICharacters.Skeleton;
 using Character.AICharacters.States;
 using UnityEngine;
@@ -12,16 +13,17 @@ namespace Character.AICharacters
         protected static readonly int IsMoving = Animator.StringToHash("IsMoving");
         
         [Header("AI STATES")]
-        [HideInInspector] public AIState currentState;
         [SerializeField] public IdleState idleState;
         [SerializeField] public PursueTargetState pursueState;
         [SerializeField] public CombatStanceState combatStanceState;
         [SerializeField] public AttackState attackState;
 
+        [SerializeField] public AIState defaultState;
+        public AIState currentState;
+        
         public NavMeshAgent navMeshAgent;
         public CharacterSenses senses;
-        
-        
+
         protected override void Awake()
         { 
             base.Awake();
@@ -30,7 +32,11 @@ namespace Character.AICharacters
             
             idleState = Instantiate(idleState);
             pursueState = Instantiate(pursueState);
-            currentState = Instantiate(currentState);
+            combatStanceState = Instantiate(combatStanceState);
+            attackState = Instantiate(attackState);
+            
+            currentState = Instantiate(defaultState);
+            
         }
         
         
