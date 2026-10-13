@@ -1011,17 +1011,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &496164670 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4693886421124045706, guid: e7aeb0f119e744370af8a2f53b0807f8, type: 3}
-  m_PrefabInstance: {fileID: 337821391}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 310648038a7d04ff18c38a6fa656ba67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ConfirmPopup
 --- !u!1001 &567948309
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1113,10 +1102,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 198967472345336757, guid: 7a8cf0384b0f04af6be162ee694f931c, type: 3}
-      propertyPath: m_Alpha
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2734025952073632132, guid: 7a8cf0384b0f04af6be162ee694f931c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1187,7 +1172,7 @@ MonoBehaviour:
   _inputModule: {fileID: 1766693065}
   _continueButton: {fileID: 568643685}
   _eventSystem: {fileID: 1766693067}
-  _confirmPopup: {fileID: 496164670}
+  _confirmPopup: {fileID: 1274861003}
 --- !u!1001 &1067990699
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1361,6 +1346,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2f4436111539481d8fa8323c1c4816e, type: 3}
+--- !u!114 &1274861003 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8220866989484154221, guid: e7aeb0f119e744370af8a2f53b0807f8, type: 3}
+  m_PrefabInstance: {fileID: 337821391}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 310648038a7d04ff18c38a6fa656ba67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConfirmPopup
 --- !u!114 &1766693065 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8851860317010572489, guid: e7aeb0f119e744370af8a2f53b0807f8, type: 3}

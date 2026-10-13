@@ -11,7 +11,8 @@ namespace UI
         [SerializeField] public StatusBar statsBar;
         [SerializeField] public DeathMessageManager deathMessageManager;
         [SerializeField] public InteractPrompt interactPrompt;
-    
+        [SerializeField] public FadeToBlack fadeToBlack;
+        
         private void Awake()
         {
             if (Instance == null)
