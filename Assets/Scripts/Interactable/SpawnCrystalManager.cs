@@ -80,15 +80,9 @@ namespace Interactable
             }
             else
             {
-                PlayerManager.Instance.characterStatsManager.CurrentHealth =
-                    PlayerManager.Instance.characterStatsManager.MaxHealth;
-
-                PlayerManager.Instance.characterStatsManager.CurrentStamina =
-                    PlayerManager.Instance.characterStatsManager.CurrentStamina;
-                
                 PlayerManager.Instance.currentSpawnCrystalId = crystalId;
                 
-                WorldSaveGameManager.instance.SaveGame();
+                StartCoroutine(PlayerManager.Instance.RespawnAtCrystal(false));
             }
             
         }

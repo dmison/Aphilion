@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Linq;
 using Character.Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -42,14 +44,19 @@ namespace UI.HUD
  
         public void RespawnCharacter()
         {
+            Debug.Log("lets resspawn");
             InputSystem.actions.FindActionMap("DeathMenu").Disable();
             HideDeathMessage();
-            PlayerManager.Instance.RespawnAtCrystal();
+            StartCoroutine(PlayerManager.Instance.RespawnAtCrystal(true));
+            // WorldAIManager.Instance.ResetAllCharacters();
+            
+            
         }
 
         public void LeaveGame()
         {
             InputSystem.actions.FindActionMap("DeathMenu").Disable();
+            WorldAIManager.Instance.RemoveAllSpawnPoints();
             WorldSceneManager.Instance.GoToStartScene();
             
             

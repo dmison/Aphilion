@@ -89194,6 +89194,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1361074225615367012, guid: 416e8fa0519094e02b54c655269f4ac0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2119537431106450832, guid: 416e8fa0519094e02b54c655269f4ac0, type: 3}
       propertyPath: m_Name
       value: ConfirmPopup

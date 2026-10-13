@@ -69,12 +69,36 @@ namespace Character.Player
             }
         }
 
-        public void RespawnAtCrystal()
+        public IEnumerator RespawnAtCrystal(bool position=true)
         {
             //fade to black
+            // A_Stand_ToCrouch_Femn
+            PlayerUIManager.Instance.fadeToBlack.FadeToBack();
+            characterAnimationManager.PlayTargetActionAnimation(
+                "A_Stand_ToCrouch_Femn", 
+                true, 
+                false, 
+                false, 
+                false,
+                0.0f
+            );
+            WorldAIManager.Instance.DestroyAllSpawnedCharacters();
+            
+            yield return new WaitForSeconds(0.5f);
+            if(position)PlaceAtSpawnCrystal();
+            
             characterStatsManager.CurrentHealth = characterStatsManager.MaxHealth;
             characterStatsManager.CurrentStamina = characterStatsManager.MaxStamina;
-            PlaceAtSpawnCrystal();
+            
+            WorldAIManager.Instance.SpawnAllCharacters();
+            
+            
+            
+            WorldSaveGameManager.instance.SaveGame();
+            
+            
+            // fade from black
+            
             characterAnimationManager.PlayTargetActionAnimation(
                 "A_Idle_Crouching_Femn", 
                 true, 
@@ -83,9 +107,10 @@ namespace Character.Player
                 false,
                 0.0f
             );
+            yield return new WaitForSeconds(1f);
             InputSystemManager.Instance.TogglePlayerControls(true);
-            // InputSystemManager.Instance.ToggleMenuInputs(false);
-            // fade from black
+            InputSystemManager.Instance.ToggleMenuInputs(false);
+            PlayerUIManager.Instance.fadeToBlack.FadeFromBack();
         }
         
         public void PopulateToSaveData(ref CharacterSaveData data)
@@ -134,9 +159,10 @@ namespace Character.Player
         public void PlaceAtSpawnCrystal()
         {
             SpawnCrystalManager crystal = WorldCrystalSpawnerManager.Instance.GetCrystalById(currentSpawnCrystalId);
-            
             transform.position = crystal.spawnPoint.transform.position;
             transform.rotation = crystal.spawnPoint.transform.rotation;
+            // Debug.Log("transform.position: "+transform.position);
+            // Debug.Log("crystal.spawnPoint.transform.position: "+crystal.spawnPoint.transform.position);
         }
     }
 }
