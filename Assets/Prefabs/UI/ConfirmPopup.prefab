@@ -661,7 +661,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4623639492846034970}
-  - component: {fileID: 7721220115871132037}
   - component: {fileID: 5501608339492801693}
   - component: {fileID: 6347017618834698082}
   m_Layer: 5
@@ -692,18 +691,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7721220115871132037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119537431106450832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 310648038a7d04ff18c38a6fa656ba67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ConfirmPopup
 --- !u!95 &5501608339492801693
 Animator:
   serializedVersion: 7
