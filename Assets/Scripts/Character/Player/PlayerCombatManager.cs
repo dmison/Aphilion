@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Items;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using WeaponActions;
 using World;
 
@@ -28,6 +29,17 @@ namespace Character.Player
         private CharacterManager closestRightTarget;
         private CharacterManager closestLeftTarget;
         private Coroutine _lockOnCoroutine;
+
+
+        [FormerlySerializedAs("_queueLimit")]
+        [Header("Input Queuing")] 
+        [SerializeField] private float queueLimit = 0.1f;
+        private bool RB_Action_queued;
+        private float RB_action_queue_timer;
+        
+        // private bool RT_Action_queued;
+        // private bool LB_Action_queued;
+        // private bool LT_Action_queued;
         
         protected override void Awake()
         {
@@ -74,6 +86,24 @@ namespace Character.Player
         
         protected override void Update()
         {
+            if (RB_Action_queued) // if there is a queue time
+            {
+                Debug.Log(RB_action_queue_timer + ":" + queueLimit);
+                RB_action_queue_timer += Time.deltaTime;
+
+                if (!_player.isPerformingAction && RB_action_queue_timer < queueLimit)
+                {
+                    RB_action_queue_timer = 0.0f;
+                    RB_Action_queued = false;
+                    RB_Action_Performed(new  InputAction.CallbackContext());
+                }
+                if (RB_action_queue_timer > queueLimit) 
+                {
+                    RB_action_queue_timer = 0.0f;
+                    RB_Action_queued = false;
+                }
+            }
+            
             if (currentLockTarget)
             {
                 if (currentLockTarget.IsDead)
@@ -228,11 +258,22 @@ namespace Character.Player
         
         private void RB_Action_Performed(InputAction.CallbackContext context)
         {
-            WeaponItem weaponItem = _player.playerInventoryManager.currentRightHandWeapon;
-            currentWeaponBeingUsed = weaponItem;
-            currentAttackType = AttackTypes.LightAttack01;
-            currentlyUsingRightHand = true;
-            PerformWeaponItemBasedAction(AttackTypes.LightAttack01, weaponItem.OH_RB_Action, weaponItem, _player, currentlyUsingRightHand);
+            if (_player.isPerformingAction)
+            {
+                RB_Action_queued = true;
+                RB_action_queue_timer = 0.0f;
+                
+            }
+            else
+            {
+
+                WeaponItem weaponItem = _player.playerInventoryManager.currentRightHandWeapon;
+                currentWeaponBeingUsed = weaponItem;
+                currentAttackType = AttackTypes.LightAttack01;
+                currentlyUsingRightHand = true;
+                PerformWeaponItemBasedAction(AttackTypes.LightAttack01, weaponItem.OH_RB_Action, weaponItem, _player,
+                    currentlyUsingRightHand);
+            }
         }
 
         private void PerformWeaponItemBasedAction(AttackTypes attackType, WeaponItemAction action, WeaponItem weaponItem, PlayerManager player, bool rightHand )
