@@ -13,6 +13,7 @@ public class GameMenuManager : MonoBehaviour
     [SerializeField] private StartScreen _startScreen;
     [SerializeField] private InputSystemUIInputModule _inputModule;
     [SerializeField] private Button _continueButton;
+    [SerializeField] private Button _newGameButton;
     [SerializeField] private EventSystem _eventSystem;
     [SerializeField] private ConfirmPopup _confirmPopup;
     private InputAction _backButton;
@@ -64,7 +65,15 @@ public class GameMenuManager : MonoBehaviour
                 _inputModule.enabled = true;
             }
             InputSystem.actions.FindActionMap("GameMenu").Enable();
-            _eventSystem.SetSelectedGameObject(_eventSystem.firstSelectedGameObject);
+            // _eventSystem.SetSelectedGameObject(_eventSystem.firstSelectedGameObject);
+            if (HasContinue())
+            {
+                _eventSystem.SetSelectedGameObject(_continueButton.gameObject);
+            }
+            else
+            {
+                _eventSystem.SetSelectedGameObject(_newGameButton.gameObject);
+            }
         }
         else
         {

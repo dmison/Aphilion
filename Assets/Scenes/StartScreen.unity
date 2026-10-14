@@ -389,7 +389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3069159468484847555, guid: e7aeb0f119e744370af8a2f53b0807f8, type: 3}
       propertyPath: m_text
-      value: Main 3c49f9
+      value: Main 73826c
       objectReference: {fileID: 0}
     - target: {fileID: 3309724703974300924, guid: e7aeb0f119e744370af8a2f53b0807f8, type: 3}
       propertyPath: m_Name
@@ -578,7 +578,7 @@ PrefabInstance:
     - target: {fileID: 5184102904958558543, guid: e7aeb0f119e744370af8a2f53b0807f8, type: 3}
       propertyPath: m_FirstSelected
       value: 
-      objectReference: {fileID: 481753150}
+      objectReference: {fileID: 0}
     - target: {fileID: 5279289959976843142, guid: e7aeb0f119e744370af8a2f53b0807f8, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -995,17 +995,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 542f99a9d250643f7b52c112e33e2524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartScreen
---- !u!1 &481753150 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7126466164196467203, guid: e7aeb0f119e744370af8a2f53b0807f8, type: 3}
-  m_PrefabInstance: {fileID: 337821391}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &481753151 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7473248881178108876, guid: e7aeb0f119e744370af8a2f53b0807f8, type: 3}
   m_PrefabInstance: {fileID: 337821391}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 481753150}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -1171,6 +1166,7 @@ MonoBehaviour:
   _startScreen: {fileID: 379069611}
   _inputModule: {fileID: 1766693065}
   _continueButton: {fileID: 568643685}
+  _newGameButton: {fileID: 481753151}
   _eventSystem: {fileID: 1766693067}
   _confirmPopup: {fileID: 1274861003}
 --- !u!1001 &1067990699

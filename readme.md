@@ -607,9 +607,52 @@ Then
 ### Sun Oct 11
  - implemented continue from start menu
 
-
-
 ## Week 12 (Mon Oct  12 - Sun Oct 18)
+
+### Mon Oct 12
+ - resting at crystalls inmplemented - needs animation though
+ - resting & respawn on death resets all AI characters.  
+    - respawn on death doesn't reset the AIState though.  Not sure wtf is happening there.  As a hack maybe I'll just reposition the player & then trigger the rest interaction.
+
+### Tuesday Oct 13
+ - cleaned resting with animations & a fade in/out
+ - moved the save spinner to the top & always on top
+ - fixed up ai spawn points as prefabs (with mesh drawing in editor)
+ - [ ] adding system menu (quit, controls)
+ - [ ] adding controls screen
+
+ - considering the idea of mixing in a few assets from the post-apocalypse assets ... just a couple of thinks like maybe a little bit of overground broken road or something, bit of env story telling that we are in some kind of far future.
+
+ TODO: 
+  - [ ] input queueing
+  - [ ] poise
+  - [ ] weapon UI
+  - [ ] healing 
+  - [ ] enemy healthbars
+  - [ ] doors
+  - [ ] ladders - probably not enough time
+  - [ ] elevators
+  - [ ] wolf enemy
+  - [ ] werewolf enemy
+
+BUGS:
+ - [ ] when respawning from death, enemies are sometimes active (resting resets them though)
+ - [ ] skeleton holds sword wrong when two-handed grip
+ - [ ] player dodge backwards doesn't jump for enough
+ - [ ] player doesn't keep facing enemy when locked on if you dodge in a direction
+
+BONUS:
+ - [ ] record seconds played for save & display time played on menu when continue selected, 
+    - when entering/leaving world scene
+    - start time & last save time perhaps
+        - could get those from file metadata?
+
+LEVEL:
+ - two sections
+ - two crystals, at beginning of each section
+ - short cut, one way door probably
+ - winding branching paths
+ - 
 
 # Cleanup
 ## Week 13 (Mon Oct  19 - Sun Oct 25)
