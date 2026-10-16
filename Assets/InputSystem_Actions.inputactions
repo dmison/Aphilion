@@ -961,15 +961,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Point",
-                    "type": "PassThrough",
-                    "id": "a2e2248a-7d24-43f3-9a48-daa9c245d990",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Navigate",
                     "type": "PassThrough",
                     "id": "71da50a8-9170-471b-be54-aac16dc7cf28",
@@ -1052,39 +1043,6 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "Click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5f141b47-40c3-4b06-90d6-b1c1ca5beba6",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Point",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "dd24dca6-8e7e-47a5-97f0-de2cbe74026a",
-                    "path": "<Pen>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Point",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d819aaaa-abaa-4e2f-b593-3edac4a697f0",
-                    "path": "<Touchscreen>/touch*/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Touch",
-                    "action": "Point",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1550,6 +1508,45 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "ToContinue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "SystemMenu",
+            "id": "620eefc3-7aa6-448f-ba38-8364ac30c535",
+            "actions": [
+                {
+                    "name": "Show",
+                    "type": "Button",
+                    "id": "fcc65a49-85c4-46fc-bed0-454ea42e0aa7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "134664f1-c29e-4955-ae64-0b2bc3e98077",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Show",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "548166c7-1708-4d00-95f4-5aee6d3fd3df",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Show",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
