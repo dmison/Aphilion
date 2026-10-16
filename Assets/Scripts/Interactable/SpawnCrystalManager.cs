@@ -41,23 +41,6 @@ namespace Interactable
             WorldCrystalSpawnerManager.Instance.RemoveMe(this);
         }
 
-        // private void OnTriggerEnter(Collider other)
-        // {
-        //     if (other.CompareTag("Player"))
-        //     {
-        //         if(!activated)ActivateMe();
-        //         _playerPresent = true;
-        //         WorldSaveGameManager.instance.SaveGame();
-        //     }
-        // }
-        //
-        // private void OnTriggerExit(Collider other)
-        // {
-        //     if (other.CompareTag("Player"))
-        //     {
-        //         _playerPresent = false;
-        //     }
-        // }
         public string GetLabel()
         {
             if(activated){
