@@ -618,13 +618,10 @@ Then
  - cleaned resting with animations & a fade in/out
  - moved the save spinner to the top & always on top
  - fixed up ai spawn points as prefabs (with mesh drawing in editor)
- - [ ] adding system menu (quit, controls)
- - [ ] adding controls screen
-
+ 
  - considering the idea of mixing in a few assets from the post-apocalypse assets ... just a couple of thinks like maybe a little bit of overground broken road or something, bit of env story telling that we are in some kind of far future.
 
  TODO: 
-  - [ ] input queueing
   - [ ] poise
   - [ ] weapon UI
   - [ ] healing 
@@ -653,6 +650,29 @@ LEVEL:
  - short cut, one way door probably
  - winding branching paths
  - 
+
+
+### Wed Oct 14
+  - [x] input queueing implemented for attack.  Simple to add for other inputs as required
+  - looked into some of the other synty asset packs for trees, some of the nature biome pack might work okay.  
+    - Was distracted by the weather effects & other stuff in their sample scenes
+
+### Thur Oct 15
+ - [x] nicer animations on crystals & added light source to them
+
+    - had a weird ephipany of sorts when adding the light.  
+    - I had planned to just add the light to the prefab, disable it, and then enable it in the method that gets called to "activate" the crystal.
+    - But what the method does is just set an animation controller parameter to transition to the "activating" animation state.
+    - So instead of writing code to manipulate the light, I set the light intensity to zero and added the light intensity to the existing animation, starting at zero and three in the final frame.
+    - I had not thought about animations as a means of transitioning properties from one value to another, but I guess that is what they are. 
+
+ - [x] adding system menu (quit, controls)
+ - [ ] adding controls screen 
+
+### Fri Oct 16
+ 
+ - [ ] doors & switches
+
 
 # Cleanup
 ## Week 13 (Mon Oct  19 - Sun Oct 25)
