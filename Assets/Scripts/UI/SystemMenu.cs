@@ -27,6 +27,7 @@ namespace UI
         private void OnDestroy()
         {
             _showMe.performed -= ShowMe;
+            Time.timeScale = 1.0f;
         }
 
         public void ResumeGame()
@@ -34,7 +35,7 @@ namespace UI
             if (active)
             {
                 active = false;
-                // Time.timeScale = 1.0f;
+                Time.timeScale = 1.0f;
                 _animator.SetBool(Active, false);
                 InputSystem.actions.FindActionMap("Movement").Enable();
                 InputSystem.actions.FindActionMap("Actions").Enable();
@@ -48,6 +49,7 @@ namespace UI
             if (active)
             {
                 active = false;
+                Time.timeScale = 1.0f;
                 // should have a prompt here
                 WorldSceneManager.Instance.GoToStartScene();
                 
@@ -64,14 +66,14 @@ namespace UI
                 InputSystem.actions.FindActionMap("EquipmentManager").Disable();
                 InputSystem.actions.FindActionMap("GameMenu").Enable();
                 eventSystem.SetSelectedGameObject(defaultButton.gameObject);
-                // Time.timeScale = 0.0f;
+                Time.timeScale = 0.0f;
                 _animator.SetBool(Active, true);
                 
             }
             else
             {
                 active = false;
-                // Time.timeScale = 1.0f;
+                Time.timeScale = 1.0f;
                 _animator.SetBool(Active, false);
                 InputSystem.actions.FindActionMap("Movement").Enable();
                 InputSystem.actions.FindActionMap("Actions").Enable();
