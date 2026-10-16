@@ -23,6 +23,17 @@ namespace Character.Player
             _useAction.performed -= DoInteraction;
         }
 
+
+        private void OnTriggerStay(Collider other)
+        {
+            IInteractable interaction = other.GetComponent<IInteractable>();
+            if (interaction != null)
+            {
+                _interactable = interaction;
+                PlayerUIManager.Instance.interactPrompt.SetLabelText(interaction.GetLabel());
+            };
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             IInteractable interaction = other.GetComponent<IInteractable>();
