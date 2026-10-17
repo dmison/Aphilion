@@ -395,6 +395,7 @@ GameObject:
   - component: {fileID: 4966468417716067108}
   - component: {fileID: 6777238875824495286}
   - component: {fileID: 6267439178508049411}
+  - component: {fileID: 163425627633850123}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -674,6 +675,7 @@ MonoBehaviour:
   lockOnTransform: {fileID: 0}
   lockOnRadius: 10
   lockOnViewAngle: 100
+  queueLimit: 0.1
 --- !u!114 &4966468417716067108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -817,6 +819,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character.Player.PlayerInteractionManager
   _area: {fileID: 9105171605323162734}
+--- !u!81 &163425627633850123
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304044752368291044}
+  m_Enabled: 1
 --- !u!1 &304044752729701686
 GameObject:
   m_ObjectHideFlags: 0
