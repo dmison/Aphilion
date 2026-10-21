@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -16,7 +17,7 @@ public class WorldSoundFxManager : MonoBehaviour
     public AudioClip ChooseRandomClip(AudioClip[] clips)
     {
         int i = Random.Range(0, clips.Length);
-        return clips[i];
+        return clips.First();
     }
     
     private void Awake()
