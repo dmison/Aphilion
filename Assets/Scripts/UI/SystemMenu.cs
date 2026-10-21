@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -14,7 +15,8 @@ namespace UI
         private InputAction _showMe;
         [SerializeField] private Button defaultButton;
         [SerializeField] private EventSystem eventSystem;
-
+        [SerializeField] private ControlHelpView controlHelpView;
+        [SerializeField] private TextMeshProUGUI text;
         private bool active = false;
         
         private void Awake()
@@ -22,6 +24,7 @@ namespace UI
             _animator = GetComponent<Animator>();
             _showMe = InputSystem.actions.FindAction("SystemMenu/Show");
             _showMe.performed += ShowMe;
+            text.text = controlHelpView.visible ? "Hide Controls" : "Show Controls";
         }
 
         private void OnDestroy()
@@ -30,6 +33,12 @@ namespace UI
             Time.timeScale = 1.0f;
         }
 
+        public void ShowHelp()
+        {
+            controlHelpView.ToggleView();
+            ResumeGame();
+        }
+        
         public void ResumeGame()
         {
             if (active)
@@ -60,6 +69,7 @@ namespace UI
         {
             if (!active)
             {
+                text.text = controlHelpView.visible ? "Hide Controls" : "Show Controls";
                 active = true;
                 InputSystem.actions.FindActionMap("Movement").Disable();
                 InputSystem.actions.FindActionMap("Actions").Disable();
