@@ -6,7 +6,7 @@ namespace Character
     {
         private static readonly int Horizontal = Animator.StringToHash("horizontal");
         private static readonly int Vertical = Animator.StringToHash("vertical");
-        private CharacterManager _characterManager;
+        protected CharacterManager _characterManager;
 
         [Header("Damage Animations")] 
         public string A_Hit_F_React_Sword = "A_Hit_F_React_Sword";
@@ -19,7 +19,7 @@ namespace Character
             _characterManager = GetComponent<CharacterManager>();
         }
         
-        public void UpdateAnimatorMovementParameters(float horizontal, float vertical)
+        public virtual void UpdateAnimatorMovementParameters(float horizontal, float vertical)
         {
             _characterManager.animator.SetFloat(Horizontal, horizontal, 0.1f, Time.deltaTime);
             _characterManager.animator.SetFloat(Vertical, vertical, 0.1f, Time.deltaTime);

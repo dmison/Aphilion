@@ -24,6 +24,11 @@ namespace Character.AICharacters
         public NavMeshAgent navMeshAgent;
         public CharacterSenses senses;
 
+        protected virtual void Start()
+        {
+            currentState = defaultState;
+        }
+        
         protected override void Awake()
         { 
             base.Awake();
@@ -35,7 +40,7 @@ namespace Character.AICharacters
             combatStanceState = Instantiate(combatStanceState);
             attackState = Instantiate(attackState);
             
-            currentState = Instantiate(defaultState);
+            defaultState = Instantiate(defaultState);
             
         }
         

@@ -16,8 +16,9 @@ namespace Character
         [HideInInspector] public CharacterEffectsManager characterEffectsManager;
         [HideInInspector] public CharacterCombatManager characterCombatManager;
         [HideInInspector] public CharacterSoundEffectsManager characterSoundEffectsManager;
-        private List<SkinnedMeshRenderer> _models = new List<SkinnedMeshRenderer>();
-        private List<Collider> _colliders = new List<Collider>();
+        protected List<SkinnedMeshRenderer> _models = new List<SkinnedMeshRenderer>();
+
+        protected List<Collider> _colliders = new List<Collider>();
         // FLAGS
         public bool isPerformingAction = false;
         public bool canRotate = true;

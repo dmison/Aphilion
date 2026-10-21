@@ -1383,13 +1383,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 827035746190262428, guid: 333aaf67a3f224a09bcc0dc939221380, type: 3}
+      propertyPath: m_Cameras.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 827035746190262428, guid: 333aaf67a3f224a09bcc0dc939221380, type: 3}
+      propertyPath: 'm_Cameras.Array.data[0]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 827035746190262428, guid: 333aaf67a3f224a09bcc0dc939221380, type: 3}
+      propertyPath: 'm_Cameras.Array.data[1]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 827035746190262428, guid: 333aaf67a3f224a09bcc0dc939221380, type: 3}
+      propertyPath: 'm_Cameras.Array.data[2]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2409122392203070510, guid: 333aaf67a3f224a09bcc0dc939221380, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860405708111129799, guid: 333aaf67a3f224a09bcc0dc939221380, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 5379669867131876131, guid: 333aaf67a3f224a09bcc0dc939221380, type: 3}
+      propertyPath: uiCamera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5379669867131876131, guid: 333aaf67a3f224a09bcc0dc939221380, type: 3}
+      propertyPath: envCamera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5379669867131876131, guid: 333aaf67a3f224a09bcc0dc939221380, type: 3}
+      propertyPath: charCamera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5379669867131876131, guid: 333aaf67a3f224a09bcc0dc939221380, type: 3}
+      propertyPath: fadeToBlack
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7092041535199254261, guid: 333aaf67a3f224a09bcc0dc939221380, type: 3}
       propertyPath: m_Name
       value: PlayerCamera
-      objectReference: {fileID: 0}
-    - target: {fileID: 7092041535199254261, guid: 333aaf67a3f224a09bcc0dc939221380, type: 3}
-      propertyPath: m_TagString
-      value: MainCamera
       objectReference: {fileID: 0}
     - target: {fileID: 7687547609188110233, guid: 333aaf67a3f224a09bcc0dc939221380, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1430,6 +1466,10 @@ PrefabInstance:
     - target: {fileID: 7687547609188110233, guid: 333aaf67a3f224a09bcc0dc939221380, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678086268129450022, guid: 333aaf67a3f224a09bcc0dc939221380, type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

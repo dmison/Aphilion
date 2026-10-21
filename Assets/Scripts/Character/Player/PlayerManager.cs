@@ -80,11 +80,11 @@ namespace Character.Player
                 false, 
                 false, 
                 false,
-                0.0f
+                0.2f
             );
             WorldAIManager.Instance.DestroyAllSpawnedCharacters();
             
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.3f);
             if(position)PlaceAtSpawnCrystal();
             
             characterStatsManager.CurrentHealth = characterStatsManager.MaxHealth;
@@ -105,9 +105,9 @@ namespace Character.Player
                 false, 
                 false, 
                 false,
-                0.0f
+                0.2f
             );
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.3f);
             InputSystemManager.Instance.TogglePlayerControls(true);
             InputSystemManager.Instance.ToggleMenuInputs(false);
             PlayerUIManager.Instance.fadeToBlack.FadeFromBack();
