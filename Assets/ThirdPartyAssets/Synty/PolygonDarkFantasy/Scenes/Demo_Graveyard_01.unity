@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 10
+  serializedVersion: 9
   m_Fog: 1
   m_FogColor: {r: 0.37254906, g: 0.6595013, b: 0.8117647, a: 1}
   m_FogMode: 1
@@ -42,8 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 13
-  m_BakeOnSceneLoad: 0
+  serializedVersion: 12
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -66,6 +66,9 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -93,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000004, guid: c9478f341ed2b1420849a7e94556eda4, type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -1174,7 +1177,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2235116437806982392, guid: c08b40bbbb802c84986e9f88310d00ee, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: dded611eac52b9f45ba63aac4c9b5832, type: 2}
     m_RemovedComponents: []
@@ -2565,14 +2568,15 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77111803}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 10
   m_Type: 1
+  m_Shape: 0
   m_Color: {r: 0.5157232, g: 0.8161974, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize2D: {x: 10, y: 10}
+  m_CookieSize: 10
   m_Shadows:
     m_Type: 2
     m_Resolution: -1
@@ -2616,12 +2620,8 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
-  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_LightUnit: 1
-  m_LuxAtDistance: 1
-  m_EnableSpotReflector: 1
 --- !u!4 &77111805
 Transform:
   m_ObjectHideFlags: 0
@@ -2649,23 +2649,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Version: 3
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
-  m_RenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_ShadowRenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_Version: 4
-  m_LightLayerMask: 1
-  m_ShadowLayerMask: 1
-  m_RenderingLayers: 1
-  m_ShadowRenderingLayers: 1
 --- !u!1001 &81545836
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3708,7 +3702,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 289393489}
     m_Modifications:
     - target: {fileID: 555914537005294252, guid: bd7702b2232285943b914c03251d727e, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: dded611eac52b9f45ba63aac4c9b5832, type: 2}
     - target: {fileID: 1728306452892932547, guid: bd7702b2232285943b914c03251d727e, type: 3}
@@ -5199,7 +5193,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 154040562}
     m_Modifications:
     - target: {fileID: 234339743873271827, guid: a7ac25f33cda4a142b07895294ec49ec, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b5a61346bf8cc354dac95a15f19c9069, type: 2}
     - target: {fileID: 1372373158342783868, guid: a7ac25f33cda4a142b07895294ec49ec, type: 3}
@@ -5376,14 +5370,15 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139833398}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 0.8207547, g: 0.4504027, b: 0.042586334, a: 1}
   m_Intensity: 5.63
   m_Range: 5.122854
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize2D: {x: 10, y: 10}
+  m_CookieSize: 10
   m_Shadows:
     m_Type: 1
     m_Resolution: -1
@@ -5427,12 +5422,8 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
-  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_LightUnit: 1
-  m_LuxAtDistance: 1
-  m_EnableSpotReflector: 1
 --- !u!4 &139833400
 Transform:
   m_ObjectHideFlags: 0
@@ -5460,23 +5451,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Version: 3
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
-  m_RenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_ShadowRenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_Version: 4
-  m_LightLayerMask: 1
-  m_ShadowLayerMask: 1
-  m_RenderingLayers: 1
-  m_ShadowRenderingLayers: 1
 --- !u!1001 &140898426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5630,7 +5615,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 154040562}
     m_Modifications:
     - target: {fileID: 234339743873271827, guid: a7ac25f33cda4a142b07895294ec49ec, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b5a61346bf8cc354dac95a15f19c9069, type: 2}
     - target: {fileID: 1372373158342783868, guid: a7ac25f33cda4a142b07895294ec49ec, type: 3}
@@ -6112,7 +6097,7 @@ PrefabInstance:
       value: SM_Prop_Tomb_02 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 4643458503317151784, guid: 836f8ac7b18cc2d43b39197816561a8d, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ea0850cd45628224eb56ca9fab8e50d1, type: 2}
     m_RemovedComponents: []
@@ -6320,7 +6305,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 1988434955}
     m_Modifications:
     - target: {fileID: 2316795216892978385, guid: 836f8ac7b18cc2d43b39197816561a8d, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e9e43f7f18e02bb40a6993e7f1cf4a53, type: 2}
     - target: {fileID: 3489660950483902398, guid: 836f8ac7b18cc2d43b39197816561a8d, type: 3}
@@ -7169,10 +7154,6 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8300982342143866592, guid: aab20c158f4dcec41b042ff7007dd34e, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: e9e43f7f18e02bb40a6993e7f1cf4a53, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7469,7 +7450,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 1988434955}
     m_Modifications:
     - target: {fileID: 5650215409970370947, guid: 64e798065e6d15c46bc0251b07ef0f8d, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9973fef0551d19e42a9d9f0eb8cff374, type: 2}
     - target: {fileID: 6154560912215210070, guid: 64e798065e6d15c46bc0251b07ef0f8d, type: 3}
@@ -7665,7 +7646,7 @@ PrefabInstance:
       value: SM_Env_Cloud_03 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1268569068685873807, guid: 5c05b6cdc9b1f5e4db57e8b0bda356bd, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b5a61346bf8cc354dac95a15f19c9069, type: 2}
     m_RemovedComponents: []
@@ -7765,7 +7746,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 1902480544}
     m_Modifications:
     - target: {fileID: 5030911208040286138, guid: 3ec8e8212e3e4df46ad9e1916a75d3c8, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7ead4eaad71010a42b9f8063002b1fcd, type: 2}
     - target: {fileID: 6168330369039482069, guid: 3ec8e8212e3e4df46ad9e1916a75d3c8, type: 3}
@@ -8315,7 +8296,7 @@ PrefabInstance:
       value: SM_Prop_Tomb_Stone_03 (4)
       objectReference: {fileID: 0}
     - target: {fileID: 5929518337431265766, guid: dab3a8687c90bea45847e6c9f2418ebf, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7b7f5267309d7494099639a23d9d189d, type: 2}
     m_RemovedComponents: []
@@ -9205,7 +9186,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 1902480544}
     m_Modifications:
     - target: {fileID: 3260061013824820913, guid: 9d69d9af46608c24eabba9ccf95a0571, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7ead4eaad71010a42b9f8063002b1fcd, type: 2}
     - target: {fileID: 3908821320679257956, guid: 9d69d9af46608c24eabba9ccf95a0571, type: 3}
@@ -10056,7 +10037,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 85622182}
     m_Modifications:
     - target: {fileID: 740059766617677340, guid: 260b025fb66440a46b7d4c9a60fb1950, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e9e43f7f18e02bb40a6993e7f1cf4a53, type: 2}
     - target: {fileID: 1244616513678327753, guid: 260b025fb66440a46b7d4c9a60fb1950, type: 3}
@@ -11849,7 +11830,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 1988434955}
     m_Modifications:
     - target: {fileID: 990452015600264283, guid: fb10eaa03ff199b4f8303467149e8fa3, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 351d75c6fb16f5b4aba23abc2891168d, type: 2}
     - target: {fileID: 1638807428822975886, guid: fb10eaa03ff199b4f8303467149e8fa3, type: 3}
@@ -11913,7 +11894,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8984804024444578898, guid: fb10eaa03ff199b4f8303467149e8fa3, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: fca2c0012ae9fba4ba3d16964597f2f7, type: 2}
     m_RemovedComponents: []
@@ -12922,14 +12903,15 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 407986065}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 0.8301887, g: 0.46626583, b: 0.08223567, a: 1}
   m_Intensity: 4
   m_Range: 7
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize2D: {x: 10, y: 10}
+  m_CookieSize: 10
   m_Shadows:
     m_Type: 2
     m_Resolution: -1
@@ -12973,12 +12955,8 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
-  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_LightUnit: 1
-  m_LuxAtDistance: 1
-  m_EnableSpotReflector: 1
 --- !u!4 &407986067
 Transform:
   m_ObjectHideFlags: 0
@@ -13006,23 +12984,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Version: 3
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
-  m_RenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_ShadowRenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_Version: 4
-  m_LightLayerMask: 1
-  m_ShadowLayerMask: 1
-  m_RenderingLayers: 1
-  m_ShadowRenderingLayers: 1
 --- !u!1001 &408398844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15504,7 +15476,7 @@ PrefabInstance:
       value: SM_Prop_Gallows_01_Body_02 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 3983534924337261894, guid: 2639197ed8cd27c4e9873b9578ed8ef8, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9973fef0551d19e42a9d9f0eb8cff374, type: 2}
     m_RemovedComponents: []
@@ -16287,14 +16259,15 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501944205}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 0.764151, g: 0.4612404, b: 0.09011213, a: 1}
   m_Intensity: 2.87
   m_Range: 3.0211217
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize2D: {x: 10, y: 10}
+  m_CookieSize: 10
   m_Shadows:
     m_Type: 1
     m_Resolution: -1
@@ -16338,12 +16311,8 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
-  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_LightUnit: 1
-  m_LuxAtDistance: 1
-  m_EnableSpotReflector: 1
 --- !u!4 &501944207
 Transform:
   m_ObjectHideFlags: 0
@@ -16371,23 +16340,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Version: 3
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
-  m_RenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_ShadowRenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_Version: 4
-  m_LightLayerMask: 1
-  m_ShadowLayerMask: 1
-  m_RenderingLayers: 1
-  m_ShadowRenderingLayers: 1
 --- !u!1001 &509219336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16445,7 +16408,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4527326918231370709, guid: a25ba7a3c7af62548874aa00a2c65d1e, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e9e43f7f18e02bb40a6993e7f1cf4a53, type: 2}
     m_RemovedComponents: []
@@ -17509,7 +17472,7 @@ PrefabInstance:
       value: SM_Prop_Statue_People_03
       objectReference: {fileID: 0}
     - target: {fileID: 5823537641976176639, guid: b1794bac0b324df4c899a2ae1109e86d, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e9e43f7f18e02bb40a6993e7f1cf4a53, type: 2}
     m_RemovedComponents: []
@@ -19091,7 +19054,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 154040562}
     m_Modifications:
     - target: {fileID: 234339743873271827, guid: a7ac25f33cda4a142b07895294ec49ec, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b5a61346bf8cc354dac95a15f19c9069, type: 2}
     - target: {fileID: 1372373158342783868, guid: a7ac25f33cda4a142b07895294ec49ec, type: 3}
@@ -19533,7 +19496,7 @@ PrefabInstance:
       value: SM_Env_Cloud_03
       objectReference: {fileID: 0}
     - target: {fileID: 1268569068685873807, guid: 5c05b6cdc9b1f5e4db57e8b0bda356bd, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b5a61346bf8cc354dac95a15f19c9069, type: 2}
     m_RemovedComponents: []
@@ -20557,7 +20520,7 @@ PrefabInstance:
       value: SM_Env_Cloud_01 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1721297823330421160, guid: 0a1919b5ec5789340944f27cf03e16e7, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b5a61346bf8cc354dac95a15f19c9069, type: 2}
     m_RemovedComponents: []
@@ -22562,7 +22525,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 1988434955}
     m_Modifications:
     - target: {fileID: 5538377448665441309, guid: 03158df78170b35459d1a6bef52a77a1, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: dded611eac52b9f45ba63aac4c9b5832, type: 2}
     - target: {fileID: 6331138045149136328, guid: 03158df78170b35459d1a6bef52a77a1, type: 3}
@@ -22915,11 +22878,6 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -22941,11 +22899,9 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &768628460
 MeshFilter:
@@ -23062,14 +23018,15 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782614005}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 0.764151, g: 0.4612404, b: 0.09011213, a: 1}
   m_Intensity: 5.63
   m_Range: 2.5688484
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize2D: {x: 10, y: 10}
+  m_CookieSize: 10
   m_Shadows:
     m_Type: 1
     m_Resolution: -1
@@ -23113,12 +23070,8 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
-  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_LightUnit: 1
-  m_LuxAtDistance: 1
-  m_EnableSpotReflector: 1
 --- !u!4 &782614007
 Transform:
   m_ObjectHideFlags: 0
@@ -23146,23 +23099,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Version: 3
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
-  m_RenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_ShadowRenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_Version: 4
-  m_LightLayerMask: 1
-  m_ShadowLayerMask: 1
-  m_RenderingLayers: 1
-  m_ShadowRenderingLayers: 1
 --- !u!1001 &785768457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24400,7 +24347,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2221300090612540907, guid: 4fb0ecf19ada3f747b424b05a9ac0f18, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7b7f5267309d7494099639a23d9d189d, type: 2}
     m_RemovedComponents: []
@@ -27048,7 +26995,7 @@ PrefabInstance:
       value: SM_Env_Cloud_03 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1268569068685873807, guid: 5c05b6cdc9b1f5e4db57e8b0bda356bd, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b5a61346bf8cc354dac95a15f19c9069, type: 2}
     m_RemovedComponents: []
@@ -27811,7 +27758,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 154040562}
     m_Modifications:
     - target: {fileID: 234339743873271827, guid: a7ac25f33cda4a142b07895294ec49ec, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b5a61346bf8cc354dac95a15f19c9069, type: 2}
     - target: {fileID: 1372373158342783868, guid: a7ac25f33cda4a142b07895294ec49ec, type: 3}
@@ -27910,14 +27857,15 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946560483}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 0.8584906, g: 0.49879333, b: 0.08503916, a: 1}
   m_Intensity: 5.23
   m_Range: 3.0378747
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize2D: {x: 10, y: 10}
+  m_CookieSize: 10
   m_Shadows:
     m_Type: 1
     m_Resolution: -1
@@ -27961,12 +27909,8 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
-  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_LightUnit: 1
-  m_LuxAtDistance: 1
-  m_EnableSpotReflector: 1
 --- !u!4 &946560485
 Transform:
   m_ObjectHideFlags: 0
@@ -27994,23 +27938,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Version: 3
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
-  m_RenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_ShadowRenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_Version: 4
-  m_LightLayerMask: 1
-  m_ShadowLayerMask: 1
-  m_RenderingLayers: 1
-  m_ShadowRenderingLayers: 1
 --- !u!1001 &946766379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29488,7 +29426,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 1902480544}
     m_Modifications:
     - target: {fileID: 3260061013824820913, guid: 9d69d9af46608c24eabba9ccf95a0571, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7ead4eaad71010a42b9f8063002b1fcd, type: 2}
     - target: {fileID: 3908821320679257956, guid: 9d69d9af46608c24eabba9ccf95a0571, type: 3}
@@ -29673,11 +29611,6 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -29699,11 +29632,9 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1004337514
 MeshFilter:
@@ -30567,7 +30498,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 1988434955}
     m_Modifications:
     - target: {fileID: 5538377448665441309, guid: 03158df78170b35459d1a6bef52a77a1, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 351d75c6fb16f5b4aba23abc2891168d, type: 2}
     - target: {fileID: 6331138045149136328, guid: 03158df78170b35459d1a6bef52a77a1, type: 3}
@@ -31543,7 +31474,7 @@ PrefabInstance:
       value: SM_Prop_Gallows_01_Body_02 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3983534924337261894, guid: 2639197ed8cd27c4e9873b9578ed8ef8, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9973fef0551d19e42a9d9f0eb8cff374, type: 2}
     m_RemovedComponents: []
@@ -32003,7 +31934,7 @@ PrefabInstance:
       value: SM_Prop_Tomb_Stone_Basic_02 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3649957428608944774, guid: d4ce9cd83697d0e439a1d44ff7c879db, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7b7f5267309d7494099639a23d9d189d, type: 2}
     m_RemovedComponents: []
@@ -32074,11 +32005,6 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -32100,11 +32026,9 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1088727168
 MeshFilter:
@@ -33547,7 +33471,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 1902480544}
     m_Modifications:
     - target: {fileID: 3260061013824820913, guid: 9d69d9af46608c24eabba9ccf95a0571, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7ead4eaad71010a42b9f8063002b1fcd, type: 2}
     - target: {fileID: 3908821320679257956, guid: 9d69d9af46608c24eabba9ccf95a0571, type: 3}
@@ -35425,7 +35349,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 1988434955}
     m_Modifications:
     - target: {fileID: 5538377448665441309, guid: 03158df78170b35459d1a6bef52a77a1, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: dded611eac52b9f45ba63aac4c9b5832, type: 2}
     - target: {fileID: 6331138045149136328, guid: 03158df78170b35459d1a6bef52a77a1, type: 3}
@@ -35746,14 +35670,15 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216657525}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 0.67058825, g: 0.3649018, b: 0.07843135, a: 1}
   m_Intensity: 5.63
   m_Range: 2.5688484
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize2D: {x: 10, y: 10}
+  m_CookieSize: 10
   m_Shadows:
     m_Type: 1
     m_Resolution: -1
@@ -35797,12 +35722,8 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
-  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_LightUnit: 1
-  m_LuxAtDistance: 1
-  m_EnableSpotReflector: 1
 --- !u!4 &1216657527
 Transform:
   m_ObjectHideFlags: 0
@@ -35830,23 +35751,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Version: 3
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
-  m_RenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_ShadowRenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_Version: 4
-  m_LightLayerMask: 1
-  m_ShadowLayerMask: 1
-  m_RenderingLayers: 1
-  m_ShadowRenderingLayers: 1
 --- !u!1001 &1217360303
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37684,7 +37599,7 @@ PrefabInstance:
       value: -0.239
       objectReference: {fileID: 0}
     - target: {fileID: 6416614883418724502, guid: ac78e5096b90d7e49af6b3756ac271a3, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5160f259f13a24f4b93c074908771100, type: 2}
     m_RemovedComponents: []
@@ -39284,7 +39199,7 @@ PrefabInstance:
       value: SM_Env_CloudRing_01
       objectReference: {fileID: 0}
     - target: {fileID: 1532550627331596105, guid: 83f6efa95b283904f9500553cb918756, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b5a61346bf8cc354dac95a15f19c9069, type: 2}
     m_RemovedComponents: []
@@ -39522,7 +39437,7 @@ PrefabInstance:
       value: SM_Env_Cloud_01
       objectReference: {fileID: 0}
     - target: {fileID: 1721297823330421160, guid: 0a1919b5ec5789340944f27cf03e16e7, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b5a61346bf8cc354dac95a15f19c9069, type: 2}
     m_RemovedComponents: []
@@ -41811,7 +41726,7 @@ PrefabInstance:
       value: SM_Prop_Tomb_Stone_03
       objectReference: {fileID: 0}
     - target: {fileID: 5929518337431265766, guid: dab3a8687c90bea45847e6c9f2418ebf, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: dded611eac52b9f45ba63aac4c9b5832, type: 2}
     m_RemovedComponents: []
@@ -43255,7 +43170,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2235116437806982392, guid: c08b40bbbb802c84986e9f88310d00ee, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: dded611eac52b9f45ba63aac4c9b5832, type: 2}
     m_RemovedComponents: []
@@ -43610,7 +43525,7 @@ PrefabInstance:
       value: SM_Wep_Sword_03 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8371682253404840676, guid: 2d1b288c4815e28498d754a794475903, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8b64d5e7638991c44b8777bd6eceef2e, type: 2}
     m_RemovedComponents: []
@@ -44020,7 +43935,7 @@ PrefabInstance:
       value: SM_Prop_Tomb_Stone_01
       objectReference: {fileID: 0}
     - target: {fileID: 8406529211058142610, guid: ae5f1db14a31b5b41bac93e3e9ee303a, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7b7f5267309d7494099639a23d9d189d, type: 2}
     m_RemovedComponents: []
@@ -44312,7 +44227,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1827196654880646384, guid: 3c29e1160289b084786c757fca524c19, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ea0850cd45628224eb56ca9fab8e50d1, type: 2}
     m_RemovedComponents: []
@@ -45559,7 +45474,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 1988434955}
     m_Modifications:
     - target: {fileID: 854760493085121951, guid: 8f0b60243a5dc0248b98bbac82ab9c78, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7b7f5267309d7494099639a23d9d189d, type: 2}
     - target: {fileID: 1214921126796328010, guid: 8f0b60243a5dc0248b98bbac82ab9c78, type: 3}
@@ -45959,6 +45874,7 @@ MonoBehaviour:
   m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
+  m_Version: 2
   m_TaaSettings:
     m_Quality: 3
     m_FrameInfluence: 0.1
@@ -45966,7 +45882,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
-  m_Version: 2
 --- !u!1001 &1566386336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46293,14 +46208,15 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1572602468}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 0.8207547, g: 0.4504027, b: 0.042586334, a: 1}
   m_Intensity: 1.23
   m_Range: 7
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize2D: {x: 10, y: 10}
+  m_CookieSize: 10
   m_Shadows:
     m_Type: 2
     m_Resolution: -1
@@ -46344,12 +46260,8 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
-  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_LightUnit: 1
-  m_LuxAtDistance: 1
-  m_EnableSpotReflector: 1
 --- !u!4 &1572602470
 Transform:
   m_ObjectHideFlags: 0
@@ -46377,23 +46289,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Version: 3
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
-  m_RenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_ShadowRenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_Version: 4
-  m_LightLayerMask: 1
-  m_ShadowLayerMask: 1
-  m_RenderingLayers: 1
-  m_ShadowRenderingLayers: 1
 --- !u!1001 &1574986441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46685,7 +46591,7 @@ PrefabInstance:
       value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 6192740609396918917, guid: 31489bb6b032392419c09929bcaae4fc, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: dded611eac52b9f45ba63aac4c9b5832, type: 2}
     - target: {fileID: 6500632491225041568, guid: 31489bb6b032392419c09929bcaae4fc, type: 3}
@@ -47786,7 +47692,7 @@ PrefabInstance:
       value: SM_Prop_Tomb_Stone_Basic_02 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 3649957428608944774, guid: d4ce9cd83697d0e439a1d44ff7c879db, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7b7f5267309d7494099639a23d9d189d, type: 2}
     m_RemovedComponents: []
@@ -48024,7 +47930,7 @@ PrefabInstance:
       value: SM_Prop_Gallows_01_Body_02 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 3983534924337261894, guid: 2639197ed8cd27c4e9873b9578ed8ef8, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9973fef0551d19e42a9d9f0eb8cff374, type: 2}
     m_RemovedComponents: []
@@ -49456,7 +49362,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 1988434955}
     m_Modifications:
     - target: {fileID: 5650215409970370947, guid: 64e798065e6d15c46bc0251b07ef0f8d, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 12c6686faba30324585fbd49fa9792bc, type: 2}
     - target: {fileID: 6154560912215210070, guid: 64e798065e6d15c46bc0251b07ef0f8d, type: 3}
@@ -51093,7 +50999,7 @@ PrefabInstance:
       value: SM_Prop_Tomb_Stone_03 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 5929518337431265766, guid: dab3a8687c90bea45847e6c9f2418ebf, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: dded611eac52b9f45ba63aac4c9b5832, type: 2}
     m_RemovedComponents: []
@@ -51307,7 +51213,7 @@ PrefabInstance:
       value: SM_Prop_Gallows_01_Body_02
       objectReference: {fileID: 0}
     - target: {fileID: 3983534924337261894, guid: 2639197ed8cd27c4e9873b9578ed8ef8, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9973fef0551d19e42a9d9f0eb8cff374, type: 2}
     m_RemovedComponents: []
@@ -51634,14 +51540,15 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1784939375}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 0.8301887, g: 0.46626583, b: 0.08223567, a: 1}
   m_Intensity: 4
   m_Range: 7
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize2D: {x: 10, y: 10}
+  m_CookieSize: 10
   m_Shadows:
     m_Type: 2
     m_Resolution: -1
@@ -51685,12 +51592,8 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
-  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_LightUnit: 1
-  m_LuxAtDistance: 1
-  m_EnableSpotReflector: 1
 --- !u!4 &1784939377
 Transform:
   m_ObjectHideFlags: 0
@@ -51718,23 +51621,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Version: 3
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
-  m_RenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_ShadowRenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_Version: 4
-  m_LightLayerMask: 1
-  m_ShadowLayerMask: 1
-  m_RenderingLayers: 1
-  m_ShadowRenderingLayers: 1
 --- !u!1 &1787088566
 GameObject:
   m_ObjectHideFlags: 0
@@ -52234,7 +52131,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 278655248347908315, guid: 85ba971b045a2ff4da64af60b97ca38d, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: cc1a48cebaf2557429f0cb7a11177244, type: 2}
     - target: {fileID: 1411552634624324532, guid: 85ba971b045a2ff4da64af60b97ca38d, type: 3}
@@ -52762,7 +52659,7 @@ PrefabInstance:
       value: SM_Prop_Gallows_01_Body_02 (4)
       objectReference: {fileID: 0}
     - target: {fileID: 3983534924337261894, guid: 2639197ed8cd27c4e9873b9578ed8ef8, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9973fef0551d19e42a9d9f0eb8cff374, type: 2}
     m_RemovedComponents: []
@@ -52862,7 +52759,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 154040562}
     m_Modifications:
     - target: {fileID: 234339743873271827, guid: a7ac25f33cda4a142b07895294ec49ec, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b5a61346bf8cc354dac95a15f19c9069, type: 2}
     - target: {fileID: 1372373158342783868, guid: a7ac25f33cda4a142b07895294ec49ec, type: 3}
@@ -53342,7 +53239,7 @@ PrefabInstance:
       value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 6192740609396918917, guid: 31489bb6b032392419c09929bcaae4fc, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7b7f5267309d7494099639a23d9d189d, type: 2}
     - target: {fileID: 6500632491225041568, guid: 31489bb6b032392419c09929bcaae4fc, type: 3}
@@ -54682,7 +54579,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 1902480544}
     m_Modifications:
     - target: {fileID: 3260061013824820913, guid: 9d69d9af46608c24eabba9ccf95a0571, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7ead4eaad71010a42b9f8063002b1fcd, type: 2}
     - target: {fileID: 3908821320679257956, guid: 9d69d9af46608c24eabba9ccf95a0571, type: 3}
@@ -54998,7 +54895,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 1902480544}
     m_Modifications:
     - target: {fileID: 3260061013824820913, guid: 9d69d9af46608c24eabba9ccf95a0571, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7ead4eaad71010a42b9f8063002b1fcd, type: 2}
     - target: {fileID: 3908821320679257956, guid: 9d69d9af46608c24eabba9ccf95a0571, type: 3}
@@ -56024,14 +55921,15 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921456220}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 0.764151, g: 0.4612404, b: 0.09011213, a: 1}
   m_Intensity: 4
   m_Range: 7
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize2D: {x: 10, y: 10}
+  m_CookieSize: 10
   m_Shadows:
     m_Type: 2
     m_Resolution: -1
@@ -56075,12 +55973,8 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
-  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_LightUnit: 1
-  m_LuxAtDistance: 1
-  m_EnableSpotReflector: 1
 --- !u!4 &1921456222
 Transform:
   m_ObjectHideFlags: 0
@@ -56090,7 +55984,7 @@ Transform:
   m_GameObject: {fileID: 1921456220}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.79670936, z: -0, w: 0.6043627}
-  m_LocalPosition: {x: 3.058, y: 2.871, z: 0.354}
+  m_LocalPosition: {x: 3.058, y: 2.689, z: 0.354}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56108,23 +56002,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Version: 3
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
-  m_RenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_ShadowRenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_Version: 4
-  m_LightLayerMask: 1
-  m_ShadowLayerMask: 1
-  m_RenderingLayers: 1
-  m_ShadowRenderingLayers: 1
 --- !u!1001 &1925151371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57668,7 +57556,7 @@ PrefabInstance:
       value: SM_Env_Cloud_01 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1721297823330421160, guid: 0a1919b5ec5789340944f27cf03e16e7, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b5a61346bf8cc354dac95a15f19c9069, type: 2}
     m_RemovedComponents: []
@@ -58442,7 +58330,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 1902480544}
     m_Modifications:
     - target: {fileID: 3260061013824820913, guid: 9d69d9af46608c24eabba9ccf95a0571, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ea0850cd45628224eb56ca9fab8e50d1, type: 2}
     - target: {fileID: 3908821320679257956, guid: 9d69d9af46608c24eabba9ccf95a0571, type: 3}
@@ -58572,7 +58460,7 @@ PrefabInstance:
       value: SM_Wep_Sword_03 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8371682253404840676, guid: 2d1b288c4815e28498d754a794475903, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8b64d5e7638991c44b8777bd6eceef2e, type: 2}
     m_RemovedComponents: []
@@ -60800,7 +60688,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4387726213130076078, guid: 32defebcf751e0e478a8d613aa4d5b80, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 351d75c6fb16f5b4aba23abc2891168d, type: 2}
     m_RemovedComponents: []
@@ -60995,14 +60883,15 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2090523638}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 0.764151, g: 0.4612404, b: 0.09011213, a: 1}
   m_Intensity: 5.63
   m_Range: 2.5688484
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize2D: {x: 10, y: 10}
+  m_CookieSize: 10
   m_Shadows:
     m_Type: 1
     m_Resolution: -1
@@ -61046,12 +60935,8 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
-  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_LightUnit: 1
-  m_LuxAtDistance: 1
-  m_EnableSpotReflector: 1
 --- !u!4 &2090523640
 Transform:
   m_ObjectHideFlags: 0
@@ -61079,23 +60964,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Version: 3
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
-  m_RenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_ShadowRenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_Version: 4
-  m_LightLayerMask: 1
-  m_ShadowLayerMask: 1
-  m_RenderingLayers: 1
-  m_ShadowRenderingLayers: 1
 --- !u!1001 &2090766265
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61410,14 +61289,15 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101244976}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 0.8301887, g: 0.46626583, b: 0.08223567, a: 1}
   m_Intensity: 4
   m_Range: 7
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize2D: {x: 10, y: 10}
+  m_CookieSize: 10
   m_Shadows:
     m_Type: 2
     m_Resolution: -1
@@ -61461,12 +61341,8 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
-  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_LightUnit: 1
-  m_LuxAtDistance: 1
-  m_EnableSpotReflector: 1
 --- !u!4 &2101244978
 Transform:
   m_ObjectHideFlags: 0
@@ -61494,23 +61370,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Version: 3
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
-  m_RenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_ShadowRenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_Version: 4
-  m_LightLayerMask: 1
-  m_ShadowLayerMask: 1
-  m_RenderingLayers: 1
-  m_ShadowRenderingLayers: 1
 --- !u!1001 &2102715776
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62144,7 +62014,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 1121356621}
     m_Modifications:
     - target: {fileID: 6969572044127005496, guid: bc918e9f4a26c754f809c66be0b4a6ce, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 351d75c6fb16f5b4aba23abc2891168d, type: 2}
     - target: {fileID: 8139068878252740695, guid: bc918e9f4a26c754f809c66be0b4a6ce, type: 3}
@@ -62616,7 +62486,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2235116437806982392, guid: c08b40bbbb802c84986e9f88310d00ee, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 351d75c6fb16f5b4aba23abc2891168d, type: 2}
     m_RemovedComponents: []

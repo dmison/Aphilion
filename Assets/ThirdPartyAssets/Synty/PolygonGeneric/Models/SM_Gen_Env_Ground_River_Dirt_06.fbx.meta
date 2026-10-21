@@ -108,6 +108,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 264560
   packageName: POLYGON - Dark Fantasy Pack - Art by Synty
-  packageVersion: 1.4.0
-  assetPath: Assets/Synty/PolygonGeneric/Models/SM_Gen_Env_Ground_River_Dirt_06.fbx
-  uploadId: 915918
+  packageVersion: 1.4.1
+  assetPath: Assets/ThirdPartyAssets/Synty/PolygonGeneric/Models/SM_Gen_Env_Ground_River_Dirt_06.fbx
+  uploadId: 974030

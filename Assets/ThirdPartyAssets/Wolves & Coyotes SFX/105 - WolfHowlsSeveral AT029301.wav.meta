@@ -1,0 +1,29 @@
+fileFormatVersion: 2
+guid: cd994d89bbbd648a48896579a447cf6a
+AudioImporter:
+  externalObjects: {}
+  serializedVersion: 6
+  defaultSettings:
+    loadType: 0
+    sampleRateSetting: 0
+    sampleRateOverride: 44100
+    compressionFormat: 1
+    quality: 1
+    conversionMode: 0
+  platformSettingOverrides: {}
+  forceToMono: 0
+  normalize: 1
+  preloadAudioData: 1
+  loadInBackground: 0
+  ambisonic: 0
+  3D: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 232493
+  packageName: Wolves & Coyotes SFX Collection
+  packageVersion: 1.0
+  assetPath: Assets/Wolves & Coyotes SFX/105 - WolfHowlsSeveral AT029301.wav
+  uploadId: 529929

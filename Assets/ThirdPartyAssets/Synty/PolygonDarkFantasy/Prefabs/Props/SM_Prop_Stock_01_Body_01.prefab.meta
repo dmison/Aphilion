@@ -9,6 +9,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 264560
   packageName: POLYGON - Dark Fantasy Pack - Art by Synty
-  packageVersion: 1.4.0
-  assetPath: Assets/Synty/PolygonDarkFantasy/Prefabs/Props/SM_Prop_Stock_01_Body_01.prefab
-  uploadId: 915918
+  packageVersion: 1.4.1
+  assetPath: Assets/ThirdPartyAssets/Synty/PolygonDarkFantasy/Prefabs/Props/SM_Prop_Stock_01_Body_01.prefab
+  uploadId: 974030

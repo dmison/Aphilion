@@ -107,3 +107,10 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 264560
+  packageName: POLYGON - Dark Fantasy Pack - Art by Synty
+  packageVersion: 1.4.1
+  assetPath: Assets/ThirdPartyAssets/Synty/PolygonGeneric/Models/SM_Gen_Env_Tyremarks_Long_Corner_02.fbx
+  uploadId: 974030
