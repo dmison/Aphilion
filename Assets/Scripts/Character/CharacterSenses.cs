@@ -34,6 +34,8 @@ namespace Character
             if (!WorldUtilityManager.Instance)
                 return charactersInVision;
             
+            // for some reason this sometimes captures the player the first it runs, even though the player is outside
+            // visionDistance.  Weird.  So we double-check target distance before adding something to the list
             Collider[] colliders = Physics.OverlapSphere(transform.position, visionDistance, WorldUtilityManager.Instance.GetCharacterLayerMask());
 
             for (int i = 0; i < colliders.Length; i++)
@@ -45,8 +47,10 @@ namespace Character
                 if (cm.transform.root == transform.root) continue; // target is self
 
                 Vector3 targetDirection = cm.transform.position - transform.position;
+                
+                // double-check distance because of issue with Physics.OverlapSphere above 
                 float targetDistance = Vector3.Distance(transform.position, cm.transform.position);
-
+                if (visionDistance < targetDistance) continue;
                 
                 float targetViewAngle = Vector3.Angle(targetDirection, ForwardDirection());
 
