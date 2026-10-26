@@ -11,6 +11,9 @@ namespace Character.Player
         
         public WeaponItem[] rightHandQuickSlots = new WeaponItem[3];
         public WeaponItem[] leftHandQuickSlots = new WeaponItem[3];
+
+        public ConsumableItem upperItemSlot;
+        public ConsumableItem lowerItemSlot;
         
         public int lhQuickSlotIndex;
         public int rhQuickSlotIndex;

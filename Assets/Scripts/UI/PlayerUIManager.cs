@@ -12,6 +12,11 @@ namespace UI
         [SerializeField] public DeathMessageManager deathMessageManager;
         [SerializeField] public InteractPrompt interactPrompt;
         [SerializeField] public FadeToBlack fadeToBlack;
+
+        [SerializeField] public HudIconManager topSlot;
+        [SerializeField] public GameObject bottomSlot;
+        [SerializeField] public GameObject leftSlot;
+        [SerializeField] public GameObject rightSlot;
         
         private void Awake()
         {

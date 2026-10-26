@@ -633,7 +633,6 @@ Then
   - [ ] werewolf enemy
 
 BUGS:
- - [ ] when respawning from death, enemies are sometimes active (resting resets them though)
  - [ ] skeleton holds sword wrong when two-handed grip
  - [ ] player dodge backwards doesn't jump for enough
  - [ ] player doesn't keep facing enemy when locked on if you dodge in a direction
@@ -671,11 +670,34 @@ LEVEL:
 
 ### Fri Oct 16
  
- - [ ] doors & switches
+ - [ ] cemetary gate (openable door)
 
+ - iron gate SFX https://pixabay.com/sound-effects/household-irongate2-85045/
 
- - iron gate sound effect https://pixabay.com/sound-effects/household-irongate2-85045/
+### Sat Oct 17
+
+ - [x] doors & switches
+
+ - dragonfly SFX https://pixabay.com/sound-effects/nature-dragonfly-6796/
+
+ - started adding wolf
 
 # Cleanup
 ## Week 13 (Mon Oct  19 - Sun Oct 25)
 
+### Mon Oct 19th
+ - experimented with player & crystal not fading to black during resting.  Lots of issues.
+
+ - [x] fixed AI issue with them starting in pursue mode.  Turns out first time the sensor code ran, Physics.OverlapSphere was detecting the player although it was clearly outside the radius.  Not idea why.  Fixed by double-checking distance to target for each detected object to make sure it would have been within vision distance.
+
+### Thu Oct 22nd 
+
+ - [x] healing system
+
+ https://assetstore.unity.com/packages/vfx/particles/spells/magic-effects-free-247933
+
+ https://assetstore.unity.com/packages/3d/animations/souls-like-essential-animations-178889
+
+ ### Fri Oct 23rd
+
+ 

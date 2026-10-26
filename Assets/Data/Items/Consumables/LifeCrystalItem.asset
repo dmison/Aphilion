@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 626d2f306db84535a46296a2a9b186e4, type: 3}
+  m_Name: LifeCrystalItem
+  m_EditorClassIdentifier: Assembly-CSharp::Items.ConsumableItem
+  ItemName: Life Crystal
+  ItemDescription: 
+  ItemIcon: {fileID: 21300000, guid: c28b4ff7c1351cc4f95ee66e79acbe5b, type: 3}
+  ItemId: 0
+  MaxCharges: 3
+  currentCharges: 3
+  _itemAction: {fileID: 11400000, guid: 2769fd28b873a393dbece0750b2b8f3c, type: 2}
+  rechargesAtRest: 1

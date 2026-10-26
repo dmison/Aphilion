@@ -89,7 +89,7 @@ namespace Character.Player
             
             characterStatsManager.CurrentHealth = characterStatsManager.MaxHealth;
             characterStatsManager.CurrentStamina = characterStatsManager.MaxStamina;
-            
+            playerEquipmentManager.RestoreItemsForRest();
             WorldAIManager.Instance.SpawnAllCharacters();
             
             

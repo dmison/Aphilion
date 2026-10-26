@@ -634,6 +634,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  upperItemSlot: {fileID: 11400000, guid: 82e1586336f744916a554fe9818810fc, type: 2}
+  lowerItemSlot: {fileID: 0}
   lhQuickSlotIndex: 0
   rhQuickSlotIndex: 0
 --- !u!114 &8087831944785150809

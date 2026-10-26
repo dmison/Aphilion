@@ -7,10 +7,11 @@ namespace Effects
     public class TakeStaminaDamageEffect: InstantCharacterEffect
     {
         [SerializeField] private float staminaDamage;
-        public override void ProcessEffect(CharacterManager character)
+        public override bool ProcessEffect(CharacterManager character)
         {
             base.ProcessEffect(character);
             character.characterStatsManager.CurrentStamina -= staminaDamage;
+            return true;
         }
     }
 }

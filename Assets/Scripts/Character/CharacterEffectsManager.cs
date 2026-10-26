@@ -21,9 +21,10 @@ namespace Character
             character = GetComponent<CharacterManager>();
         }
 
-        public virtual void ProcessInstantEffect(InstantCharacterEffect effect)
+        public virtual bool ProcessInstantEffect(InstantCharacterEffect effect)
         {
-            effect.ProcessEffect(character);
+            Debug.Log("processing effect");
+            return effect.ProcessEffect(character);
         }
 
         public void PlayBloodSpatterVFX(Vector3 position)

@@ -7,11 +7,12 @@ namespace Effects
     {
         public int InstantEffectId;
 
-        public virtual void ProcessEffect(CharacterManager character)
+        public virtual bool ProcessEffect(CharacterManager character)
         {
-            
-            
+            return false;
+
         }
+        
 
         public virtual void PlayFX(CharacterManager character)
         {

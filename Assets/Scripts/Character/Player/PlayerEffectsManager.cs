@@ -4,7 +4,7 @@ namespace Character.Player
 {
     public interface IEffectsManager
     {
-        public void ProcessInstantEffect(InstantCharacterEffect effect);
+        public bool ProcessInstantEffect(InstantCharacterEffect effect);
     }
 
     public class PlayerEffectsManager : CharacterEffectsManager, IEffectsManager
@@ -15,11 +15,11 @@ namespace Character.Player
             // base.Awake();
             player = GetComponent<PlayerManager>();
         }
-        public override void ProcessInstantEffect(InstantCharacterEffect effect)
+        public override bool ProcessInstantEffect(InstantCharacterEffect effect)
         {
             // base.ProcessInstantEffect(effect);
-            effect.ProcessEffect(player);
-        
+            return effect.ProcessEffect(player);
+         
         }
     }
 }

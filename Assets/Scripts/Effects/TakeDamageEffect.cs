@@ -28,14 +28,14 @@ namespace Effects
         public float angleHitFrom;
         public Vector3 impactPoint;
         
-        public override void ProcessEffect(CharacterManager character)
+        public override bool ProcessEffect(CharacterManager character)
         {
             base.ProcessEffect(character);
             CalculateDamage(character);
             PlayFX(character);
-            if (character.IsDead) return;
+            if (character.IsDead) return true;
             PlayDirectionalDamageAnimation(character);
-            
+            return true;
         }
 
         private void CalculateDamage(CharacterManager character)
