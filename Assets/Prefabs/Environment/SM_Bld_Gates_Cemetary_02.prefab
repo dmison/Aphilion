@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1310483298304625879}
   - component: {fileID: 7636633652157171023}
   - component: {fileID: 2030086842}
+  - component: {fileID: 3511181044456615229}
   m_Layer: 0
   m_Name: SM_Bld_Gates_Cemetary_02_Door_02
   m_TagString: Untagged
@@ -112,6 +113,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0889928, y: 3.418106, z: 0.133461}
   m_Center: {x: 0.5271915, y: 0.4233315, z: 0.084617615}
+--- !u!208 &3511181044456615229
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390325313877510082}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.544, y: 1.7090001, z: 0.147}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.527, y: 0.423, z: 0.106000006}
+  m_TimeToStationary: 0.5
 --- !u!1 &3665369464575562971
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,6 +449,7 @@ GameObject:
   - component: {fileID: 1739954408834544715}
   - component: {fileID: 8678744538803857924}
   - component: {fileID: 2030086843}
+  - component: {fileID: 1596768189296557408}
   m_Layer: 0
   m_Name: SM_Bld_Gates_Cemetary_02_Door_01
   m_TagString: Untagged
@@ -532,3 +550,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0719681, y: 3.418098, z: 0.1690712}
   m_Center: {x: -0.53410673, y: 0.42781377, z: 0.07282066}
+--- !u!208 &1596768189296557408
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6450673285803491272}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.536, y: 1.7090001, z: 0.2}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.53400004, y: 0.42800003, z: 0.147}
+  m_TimeToStationary: 0.5
