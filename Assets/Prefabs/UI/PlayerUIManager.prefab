@@ -17934,9 +17934,9 @@ RectTransform:
   - {fileID: 8043770455811787787}
   - {fileID: 2025957690581977068}
   - {fileID: 6076379611723499981}
+  - {fileID: 3552260633749733507}
   - {fileID: 3858759454987941671}
   - {fileID: 8203617137463709278}
-  - {fileID: 3552260633749733507}
   m_Father: {fileID: 6329403906248579230}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -22858,6 +22858,10 @@ PrefabInstance:
     - target: {fileID: 8633728967055198038, guid: 6ac9c3b62a098eff1a43d0d3beb4c8c7, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851860317010572489, guid: 6ac9c3b62a098eff1a43d0d3beb4c8c7, type: 3}
+      propertyPath: m_PointerBehavior
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9138990743852423293, guid: 6ac9c3b62a098eff1a43d0d3beb4c8c7, type: 3}
       propertyPath: m_AnchorMax.y

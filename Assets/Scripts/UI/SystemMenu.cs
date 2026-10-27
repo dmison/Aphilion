@@ -25,6 +25,7 @@ namespace UI
             _showMe = InputSystem.actions.FindAction("SystemMenu/Show");
             _showMe.performed += ShowMe;
             text.text = controlHelpView.visible ? "Hide Controls" : "Show Controls";
+            InputSystem.actions.FindActionMap("GameMenu").Disable();
         }
 
         private void OnDestroy()
@@ -67,7 +68,18 @@ namespace UI
         
         public void ShowMe (InputAction.CallbackContext ctx)
         {
-            if (!active)
+            if(active)
+            {
+                active = false;
+                Time.timeScale = 1.0f;
+                _animator.SetBool(Active, false);
+                InputSystem.actions.FindActionMap("Movement").Enable();
+                InputSystem.actions.FindActionMap("Actions").Enable();
+                InputSystem.actions.FindActionMap("GameMenu").Disable();
+                InputSystem.actions.FindActionMap("EquipmentManager").Enable();
+                
+            }
+            else
             {
                 text.text = controlHelpView.visible ? "Hide Controls" : "Show Controls";
                 active = true;
@@ -80,16 +92,8 @@ namespace UI
                 _animator.SetBool(Active, true);
                 
             }
-            else
-            {
-                active = false;
-                Time.timeScale = 1.0f;
-                _animator.SetBool(Active, false);
-                InputSystem.actions.FindActionMap("Movement").Enable();
-                InputSystem.actions.FindActionMap("Actions").Enable();
-                InputSystem.actions.FindActionMap("GameMenu").Disable();
-                InputSystem.actions.FindActionMap("EquipmentManager").Enable();
-            }
+            
+            
         }
 
     }
