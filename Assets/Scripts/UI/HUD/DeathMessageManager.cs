@@ -46,6 +46,7 @@ namespace UI.HUD
         {
             Debug.Log("lets resspawn");
             InputSystem.actions.FindActionMap("DeathMenu").Disable();
+            
             HideDeathMessage();
             StartCoroutine(PlayerManager.Instance.RespawnAtCrystal(true));
             // WorldAIManager.Instance.ResetAllCharacters();

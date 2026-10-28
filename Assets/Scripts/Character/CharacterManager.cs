@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Character.Player;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Character
 {
@@ -16,6 +14,8 @@ namespace Character
         [HideInInspector] public CharacterEffectsManager characterEffectsManager;
         [HideInInspector] public CharacterCombatManager characterCombatManager;
         [HideInInspector] public CharacterSoundEffectsManager characterSoundEffectsManager;
+        [HideInInspector] public CharacterDeathManager characterDeathManager;
+        
         protected List<SkinnedMeshRenderer> _models = new List<SkinnedMeshRenderer>();
 
         protected List<Collider> _colliders = new List<Collider>();
@@ -50,6 +50,7 @@ namespace Character
             characterEffectsManager = GetComponent<CharacterEffectsManager>();
             characterCombatManager = GetComponent<CharacterCombatManager>();
             characterSoundEffectsManager = GetComponent<CharacterSoundEffectsManager>();
+            characterDeathManager = GetComponent<CharacterDeathManager>();
             _models = GetComponentsInChildren<SkinnedMeshRenderer>(true).ToList();
             _colliders = GetComponentsInChildren<Collider>(true).ToList();
             animator = GetComponent<Animator>();

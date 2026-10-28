@@ -13,6 +13,7 @@ namespace Character.Player
         [HideInInspector] public PlayerMovementManager playerMovementManager;
         [HideInInspector] public PlayerEquipmentManager playerEquipmentManager;
         [HideInInspector] public PlayerInventoryManager playerInventoryManager;
+        [HideInInspector] public PlayerDeathManager playerDeathManager;
         
         public int currentSpawnCrystalId = 1;
         public bool IsActive;
@@ -32,6 +33,8 @@ namespace Character.Player
             playerMovementManager = GetComponent<PlayerMovementManager>();
             playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
             playerInventoryManager = GetComponent<PlayerInventoryManager>();
+            playerDeathManager = GetComponent<PlayerDeathManager>();
+            
             characterController = GetComponent<CharacterController>();
             characterEffectsManager = GetComponent<PlayerEffectsManager>();
             characterAnimationManager = GetComponent<PlayerAnimationManager>();
@@ -56,21 +59,21 @@ namespace Character.Player
         }
         public override IEnumerator HandleDeath(bool manuallySelectAnimation = false)
         {
-            if (IsActive)
-            {
-                InputSystemManager.Instance.TogglePlayerControls(false);
-                // InputSystemManager.Instance.ToggleMenuInputs(true);
+            if (!IsActive) yield break;
+            
+            InputSystemManager.Instance.TogglePlayerControls(false);
+            // InputSystemManager.Instance.ToggleMenuInputs(true);
                 
-                characterSoundEffectsManager.PlayDie();
-                characterAnimationManager.PlayTargetActionAnimation("Dead_01");
+            characterSoundEffectsManager.PlayDie();
+            characterAnimationManager.PlayTargetActionAnimation("Dead_01");
                 
-                yield return new WaitForSeconds(2);
-                PlayerUIManager.Instance.deathMessageManager.ShowDeathMessage();
-            }
+            yield return new WaitForSeconds(2);
+            PlayerUIManager.Instance.deathMessageManager.ShowDeathMessage();
         }
 
         public IEnumerator RespawnAtCrystal(bool position=true)
         {
+            playerDeathManager.drowning = false;
             //fade to black
             // A_Stand_ToCrouch_Femn
             PlayerUIManager.Instance.fadeToBlack.FadeToBack();

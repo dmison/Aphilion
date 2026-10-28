@@ -700,4 +700,23 @@ LEVEL:
 
  ### Fri Oct 23rd
 
- 
+
+### Tue Oct 27th
+ - [x] drowning cause why not
+
+ https://pixabay.com/sound-effects/people-kid-playing-in-a-swimming-pool-14617/
+
+  - drowning is basically as a hack because the original design didn't consider the outcome of death to be anything other than falling to ground.  
+  - the current death code (ie handling disabling of input, playing the animation & audio etc, and the showing the UI) is in the PlayerManager, the monobehaviour which is like the parent container that has references to all the other player monobehaviours (like stats, combat, movment, etc)
+  - currently the original death is invoked by the playerStatsManager if something sets CurrentHealth to zero or less.
+  - so drowning can't set health to zero without rewriting this system
+  - I created a PlayerDeathManager class & put the Drowning method in it.
+  - it's a copy of the "handling death" code with different animation & audio.
+  - I think the preferred solution would be define a MethodOfDeath enum & have the effects system include that as a parameter, and have that recorded as the source of the most recent damage.  Then when health reaches zero, the DeathManager class can use that to determine the correct death animations/audio/etc to use when dying.
+  - environment would also be a factor I guess, getting stabbed to death underwater would have some different animations.  
+  - maybe cause of death (ie the effect applying the final damage) would be the "dying animation"
+  - and the environment (on land, in water, etc) would be the "dead pose" animation
+  - in anycase it isn't going to happen soon so hack it is
+  - there is also the issue of what to do with the camera ... maybe it should get left active but that would mean moving it into a different action map
+
+  

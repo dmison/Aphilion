@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2758f7c6e8a1e194591b2472748b697a
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 287928
+  packageName: Swimming Animation Pack
+  packageVersion: 1.1
+  assetPath: Assets/UrsaAssets/SwimmingAnimPack/AnimControllers/AnimCntrl09.controller
+  uploadId: 702042

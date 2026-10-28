@@ -396,6 +396,7 @@ GameObject:
   - component: {fileID: 6777238875824495286}
   - component: {fileID: 6267439178508049411}
   - component: {fileID: 163425627633850123}
+  - component: {fileID: 2996031776902638115}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -531,6 +532,7 @@ MonoBehaviour:
   characterEffectsManager: {fileID: 0}
   characterCombatManager: {fileID: 0}
   characterSoundEffectsManager: {fileID: 0}
+  characterDeathManager: {fileID: 0}
   isPerformingAction: 0
   canRotate: 1
   canMove: 1
@@ -540,6 +542,7 @@ MonoBehaviour:
   playerMovementManager: {fileID: 0}
   playerEquipmentManager: {fileID: 0}
   playerInventoryManager: {fileID: 0}
+  playerDeathManager: {fileID: 0}
   currentSpawnCrystalId: 1
   IsActive: 0
 --- !u!114 &842761884305693223
@@ -829,6 +832,18 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 304044752368291044}
   m_Enabled: 1
+--- !u!114 &2996031776902638115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304044752368291044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c67a1a88f0a4d3aaa51fef298419f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Character.Player.PlayerDeathManager
 --- !u!1 &304044752729701686
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,7 +31,15 @@ namespace Character.Player
             // PlayMaleHitGrunt();
         }
 
-
+        
+        public override void PlayDrown()
+        {
+            // select based on voice gender setting            
+            PlayFemaleScream();
+            PlaySoundFX(WorldSoundFxManager.instance.splashingAroundSFX);
+            // PlayMaleScream();
+        }
+        
         public override void PlayDie()
         {
             // select based on voice gender setting            

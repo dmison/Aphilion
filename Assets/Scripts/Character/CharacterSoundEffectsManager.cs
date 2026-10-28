@@ -41,6 +41,7 @@ namespace Character
             
         }
         public virtual void PlayDie() { }
+        public virtual void PlayDrown() { }
         public virtual void PlayAggro() { }
         public virtual void PlayAttack() { }
         

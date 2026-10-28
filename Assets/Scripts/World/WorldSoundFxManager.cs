@@ -13,6 +13,10 @@ public class WorldSoundFxManager : MonoBehaviour
     [Header("Hit Sounds")]
     public AudioClip[] genericHitSFX;
     
+    [Header("Water Sounds")]
+    public AudioClip splashSFX;
+
+    public AudioClip splashingAroundSFX;
 
     public AudioClip ChooseRandomClip(AudioClip[] clips)
     {

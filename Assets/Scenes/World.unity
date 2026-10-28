@@ -334,6 +334,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1555503764295019350, guid: 886e01955c78a4ed8b941e9e49177e6d, type: 3}
+      propertyPath: splashSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 08dfff1eea8c84e558b16b8351b034f3, type: 3}
+    - target: {fileID: 1555503764295019350, guid: 886e01955c78a4ed8b941e9e49177e6d, type: 3}
+      propertyPath: splashingAroundSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 4054472f31de24f52abc18be366b8afb, type: 3}
     - target: {fileID: 2231975103374562065, guid: 886e01955c78a4ed8b941e9e49177e6d, type: 3}
       propertyPath: m_Name
       value: WorldSoundFXManager
