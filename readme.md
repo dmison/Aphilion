@@ -700,6 +700,7 @@ LEVEL:
 
  ### Fri Oct 23rd
 
+  - moved away from the terrain based and using graveyard demo from Synty as a base & expanding it out
 
 ### Tue Oct 27th
  - [x] drowning cause why not
@@ -719,4 +720,119 @@ LEVEL:
   - in anycase it isn't going to happen soon so hack it is
   - there is also the issue of what to do with the camera ... maybe it should get left active but that would mean moving it into a different action map
 
-  
+  - also water shader from https://github.com/MatrixRex/Uber-Stylized-Water after experimenting with https://unityqueen.com/2026/07/01/realistic-ocean-waves-in-unity-using-gerstner-waves/
+
+# Extension
+
+### Wed Oct 28th
+
+  - level design
+  - thinking about about project organisation
+    - the structure I picked up was to organise assets by type, with subdirectories under them
+    ```
+    - Assets
+        - Scripts
+            - Player
+            - Guards
+            - Skeletons
+            - Wolves
+            - UI
+        - Animations
+            - Player
+            - Guards
+            - Skeletons
+            - Wolves                
+            - UI
+        - Materials
+            - Player
+            - Guards
+            - Skeletons
+            - Wolves
+            - Buildings
+            - Environments
+            - UI
+        - Models
+            - Player
+            - Guards
+            - Skeletons
+            - Wolves
+            - Buildings
+            - Environments
+        - Textures
+            - Player
+            - Guards
+            - Skeletons
+            - Wolves
+            - Buildings
+            - Environments
+            - UI
+    ```
+    - I think this makes a lot of sense with a high degree of specialisation on a team.  If your whole role was just animation, then having all the animations in a project in one place makes sense.
+    - but I do have an inclination to group things because as a solo dev or on a small team you have to be a generalis and be context switching a lot, so it might makes more sense to organise assets by game entity rather than resource type.
+
+    ```
+    - Assets
+        - Player
+            - Scripts
+            - Animations    
+            - Materials     
+            - Models       
+            - Textures
+        - Enemies
+            - Skeleton
+                - Scripts
+                - Animations    
+                - Materials     
+                - Models       
+                - Textures
+            - Guards
+                - Scripts
+                - Animations    
+                - Materials     
+                - Models       
+                - Textures
+            - Wolves
+                - Scripts
+                - Animations    
+                - Materials     
+                - Models       
+                - Textures
+        - Building Kits
+            - City
+                - Materials     
+                - Models       
+                - Textures
+            - Temple
+                - Materials     
+                - Models       
+                - Textures
+        - Environment
+            - Urban
+                - Materials     
+                - Models       
+                - Textures
+            - Forest
+                - Materials     
+                - Models       
+                - Textures
+    ```
+
+    - I can see immediate problems with this approach especially with shared assets between entities.
+    - The answer to that problme is a `Shared` directory for those items, probably organised by type.
+    - Ultimately there is no one right answer - unless secret third thing? `;-)`
+    - The decision is really based on how the team is organised and works.
+    - The good directory structure would probably be representative of that.
+
+
+### Thur Oct 29th 
+
+ - building out level.  
+
+### Fri Oct 30th
+
+ - level build continues
+ - added boatman - not happy with movement 
+
+ ### Sat Oct 31st
+
+  - 
