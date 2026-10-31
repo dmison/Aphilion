@@ -27,6 +27,8 @@ public class Gate : MonoBehaviour,  IInteractable
 
     public void Interact()
     {
+        if(!InterationActive()) return;
+        
         isOpen = true;
         _animator.SetTrigger(Open);
         
