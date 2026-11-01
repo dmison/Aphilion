@@ -833,6 +833,12 @@ LEVEL:
  - level build continues
  - added boatman - not happy with movement 
 
- ### Sat Oct 31st
+### Sat Oct 31st
 
-  - 
+  - level build continues
+    - cliffs & paths
+
+### Sun Nov 1st
+
+ - ocean wave audio
+     - https://pixabay.com/sound-effects/nature-beach-waves-zen-210625/
