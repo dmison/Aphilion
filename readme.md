@@ -842,3 +842,6 @@ LEVEL:
 
  - ocean wave audio
      - https://pixabay.com/sound-effects/nature-beach-waves-zen-210625/
+- shit just accidentally overwrote a scene file & lost 2-3 hours work
+    - do not move or edit files from 3rd party packages.  always copy if needed.
+    

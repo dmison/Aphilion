@@ -328,7 +328,7 @@ Material:
     - _SL_TrailFade: 1
     - _SL_Trail_Fade: 1
     - _SL_WaterDepth: 1
-    - _ShoreFade: 1
+    - _ShoreFade: 0
     - _ShoreFadeHardness: 0.641
     - _ShoreFadeSmoothness: 0.047
     - _ShoreFade_1: 0
