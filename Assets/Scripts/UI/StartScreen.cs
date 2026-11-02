@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections;
+using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -29,7 +30,7 @@ public class StartScreen : MonoBehaviour
         InputSystem.actions.FindActionMap("Start").Disable();
         InputSystem.actions.FindActionMap("GameMenu").Disable();
         
-        yield return new WaitUntil(() => inputCanvasGroup.alpha > 0.5f);
+        yield return new WaitUntil(() => inputCanvasGroup.alpha > 0.3f);
         
         InputSystem.actions.FindActionMap("Start").Enable();
         _continueAction = InputSystem.actions.FindAction("Start/ToContinue");
