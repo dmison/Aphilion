@@ -6,6 +6,7 @@ namespace UI
     {
         public static UIAudioManager Instance;
 
+        [SerializeField] private AudioClip menuMusic;
         [SerializeField] private AudioClip navSound;
         [SerializeField] private AudioClip activateSound;
         [SerializeField] private AudioClip startGameSound;
