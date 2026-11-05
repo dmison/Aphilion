@@ -543,7 +543,7 @@ MonoBehaviour:
   playerEquipmentManager: {fileID: 0}
   playerInventoryManager: {fileID: 0}
   playerDeathManager: {fileID: 0}
-  currentSpawnCrystalId: 1
+  currentSpawnCrystalId: 666
   IsActive: 0
 --- !u!114 &842761884305693223
 MonoBehaviour:
@@ -844,6 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c67a1a88f0a4d3aaa51fef298419f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character.Player.PlayerDeathManager
+  drowning: 0
 --- !u!1 &304044752729701686
 GameObject:
   m_ObjectHideFlags: 0

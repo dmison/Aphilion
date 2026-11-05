@@ -15,7 +15,7 @@ namespace Character.Player
         [HideInInspector] public PlayerInventoryManager playerInventoryManager;
         [HideInInspector] public PlayerDeathManager playerDeathManager;
         
-        public int currentSpawnCrystalId = 1;
+        public int currentSpawnCrystalId = 666;
         public bool IsActive;
         public static PlayerManager Instance;
         

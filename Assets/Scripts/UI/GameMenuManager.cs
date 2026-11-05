@@ -125,6 +125,8 @@ namespace UI
             LoaderScreen.Instance.ToggleLoader(true);           // show loader
             ToggleMe(false);                                    // hide this menu
             WorldSaveGameManager.instance.NewSaveGame();  // create new save
+            WorldSaveGameManager.instance.SaveGame();
+
             Debug.Log("after new save");
         
             StartCoroutine(WorldSceneManager.Instance.NewGameStart()); // load world

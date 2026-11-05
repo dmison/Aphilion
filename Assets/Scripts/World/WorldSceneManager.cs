@@ -217,6 +217,7 @@ namespace World
             InputSystemManager.Instance.TogglePlayerControls(false);
             InputSystemManager.Instance.ToggleMenuInputs(false);
             
+             
             // load world scene
             // wait until world scene loads
             _loadWorld = SceneManager.LoadSceneAsync(worldSceneIndex,  LoadSceneMode.Single);

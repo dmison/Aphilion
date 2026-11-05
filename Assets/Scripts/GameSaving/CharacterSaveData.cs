@@ -24,13 +24,13 @@ namespace GameSaving
         public void SetDefaultValuesForDemo()
         {
             secondsPlayed = 0;
-            spawnCrystalId = 1;
+            spawnCrystalId = 666;
             strength = 12;
             dexterity = 12;
             constitution = 12;
             endurance = 12;
             activatedCrystals.Clear();
-            activatedCrystals.Add(1);
+            // activatedCrystals.Add();
             
             rightHandQuickSlots[0] = 2;
             rightHandQuickSlots[1] = 1;
