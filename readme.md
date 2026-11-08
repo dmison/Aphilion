@@ -831,7 +831,9 @@ LEVEL:
 ### Fri Oct 30th
 
  - level build continues
- - added boatman - not happy with movement 
+ - added boatman - not happy with movement but it's there
+
+<img src="./docs/boatman.png">
 
 ### Sat Oct 31st
 
@@ -841,7 +843,25 @@ LEVEL:
 ### Sun Nov 1st
 
  - ocean wave audio
-     - https://pixabay.com/sound-effects/nature-beach-waves-zen-210625/
-- shit just accidentally overwrote a scene file & lost 2-3 hours work
+    - https://pixabay.com/sound-effects/nature-beach-waves-zen-210625/
+    - unity audio is limited to the shape of a sphere.  
+    - Created a script that moves it's parent game object to match the player's position but with lockable axes.  
+    - Added audio source for ocean waves sound to a gameobject, moved it to the height of the ocean, added the tracking script, & locked the Y axis.
+    - this ensures that the audio source is always where the player is when the player is near the water
+
+<img src="./docs/audio_tracking.png">
+
+ - just accidentally overwrote a scene file & lost 2-3 hours work
     - do not move or edit files from 3rd party packages.  always copy if needed.
-    
+
+### Mon Nov 2nd
+
+ - redid terrain & cliffs - sigh
+ - added music & game start audio to start menu
+    - https://pixabay.com/music/ambient-dark-ambient-background-music-617907/
+    - 
+
+### Tues Nov 3rd
+ - adding buildings & props to island to channel player 
+ - created subclass of SpawnCrystal with no model & animations to use as default player spawn
+
