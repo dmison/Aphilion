@@ -865,3 +865,41 @@ LEVEL:
  - adding buildings & props to island to channel player 
  - created subclass of SpawnCrystal with no model & animations to use as default player spawn
 
+## Last Week
+
+Bugs
+ - [ ] skeleton holds sword wrong when two-handed grip
+ - [ ] player dodge backwards doesn't jump for enough
+ - [ ] player doesn't keep facing enemy when locked on if you dodge in a direction
+
+BONUS:
+ - [ ] weapon 3 hit combat
+ - [ ] record seconds played for save & display time played on menu when continue selected, 
+    - sessions
+        - start/end time
+        - when entering/leaving world scene
+ - [ ] bansee enemy - unlikely, but I have the model & materials working 
+    - animations
+        - drift
+        - drift right/left
+        - idle
+        - combat stance
+        - scream
+        - claw right
+        - claw left
+        - claw both
+    - audio
+        - idle
+        - angry
+        - pain
+        - claw attacks
+        - death
+        - scream
+
+
+ - [ ]
+
+
+### Mon Nov 9th
+ 
+ 
