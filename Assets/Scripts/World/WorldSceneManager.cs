@@ -36,14 +36,15 @@ namespace World
         private AsyncOperation _loadWorld;
         private AsyncOperation _loadRegion;
         private AsyncOperation _loadStart;
-        
+
         private bool _worldReady = false;
         //
         private void Start()
         {
-            
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             DontDestroyOnLoad(gameObject);
-            
+
             // if the active scene isn't the root scene, then switch to root
             // this is a dev thing so you don't have to keep switching to the
             // root scene to run the game when working on a level
@@ -58,7 +59,7 @@ namespace World
 
         public IEnumerator PlacePlayerAtSpawnPoint()
         {
-            
+
             // Debug.Log("waiting 2 seconds");
             yield return new WaitForSeconds(2f);
             // Debug.Log("waiting done, loading");
@@ -71,14 +72,14 @@ namespace World
                 yield return null;
             }
             // Debug.Log("got current spawn: "+PlayerManager.Instance.currentSpawnCrystalId);
-            
+
             // while (!WorldCrystalSpawnerManager.Instance && !PlayerManager.Instance)
             // {
             //     yield return null;
             // }
-            
-            SpawnCrystalManager crystal = WorldCrystalSpawnerManager.Instance.GetCrystalById(PlayerManager.Instance.currentSpawnCrystalId); 
-                
+
+            SpawnCrystalManager crystal = WorldCrystalSpawnerManager.Instance.GetCrystalById(PlayerManager.Instance.currentSpawnCrystalId);
+
             while (!crystal)
             {
                 Debug.Log("no crystal install");
@@ -92,34 +93,34 @@ namespace World
             PlayerManager.Instance.transform.position = crystal.spawnPoint.position;
             // PlayerManager.Instance.transform.rotation = crystal.spawnPoint.rotation;
             // PlayerCameraManager.instance.ResetPivotRotationToPlayer();
-            
+
         }
-        
+
         public IEnumerator LoadWorld()
         {
             _worldReady = false;
             AsyncOperation load = SceneManager.LoadSceneAsync(worldSceneIndex);
-            
+
             if (load.progress < 0.9f)
             {
-                LoaderScreen.Instance.SetProgress(load.progress/4);
+                LoaderScreen.Instance.SetProgress(load.progress / 4);
                 yield return null;
             }
             LoaderScreen.Instance.SetProgress(0.25f);
             _worldReady = true;
         }
-        
+
         public IEnumerator LoadScene(int sceneIndex)
         {
             // Debug.Log("before: "+SceneManager.GetActiveScene().name);
             AsyncOperation load = SceneManager.LoadSceneAsync(sceneIndex);
-            
+
             if (load.progress < 0.9f)
             {
                 LoaderScreen.Instance.SetProgress(load.progress);
                 yield return null;
             }
-            
+
             // if (SceneManager.GetActiveScene().name == "MainMenu")
             // {
             //     // Debug.Log("after: "+SceneManager.GetActiveScene().name);
@@ -128,21 +129,21 @@ namespace World
 
         }
 
-        
+
         public IEnumerator LoadPlayer()
         {
             // yield return new WaitForSeconds(2);
             GameObject playerUI = Instantiate(PlayerUIManagerPrefab);
             playerUI.SetActive(false);
-            
+
             GameObject player = Instantiate(PlayerPrefab);
             PlayerManager playerManager = player.GetComponent<PlayerManager>();
-            playerManager.IsActive = false; 
+            playerManager.IsActive = false;
             // update player with save data
             Debug.Log(WorldSaveGameManager.instance.characterSaveData);
-            
+
             playerManager.RestoreFromSaveData((WorldSaveGameManager.instance.characterSaveData));
-            
+
             // wait for spawnpoints to be in 
             LoaderScreen.Instance.SetProgress(0.8f);
             while (!WorldCrystalSpawnerManager.Instance.hasCurrentSpawn())
@@ -150,48 +151,48 @@ namespace World
                 yield return null;
             }
             WorldCrystalSpawnerManager.Instance.RestoreFromSaveData(WorldSaveGameManager.instance.characterSaveData);
-            
+
             // position player in world
             playerManager.PlaceAtSpawnCrystal();
-            
+
             // make player active
             playerManager.IsActive = true;
             // start player spawning animation
             WorldAIManager.Instance.CollectSpawnPoints();
             WorldAIManager.Instance.ResetAllCharacters();
-            
+
             playerManager.characterAnimationManager.PlayTargetActionAnimation(
-                "A_Idle_Crouching_Femn", 
-                true, 
-                false, 
-                false, 
+                "A_Idle_Crouching_Femn",
+                true,
+                false,
+                false,
                 false,
                 0.0f
                 );
-            
+
             // hide loading screen
             LoaderScreen.Instance.SetProgress(1.0f);
             yield return new WaitForSeconds(0.5f);
             LoaderScreen.Instance.ToggleLoader(false);
-                
+
             // enable player inputs
             InputSystemManager.Instance.TogglePlayerControls(true);
             playerUI.SetActive(true);
             // save game
             WorldSaveGameManager.instance.SaveGame();
             yield return true;
-            
+
         }
-        
+
         public IEnumerator LoadRegion()
         {
             // yield return new WaitForSeconds(1);
-            _loadRegion = SceneManager.LoadSceneAsync(startRegionIndex,  LoadSceneMode.Additive);
+            _loadRegion = SceneManager.LoadSceneAsync(startRegionIndex, LoadSceneMode.Additive);
             _loadRegion.completed += _ => { StartCoroutine(LoadPlayer()); };
             if (_loadRegion.progress < 0.9f)
             {
-                Debug.Log("region loading: "+_loadRegion.progress/3);
-                LoaderScreen.Instance.SetProgress(_loadRegion.progress/3+0.3f);
+                Debug.Log("region loading: " + _loadRegion.progress / 3);
+                LoaderScreen.Instance.SetProgress(_loadRegion.progress / 3 + 0.3f);
                 yield return null;
             }
         }
@@ -202,25 +203,25 @@ namespace World
             LoaderScreen.Instance.ToggleLoader(true);
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             Destroy(player);
-            _loadStart = SceneManager.LoadSceneAsync(startSceneIndex,  LoadSceneMode.Single);
+            _loadStart = SceneManager.LoadSceneAsync(startSceneIndex, LoadSceneMode.Single);
             _loadStart.completed += _ =>
             {
                 LoaderScreen.Instance.ToggleLoader(false);
             };
         }
-        
+
         public IEnumerator NewGameStart()
         {
-            
+
             Debug.Log("NewGameStart");
             // deactivate all inputs
             InputSystemManager.Instance.TogglePlayerControls(false);
             InputSystemManager.Instance.ToggleMenuInputs(false);
-            
-             
+
+
             // load world scene
             // wait until world scene loads
-            _loadWorld = SceneManager.LoadSceneAsync(worldSceneIndex,  LoadSceneMode.Single);
+            _loadWorld = SceneManager.LoadSceneAsync(worldSceneIndex, LoadSceneMode.Single);
             _loadWorld.completed += _ =>
             {
                 LoaderScreen.Instance.SetProgress(0.3f);
@@ -229,11 +230,11 @@ namespace World
             // yield return new WaitForSeconds(1);
             if (_loadWorld.progress < 0.9f)
             {
-                Debug.Log("world loading: "+_loadWorld.progress/3);
-                LoaderScreen.Instance.SetProgress(_loadWorld.progress/3);
+                Debug.Log("world loading: " + _loadWorld.progress / 3);
+                LoaderScreen.Instance.SetProgress(_loadWorld.progress / 3);
                 yield return null;
             }
-            
+
         }
     }
 }

@@ -29,9 +29,9 @@ public class PlayerCameraManager : MonoBehaviour
     [SerializeField] public Transform cameraPivot;
     private InputAction _lookAction;
     private Vector2 _cameraInput;
-        
+
     private CharacterManager CurrentLockOnTarget;
-    [SerializeField] private float _lockOnFollowSpeed = 0.2f; 
+    [SerializeField] private float _lockOnFollowSpeed = 0.2f;
     [SerializeField] private float _lockOnCameraHeight = 2.0f;
     [SerializeField] private float _unlockedCameraHeight = 1.8f;
     private Coroutine _setCameraHeight;
@@ -39,7 +39,7 @@ public class PlayerCameraManager : MonoBehaviour
     public static PlayerCameraManager instance;
 
     private bool _noPlayer = true;
-    
+
     public void SetLockCameraHeight()
     {
         if (_setCameraHeight != null)
@@ -54,7 +54,7 @@ public class PlayerCameraManager : MonoBehaviour
     {
         if (newTarget == null)
         {
-            if(CurrentLockOnTarget != null)CurrentLockOnTarget.EnableOutline(false);
+            if (CurrentLockOnTarget != null) CurrentLockOnTarget.EnableOutline(false);
             CurrentLockOnTarget = null;
             return;
         }
@@ -64,15 +64,15 @@ public class PlayerCameraManager : MonoBehaviour
         }
         CurrentLockOnTarget = newTarget;
         CurrentLockOnTarget.EnableOutline(true);
-            
-            
+
+
     }
-        
+
     private IEnumerator SetCameraHeight()
     {
         float duration = 1f;
         float timer = 0;
-            
+
         Vector3 velocity = Vector3.zero;
         Vector3 newLockedCameraHeight = new Vector3(cameraPivot.localPosition.x, _lockOnCameraHeight, cameraPivot.localPosition.z);
         Vector3 newUnlockedCameraHeight = new Vector3(cameraPivot.localPosition.x, _unlockedCameraHeight, cameraPivot.localPosition.z);
@@ -98,7 +98,7 @@ public class PlayerCameraManager : MonoBehaviour
         if (playerManager.characterCombatManager.lockedOn)
         {
             cameraPivot.localPosition = newLockedCameraHeight;
-            cameraPivot.localRotation = Quaternion.Euler(0,0,0);
+            cameraPivot.localRotation = Quaternion.Euler(0, 0, 0);
         }
         else
         {
@@ -106,9 +106,9 @@ public class PlayerCameraManager : MonoBehaviour
         }
         // Debug.Log("snapped: "+cameraPivot.localPosition.y);
         yield return null;
-            
+
     }
-        
+
     public void Awake()
     {
         if (instance == null)
@@ -122,7 +122,7 @@ public class PlayerCameraManager : MonoBehaviour
 
         _lookAction = InputSystem.actions.FindAction("Look");
         _lookAction.performed += ctx => _cameraInput = ctx.ReadValue<Vector2>();
-        
+
     }
 
     public void ResetPivotRotationToPlayer()
@@ -137,7 +137,7 @@ public class PlayerCameraManager : MonoBehaviour
         //     // cameraPivot.transform.rotation = playerManager.transform.rotation;
         // }
     }
-    
+
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -149,7 +149,7 @@ public class PlayerCameraManager : MonoBehaviour
     {
         _defaultCameraZPosition = playerCamera.transform.localPosition.z;
         lookLeftRightAngle = 180;
-        lookUpDownAngle = 0;   
+        lookUpDownAngle = 0;
         // ResetPivotRotationToPlayer();
     }
 
@@ -169,32 +169,32 @@ public class PlayerCameraManager : MonoBehaviour
         Vector3 direction = playerCamera.transform.position - cameraPivot.position;
         direction.Normalize();
         if (Physics.SphereCast(
-                cameraPivot.position, 
-                cameraCollisionRadius, 
-                direction, 
-                out RaycastHit hit, 
-                Mathf.Abs(_targetCameraZPosition), 
+                cameraPivot.position,
+                cameraCollisionRadius,
+                direction,
+                out RaycastHit hit,
+                Mathf.Abs(_targetCameraZPosition),
                 collisionMask))
         {
             float distanceFromHitObject = Vector3.Distance(cameraPivot.position, hit.point);
             _targetCameraZPosition = -(distanceFromHitObject - cameraCollisionRadius);
         }
-        
+
         if (Mathf.Abs(_targetCameraZPosition) < cameraCollisionRadius)
         {
             _targetCameraZPosition = -_defaultCameraZPosition;
         }
         _cameraObjectPosition.z = Mathf.Lerp(playerCamera.transform.localPosition.z, _targetCameraZPosition, 0.2f);
         playerCamera.transform.localPosition = _cameraObjectPosition;
-            
+
     }
-        
+
     private void HandleFollowPlayer()
     {
         Vector3 targetCameraPosition = Vector3.SmoothDamp(
-            transform.position, 
-            playerManager.transform.position, 
-            ref _cameraVelocity, 
+            transform.position,
+            playerManager.transform.position,
+            ref _cameraVelocity,
             _cameraSmoothingSpeed * Time.deltaTime
         );
         transform.position = targetCameraPosition;
@@ -212,21 +212,22 @@ public class PlayerCameraManager : MonoBehaviour
             rotationDirection.y = 0;
             Quaternion targetRotation = Quaternion.LookRotation(rotationDirection);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _lockOnFollowSpeed);
-                
+
             //rotate pivot 
             rotationDirection = CurrentLockOnTarget.transform.position - cameraPivot.position;
             rotationDirection.Normalize();
             targetRotation = Quaternion.LookRotation(rotationDirection);
             cameraPivot.rotation = Quaternion.Slerp(cameraPivot.rotation, targetRotation, _lockOnFollowSpeed);
-                
+
             // preserve values for unlock
             lookLeftRightAngle = transform.eulerAngles.y;
             lookUpDownAngle = transform.eulerAngles.x;
-        }   
+        }
         else
         {
             // else 
             // rotate left/right
+
             lookLeftRightAngle += _cameraInput.x * horizontalLookSensitivity * Time.deltaTime;
             Vector3 cameraRotation = Vector3.zero;
             cameraRotation.y = lookLeftRightAngle;
@@ -240,11 +241,13 @@ public class PlayerCameraManager : MonoBehaviour
             pivotRotation = Vector3.zero;
             pivotRotation.x = lookUpDownAngle;
             Quaternion udTargetRotation = Quaternion.Euler(pivotRotation);
-            cameraPivot.localRotation = udTargetRotation;                
+            cameraPivot.localRotation = udTargetRotation;
         }
-            
-            
+
+
     }
-        
-        
+
+
+
+
 }

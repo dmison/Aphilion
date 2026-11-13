@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character.CharacterSenses
   visionDistance: 10
-  visionFOV: 150
+  visionFOV: 110
 --- !u!114 &377824405947602677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,6 +363,7 @@ MonoBehaviour:
   characterEffectsManager: {fileID: 0}
   characterCombatManager: {fileID: 0}
   characterSoundEffectsManager: {fileID: 0}
+  characterDeathManager: {fileID: 0}
   isPerformingAction: 0
   canRotate: 1
   canMove: 1

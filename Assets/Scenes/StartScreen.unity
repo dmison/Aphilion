@@ -979,6 +979,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8851860317010572489, guid: e7aeb0f119e744370af8a2f53b0807f8, type: 3}
+      propertyPath: m_LeftClickAction
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8862327662685341252, guid: e7aeb0f119e744370af8a2f53b0807f8, type: 3}
       propertyPath: m_Sprite
       value: 
